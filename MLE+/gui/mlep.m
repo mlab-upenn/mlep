@@ -90,9 +90,9 @@ handles.DATA.variableOutput = {};
 
 % Resize
 if exist('imresize')
-    ima = imresize(ima, 0.65);
+    ima = imresize(ima, 0.45);
 else
-    ima = imageresize(ima, 0.65, 0.65);
+    ima = imageresize(ima, 0.45, 0.45);
 end
 
 % Display Image
