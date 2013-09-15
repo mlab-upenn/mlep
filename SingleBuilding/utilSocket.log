@@ -1,0 +1,27 @@
+*** BCVTB client log file.
+*************************.
+Writing to socket at time = 2.310000e+04
+Assembling buffer.
+Write to socket with fd = 15
+Buffer        = 2 0 7 0 0 2.310000000000000e+04 1.589166666666667e+01 2.219971314596469e+01 2.219963616044828e+01 2.219978727061419e+01 2.219951373297664e+01 2.220002141632349e+01 2.079390831295857e+01 
+
+Wrote 187 characters to socket.
+Reading from socket.
+In readbufferfromsocket: Read 4 chars, maximum is 98.
+Error while disassembling the header of the buffer.
+Disassembled buffer.
+Finished exchanging data with socket: simTimRea=3.456000e+05, flag=1.
+Assembling buffer.
+Write to socket with fd = 15
+Buffer        = 2 -20 
+
+Wrote 7 characters to socket.
+sendclientmessage wrote flag -20, return value = 7.
+In readbufferfromsocket: Read 0 chars, maximum is 98.
+Assembling buffer.
+Write to socket with fd = 15
+Buffer        = 2 -1 
+
+Error writing to socket: Return value = -1.
+Error writing to socket: Broken pipe
+sendclientmessage wrote flag -1, return value = -1.
