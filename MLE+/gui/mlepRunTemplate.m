@@ -1,111 +1,49 @@
-function [time loginput logdata mlep] = mlepRunTemplate(mlep)
-% template - Script to launch energy plus co-simulation
-% Syntax:  [time loginput logdata] = template(data)
-%
-% Inputs:
-%   data {data.MLEPSETTING, Sdata.timeStep, data.runPeriod,
-%   data.sim_inputs}
-%
-% Outputs:
-%   time
-%   loginput
-%   logdata
-%
-% Example:
-%   [time loginput logdata] = template(data)
-%
-% Other m-files required: none
-% Subfunctions: none
-% MAT-files required: none
-%
+function [result] = mlepRunTemplate(projectPath, idfFullPath, Weather, controlFileName, timeStep, runPeriod, inputs, outputs, acceptTimeOut, userData)
+% [result] = mlepRunSimulation(handles.DATA.projectPath, handles.DATA.idfFullPath, handles.DATA.Weather, handles.DATA.ControlFileName);
+
 % See also: OTHER_FUNCTIONNAME1,  OTHER_FUNCTIONNAME2
 
 % Author: WILLY BERNAL
 % UNIVERSITY OF PENNSYLVANIA
 % email address: willyg@seas.upenn.edu
 % Website: http://mlab.seas.upenn.edu/
-% May 2012; Last revision: 12-May-2012
+% May 2013; 
 
 %------------- BEGIN CODE --------------
 
-%% Create an mlepProcess instance and configure it
-mlep.data.stopSimulation = 0;
-mlep.data.noInput = 0;
-mlep.data.noOutput = 0;
-
+%% Create a mlepProcess instance and configure it
 ep = mlepProcess; 
-% Remove .idf .epw 
-indexIdf = strfind(mlep.data.idfFile, '.idf');
-indexEpw = strfind(mlep.data.weatherFile, '.epw');
-ep.arguments = {mlep.data.idfFile(1:indexIdf(1)-1), mlep.data.weatherFile(1:indexEpw(1)-1)};
-%ep.arguments = {'/Users/willyg/Documents/MATLAB/MLE+/Example/SmOffPSZ', 'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'};
-ep.acceptTimeout = 8000; %800000
-VERNUMBER = 2;  % version number of communication protocol (2 for E+ 6.0.0)
 
+% Get IDF names and paths
+[idfPath, idfName, idfExtension] = fileparts(idfFullPath);
+[weatherPath, weatherName, weatherExtension] = fileparts(Weather);
+
+% Change to Project Path
+cd(projectPath);
+ep.arguments = {idfName, weatherName};
+
+% Set Time Out
+ep.acceptTimeout = AcceptTimeOut; %800000
+VERNUMBER = 2;  % version number of communication protocol (2 for >= E+ 6.0.0)
 
 %% Start EnergyPlus cosimulation
-%cd(mlep.data.projectPath) % Change to project directory
 [status, msg] = ep.start;
-
 if status ~= 0
     error('Could not start EnergyPlus: %s.', msg);
 end
 
-
-% 
-mlep.data.timeStep; % Time Step in min 
-deltaT = 60*mlep.data.timeStep;   % turn it into seconds
+% Create Time Variables
+deltaT = 60*TimeStep;   % turn it into seconds
 kStep = 1;  % current simulation step
-MAXSTEPS = (mlep.data.runPeriod+1)*24*60/mlep.data.timeStep;  % max simulation time = 4 days
+MAXSTEPS = (RunPeriod+1)*24*60/TimeStep;  % max simulation time = 4 days
 
-% logdata stores set-points, outdoor temperature, and zone temperature at
-% each time step.
-logdata = zeros(MAXSTEPS, size(mlep.data.outputTableData,1));
-loginput = zeros(MAXSTEPS, size(mlep.data.inputTableData,1));
-mlepInputVector = struct;
-mlepOutputVector = struct;
-for i = 1:size(mlep.data.inputTableData,1)
-    mlepInputVector.(mlep.data.inputTableData{i,end}) = zeros(1,MAXSTEPS);
-end
+% Log Inputs and Outputs
+numOutputs = size(Outputs,1);
+numInputs = size(Inputs,1);
+logOut = zeros(MAXSTEPS, numOutputs);
+logIn = zeros(MAXSTEPS, numInputs);
 
-if size(mlep.data.outputTableData,1)
-    mlep.data.noOutput = 1;
-end
-for i = 1:size(mlep.data.outputTableData,1)
-    mlepOutputVector.(mlep.data.outputTableData{i,end}) = zeros(1,MAXSTEPS);
-end
-time = (0:(MAXSTEPS-1))'*deltaT/3600;
-
-% Create Handle
-% Check whether SYS or SIM
-% SYSID
-if (mlep.data.sysID == 1) 
-    mlep.data.funcHandle = str2func('sysIDcontrol');
-    %mlep.data.stepNumber = 1;
-else
-    % SIM    
-    % Remove .m in control file name
-    %mlep.data.stepNumber = 1;
-    index_m = strfind(mlep.data.controlFileName, '.m');
-    mlep.data.controlFunctionName = mlep.data.controlFileName(1:index_m(1)-1);
-    mlep.data.funcHandle = str2func(mlep.data.controlFunctionName);
-end
-
-mlep.data.stepNumber = [];
-mlep.data.inputFieldNames = {};
-for i = 1:size(mlep.data.inputTableData,1)
-    mlep.data.inputFieldNames{i} = mlep.data.inputTableData{i,4};
-    mlep.data.stepNumber(i) = 1;
-end
- 
-%% USERDATA CHECK
-if ~isfield(mlep.data,'userdata')
-    mlep.data.userdata = struct();
-end
-
-%%
-mlepIn = [];
-mlepOut = [];
+%% Iterate 
 cmd = 'init';
 while kStep <= MAXSTEPS
     % Read a data packet from E+
@@ -121,12 +59,12 @@ while kStep <= MAXSTEPS
         break;
     end
     
-    %% INPUTS EXIST
-    if mlep.data.noOutput
+    % Output
+    if numOutputs
         % Save to logdata
-        logdata(kStep, :) = outputs;
-        for i = 1:size(mlep.data.outputTableData,1)
-            mlepOutputVector.(mlep.data.outputTableData{i,end})(kStep) = outputs(i);
+        logOut(kStep, :) = outputs;
+        for i = 1:numOutputs
+            outVector.(mlep.data.outputTableData{i,end})(kStep) = outputs(i);
         end
     end
      
@@ -187,48 +125,23 @@ while kStep <= MAXSTEPS
     
     kStep = kStep + 1;
 end
-%%
+
 % Stop EnergyPlus
 ep.stop;
 
 % Remove unused entries in logdata
 kStep = kStep - 1;
 if kStep < MAXSTEPS
-    logdata((kStep+1):end,:) = [];
-    loginput((kStep+1):end,:) = [];
-end
-%%
-% TIME PARAMETERS
-time = [0:(kStep-1)]'*deltaT/3600;
-
-%------------- SET INPUT/OUPUT --------------
-mlep.data.mlepIn = mlepIn;
-mlep.data.mlepOut = mlepOut;
+    logOut((kStep+1):end,:) = [];
+    logIn((kStep+1):end,:) = [];
 end
 
-function [inputs, mlep] = setInput2vector(mlep, inputStruct)
+% Time 
+time = 0:(kStep-1)'*deltaT/3600;
 
+% Set Inputs & Outputs
+result.time = time;
+result.Input = logIn;
+result.Output = logOut;
+end
 
-% Transform Struct to vector for feedback
-if size(mlep.data.inputTableData,1)
-    names = fieldnames(inputStruct);
-    
-    
-    inputs = zeros(1,size(mlep.data.inputTableData,1));
-    for j = 1:size(mlep.data.inputTableData,1)
-        vecIndex = strcmp(names,mlep.data.inputTableData{j,4});
-        % CHECK IF ALL INPUTS SPECIFIED
-        if sum(vecIndex == 1)
-            inputs(j) = inputStruct.(names{vecIndex});
-        else
-            mlep.data.mlepError = 'notAllInputsSpecified';
-            mlepThrowError(mlep);
-            mlep.data.stopSimulation = 1;
-            return;
-        end
-    end
-else
-    % CASE WHEN THERE ARE NO INPUTS
-    inputs = [];
-end
-end

@@ -5,7 +5,7 @@
 %
 %      In installMlep you need to specify whether you want to use the GUI
 %      mode or the Manual mode. Set manualInstall = 0 if you do not want to
-%      use the GUI.
+%      use the GUI for installation.
 %      GUI (manualInstall = 1): A installation screen will pop up according
 %      to your operating system (PC or UNIX)
 %      MANUAL (manualInstall = 0): You need to specify the E+ and Java
@@ -81,9 +81,6 @@ else
         else
             disp('INSTALLATION COMPLETED!');
         end
-    else
-        % Unix
-        save([mlepPath filesep 'eplusPath.mat'],'eplusPath');
     end
     
     % Java Path
