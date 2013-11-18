@@ -49,7 +49,7 @@ addpath([mlepPath filesep 'core']);
 addpath([mlepPath filesep 'gui']);
 addpath([mlepPath filesep 'bcvtb']);
 addpath([mlepPath filesep 'install']);
-addpath([mlepPath filesep 'settings']);
+%addpath([mlepPath filesep 'settings']);
 addpath([mlepPath filesep 'version']);
 addpath([mlepPath filesep 'mlepHelp']);
 bcvtbPath = [mlepPath filesep 'bcvtb'];

@@ -22,7 +22,7 @@ function varargout = mlep(varargin)
 
 % Edit the above text to modify the response to help mlep
 
-% Last Modified by GUIDE v2.5 23-Oct-2013 14:36:52
+% Last Modified by GUIDE v2.5 17-Nov-2013 23:01:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -642,10 +642,83 @@ set(handles.Simulation_RunSimulation, 'BackgroundColor', [0.8 0.8 0.8]);
 set(handles.Simulation_VariableListbox,'string','');
  
 % Run Simulation
-[result] = mlepRunTemplate(handles.DATA.projectPath, handles.DATA.idfFullPath, handles.DATA.Weather, handles.DATA.ControlFileName);
+handles.DATA.AcceptTimeOut = 8000;
+handles.DATA.runPeriodLength = (handles.DATA.runPeriod(1).EndMonth - handles.DATA.runPeriod(1).BeginMonth)*31 + ...
+    (handles.DATA.runPeriod(1).EndDay - handles.DATA.runPeriod(1).BeginDay+1);
+
+% UserData
+if ~isfield(handles.DATA,'UserData')
+    handles.DATA.UserData = [];
+end
+
+% idfFilePath, controlFilePath, weatherFile, timeStep, runPeriod, timeOut, inputTable, outputTable
+[result] = mlepRunTemplate(handles.DATA.idfFullPath, handles.DATA.ControlFileName, ...
+    handles.DATA.Weather, handles.DATA.timeStep, handles.DATA.runPeriodLength, ...
+    handles.DATA.AcceptTimeOut, handles.DATA.variableInput, handles.DATA.variableOutput, ...
+    handles.DATA.UserData);
 
 % Change Button color
 set(handles.Simulation_RunSimulation, 'BackgroundColor', 'g');
+
+% Check Whether csv got written
+filePath = regexprep(handles.DATA.idfFile, 'idf', 'csv');
+pathOutput = [handles.DATA.projectPath 'Output' filesep filePath];
+
+% Small Pause to let files get written 
+for count = 1:10
+    pause(0.5);
+    if exist(pathOutput,'file')
+        break;
+    end
+end
+
+% Check Directory for CSV File
+if exist(pathOutput,'file')
+    % Load CSV Results
+    [handles.DATA.vars, handles.DATA.varsData, ts] = mlepLoadEPResults(pathOutput);
+    
+    % Get Names of Variables NAMES OF VARIABLES
+    handles.DATA.simulateListboxText = {};
+    for i = 1:size(handles.DATA.vars,1)
+        handles.DATA.simulateListboxText{i} = [handles.DATA.vars(i).object '-' handles.DATA.vars(i).name];
+    end
+%     % Last Entry
+%     last = i;
+%     % Add Input
+%     for i = 1:size(handles.DATA.inputFieldNames,2)
+%         handles.DATA.simulateListboxText{i+last} = handles.DATA.inputFieldNames{i};
+%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepIn.(handles.DATA.inputFieldNames{i})(1:size(handles.DATA.varsData,1))';
+%         handles.DATA.vars(i+last).object = handles.DATA.inputFieldNames(i);
+%     end 
+%     
+%     if isempty(i)
+%         i = 0;
+%     end
+%     
+%     last = i+last;
+%     handles.DATA.outputFieldNames = fieldnames(handles.DATA.mlepOut);
+%     % Add Output
+%     for i = 1:size(handles.DATA.outputFieldNames,1)
+%         handles.DATA.simulateListboxText{i+last} = handles.DATA.outputFieldNames{i};
+%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepOut.(handles.DATA.outputFieldNames{i})(1:size(handles.DATA.varsData,1))';
+%         handles.DATA.vars(i+last).object = handles.DATA.outputFieldNames(i);
+%     end
+    
+    
+    if size(handles.DATA.simulateListboxText,2)
+        set(handles.Simulation_VariableListbox,'value',1);
+    end
+    set(handles.Simulation_VariableListbox,'string',handles.DATA.simulateListboxText);
+ 
+    
+else
+    disp(['Project Folder' handles.DATA.projectPath])
+    mlepError = 'not Output File Generated';
+    errordlg(mlepError,'Check the .err file for details on the problem.')
+    return;
+end
+
+%[mlep] = mlepDisplayDxf(mlep);
 
 % Update handles structure
 guidata(hObject, handles);
@@ -663,12 +736,6 @@ function pushbutton25_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-
-% --- Executes on button press in pushbutton26.
-function pushbutton26_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton26 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
 
 % --- Executes on button press in Control_CreateControl.
@@ -848,12 +915,18 @@ end
 
 % --- Executes on button press in Simulation_GridToggle.
 function Simulation_GridToggle_Callback(hObject, eventdata, handles)
-% hObject    handle to Simulation_GridToggle (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+% Get Status
+handles.Simulation_GridStatus = get(handles.Simulation_GridToggle,'Value');
 
-% Hint: get(hObject,'Value') returns toggle state of Simulation_GridToggle
+% Change Grid Status
+if handles.Simulation_GridStatus
+    set(handles.Simulation_GraphAxes, 'XGrid', 'on', 'YGrid', 'on');
+else
+    set(handles.Simulation_GraphAxes, 'XGrid', 'off', 'YGrid', 'off');
+end
 
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in SystemID_VariableButton.
 function SystemID_VariableButton_Callback(hObject, eventdata, handles)
@@ -1342,3 +1415,46 @@ function Untitled_1_Callback(hObject, eventdata, handles)
 % hObject    handle to Untitled_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in Simulation_PlotVariableButton.
+function Simulation_PlotVariableButton_Callback(hObject, eventdata, handles)
+% Get Selection Index
+if ~isfield(handles,'Simulation_VariableListbox')
+    mlepError = 'emptyArray';
+    %mlepThrowError(mlepError);
+    return;
+end
+handles.simulateListboxIndex = get(handles.Simulation_VariableListbox,'Value');
+
+handles.DATA.Simulation_VariableListboxText = get(handles.Simulation_VariableListbox,'String');
+graphTitle = handles.DATA.Simulation_VariableListboxText(handles.simulateListboxIndex);
+
+% GET CURRENT AXES
+set(gcf,'CurrentAxes', handles.Simulation_GraphAxes);
+set(handles.Simulation_GraphAxes, 'HandleVisibility', 'callback');
+%get(mlep.graph, 'HandleVisibility')
+plot(handles.DATA.varsData(:,handles.simulateListboxIndex)); % CHECK THIS melp.graph,
+
+title(handles.Simulation_GraphAxes,graphTitle);
+if size(handles.DATA.vars,1) >= handles.simulateListboxIndex
+    if size(handles.simulateListboxIndex,2) == 1
+        xlabel(handles.Simulation_GraphAxes,handles.DATA.vars(handles.simulateListboxIndex).sampling);
+        ylabel(handles.Simulation_GraphAxes,[handles.DATA.vars(handles.simulateListboxIndex).name ' ' handles.DATA.vars(handles.simulateListboxIndex).unit]);
+    end
+    legend(handles.DATA.vars(handles.simulateListboxIndex).name)
+end
+%[mlep] = gridToggle(mlep);
+
+% Get Status
+handles.Simulation_GridStatus = get(handles.Simulation_GridToggle,'Value');
+
+% Change Grid Status
+if handles.Simulation_GridStatus
+    set(handles.Simulation_GraphAxes, 'XGrid', 'on', 'YGrid', 'on');
+else
+    set(handles.Simulation_GraphAxes, 'XGrid', 'off', 'YGrid', 'off');
+end
+
+% Update handles structure
+guidata(hObject, handles);
