@@ -35,7 +35,7 @@ if ispc
     javaPath = 'C:\Program Files (x86)\Java\jre7\bin';
 else
     % Unix
-    eplusPath = '/Applications/EnergyPlus-8-0-0';
+    eplusPath = '/Applications/EnergyPlus-8-1-0';
 end
 
 %% DO NOT MODIFY
@@ -52,6 +52,7 @@ addpath([mlepPath filesep 'install']);
 %addpath([mlepPath filesep 'settings']);
 addpath([mlepPath filesep 'version']);
 addpath([mlepPath filesep 'mlepHelp']);
+addpath([mlepPath filesep 'library']);
 bcvtbPath = [mlepPath filesep 'bcvtb'];
 
 % Installation Dialog

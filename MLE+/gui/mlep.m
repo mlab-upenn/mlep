@@ -22,7 +22,7 @@ function varargout = mlep(varargin)
 
 % Edit the above text to modify the response to help mlep
 
-% Last Modified by GUIDE v2.5 17-Nov-2013 23:01:42
+% Last Modified by GUIDE v2.5 17-Jan-2014 15:21:46
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -171,7 +171,39 @@ else
     % Load Project.prj
     DATA = importdata([PathName FileName]);
     handles.DATA = DATA;
+
+    % Set Project Path
+    handles.DATA.projectPath = [PathName];
+
+    % CD to Project Path
+    cd (handles.DATA.projectPath);
+    % Update project Path
+    %[mlep] = updateProjectPath(mlep);
+    
+    % Callback for Writing cfg file
+    if isfield(handles.DATA,'variableInput') && isfield(handles.DATA,'variableOutput')
+        % create variable.cfg
+        result = writeConfigFile(handles.DATA.variableInput{1},handles.DATA.variableInput{1},handles.DATA.projectPath);
+    end
+    
+    % Update presentation tab
+    [handles] = mlepUpdateStartTab(handles);
+    % Update system ID  tab
+    [handles] = mlepUpdateSysIDTab(handles);
+    % Update variable tab
+    [handles] = mlepUpdateVariableTab(handles);
+    % Update control tab
+    [handles] = mlepUpdateControlTab(handles);
+    % Update simulate tab
+    [handles] = mlepUpdateSimulateTab(handles);
 end
+
+%% INITIALIZE NECESSARY VARIABLES
+% mlepInit;
+% mlep.data.MLEPSETTINGS = MLEPSETTINGS;
+% mlep.data.MLEPSETTINGS = MLEPSETTINGS;
+% mlep.data.MLEPSETTINGS.path = mlep.data.MLEPSETTINGS.env;
+
 % Update handles structure
 guidata(hObject, handles);
 
@@ -348,9 +380,6 @@ function Start_BeginMonthEdit_Callback(hObject, eventdata, handles)
 %        str2double(get(hObject,'String')) returns contents of Start_BeginMonthEdit as a double
 % handles.DATA.temp.timeStep = str2double(get(handles.Start_TimeStep,'String'));
 handles.DATA.temp.runPeriod.BeginMonth = str2double(get(handles.Start_BeginMonthEdit,'String'));
-% handles.DATA.temp.runPeriod.BeginDay = str2double(get(handles.Start_BeginDayEdit,'String'));
-% handles.DATA.temp.runPeriod.EndMonth = str2double(get(handles.Start_EndMonthEdit,'String'));
-% handles.DATA.temp.runPeriod.EndDay = str2double(get(handles.Start_EndDayEdit,'String'));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -640,9 +669,10 @@ function Simulation_RunSimulation_Callback(hObject, eventdata, handles)
 % Change Button color
 set(handles.Simulation_RunSimulation, 'BackgroundColor', [0.8 0.8 0.8]);
 set(handles.Simulation_VariableListbox,'string','');
- 
+
 % Run Simulation
-handles.DATA.AcceptTimeOut = 8000;
+acceptTimeOut = str2num(get(handles.timeOut,'string'));
+handles.DATA.AcceptTimeOut = acceptTimeOut;
 handles.DATA.runPeriodLength = (handles.DATA.runPeriod(1).EndMonth - handles.DATA.runPeriod(1).BeginMonth)*31 + ...
     (handles.DATA.runPeriod(1).EndDay - handles.DATA.runPeriod(1).BeginDay+1);
 
@@ -888,7 +918,6 @@ function Control_UserDataPopUp_Callback(hObject, eventdata, handles)
 % hObject    handle to Control_UserDataPopUp (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 if isempty(handles.DATA.workVars)
     MSG = 'No available workspace variable.';
     errordlg(MSG,'Workspace');
@@ -899,19 +928,6 @@ end
 
 % Update handles structure
 guidata(hObject, handles);
-
-% --- Executes during object creation, after setting all properties.
-function Control_UserDataPopUp_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to Control_UserDataPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
 
 % --- Executes on button press in Simulation_GridToggle.
 function Simulation_GridToggle_Callback(hObject, eventdata, handles)
@@ -1197,9 +1213,9 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton51.
-function pushbutton51_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton51 (see GCBO)
+% --- Executes on button press in SystemID_RunSimulation.
+function SystemID_RunSimulation_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_RunSimulation (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -1327,26 +1343,26 @@ function pushbutton68_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton69.
-function pushbutton69_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton69 (see GCBO)
+% --- Executes on button press in SystemID_EditControlFile.
+function SystemID_EditControlFile_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_EditControlFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
 
-function edit17_Callback(hObject, eventdata, handles)
-% hObject    handle to edit17 (see GCBO)
+function SystemID_ControlCreateFileEdit_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_ControlCreateFileEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit17 as text
-%        str2double(get(hObject,'String')) returns contents of edit17 as a double
+% Hints: get(hObject,'String') returns contents of SystemID_ControlCreateFileEdit as text
+%        str2double(get(hObject,'String')) returns contents of SystemID_ControlCreateFileEdit as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit17_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit17 (see GCBO)
+function SystemID_ControlCreateFileEdit_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_ControlCreateFileEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -1358,18 +1374,18 @@ end
 
 
 
-function edit18_Callback(hObject, eventdata, handles)
-% hObject    handle to edit18 (see GCBO)
+function SystemID_LoadControlFileEdit_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_LoadControlFileEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit18 as text
-%        str2double(get(hObject,'String')) returns contents of edit18 as a double
+% Hints: get(hObject,'String') returns contents of SystemID_LoadControlFileEdit as text
+%        str2double(get(hObject,'String')) returns contents of SystemID_LoadControlFileEdit as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function edit18_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit18 (see GCBO)
+function SystemID_LoadControlFileEdit_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_LoadControlFileEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -1380,34 +1396,22 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton66.
-function pushbutton66_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton66 (see GCBO)
+% --- Executes on button press in SystemID_SelectUserData.
+function SystemID_SelectUserData_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_SelectUserData (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+handles.DATA.workVars = evalin('base','who');
 
-
-% --- Executes on selection change in popupmenu2.
-function popupmenu2_Callback(hObject, eventdata, handles)
-% hObject    handle to popupmenu2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns popupmenu2 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popupmenu2
-
-
-% --- Executes during object creation, after setting all properties.
-function popupmenu2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popupmenu2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
+if isempty(handles.DATA.workVars)
+    MSG = 'No available workspace variable.';
+    errordlg(MSG,'Workspace');
+else
+    set(handles.Control_UserDataPopUp, 'String', handles.DATA.workVars);
 end
+
+% Update handles structure
+guidata(hObject, handles);
 
 
 % --------------------------------------------------------------------
@@ -1458,3 +1462,79 @@ end
 
 % Update handles structure
 guidata(hObject, handles);
+
+
+
+function timeOut_Callback(hObject, eventdata, handles)
+% hObject    handle to timeOut (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of timeOut as text
+%        str2double(get(hObject,'String')) returns contents of timeOut as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function timeOut_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to timeOut (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on key press with focus on SystemID_SelectUserData and none of its controls.
+function SystemID_SelectUserData_KeyPressFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_SelectUserData (see GCBO)
+% eventdata  structure with the following fields (see UICONTROL)
+%	Key: name of the key that was pressed, in lower case
+%	Character: character interpretation of the key(s) that was pressed
+%	Modifier: name(s) of the modifier key(s) (i.e., control, shift) pressed
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on selection change in SystemID_UserDataPopUp.
+function SystemID_UserDataPopUp_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_UserDataPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+if isempty(handles.DATA.workVars)
+    MSG = 'No available workspace variable.';
+    errordlg(MSG,'Workspace');
+else
+    handles.DATA.UserDataValue = get(handles.Control_UserDataPopUp, 'Value');
+    handles.DATA.UserData = evalin('base',handles.DATA.workVars{handles.DATA.UserDataValue});
+end
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+% --- Executes during object creation, after setting all properties.
+function SystemID_UserDataPopUp_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_UserDataPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes during object creation, after setting all properties.
+function Control_UserDataPopUp_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Control_UserDataPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end

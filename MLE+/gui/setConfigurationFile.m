@@ -110,6 +110,8 @@ function varargout = setConfigurationFile_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in writeConfig.
 function writeConfig_Callback(hObject, eventdata, handles)
@@ -235,7 +237,6 @@ function ExternalInterfaceListbox_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
 
 % --- Executes on button press in AddInput.
 function AddInput_Callback(hObject, eventdata, handles)

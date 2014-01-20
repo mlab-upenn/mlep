@@ -141,6 +141,7 @@ if ischar(eplusPath)
         set(handles.EplusDirEdit, 'String', handles.data.eplusPath, 'Background', 'g');
     else
         MSG = 'EnergyPlus Directory Error. The folder does not contain runenergyplus. This is a required E+ executable.';
+        set(handles.EplusDirEdit, 'Background', 'w');
         errordlg(MSG, 'Wrong Path');
     end
 else

@@ -13,6 +13,31 @@ function [result] = clearProject(handles)
 % HISTORY:
 %   2013-08-05 Started.
 %
+% Get all fielnames
+names = fieldnames(handles.DATA);
+ 
+% For each field
+for i = 1:size(names,1)
+%     if strcmp(class(handles.DATA.(names{i})),'struct')
+%         handles.DATA = setfield(handles.DATA,names{i},struct());
+%     elseif strcmp(class(handles.DATA.(names{i})),'cell')
+%         handles.DATA = rmfield(handles.DATA,names{i},{});
+%     else
+%         handles.DATA = rmfield(handles.DATA,names{i},[]);
+%     end        
+handles.DATA = rmfield(handles.DATA, names{i});
+end
+
+% Update presentation tab
+[handles] = mlepUpdateStartTab(handles);
+% Update variable tab
+[handles] = mlepUpdateVariableTab(handles);
+% Update variable tab
+[handles] = mlepUpdateSysIDTab(handles);
+% Update control tab
+[handles] = mlepUpdateControlTab(handles);
+% Update simulate tab
+[handles] = mlepUpdateSimulateTab(handles);
 
 result = 1;
 
