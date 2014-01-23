@@ -5,21 +5,21 @@ function [handles] = mlepUpdateSysIDTab(handles)
 if ~isfield(handles.DATA, 'SystemID_InputListbox')
     handles.DATA.SystemID_InputListbox = [];
     handles.DATA.SystemID_InputCommentEdit = [];
-    set(handles.SystemID_InputListbox, 'String', handles.DATA.Control_InputListbox);
-    set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.Control_InputCommentEdit);
+    set(handles.SystemID_InputListbox, 'String', handles.DATA.SystemID_InputListbox);
+    set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.SystemID_InputCommentEdit);
 end
 
 % Output Listbox
 if ~isfield(handles.DATA, 'SystemID_OutputListbox')
     handles.DATA.SystemID_OutputListbox = [];
     handles.DATA.SystemID_OutputCommentEdit = [];
-    set(handles.SystemID_OutputListbox, 'String', handles.DATA.Control_OutputListbox);
-    set(handles.SystemID_OutputCommentEdit, 'String', handles.DATA.Control_OutputCommentEdit);
+    set(handles.SystemID_OutputListbox, 'String', handles.DATA.SystemID_OutputListbox);
+    set(handles.SystemID_OutputCommentEdit, 'String', handles.DATA.SystemID_OutputCommentEdit);
 end
 
 % Control File
-if ~isfield(handles.DATA,'ControlFileName')
-	handles.DATA.ControlFileName = [];
+if ~isfield(handles.DATA,'SystemID_ControlFileName')
+	handles.DATA.SystemID_ControlFileName = [];
     set(handles.SystemID_LoadControlFileEdit, 'String', 'Control File');
     set(handles.SystemID_CreateControlFileEdit, 'String', 'ControlFile.m');
     set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');

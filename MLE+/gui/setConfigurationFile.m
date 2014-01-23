@@ -108,7 +108,7 @@ function varargout = setConfigurationFile_OutputFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get default command line output from handles structure
-varargout{1} = handles.output;
+varargout{1} = handles;
 
 % Update handles structure
 guidata(hObject, handles);

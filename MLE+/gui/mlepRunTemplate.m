@@ -86,11 +86,11 @@ logOutput = zeros(MAXSTEPS, sizeOutput);
 mlepInputVector = struct;
 mlepOutputVector = struct;
 for i = 1:sizeInput
-    mlepInputVector.(inputTable{i}{5}) = zeros(1,MAXSTEPS);
+    mlepInputVector.(inputTable{i,5}) = zeros(1,MAXSTEPS);
 end
 
 for i = 1:sizeOutput
-    mlepOutputVector.(outputTable{i}{5}) = zeros(1,MAXSTEPS);
+    mlepOutputVector.(outputTable{i,5}) = zeros(1,MAXSTEPS);
 end
 
 % Time Vector
@@ -105,12 +105,12 @@ stepNumber = 1;
 stepNumber = [];
 inputFieldNames = {};
 for i = 1:sizeInput
-    inputFieldNames{i} = inputTable{i}{5};
+    inputFieldNames{i} = inputTable{i,5};
     %    stepNumber(i) = 1;
 end
 
 for i = 1:sizeOutput
-    outputFieldNames{i} = outputTable{i}{4};
+    outputFieldNames{i} = outputTable{i,4};
     %    stepNumber(i) = 1;
 end
 
@@ -148,7 +148,7 @@ while kStep <= MAXSTEPS
         % Save to logdata
         logOutput(kStep, :) = outputs;
         for i = 1:sizeOutput
-            mlepOutputVector.(outputTable{i}{5})(kStep) = outputs(i);
+            mlepOutputVector.(outputTable{i,5})(kStep) = outputs(i);
         end
     end
     
@@ -207,7 +207,7 @@ if size(inputTable,1)
     
     inputs = zeros(1,size(inputTable,1));
     for j = 1:size(inputTable,1)
-        vecIndex = strcmp(names, inputTable{j}{5});
+        vecIndex = strcmp(names, inputTable{j,5});
         % CHECK IF ALL INPUTS SPECIFIED
         if sum(vecIndex == 1)
             inputs(j) = inputStruct.(names{vecIndex});

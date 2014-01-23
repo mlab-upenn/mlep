@@ -13,36 +13,41 @@ else
 end
 
 % RunPeriod
-% Begin Month
-if ~isfield(handles.DATA,'Start_BeginMonthEdit')
-    set(handles.Start_BeginMonthEdit,'string','');
-else
-    set(handles.Start_BeginMonthEdit,'string',handles.DATA.temp.runPeriod.BeginMonth);
-end
-% End Month
-if ~isfield(handles.DATA,'Start_EndMonthEdit')
-    set(handles.Start_EndMonthEdit,'string','');
-else
-    set(handles.Start_EndMonthEdit,'string',handles.DATA.temp.runPeriod.EndMonth);
-end
-% Begin Day
-if ~isfield(handles.DATA,'Start_BeginDayEdit')
-    set(handles.Start_BeginDayEdit,'string','');
-else
-    set(handles.Start_BeginDayEdit,'string',handles.DATA.temp.runPeriod.BeginDay);
-end
-% End Day 
-if ~isfield(handles.DATA,'Start_EndDayEdit')
-    set(handles.Start_EndDayEdit,'string','');
-else
-    set(handles.Start_EndDayEdit,'string',handles.DATA.temp.runPeriod.EndDay);
+if isfield(handles.DATA,'runPeriod')
+    % Begin Month
+    if ~isfield(handles.DATA.runPeriod,'BeginMonth')
+        set(handles.Start_BeginMonthEdit,'string','');
+    else
+        set(handles.Start_BeginMonthEdit,'string',handles.DATA.runPeriod.BeginMonth);
+    end
+    
+    % End Month
+    if ~isfield(handles.DATA.runPeriod,'EndMonth')
+        set(handles.Start_EndMonthEdit,'string','');
+    else
+        set(handles.Start_EndMonthEdit,'string',handles.DATA.runPeriod.EndMonth);
+    end
+    
+    % Begin Day
+    if ~isfield(handles.DATA.runPeriod,'BeginDay')
+        set(handles.Start_BeginDayEdit,'string','');
+    else
+        set(handles.Start_BeginDayEdit,'string',handles.DATA.runPeriod.BeginDay);
+    end
+    
+    % End Day
+    if ~isfield(handles.DATA.runPeriod,'EndDay')
+        set(handles.Start_EndDayEdit,'string','');
+    else
+        set(handles.Start_EndDayEdit,'string',handles.DATA.runPeriod.EndDay);
+    end
 end
 
 % Time Step
-if ~isfield(handles.DATA,'Start_EndDayEdit')
+if ~isfield(handles.DATA,'timeStep')
     set(handles.Start_TimeStepEdit,'string','');
 else
-    set(handles.Start_TimeStepEdit,'string',handles.DATA.temp.timeStep);
+    set(handles.Start_TimeStepEdit,'string',handles.DATA.timeStep);
 end
 
 end

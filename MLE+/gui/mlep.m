@@ -22,7 +22,7 @@ function varargout = mlep(varargin)
 
 % Edit the above text to modify the response to help mlep
 
-% Last Modified by GUIDE v2.5 17-Jan-2014 15:21:46
+% Last Modified by GUIDE v2.5 22-Jan-2014 13:44:38
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -99,9 +99,9 @@ handles.DATA.variableOutput = {};
 
 % Resize
 if exist('imresize')
-    ima = imresize(ima, 0.45);
+    ima = imresize(ima, 0.54);
 else
-    ima = imageresize(ima, 0.45, 0.45);
+    ima = imageresize(ima, 0.54, 0.54);
 end
 
 % Display Image
@@ -183,7 +183,7 @@ else
     % Callback for Writing cfg file
     if isfield(handles.DATA,'variableInput') && isfield(handles.DATA,'variableOutput')
         % create variable.cfg
-        result = writeConfigFile(handles.DATA.variableInput{1},handles.DATA.variableInput{1},handles.DATA.projectPath);
+        result = writeConfigFile(handles.DATA.variableInput,handles.DATA.variableOutput,handles.DATA.projectPath);
     end
     
     % Update presentation tab
@@ -379,7 +379,7 @@ function Start_BeginMonthEdit_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of Start_BeginMonthEdit as text
 %        str2double(get(hObject,'String')) returns contents of Start_BeginMonthEdit as a double
 % handles.DATA.temp.timeStep = str2double(get(handles.Start_TimeStep,'String'));
-handles.DATA.temp.runPeriod.BeginMonth = str2double(get(handles.Start_BeginMonthEdit,'String'));
+handles.DATA.runPeriod_BeginMonth = str2double(get(handles.Start_BeginMonthEdit,'String'));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -404,7 +404,7 @@ function Start_EndMonthEdit_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get Data from Box
-handles.DATA.temp.runPeriod.EndMonth = str2double(get(handles.Start_EndMonthEdit,'String'));
+handles.DATA.runPeriod_EndMonth = str2double(get(handles.Start_EndMonthEdit,'String'));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -429,7 +429,7 @@ function Start_BeginDayEdit_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get Data from Box
-handles.DATA.temp.runPeriod.BeginDay = str2double(get(handles.Start_BeginDayEdit,'String'));
+handles.DATA.runPeriod_BeginDay = str2double(get(handles.Start_BeginDayEdit,'String'));
 % Update handles structure
 guidata(hObject, handles);
 
@@ -453,7 +453,7 @@ function Start_EndDayEdit_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get Data from Box
-handles.DATA.temp.runPeriod.EndDay = str2double(get(handles.Start_EndDayEdit,'String'));
+handles.DATA.runPeriod_EndDay = str2double(get(handles.Start_EndDayEdit,'String'));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -478,7 +478,7 @@ function Start_TimeStepEdit_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Get Data from Box
-handles.DATA.temp.timeStep = str2double(get(handles.Start_TimeStepEdit,'String'));
+handles.DATA.timeStep = str2double(get(handles.Start_TimeStepEdit,'String'));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -551,7 +551,7 @@ function Control_VariableButton_Callback(hObject, eventdata, handles)
 % Check if IDF selected
 if isfield(handles.DATA, 'idfFullPath')
     % Launch GUI
-    setConfigurationFile('filename',handles.DATA.idfFullPath, 'mainHandles', handles);
+    handles.handlesVar = setConfigurationFile('filename',handles.DATA.idfFullPath, 'mainHandles', handles);
 else
     MSG = '.IDF File does not exist or has not been selected.';
     errordlg(MSG,'IDF Problem');
@@ -560,11 +560,21 @@ end
 % Update handles structure
 guidata(hObject, handles);
 
-% --- Executes on button press in Control_OpenFile.
-function Control_OpenFile_Callback(hObject, eventdata, handles)
-% hObject    handle to Control_OpenFile (see GCBO)
+% --- Executes on button press in Control_OpenEnergyPlusFile.
+function Control_OpenEnergyPlusFile_Callback(hObject, eventdata, handles)
+% hObject    handle to Control_OpenEnergyPlusFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Open IDF file
+if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
+    edit(handles.DATA.idfFullPath);
+else
+    MSG = '.IDF File does not exist or not selected.';
+    errordlg(MSG,'IDF Problem');
+end
+
+% Update handles structure
+guidata(hObject, handles);
 
 
 % --- Executes on button press in pushbutton21.
@@ -591,9 +601,9 @@ function Control_InputListbox_Callback(hObject, eventdata, handles)
 
 % Display Comment
 index = get(handles.Control_InputListbox, 'Value');
-set(handles.Control_InputCommentEdit, 'String', handles.DATA.variableInput{1}(index,4));
+set(handles.Control_InputCommentEdit, 'String', handles.DATA.variableInput{index}{4});
 
-% Update handles structure
+% Update handles structure 
 guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
@@ -753,20 +763,48 @@ end
 % Update handles structure
 guidata(hObject, handles);
 
-% --- Executes on button press in pushbutton24.
-function pushbutton24_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton24 (see GCBO)
+% --- Executes on button press in Simulation_SaveAll.
+function Simulation_SaveAll_Callback(hObject, eventdata, handles)
+% hObject    handle to Simulation_SaveAll (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Select where to store and name file
+[FileName,PathName] = uiputfile('mlepResult.mat','Save Results',[handles.DATA.projectPath]);
+% If not picked any File
+if (~ischar(FileName) || ~ischar(PathName))
+    return;
+else
+    DATA = struct();
+    DATA.result = handles.DATA.varsData(:,:);
+    DATA.name = handles.DATA.vars(:);
+    save([PathName FileName], 'DATA');
+    disp(['Saved All Result in ' PathName FileName] );
+end
+% Update handles structure
+guidata(hObject, handles);
 
-
-% --- Executes on button press in pushbutton25.
-function pushbutton25_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton25 (see GCBO)
+% --- Executes on button press in Simulation_SaveSelected.
+function Simulation_SaveSelected_Callback(hObject, eventdata, handles)
+% hObject    handle to Simulation_SaveSelected (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Save Selected
+handles.DATA.simulateListboxIndex = get(handles.Simulation_VariableListbox,'Value');
+% Select where to store and name file
+[FileName,PathName] = uiputfile('mlepResult.mat','Save Results',[handles.DATA.projectPath]);
+% If not picked any File
+if (~ischar(FileName) || ~ischar(PathName))
+    return;
+else
+    DATA = struct();
+    DATA.result = handles.DATA.varsData(:,handles.DATA.simulateListboxIndex);
+    DATA.name = handles.DATA.vars(handles.DATA.simulateListboxIndex);
+    save([PathName FileName], 'DATA');
+    disp(['Saved Result in ' PathName FileName] );
+end
 
-
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in Control_CreateControl.
 function Control_CreateControl_Callback(hObject, eventdata, handles)
@@ -952,7 +990,7 @@ function SystemID_VariableButton_Callback(hObject, eventdata, handles)
 % Check if IDF selected
 if isfield(handles.DATA, 'idfFullPath')
     % Launch GUI
-    setConfigurationFile('filename',handles.DATA.idfFullPath, 'mainHandles', handles);
+    handles.handlesVar = setConfigurationFile('filename',handles.DATA.idfFullPath, 'mainHandles', handles);
 else
     MSG = '.IDF File does not exist or has not been selected.';
     errordlg(MSG,'IDF Problem');
@@ -961,14 +999,21 @@ end
 % Update handles structure
 guidata(hObject, handles);
 
-
 % --- Executes on button press in SystemID_OpenEnergyPlusFile.
 function SystemID_OpenEnergyPlusFile_Callback(hObject, eventdata, handles)
 % hObject    handle to SystemID_OpenEnergyPlusFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% Open EnergyPlus File
-Start_EditFile_Callback(hObject, eventdata, handles);
+% Open IDF file
+if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
+    edit(handles.DATA.idfFullPath);
+else
+    MSG = '.IDF File does not exist or not selected.';
+    errordlg(MSG,'IDF Problem');
+end
+
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton38.
 function pushbutton38_Callback(hObject, eventdata, handles)
@@ -1351,18 +1396,18 @@ function SystemID_EditControlFile_Callback(hObject, eventdata, handles)
 
 
 
-function SystemID_ControlCreateFileEdit_Callback(hObject, eventdata, handles)
-% hObject    handle to SystemID_ControlCreateFileEdit (see GCBO)
+function SystemID_CreateControlFileEdit_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_CreateControlFileEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of SystemID_ControlCreateFileEdit as text
-%        str2double(get(hObject,'String')) returns contents of SystemID_ControlCreateFileEdit as a double
+% Hints: get(hObject,'String') returns contents of SystemID_CreateControlFileEdit as text
+%        str2double(get(hObject,'String')) returns contents of SystemID_CreateControlFileEdit as a double
 
 
 % --- Executes during object creation, after setting all properties.
-function SystemID_ControlCreateFileEdit_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to SystemID_ControlCreateFileEdit (see GCBO)
+function SystemID_CreateControlFileEdit_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_CreateControlFileEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
