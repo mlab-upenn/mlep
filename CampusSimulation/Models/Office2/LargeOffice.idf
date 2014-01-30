@@ -98,7 +98,7 @@
     1,                       !- Begin Day of Month
     6,                       !- End Month
     1,                       !- End Day of Month
-    Sunday,                  !- Day of Week for Start Day
+    Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
     No,                      !- Apply Weekend Holiday Rule
@@ -5955,82 +5955,82 @@
 
   ThermostatSetpoint:DualSetpoint,
     Basement DualSPSched,    !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Core_bottom DualSPSched, !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Core_mid DualSPSched,    !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Core_top DualSPSched,    !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_bot_ZN_1 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_bot_ZN_2 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_bot_ZN_3 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_bot_ZN_4 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_mid_ZN_1 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_mid_ZN_2 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_mid_ZN_3 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_mid_ZN_4 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_top_ZN_1 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_top_ZN_2 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_top_ZN_3 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   ThermostatSetpoint:DualSetpoint,
     Perimeter_top_ZN_4 DualSPSched,  !- Name
-    HTGSETP_SCH,             !- Heating Setpoint Temperature Schedule Name
+    HeatTempSch,             !- Heating Setpoint Temperature Schedule Name
     CoolTempSch;             !- Cooling Setpoint Temperature Schedule Name
 
   Sizing:System,
@@ -7256,38 +7256,13 @@
 !    CW-Loop-Temp-Schedule,   !- Schedule Name
 !    CoolSys1 Supply Equipment Outlet Node 1;  !- Setpoint Node or NodeList Name
 
-  Chiller:Electric:ReformulatedEIR,
-    CoolSys1 Chiller 2,      !- Name
-    AUTOSIZE,                !- Reference Capacity {W}
-    5.5,                     !- Reference COP {W/W}
-    6.67,                    !- Reference Leaving Chilled Water Temperature {C}
-    35,                      !- Reference Leaving Condenser Water Temperature {C}
-    AutoSize,                !- Reference Chilled Water Flow Rate {m3/s}
-    AutoSize,                !- Reference Condenser Water Flow Rate {m3/s}
-    WC Screw Default 90.1-2004 Cap_fT,  !- Cooling Capacity Function of Temperature Curve Name
-    WC Screw Default 90.1-2004 EIR_fT,  !- Electric Input to Cooling Output Ratio Function of Temperature Curve Name
-    ReformEIRChiller Carrier 19XR 1259kW/6.26COP/Vanes EIRFPLR,  !- Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name
-    0.1,                     !- Minimum Part Load Ratio
-    1,                       !- Maximum Part Load Ratio
-    1,                       !- Optimum Part Load Ratio
-    0.2,                     !- Minimum Unloading Ratio
-    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Chilled Water Inlet Node Name
-    CoolSys1 Supply Equipment Outlet Node 2,  !- Chilled Water Outlet Node Name
-    CoolSys1 Chiller Water Inlet Node 2,  !- Condenser Inlet Node Name
-    CoolSys1 Chiller Water Outlet Node 2,  !- Condenser Outlet Node Name
-    1,                       !- Fraction of Compressor Electric Consumption Rejected by Condenser
-    2,                       !- Leaving Chilled Water Lower Temperature Limit {C}
-    LeavingSetpointModulated,!- Chiller Flow Mode Type
-    ,                        !- Design Heat Recovery Water Flow Rate {m3/s}
-    ,                        !- Heat Recovery Inlet Node Name
-    ,                        !- Heat Recovery Outlet Node Name
-    0.5;                     !- Sizing Factor
 
-  SetpointManager:Scheduled,
-    CoolSys1 Chiller 2 Setpoint Manager,  !- Name
-    Temperature,             !- Control Variable
-    CW-Loop-Temp-Schedule,   !- Schedule Name
-    CoolSys1 Supply Equipment Outlet Node 2;  !- Setpoint Node or NodeList Name
+
+!  SetpointManager:Scheduled,
+!    CoolSys1 Chiller 2 Setpoint Manager,  !- Name
+!    Temperature,             !- Control Variable
+!    CW-Loop-Temp-Schedule,   !- Schedule Name
+!    CoolSys1 Supply Equipment Outlet Node 2;  !- Setpoint Node or NodeList Name
 
   CoolingTower:SingleSpeed,
     TowerWaterSys CoolTower, !- Name
@@ -7356,33 +7331,31 @@
     0.0,                     !- Minimum Flow Rate {m3/s}
     Intermittent;            !- Pump Control Type
 
-  Pump:ConstantSpeed,
-    TowerWaterSys Pump,      !- Name
-    TowerWaterSys Supply Inlet Node,  !- Inlet Node Name
-    TowerWaterSys Pump-TowerWaterSys CoolTowerNodeviaConnector,  !- Outlet Node Name
-    AUTOSIZE,                !- Rated Flow Rate {m3/s}
-    179352,                  !- Rated Pump Head {Pa}
-    AUTOSIZE,                !- Rated Power Consumption {W}
-    0.87,                    !- Motor Efficiency
-    0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
-    Intermittent;            !- Pump Control Type
+!  Pump:ConstantSpeed,
+!    TowerWaterSys Pump,      !- Name
+!    TowerWaterSys Supply Inlet Node,  !- Inlet Node Name
+!    TowerWaterSys Pump-TowerWaterSys CoolTowerNodeviaConnector,  !- Outlet Node Name
+!    AUTOSIZE,                !- Rated Flow Rate {m3/s}
+!    179352,                  !- Rated Pump Head {Pa}
+!    AUTOSIZE,                !- Rated Power Consumption {W}
+!    0.87,                    !- Motor Efficiency
+!    0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
+!    Intermittent;            !- Pump Control Type
 
   PlantEquipmentList,
     CoolSys1 Equipment List, !- Name
     PlantComponent:TemperatureSource,  !- Equipment 1 Object Type
-    CoolSys1 Chiller 1,      !- Equipment 1 Name
-    Chiller:Electric:ReformulatedEIR,  !- Equipment 2 Object Type
-    CoolSys1 Chiller 2;      !- Equipment 2 Name
+    CoolSys1 Chiller 1;      !- Equipment 1 Name
 
   PlantEquipmentList,
     HeatSys1 Equipment List, !- Name
     Boiler:HotWater,         !- Equipment 1 Object Type
     HeatSys1 Boiler;         !- Equipment 1 Name
 
-  CondenserEquipmentList,
-    TowerWaterSys Equipment List,  !- Name
-    CoolingTower:SingleSpeed,!- Equipment 1 Object Type
-    TowerWaterSys CoolTower; !- Equipment 1 Name
+!  CondenserEquipmentList,
+!    TowerWaterSys Equipment List,  !- Name
+!    CoolingTower:SingleSpeed,!- Equipment 1 Object Type
+!    TowerWaterSys CoolTower; !- Equipment 1 Name
 
 ! ***SIZING & CONTROLS***
 
@@ -7642,35 +7615,35 @@
     HeatSys1 Demand Connectors,  !- Demand Side Connector List Name
     Optimal;                 !- Load Distribution Scheme
 
-  CondenserLoop,
-    TowerWaterSys,           !- Name
-    Water,                   !- Fluid Type
-    ,                        !- User Defined Fluid Type
-    TowerWaterSys Loop Operation Scheme List,  !- Condenser Equipment Operation Scheme Name
-    TowerWaterSys Supply Outlet Node,  !- Condenser Loop Temperature Setpoint Node Name
-    80.0,                    !- Maximum Loop Temperature {C}
-    5.0,                     !- Minimum Loop Temperature {C}
-    AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
-    0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Condenser Loop Volume {m3}
-    TowerWaterSys Supply Inlet Node,  !- Condenser Side Inlet Node Name
-    TowerWaterSys Supply Outlet Node,  !- Condenser Side Outlet Node Name
-    TowerWaterSys Supply Branches,  !- Condenser Side Branch List Name
-    TowerWaterSys Supply Connectors,  !- Condenser Side Connector List Name
-    TowerWaterSys Demand Inlet Node,  !- Demand Side Inlet Node Name
-    TowerWaterSys Demand Outlet Node,  !- Demand Side Outlet Node Name
-    TowerWaterSys Demand Branches,  !- Condenser Demand Side Branch List Name
-    TowerWaterSys Demand Connectors,  !- Condenser Demand Side Connector List Name
-    Sequential;              !- Load Distribution Scheme
+!  CondenserLoop,
+!    TowerWaterSys,           !- Name
+!    Water,                   !- Fluid Type
+!    ,                        !- User Defined Fluid Type
+!    TowerWaterSys Loop Operation Scheme List,  !- Condenser Equipment Operation Scheme Name
+!    TowerWaterSys Supply Outlet Node,  !- Condenser Loop Temperature Setpoint Node Name
+!    80.0,                    !- Maximum Loop Temperature {C}
+!    5.0,                     !- Minimum Loop Temperature {C}
+!    AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
+!    0.0,                     !- Minimum Loop Flow Rate {m3/s}
+!    AUTOSIZE,                !- Condenser Loop Volume {m3}
+!    TowerWaterSys Supply Inlet Node,  !- Condenser Side Inlet Node Name
+!    TowerWaterSys Supply Outlet Node,  !- Condenser Side Outlet Node Name
+!    TowerWaterSys Supply Branches,  !- Condenser Side Branch List Name
+!    TowerWaterSys Supply Connectors,  !- Condenser Side Connector List Name
+!    TowerWaterSys Demand Inlet Node,  !- Demand Side Inlet Node Name
+!    TowerWaterSys Demand Outlet Node,  !- Demand Side Outlet Node Name
+!    TowerWaterSys Demand Branches,  !- Condenser Demand Side Branch List Name
+!    TowerWaterSys Demand Connectors,  !- Condenser Demand Side Connector List Name
+!    Sequential;              !- Load Distribution Scheme
 
-  SetpointManager:FollowOutdoorAirTemperature,
-    MyCondenserControl,      !- Name
-    Temperature,             !- Control Variable
-    OutdoorAirWetBulb,       !- Reference Temperature Type
-    0,                       !- Offset Temperature Difference {deltaC}
-    80,                      !- Maximum Setpoint Temperature {C}
-    5,                       !- Minimum Setpoint Temperature {C}
-    TowerWaterSys Supply Outlet Node;  !- Setpoint Node or NodeList Name
+!  SetpointManager:FollowOutdoorAirTemperature,
+!    MyCondenserControl,      !- Name
+!    Temperature,             !- Control Variable
+!    OutdoorAirWetBulb,       !- Reference Temperature Type
+!    0,                       !- Offset Temperature Difference {deltaC}
+!    80,                      !- Maximum Setpoint Temperature {C}
+!    5,                       !- Minimum Setpoint Temperature {C}
+!    TowerWaterSys Supply Outlet Node;  !- Setpoint Node or NodeList Name
 
 ! ***CONNECTIONS***
 
@@ -7688,7 +7661,6 @@
     CoolSys1 Supply Branches,!- Name
     CoolSys1 Supply Inlet Branch,  !- Branch 1 Name
     CoolSys1 Supply Equipment Branch 1,  !- Branch 2 Name
-    CoolSys1 Supply Equipment Branch 2,  !- Branch 3 Name
     CoolSys1 Supply Equipment Bypass Branch,  !- Branch 4 Name
     CoolSys1 Supply Outlet Branch;  !- Branch 5 Name
 
@@ -7727,19 +7699,19 @@
 
     !TowerWaterSys Demand Load Branch 1,  !- Branch 2 Name
 
-  BranchList,
-    TowerWaterSys Demand Branches,  !- Name
-    TowerWaterSys Demand Inlet Branch,  !- Branch 1 Name
-    TowerWaterSys Demand Load Branch 2,  !- Branch 2 Name
-    TowerWaterSys Demand Bypass Branch,  !- Branch 3 Name
-    TowerWaterSys Demand Outlet Branch;  !- Branch 4 Name
+!  BranchList,
+!    TowerWaterSys Demand Branches,  !- Name
+!    TowerWaterSys Demand Inlet Branch,  !- Branch 1 Name
+!    TowerWaterSys Demand Load Branch 2,  !- Branch 2 Name
+!    TowerWaterSys Demand Bypass Branch,  !- Branch 3 Name
+!    TowerWaterSys Demand Outlet Branch;  !- Branch 4 Name
 
-  BranchList,
-    TowerWaterSys Supply Branches,  !- Name
-    TowerWaterSys Supply Inlet Branch,  !- Branch 1 Name
-    TowerWaterSys Supply Equipment Branch,  !- Branch 2 Name
-    TowerWaterSys Supply Equipment Bypass Branch,  !- Branch 3 Name
-    TowerWaterSys Supply Outlet Branch;  !- Branch 4 Name
+!  BranchList,
+!    TowerWaterSys Supply Branches,  !- Name
+!    TowerWaterSys Supply Inlet Branch,  !- Branch 1 Name
+!    TowerWaterSys Supply Equipment Branch,  !- Branch 2 Name
+!    TowerWaterSys Supply Equipment Bypass Branch,  !- Branch 3 Name
+!    TowerWaterSys Supply Outlet Branch;  !- Branch 4 Name
 
   Branch,
     CoolSys1 Demand Bypass Branch,  !- Name
@@ -7821,15 +7793,15 @@
     CoolSys1 Supply Equipment Outlet Node 1,  !- Component 1 Outlet Node Name
     Active;                  !- Component 1 Branch Control Type
 
-  Branch,
-    CoolSys1 Supply Equipment Branch 2,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
-    CoolSys1 Chiller 2,      !- Component 1 Name
-    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Component 1 Inlet Node Name
-    CoolSys1 Supply Equipment Outlet Node 2,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+!  Branch,
+!    CoolSys1 Supply Equipment Branch 2,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    PlantComponent:TemperatureSource,  !- Component 1 Object Type
+!    CoolSys1 Chiller 2,      !- Component 1 Name
+!    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Component 1 Inlet Node Name
+!    CoolSys1 Supply Equipment Outlet Node 2,  !- Component 1 Outlet Node Name
+!    Active;                  !- Component 1 Branch Control Type
 
   Branch,
     CoolSys1 Supply Equipment Bypass Branch,  !- Name
@@ -8131,25 +8103,25 @@
     HeatSys1 Supply Outlet Node,  !- Component 1 Outlet Node Name
     Passive;                 !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Demand Bypass Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    TowerWaterSys Demand Bypass Pipe,  !- Component 1 Name
-    TowerWaterSys Demand Bypass Pipe Inlet Node,  !- Component 1 Inlet Node Name
-    TowerWaterSys Demand Bypass Pipe Outlet Node,  !- Component 1 Outlet Node Name
-    Bypass;                  !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Demand Bypass Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Pipe:Adiabatic,          !- Component 1 Object Type
+!    TowerWaterSys Demand Bypass Pipe,  !- Component 1 Name
+!    TowerWaterSys Demand Bypass Pipe Inlet Node,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Demand Bypass Pipe Outlet Node,  !- Component 1 Outlet Node Name
+!    Bypass;                  !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Demand Inlet Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    TowerWaterSys Demand Inlet Pipe,  !- Component 1 Name
-    TowerWaterSys Demand Inlet Node,  !- Component 1 Inlet Node Name
-    TowerWaterSys Demand Inlet Pipe-TowerWaterSys Demand Mixer,  !- Component 1 Outlet Node Name
-    Passive;                 !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Demand Inlet Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Pipe:Adiabatic,          !- Component 1 Object Type
+!    TowerWaterSys Demand Inlet Pipe,  !- Component 1 Name
+!    TowerWaterSys Demand Inlet Node,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Demand Inlet Pipe-TowerWaterSys Demand Mixer,  !- Component 1 Outlet Node Name
+!    Passive;                 !- Component 1 Branch Control Type
 
 !  Branch,
 !    TowerWaterSys Demand Load Branch 1,  !- Name
@@ -8161,65 +8133,65 @@
 !    CoolSys1 Chiller Water Outlet Node 1,  !- Component 1 Outlet Node Name
 !    Active;                  !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Demand Load Branch 2,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
-    CoolSys1 Chiller 2,      !- Component 1 Name
-    CoolSys1 Chiller Water Inlet Node 2,  !- Component 1 Inlet Node Name
-    CoolSys1 Chiller Water Outlet Node 2,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Demand Load Branch 2,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
+!    CoolSys1 Chiller 2,      !- Component 1 Name
+!    CoolSys1 Chiller Water Inlet Node 2,  !- Component 1 Inlet Node Name
+!    CoolSys1 Chiller Water Outlet Node 2,  !- Component 1 Outlet Node Name
+!    Active;                  !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Demand Outlet Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    TowerWaterSys Demand Outlet Pipe,  !- Component 1 Name
-    TowerWaterSys Demand Mixer-TowerWaterSys Demand Outlet Pipe,  !- Component 1 Inlet Node Name
-    TowerWaterSys Demand Outlet Node,  !- Component 1 Outlet Node Name
-    Passive;                 !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Demand Outlet Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Pipe:Adiabatic,          !- Component 1 Object Type
+!    TowerWaterSys Demand Outlet Pipe,  !- Component 1 Name
+!    TowerWaterSys Demand Mixer-TowerWaterSys Demand Outlet Pipe,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Demand Outlet Node,  !- Component 1 Outlet Node Name
+!    Passive;                 !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Supply Equipment Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    CoolingTower:SingleSpeed,!- Component 1 Object Type
-    TowerWaterSys CoolTower, !- Component 1 Name
-    TowerWaterSys Pump-TowerWaterSys CoolTowerNode,  !- Component 1 Inlet Node Name
-    TowerWaterSys Supply Equipment Outlet Node,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Supply Equipment Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    CoolingTower:SingleSpeed,!- Component 1 Object Type
+!    TowerWaterSys CoolTower, !- Component 1 Name
+!    TowerWaterSys Pump-TowerWaterSys CoolTowerNode,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Supply Equipment Outlet Node,  !- Component 1 Outlet Node Name
+!    Active;                  !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Supply Equipment Bypass Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    TowerWaterSys Supply Equipment Bypass Pipe,  !- Component 1 Name
-    TowerWaterSys Supply Equip Bypass Inlet Node,  !- Component 1 Inlet Node Name
-    TowerWaterSys Supply Equip Bypass Outlet Node,  !- Component 1 Outlet Node Name
-    Bypass;                  !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Supply Equipment Bypass Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Pipe:Adiabatic,          !- Component 1 Object Type
+!    TowerWaterSys Supply Equipment Bypass Pipe,  !- Component 1 Name
+!    TowerWaterSys Supply Equip Bypass Inlet Node,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Supply Equip Bypass Outlet Node,  !- Component 1 Outlet Node Name
+!    Bypass;                  !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Supply Inlet Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Pump:ConstantSpeed,      !- Component 1 Object Type
-    TowerWaterSys Pump,      !- Component 1 Name
-    TowerWaterSys Supply Inlet Node,  !- Component 1 Inlet Node Name
-    TowerWaterSys Pump-TowerWaterSys CoolTowerNodeviaConnector,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Supply Inlet Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Pump:ConstantSpeed,      !- Component 1 Object Type
+!    TowerWaterSys Pump,      !- Component 1 Name
+!    TowerWaterSys Supply Inlet Node,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Pump-TowerWaterSys CoolTowerNodeviaConnector,  !- Component 1 Outlet Node Name
+!    Active;                  !- Component 1 Branch Control Type
 
-  Branch,
-    TowerWaterSys Supply Outlet Branch,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
-    TowerWaterSys Supply Outlet Pipe,  !- Component 1 Name
-    TowerWaterSys Supply Mixer-TowerWaterSys Supply Outlet Pipe,  !- Component 1 Inlet Node Name
-    TowerWaterSys Supply Outlet Node,  !- Component 1 Outlet Node Name
-    Passive;                 !- Component 1 Branch Control Type
+!  Branch,
+!    TowerWaterSys Supply Outlet Branch,  !- Name
+!    ,                        !- Maximum Flow Rate {m3/s}
+!    ,                        !- Pressure Drop Curve Name
+!    Pipe:Adiabatic,          !- Component 1 Object Type
+!    TowerWaterSys Supply Outlet Pipe,  !- Component 1 Name
+!    TowerWaterSys Supply Mixer-TowerWaterSys Supply Outlet Pipe,  !- Component 1 Inlet Node Name
+!    TowerWaterSys Supply Outlet Node,  !- Component 1 Outlet Node Name
+!    Passive;                 !- Component 1 Branch Control Type
 
   OutdoorAir:Node,
     TowerWaterSys CoolTower OA ref Node;  !- Name
@@ -8252,19 +8224,19 @@
     Connector:Mixer,         !- Connector 2 Object Type
     HeatSys1 Supply Mixer;   !- Connector 2 Name
 
-  ConnectorList,
-    TowerWaterSys Demand Connectors,  !- Name
-    Connector:Splitter,      !- Connector 1 Object Type
-    TowerWaterSys Demand Splitter,  !- Connector 1 Name
-    Connector:Mixer,         !- Connector 2 Object Type
-    TowerWaterSys Demand Mixer;  !- Connector 2 Name
+!  ConnectorList,
+!    TowerWaterSys Demand Connectors,  !- Name
+!    Connector:Splitter,      !- Connector 1 Object Type
+!    TowerWaterSys Demand Splitter,  !- Connector 1 Name
+!    Connector:Mixer,         !- Connector 2 Object Type
+!    TowerWaterSys Demand Mixer;  !- Connector 2 Name
 
-  ConnectorList,
-    TowerWaterSys Supply Connectors,  !- Name
-    Connector:Splitter,      !- Connector 1 Object Type
-    TowerWaterSys Supply Splitter,  !- Connector 1 Name
-    Connector:Mixer,         !- Connector 2 Object Type
-    TowerWaterSys Supply Mixer;  !- Connector 2 Name
+!  ConnectorList,
+!    TowerWaterSys Supply Connectors,  !- Name
+!    Connector:Splitter,      !- Connector 1 Object Type
+!    TowerWaterSys Supply Splitter,  !- Connector 1 Name
+!    Connector:Mixer,         !- Connector 2 Object Type
+!    TowerWaterSys Supply Mixer;  !- Connector 2 Name
 
   Connector:Splitter,
     CoolSys1 Demand Splitter,!- Name
@@ -8279,7 +8251,7 @@
     CoolSys1 Supply Splitter,!- Name
     CoolSys1 Supply Inlet Branch,  !- Inlet Branch Name
     CoolSys1 Supply Equipment Branch 1,  !- Outlet Branch 1 Name
-    CoolSys1 Supply Equipment Branch 2,  !- Outlet Branch 2 Name
+!    CoolSys1 Supply Equipment Branch 2,  !- Outlet Branch 2 Name
     CoolSys1 Supply Equipment Bypass Branch;  !- Outlet Branch 3 Name
 
   Connector:Splitter,
@@ -8315,17 +8287,17 @@
 
     !TowerWaterSys Demand Load Branch 1,  !- Outlet Branch 1 Name
 
-  Connector:Splitter,
-    TowerWaterSys Demand Splitter,  !- Name
-    TowerWaterSys Demand Inlet Branch,  !- Inlet Branch Name
-    TowerWaterSys Demand Load Branch 2,  !- Outlet Branch 1 Name
-    TowerWaterSys Demand Bypass Branch;  !- Outlet Branch 2 Name
+!  Connector:Splitter,
+!    TowerWaterSys Demand Splitter,  !- Name
+!    TowerWaterSys Demand Inlet Branch,  !- Inlet Branch Name
+!    TowerWaterSys Demand Load Branch 2,  !- Outlet Branch 1 Name
+!    TowerWaterSys Demand Bypass Branch;  !- Outlet Branch 2 Name
 
-  Connector:Splitter,
-    TowerWaterSys Supply Splitter,  !- Name
-    TowerWaterSys Supply Inlet Branch,  !- Inlet Branch Name
-    TowerWaterSys Supply Equipment Branch,  !- Outlet Branch 1 Name
-    TowerWaterSys Supply Equipment Bypass Branch;  !- Outlet Branch 2 Name
+!  Connector:Splitter,
+!    TowerWaterSys Supply Splitter,  !- Name
+!    TowerWaterSys Supply Inlet Branch,  !- Inlet Branch Name
+!    TowerWaterSys Supply Equipment Branch,  !- Outlet Branch 1 Name
+!    TowerWaterSys Supply Equipment Bypass Branch;  !- Outlet Branch 2 Name
 
   Connector:Mixer,
     CoolSys1 Demand Mixer,   !- Name
@@ -8340,7 +8312,7 @@
     CoolSys1 Supply Mixer,   !- Name
     CoolSys1 Supply Outlet Branch,  !- Outlet Branch Name
     CoolSys1 Supply Equipment Branch 1,  !- Inlet Branch 1 Name
-    CoolSys1 Supply Equipment Branch 2,  !- Inlet Branch 2 Name
+!    CoolSys1 Supply Equipment Branch 2,  !- Inlet Branch 2 Name
     CoolSys1 Supply Equipment Bypass Branch;  !- Inlet Branch 3 Name
 
   Connector:Mixer,
@@ -8376,17 +8348,17 @@
 
     !TowerWaterSys Demand Load Branch 1,  !- Inlet Branch 1 Name
 
-  Connector:Mixer,
-    TowerWaterSys Demand Mixer,  !- Name
-    TowerWaterSys Demand Outlet Branch,  !- Outlet Branch Name
-    TowerWaterSys Demand Load Branch 2,  !- Inlet Branch 1 Name
-    TowerWaterSys Demand Bypass Branch;  !- Inlet Branch 2 Name
+!  Connector:Mixer,
+!    TowerWaterSys Demand Mixer,  !- Name
+!    TowerWaterSys Demand Outlet Branch,  !- Outlet Branch Name
+!    TowerWaterSys Demand Load Branch 2,  !- Inlet Branch 1 Name
+!    TowerWaterSys Demand Bypass Branch;  !- Inlet Branch 2 Name
 
-  Connector:Mixer,
-    TowerWaterSys Supply Mixer,  !- Name
-    TowerWaterSys Supply Outlet Branch,  !- Outlet Branch Name
-    TowerWaterSys Supply Equipment Branch,  !- Inlet Branch 1 Name
-    TowerWaterSys Supply Equipment Bypass Branch;  !- Inlet Branch 2 Name
+!  Connector:Mixer,
+!    TowerWaterSys Supply Mixer,  !- Name
+!    TowerWaterSys Supply Outlet Branch,  !- Outlet Branch Name
+!    TowerWaterSys Supply Equipment Branch,  !- Inlet Branch 1 Name
+!    TowerWaterSys Supply Equipment Bypass Branch;  !- Inlet Branch 2 Name
 
   Pipe:Adiabatic,
     CoolSys1 Demand Bypass Pipe,  !- Name
@@ -8438,30 +8410,30 @@
     HeatSys1 Supply Mixer-HeatSys1 Supply Outlet Pipe,  !- Inlet Node Name
     HeatSys1 Supply Outlet Node;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    TowerWaterSys Demand Bypass Pipe,  !- Name
-    TowerWaterSys Demand Bypass Pipe Inlet Node,  !- Inlet Node Name
-    TowerWaterSys Demand Bypass Pipe Outlet Node;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    TowerWaterSys Demand Bypass Pipe,  !- Name
+!    TowerWaterSys Demand Bypass Pipe Inlet Node,  !- Inlet Node Name
+!    TowerWaterSys Demand Bypass Pipe Outlet Node;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    TowerWaterSys Demand Inlet Pipe,  !- Name
-    TowerWaterSys Demand Inlet Node,  !- Inlet Node Name
-    TowerWaterSys Demand Inlet Pipe-TowerWaterSys Demand Mixer;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    TowerWaterSys Demand Inlet Pipe,  !- Name
+!    TowerWaterSys Demand Inlet Node,  !- Inlet Node Name
+!    TowerWaterSys Demand Inlet Pipe-TowerWaterSys Demand Mixer;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    TowerWaterSys Demand Outlet Pipe,  !- Name
-    TowerWaterSys Demand Mixer-TowerWaterSys Demand Outlet Pipe,  !- Inlet Node Name
-    TowerWaterSys Demand Outlet Node;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    TowerWaterSys Demand Outlet Pipe,  !- Name
+!    TowerWaterSys Demand Mixer-TowerWaterSys Demand Outlet Pipe,  !- Inlet Node Name
+!    TowerWaterSys Demand Outlet Node;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    TowerWaterSys Supply Equipment Bypass Pipe,  !- Name
-    TowerWaterSys Supply Equip Bypass Inlet Node,  !- Inlet Node Name
-    TowerWaterSys Supply Equip Bypass Outlet Node;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    TowerWaterSys Supply Equipment Bypass Pipe,  !- Name
+!    TowerWaterSys Supply Equip Bypass Inlet Node,  !- Inlet Node Name
+!    TowerWaterSys Supply Equip Bypass Outlet Node;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    TowerWaterSys Supply Outlet Pipe,  !- Name
-    TowerWaterSys Supply Mixer-TowerWaterSys Supply Outlet Pipe,  !- Inlet Node Name
-    TowerWaterSys Supply Outlet Node;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    TowerWaterSys Supply Outlet Pipe,  !- Name
+!    TowerWaterSys Supply Mixer-TowerWaterSys Supply Outlet Pipe,  !- Inlet Node Name
+!    TowerWaterSys Supply Outlet Node;  !- Outlet Node Name
 
 ! ***SCHEDULES***
 
@@ -9251,57 +9223,35 @@
     Simple;                  !- Option Type
 
   Output:VariableDictionary,IDF,Unsorted;
-
   Output:Surfaces:List,Details;
-
   Output:Surfaces:Drawing,DXF;
-
   Output:Constructions,Constructions;
 
 !======================WEATHER=============================================
-
-  Output:Variable,Environment,Site Outdoor Air Wetbulb Temperature,timestep;
-
   Output:Variable,Environment,Site Outdoor Air Drybulb Temperature,timestep;
-
-  Output:Variable,Environment,Site Outdoor Air Dewpoint Temperature,timestep;
-
-  Output:Variable,Environment,Site Diffuse Solar Radiation Rate per Area,timestep;
-
-  Output:Variable,Environment,Site Direct Solar Radiation Rate per Area,timestep;
+!  Output:Variable,Environment,Site Outdoor Air Wetbulb Temperature,timestep;
+!  Output:Variable,Environment,Site Outdoor Air Dewpoint Temperature,timestep;
+!  Output:Variable,Environment,Site Diffuse Solar Radiation Rate per Area,timestep;
+!  Output:Variable,Environment,Site Direct Solar Radiation Rate per Area,timestep;
 
 !======================POWER=============================================
-  ! POWER
-
-  Output:Variable,CoolSys1 Pump,Pump Electric Power,timestep;
-
-  Output:Variable,HeatSys1 Pump,Pump Electric Power,timestep;
-
-  Output:Variable,SWHSys1 Pump,Pump Electric Power,timestep;
-
-  Output:Variable,VAV_1_Fan,Fan Electric Power,timestep;
-
-  Output:Variable,VAV_2_Fan,Fan Electric Power,timestep;
-
-  Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
-
-  Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
-
-  Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
-
-  Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
-
+!  Output:Variable,CoolSys1 Pump,Pump Electric Power,timestep;
+!  Output:Variable,HeatSys1 Pump,Pump Electric Power,timestep;
+!  Output:Variable,SWHSys1 Pump,Pump Electric Power,timestep;
+!  Output:Variable,VAV_1_Fan,Fan Electric Power,timestep;
+!  Output:Variable,VAV_2_Fan,Fan Electric Power,timestep;
+!  Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
+!  Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
+!  Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
   Output:Variable,*,Facility Total Purchased Electric Energy,timestep;
-
   Output:Variable,*,Facility Total Purchased Electric Power,timestep;
-
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Mass Flow Rate,timestep;
-
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Heat Transfer Rate,timestep;
-
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Inlet Temperature,timestep;
-
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Outlet Temperature,timestep;
+
+!======================EMS PPD=============================================
+  Output:Variable,EMS,Weighted Average Building PPD,timestep;
 
 ! ***REPORT METERS/VARIABLES***
 !  Output:Meter,Electricity:Facility,HOURLY;
@@ -9558,17 +9508,22 @@
   ExternalInterface:Schedule,
     CoolTempSch,             !- Name
     Temperature,             !- Schedule Type Limits Name
-    24;                      !- Initial Value
+    26.7;                      !- Initial Value
+
+  ExternalInterface:Schedule,
+    HeatTempSch,             !- Name
+    Temperature,             !- Schedule Type Limits Name
+    15.6;                      !- Initial Value
 
   ExternalInterface:Schedule,
     SatTempSch,              !- Name
     Temperature,             !- Schedule Type Limits Name
-    13;                      !- Initial Value
+    12.8;                    !- Initial Value
 
   ExternalInterface:Schedule,
     SourceCoolSch,           !- Name
     Temperature,             !- Schedule Type Limits Name
-    7;                       !- Initial Value
+    6.8;                       !- Initial Value
 
 !==========================================================================
 
@@ -9582,3 +9537,205 @@
     SourceCoolSch;           !- Source Temperature Schedule Name
 
 !==========================================================================
+
+!======================COMFORT=============================================
+!======================PPD VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_0, !- Name
+    Core_bottom People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_1, !- Name
+    Perimeter_bot_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_2, !- Name
+    Perimeter_bot_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_3, !- Name
+    Perimeter_bot_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_4, !- Name
+    Perimeter_bot_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PPD VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_0, !- Name
+    Core_mid People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_1, !- Name
+    Perimeter_mid_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_2, !- Name
+    Perimeter_mid_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_3, !- Name
+    Perimeter_mid_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_4, !- Name
+    Perimeter_mid_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PPD VAV3=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_0, !- Name
+    Core_top People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_1, !- Name
+    Perimeter_top_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_2, !- Name
+    Perimeter_top_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_3, !- Name
+    Perimeter_top_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_4, !- Name
+    Perimeter_top_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PPD VAV5=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV5_0, !- Name
+    Basement People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================OCCUPANCY=============================================
+!======================OCC VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV1_0, !- Name
+    Core_bottom, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_1, !- Name
+    Perimeter_bot_ZN_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_2, !- Name
+    Perimeter_bot_ZN_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_3, !- Name
+    Perimeter_bot_ZN_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_4, !- Name
+    Perimeter_bot_ZN_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================OCC VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV2_0, !- Name
+    Core_mid, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_1, !- Name
+    Perimeter_mid_ZN_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_2, !- Name
+    Perimeter_mid_ZN_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_3, !- Name
+    Perimeter_mid_ZN_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_4, !- Name
+    Perimeter_mid_ZN_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================OCC VAV3=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV3_0, !- Name
+    Core_top, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_1, !- Name
+    Perimeter_top_ZN_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_2, !- Name
+    Perimeter_top_ZN_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_3, !- Name
+    Perimeter_top_ZN_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_4, !- Name
+    Perimeter_top_ZN_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================OCC VAV5=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV5_0, !- Name
+    Basement, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================FUNCTION COMFORT=============================================
+  EnergyManagementSystem:ProgramCallingManager,
+    Comfort Calling Manager, !- Name
+    InsideHVACSystemIterationLoop, !- EnergyPlus Model Calling Point
+    SetComfortFunction; !- Program Name 1
+  
+  EnergyManagementSystem:Program,
+    SetComfortFunction, !- Name
+    Set TotPeop1 = (oocVAV1_0 + oocVAV1_1 + oocVAV1_2 + oocVAV1_3 + oocVAV1_4),
+    Set TotPeop2 = (oocVAV2_0 + oocVAV2_1 + oocVAV2_2 + oocVAV2_3 + oocVAV2_4),
+    Set TotPeop3 = (oocVAV3_0 + oocVAV3_1 + oocVAV3_2 + oocVAV3_3 + oocVAV3_4),
+    Set TotPeop5 = (oocVAV5_0 + oocVAV5_1 + oocVAV5_2 + oocVAV5_3 + oocVAV5_4),
+    Set SumNum1 = oocVAV1_0*ppdVAV1_0 + oocVAV1_1*ppdVAV1_1 + oocVAV1_2*ppdVAV1_2,
+    Set SumNum1 = SumNum1 + oocVAV1_3*ppdVAV1_3 + oocVAV1_4*ppdVAV1_4,
+    Set SumNum2 = oocVAV2_0*ppdVAV2_0 + oocVAV2_1*ppdVAV2_1 + oocVAV2_2*ppdVAV2_2,
+    Set SumNum2 = SumNum2 + oocVAV2_3*ppdVAV2_3 + oocVAV2_4*ppdVAV2_4,
+    Set SumNum3 = oocVAV3_0*ppdVAV3_0 + oocVAV3_1*ppdVAV3_1 + oocVAV3_2*ppdVAV3_2,
+    Set SumNum3 = SumNum3  + oocVAV3_3*ppdVAV3_3 + oocVAV3_4*ppdVAV3_4,
+    Set SumNum5 = oocVAV5_0*ppdVAV5_0 + oocVAV5_1*ppdVAV5_1 + oocVAV5_2*ppdVAV5_2,
+    Set SumNum5 = SumNum5 + oocVAV5_3*ppdVAV5_3 + oocVAV5_4*ppdVAV5_4,
+    Set OverallComfort = (SumNum1 + SumNum2 + SumNum3 + SumNum5),
+    Set OverallComfort = OverallComfort/(TotPeop1 + TotPeop2 + TotPeop3 + TotPeop5);
+ 
+  EnergyManagementSystem:GlobalVariable,
+    OverallComfort;
+  
+  EnergyManagementSystem:OutputVariable,
+    Weighted Average Building PPD, ! Name
+    OverallComfort, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency

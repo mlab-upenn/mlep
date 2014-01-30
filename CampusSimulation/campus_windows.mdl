@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.79"
+    ComputedModelVersion    "1.170"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 24 16:18:33 2014"
-  RTWModifiedTimeStamp	  312481043
-  ModelVersionFormat	  "1.%<AutoIncrement:79>"
+  LastModifiedDate	  "Thu Jan 30 11:58:01 2014"
+  RTWModifiedTimeStamp	  312817773
+  ModelVersionFormat	  "1.%<AutoIncrement:170>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -656,6 +656,11 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      Clock
+      DisplayTime	      off
+      Decimation	      "10"
+    }
+    Block {
       BlockType		      Constant
       Value		      "1"
       VectorParams1D	      on
@@ -679,6 +684,11 @@ Model {
       Format		      "short"
       Decimation	      "10"
       Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
       SampleTime	      "-1"
     }
     Block {
@@ -827,7 +837,7 @@ Model {
   }
   System {
     Name		    "campus_windows"
-    Location		    [414, 146, 1733, 1038]
+    Location		    [-1918, 74, -19, 1059]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -839,23 +849,15 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "64"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "107"
-    Block {
-      BlockType		      Constant
-      Name		      "ChWater"
-      SID		      "44"
-      Position		      [45, 175, 75, 205]
-      ZOrder		      -4
-      Value		      "6.7"
-    }
+    SIDHighWatermark	    "195"
     Block {
       BlockType		      M-S-Function
       Name		      "Chiller1"
       SID		      "46"
       Ports		      [1, 3]
-      Position		      [580, 31, 850, 219]
+      Position		      [665, 31, 935, 219]
       ZOrder		      2
       AncestorBlock	      "mlepLibrary/E+ Building"
       LibraryVersion	      "1.8"
@@ -922,14 +924,32 @@ Model {
       MaskValueString	      "'C:\\\\EnergyPlusV8-1-0\\\\RunEPlus'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\"
       "\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\LargeChiller'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3"
       "'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\'"
-      "|40000|0|''|''|900|2"
+      "|40000|0|''|''|900|4"
+    }
+    Block {
+      BlockType		      Clock
+      Name		      "Clock"
+      SID		      "114"
+      Position		      [65, 70, 85, 90]
+      ZOrder		      -4
+    }
+    Block {
+      BlockType		      Demux
+      Name		      "Demux"
+      SID		      "183"
+      Ports		      [1, 8]
+      Position		      [240, 140, 245, 370]
+      ZOrder		      -6
+      ShowName		      off
+      Outputs		      "8"
+      DisplayOption	      "bar"
     }
     Block {
       BlockType		      Display
       Name		      "Display"
       SID		      "5"
       Ports		      [1]
-      Position		      [880, 480, 970, 510]
+      Position		      [880, 610, 970, 640]
       ZOrder		      -1
       Decimation	      "1"
       Lockdown		      off
@@ -939,7 +959,7 @@ Model {
       Name		      "Display1"
       SID		      "9"
       Ports		      [1]
-      Position		      [880, 1075, 970, 1105]
+      Position		      [880, 1280, 970, 1310]
       ZOrder		      -1
       Decimation	      "1"
       Lockdown		      off
@@ -949,7 +969,7 @@ Model {
       Name		      "Display2"
       SID		      "16"
       Ports		      [1]
-      Position		      [865, 810, 955, 840]
+      Position		      [865, 970, 955, 1000]
       ZOrder		      -1
       Decimation	      "1"
       Lockdown		      off
@@ -959,32 +979,57 @@ Model {
       Name		      "Display3"
       SID		      "51"
       Ports		      [1]
-      Position		      [885, 110, 975, 140]
+      Position		      [970, 110, 1060, 140]
       ZOrder		      -1
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
+      BlockType		      Fcn
+      Name		      "Fcn"
+      SID		      "111"
+      Position		      [130, 65, 190, 95]
+      ZOrder		      -1
+      Expr		      "rem(u,24*60*60)/60/60"
+    }
+    Block {
+      BlockType		      From
+      Name		      "Fro5"
+      SID		      "83"
+      Position		      [1500, 249, 1560, 271]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "loadOff1"
+      Port {
+	PortNumber		1
+	Name			"loadOff1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
       BlockType		      From
       Name		      "From"
       SID		      "37"
-      Position		      [1685, 164, 1745, 186]
+      Position		      [1345, 14, 1405, 36]
       ZOrder		      -9
+      ShowName		      off
       GotoTag		      "stop1"
     }
     Block {
       BlockType		      From
       Name		      "From1"
       SID		      "39"
-      Position		      [1685, 209, 1745, 231]
+      Position		      [1345, 39, 1405, 61]
       ZOrder		      -9
+      ShowName		      off
       GotoTag		      "stop2"
     }
     Block {
       BlockType		      From
       Name		      "From10"
       SID		      "96"
-      Position		      [305, 530, 405, 550]
+      Position		      [330, 665, 440, 685]
       ZOrder		      -9
       GotoTag		      "ChWTempCampus"
     }
@@ -992,63 +1037,264 @@ Model {
       BlockType		      From
       Name		      "From11"
       SID		      "104"
-      Position		      [290, 155, 390, 175]
+      Position		      [440, 160, 550, 180]
       ZOrder		      -9
-      GotoTag		      "ChWTempControl"
+      ShowName		      off
+      GotoTag		      "ChWTempControl1"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From12"
+      SID		      "117"
+      Position		      [330, 594, 425, 616]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "RoomHeatSch1"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From14"
+      SID		      "126"
+      Position		      [1345, 89, 1405, 111]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "stop3"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From15"
+      SID		      "139"
+      Position		      [1325, 915, 1425, 935]
+      ZOrder		      -9
+      GotoTag		      "powerOff1"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From16"
+      SID		      "140"
+      Position		      [1325, 955, 1425, 975]
+      ZOrder		      -9
+      GotoTag		      "powerOff2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From17"
+      SID		      "143"
+      Position		      [1325, 995, 1425, 1015]
+      ZOrder		      -9
+      GotoTag		      "powerHosp"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From18"
+      SID		      "146"
+      Position		      [440, 129, 510, 151]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "flowOff2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From19"
+      SID		      "154"
+      Position		      [1500, 295, 1600, 315]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "powerChiller1"
+      Port {
+	PortNumber		1
+	Name			"powerChiller1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      From
       Name		      "From2"
       SID		      "40"
-      Position		      [1685, 254, 1745, 276]
+      Position		      [1345, 64, 1405, 86]
       ZOrder		      -9
+      ShowName		      off
       GotoTag		      "stop3"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From20"
+      SID		      "149"
+      Position		      [440, 69, 510, 91]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "loadOff2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From21"
+      SID		      "155"
+      Position		      [1500, 340, 1600, 360]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "powerChiller2"
+      Port {
+	PortNumber		1
+	Name			"powerChiller2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      From
+      Name		      "From22"
+      SID		      "160"
+      Position		      [440, 190, 550, 210]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "ChWTempControl2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From23"
+      SID		      "163"
+      Position		      [1500, 385, 1600, 405]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "ppdOff1"
+      Port {
+	PortNumber		1
+	Name			"ppdOff1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      From
+      Name		      "From24"
+      SID		      "174"
+      Position		      [1500, 430, 1600, 450]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "ppdOff2"
+      Port {
+	PortNumber		1
+	Name			"ppdOff2"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      From
+      Name		      "From25"
+      SID		      "175"
+      Position		      [325, 1335, 435, 1355]
+      ZOrder		      -9
+      GotoTag		      "ChWTempCampus"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From26"
+      SID		      "176"
+      Position		      [325, 1264, 420, 1286]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "RoomHeatSch2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From27"
+      SID		      "177"
+      Position		      [325, 1229, 420, 1251]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "RoomCoolSch2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From28"
+      SID		      "178"
+      Position		      [325, 1299, 385, 1321]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "SatSch2"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From29"
+      SID		      "190"
+      Position		      [30, 244, 125, 266]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "Time"
     }
     Block {
       BlockType		      From
       Name		      "From3"
       SID		      "81"
-      Position		      [1260, 209, 1320, 231]
+      Position		      [1500, 159, 1560, 181]
       ZOrder		      -9
-      GotoTag		      "powOff1"
+      ShowName		      off
+      GotoTag		      "powerOff1"
+      Port {
+	PortNumber		1
+	Name			"powerOff1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      From
+      Name		      "From30"
+      SID		      "191"
+      Position		      [1305, 589, 1400, 611]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "RoomHeatSch1"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From31"
+      SID		      "192"
+      Position		      [1305, 554, 1400, 576]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "RoomCoolSch1"
     }
     Block {
       BlockType		      From
       Name		      "From4"
       SID		      "82"
-      Position		      [1260, 254, 1320, 276]
+      Position		      [1500, 204, 1560, 226]
       ZOrder		      -9
+      ShowName		      off
       GotoTag		      "flowOff1"
-    }
-    Block {
-      BlockType		      From
-      Name		      "From5"
-      SID		      "83"
-      Position		      [1260, 299, 1320, 321]
-      ZOrder		      -9
-      GotoTag		      "loadOff1"
+      Port {
+	PortNumber		1
+	Name			"flowOff1"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
     }
     Block {
       BlockType		      From
       Name		      "From6"
       SID		      "84"
-      Position		      [295, 114, 365, 136]
+      Position		      [440, 99, 510, 121]
       ZOrder		      -9
+      ShowName		      off
       GotoTag		      "flowOff1"
     }
     Block {
       BlockType		      From
       Name		      "From7"
       SID		      "85"
-      Position		      [295, 74, 365, 96]
+      Position		      [440, 39, 510, 61]
       ZOrder		      -9
+      ShowName		      off
       GotoTag		      "loadOff1"
     }
     Block {
       BlockType		      From
       Name		      "From8"
       SID		      "94"
-      Position		      [305, 439, 400, 461]
+      Position		      [330, 559, 425, 581]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "RoomCoolSch1"
@@ -1057,7 +1303,7 @@ Model {
       BlockType		      From
       Name		      "From9"
       SID		      "95"
-      Position		      [305, 484, 365, 506]
+      Position		      [330, 629, 390, 651]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "SatSch1"
@@ -1066,8 +1312,21 @@ Model {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "86"
-      Position		      [395, 110, 465, 140]
+      Position		      [530, 94, 595, 126]
       ZOrder		      -8
+      ShowName		      off
+      Gain		      "1/1000"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain1"
+      SID		      "159"
+      Position		      [530, 124, 595, 156]
+      ZOrder		      -8
+      ShowName		      off
       Gain		      "1/1000"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1077,7 +1336,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto"
       SID		      "31"
-      Position		      [945, 420, 985, 450]
+      Position		      [945, 550, 985, 580]
       ZOrder		      -10
       GotoTag		      "stop1"
     }
@@ -1085,71 +1344,192 @@ Model {
       BlockType		      Goto
       Name		      "Goto1"
       SID		      "32"
-      Position		      [930, 1015, 970, 1045]
+      Position		      [930, 1220, 970, 1250]
       ZOrder		      -10
       GotoTag		      "stop2"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto10"
-      SID		      "89"
-      Position		      [1035, 1273, 1110, 1297]
+      SID		      "166"
+      Position		      [1050, 1414, 1130, 1436]
       ZOrder		      -10
-      GotoTag		      "loadOff2"
+      ShowName		      off
+      GotoTag		      "energyOff2"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto11"
-      SID		      "98"
-      Position		      [120, 90, 215, 110]
+      SID		      "122"
+      Position		      [225, 70, 320, 90]
       ZOrder		      -10
-      GotoTag		      "RoomCoolSch1"
+      GotoTag		      "Time"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto12"
-      SID		      "99"
-      Position		      [120, 135, 215, 155]
+      SID		      "193"
+      Position		      [265, 320, 380, 340]
       ZOrder		      -10
-      GotoTag		      "SatSch1"
-    }
-    Block {
-      BlockType		      Goto
-      Name		      "Goto13"
-      SID		      "100"
-      Position		      [120, 180, 225, 200]
-      ZOrder		      -10
-      GotoTag		      "ChWTempControl"
+      ShowName		      off
+      GotoTag		      "ChWTempControl1"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto14"
       SID		      "102"
-      Position		      [1015, 271, 1135, 289]
+      Position		      [1100, 261, 1220, 279]
       ZOrder		      -10
+      ShowName		      off
       GotoTag		      "ChWTempCampus"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto16"
+      SID		      "194"
+      Position		      [265, 351, 380, 369]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "ChWTempControl2"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto18"
+      SID		      "127"
+      Position		      [1030, 804, 1110, 826]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "loadOff1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto19"
+      SID		      "167"
+      Position		      [1050, 1439, 1130, 1461]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "powerOff2"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto2"
       SID		      "33"
-      Position		      [910, 750, 950, 780]
+      Position		      [910, 910, 950, 940]
       ZOrder		      -10
       GotoTag		      "stop3"
     }
     Block {
       BlockType		      Goto
+      Name		      "Goto20"
+      SID		      "141"
+      Position		      [1030, 1089, 1110, 1111]
+      ZOrder		      -10
+      GotoTag		      "powerHosp"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto21"
+      SID		      "152"
+      Position		      [1100, 291, 1220, 309]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "powerChiller1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto22"
+      SID		      "153"
+      Position		      [1100, 321, 1220, 339]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "powerChiller2"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto23"
+      SID		      "162"
+      Position		      [1030, 834, 1110, 856]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "ppdOff1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto24"
+      SID		      "168"
+      Position		      [1050, 1464, 1130, 1486]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "flowOff2"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto25"
+      SID		      "184"
+      Position		      [285, 140, 380, 160]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "RoomCoolSch1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto26"
+      SID		      "185"
+      Position		      [285, 170, 380, 190]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "RoomHeatSch1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto27"
+      SID		      "186"
+      Position		      [285, 200, 380, 220]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "SatSch1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto28"
+      SID		      "187"
+      Position		      [285, 230, 380, 250]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "RoomCoolSch2"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto29"
+      SID		      "188"
+      Position		      [285, 260, 380, 280]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "RoomHeatSch2"
+    }
+    Block {
+      BlockType		      Goto
       Name		      "Goto3"
       SID		      "47"
-      Position		      [1030, 599, 1110, 621]
+      Position		      [1030, 729, 1110, 751]
       ZOrder		      -10
-      GotoTag		      "powOff1"
+      ShowName		      off
+      GotoTag		      "energyOff1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto30"
+      SID		      "189"
+      Position		      [285, 290, 380, 310]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "SatSch2"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto4"
       SID		      "52"
-      Position		      [950, 52, 1005, 78]
+      Position		      [1035, 52, 1090, 78]
       ZOrder		      -10
       GotoTag		      "stop4"
     }
@@ -1157,48 +1537,53 @@ Model {
       BlockType		      Goto
       Name		      "Goto5"
       SID		      "53"
-      Position		      [1015, 230, 1090, 250]
+      Position		      [1100, 230, 1175, 250]
       ZOrder		      -10
+      ShowName		      off
       GotoTag		      "outTemp"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto6"
       SID		      "76"
-      Position		      [1030, 639, 1110, 661]
+      Position		      [1030, 754, 1110, 776]
       ZOrder		      -10
-      GotoTag		      "flowOff1"
+      ShowName		      off
+      GotoTag		      "powerOff1"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto7"
       SID		      "78"
-      Position		      [1030, 679, 1110, 701]
+      Position		      [1030, 779, 1110, 801]
       ZOrder		      -10
-      GotoTag		      "loadOff1"
+      ShowName		      off
+      GotoTag		      "flowOff1"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto8"
-      SID		      "87"
-      Position		      [1035, 1192, 1110, 1218]
+      SID		      "164"
+      Position		      [1050, 1489, 1130, 1511]
       ZOrder		      -10
-      GotoTag		      "powOff2"
+      ShowName		      off
+      GotoTag		      "loadOff2"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto9"
-      SID		      "88"
-      Position		      [1035, 1234, 1115, 1256]
+      SID		      "165"
+      Position		      [1050, 1519, 1130, 1541]
       ZOrder		      -10
-      GotoTag		      "flowOff2"
+      ShowName		      off
+      GotoTag		      "ppdOff2"
     }
     Block {
       BlockType		      M-S-Function
       Name		      "Hospital"
       SID		      "13"
       Ports		      [1, 3]
-      Position		      [585, 731, 855, 919]
+      Position		      [585, 891, 855, 1079]
       ZOrder		      2
       AncestorBlock	      "mlepLibrary/E+ Building"
       LibraryVersion	      "1.8"
@@ -1268,47 +1653,165 @@ Model {
       "0000|0|''|''|900|2"
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "MATLAB Function"
+      SID		      "181"
+      Ports		      [1, 1]
+      Position		      [145, 232, 215, 278]
+      ZOrder		      -4
+      LibraryVersion	      "1.32"
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      SFBlockType	      "MATLAB Function"
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('pr"
+      "ivate/eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'fcn']);"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      System {
+	Name			"MATLAB Function"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"22"
+	Block {
+	  BlockType		  Inport
+	  Name			  "time"
+	  SID			  "181::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "181::20"
+	  Ports			  [1, 1]
+	  Position		  [270, 160, 320, 200]
+	  ZOrder		  6
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "181::19"
+	  Tag			  "Stateflow S-Function campus_windows 1"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 160]
+	  ZOrder		  5
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "181::22"
+	  Position		  [460, 171, 480, 189]
+	  ZOrder		  8
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "y"
+	  SID			  "181::5"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "time"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "y"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "y"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      Mux
       Name		      "Mux"
       SID		      "7"
-      Ports		      [3, 1]
-      Position		      [430, 428, 435, 562]
+      Ports		      [4, 1]
+      Position		      [455, 555, 460, 690]
       ZOrder		      -12
       ShowName		      off
-      Inputs		      "3"
       DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
       Name		      "Mux1"
       SID		      "41"
-      Ports		      [3, 1]
-      Position		      [1790, 201, 1795, 239]
+      Ports		      [4, 1]
+      Position		      [1450, 16, 1455, 109]
       ZOrder		      -12
       ShowName		      off
-      Inputs		      "3"
       DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
       Name		      "Mux2"
-      SID		      "97"
-      Ports		      [3, 1]
-      Position		      [425, 428, 430, 562]
+      SID		      "179"
+      Ports		      [4, 1]
+      Position		      [450, 1225, 455, 1360]
       ZOrder		      -12
       ShowName		      off
-      Inputs		      "3"
       DisplayOption	      "bar"
     }
     Block {
       BlockType		      Mux
       Name		      "Mux3"
       SID		      "60"
-      Ports		      [3, 1]
-      Position		      [490, 63, 495, 187]
+      Ports		      [6, 1]
+      Position		      [625, 27, 630, 223]
       ZOrder		      -12
       ShowName		      off
-      Inputs		      "3"
+      Inputs		      "6"
       DisplayOption	      "bar"
     }
     Block {
@@ -1316,13 +1819,14 @@ Model {
       Name		      "Office1"
       SID		      "1"
       Ports		      [1, 3]
-      Position		      [580, 401, 850, 589]
+      Position		      [580, 531, 850, 719]
       ZOrder		      2
-      LibraryVersion	      "1.8"
+      LibraryVersion	      "1.27"
       SourceBlock	      "mlepLibrary/E+ Building"
       SourceType	      "EnergyPlus Cosimulation"
       progname		      "'C:\\EnergyPlusV8-1-0\\RunEPlus'"
-      modelfile		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office1'"
+      modelfile		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office1\\Larg"
+      "eOffice'"
       weatherfile	      "'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'"
       workdir		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office1'"
       timeout		      "40000"
@@ -1330,16 +1834,16 @@ Model {
       host		      "''"
       bcvtbdir		      "''"
       deltaT		      "900"
-      noutputd		      "6"
+      noutputd		      "7"
     }
     Block {
       BlockType		      Reference
       Name		      "Office2"
       SID		      "10"
       Ports		      [1, 3]
-      Position		      [580, 996, 850, 1184]
+      Position		      [580, 1201, 850, 1389]
       ZOrder		      2
-      LibraryVersion	      "1.8"
+      LibraryVersion	      "1.27"
       SourceBlock	      "mlepLibrary/E+ Building"
       SourceType	      "EnergyPlus Cosimulation"
       progname		      "'C:\\EnergyPlusV8-1-0\\RunEPlus'"
@@ -1352,43 +1856,28 @@ Model {
       host		      "''"
       bcvtbdir		      "''"
       deltaT		      "900"
-      noutputd		      "6"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Room"
-      SID		      "2"
-      Position		      [45, 85, 75, 115]
-      ZOrder		      -4
-      Value		      "24"
+      noutputd		      "7"
     }
     Block {
       BlockType		      Constant
       Name		      "Room1"
       SID		      "20"
-      Position		      [465, 810, 495, 840]
+      Position		      [530, 970, 560, 1000]
       ZOrder		      -4
       Value		      "26"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "SAT"
-      SID		      "6"
-      Position		      [45, 130, 75, 160]
-      ZOrder		      -4
-      Value		      "13"
     }
     Block {
       BlockType		      Scope
       Name		      "Scope"
       SID		      "3"
       Ports		      [1]
-      Position		      [935, 539, 965, 571]
+      Position		      [935, 669, 965, 701]
       ZOrder		      -16
       Floating		      off
       Location		      [89, 91, 904, 384]
       Open		      off
       NumInputPorts	      "1"
+      ZoomMode		      "yonly"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
@@ -1413,15 +1902,14 @@ Model {
     Block {
       BlockType		      Scope
       Name		      "Scope1"
-      SID		      "90"
+      SID		      "133"
       Ports		      [1]
-      Position		      [940, 1134, 970, 1166]
+      Position		      [940, 1339, 970, 1371]
       ZOrder		      -16
       Floating		      off
       Location		      [89, 91, 904, 384]
       Open		      off
       NumInputPorts	      "1"
-      ZoomMode		      "yonly"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
@@ -1449,7 +1937,7 @@ Model {
       Name		      "Scope2"
       SID		      "17"
       Ports		      [1]
-      Position		      [920, 869, 950, 901]
+      Position		      [920, 1029, 950, 1061]
       ZOrder		      -16
       Floating		      off
       Location		      [188, 390, 1003, 683]
@@ -1482,7 +1970,7 @@ Model {
       Name		      "Scope3"
       SID		      "55"
       Ports		      [1]
-      Position		      [940, 169, 970, 201]
+      Position		      [1025, 169, 1055, 201]
       ZOrder		      -16
       Floating		      off
       Location		      [89, 91, 904, 384]
@@ -1515,13 +2003,91 @@ Model {
       BlockType		      Scope
       Name		      "Scope4"
       SID		      "80"
+      Ports		      [7]
+      Position		      [1715, 144, 1750, 466]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [66, 162, 1734, 812]
+      Open		      on
+      NumInputPorts	      "7"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+	axes4			"%<SignalLabel>"
+	axes5			"%<SignalLabel>"
+	axes6			"%<SignalLabel>"
+	axes7			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      on
+      LegendLocations	      "0.92976     0.91154    0.052158    0.031282\n0.92976     0.77923    0.052158    0.031282\n"
+      "0.92976     0.64692    0.052158    0.031282\n0.92616     0.51462    0.055755    0.031282\n0.92616     0.38231   "
+      " 0.055755    0.031282\n0.92616        0.25    0.055755    0.031282\n0.92616     0.11769    0.055755    0.031282"
+      YMin		      "0~-5~-5~-5~-5~-5~-5"
+      YMax		      "1.4e+09~5~5~5~5~5~5"
+      SaveName		      "ScopeData4"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope5"
+      SID		      "112"
       Ports		      [3]
-      Position		      [1380, 199, 1415, 331]
+      Position		      [1490, 558, 1520, 592]
       ZOrder		      -16
       Floating		      off
       Location		      [89, 91, 904, 384]
       Open		      off
       NumInputPorts	      "3"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.501960784313725 0.501960784313725 0.501960784313725]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      off
+      YMin		      "0~-5~-5"
+      YMax		      "1.4e+09~5~5"
+      SaveName		      "ScopeData5"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope6"
+      SID		      "138"
+      Ports		      [3]
+      Position		      [1485, 907, 1520, 1023]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [89, 91, 1152, 830]
+      Open		      off
+      NumInputPorts	      "3"
+      ZoomMode		      "yonly"
       List {
 	ListType		AxesTitles
 	axes1			"%<SignalLabel>"
@@ -1538,12 +2104,10 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      ShowLegends	      on
-      LegendLocations	      "0.87419     0.83786    0.090838    0.061444\n0.87419     0.54776    0.090838    0.061444\n"
-      "0.87419     0.25765    0.090838    0.061444"
+      ShowLegends	      off
       YMin		      "0~-5~-5"
       YMax		      "1.4e+09~5~5"
-      SaveName		      "ScopeData4"
+      SaveName		      "ScopeData6"
       DataFormat	      "StructureWithTime"
       LimitDataPoints	      off
       SampleTime	      "0"
@@ -1553,12 +2117,12 @@ Model {
       Name		      "Selector"
       SID		      "74"
       Ports		      [1, 1]
-      Position		      [915, 593, 1005, 627]
+      Position		      [915, 728, 1000, 752]
       ZOrder		      -17
       ShowName		      off
-      InputPortWidth	      "6"
+      InputPortWidth	      "7"
       IndexOptions	      "Index vector (dialog)"
-      Indices		      "[2]"
+      Indices		      "[1]"
       OutputSizes	      "1"
     }
     Block {
@@ -1566,12 +2130,77 @@ Model {
       Name		      "Selector1"
       SID		      "77"
       Ports		      [1, 1]
-      Position		      [915, 633, 1005, 667]
+      Position		      [915, 755, 1000, 775]
       ZOrder		      -17
       ShowName		      off
-      InputPortWidth	      "6"
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[2]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector10"
+      SID		      "142"
+      Ports		      [1, 1]
+      Position		      [915, 1083, 1005, 1117]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "2"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[2]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector11"
+      SID		      "150"
+      Ports		      [1, 1]
+      Position		      [995, 289, 1060, 311]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "4"
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[3]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector12"
+      SID		      "151"
+      Ports		      [1, 1]
+      Position		      [995, 318, 1060, 342]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "4"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[4]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector13"
+      SID		      "161"
+      Ports		      [1, 1]
+      Position		      [915, 832, 1005, 858]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[7]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector14"
+      SID		      "173"
+      Ports		      [1, 1]
+      Position		      [935, 1488, 1025, 1512]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[4]"
       OutputSizes	      "1"
     }
     Block {
@@ -1579,51 +2208,51 @@ Model {
       Name		      "Selector2"
       SID		      "79"
       Ports		      [1, 1]
-      Position		      [915, 673, 1005, 707]
+      Position		      [915, 780, 1005, 800]
       ZOrder		      -17
       ShowName		      off
-      InputPortWidth	      "6"
-      IndexOptions	      "Index vector (dialog)"
-      Indices		      "[4]"
-      OutputSizes	      "1"
-    }
-    Block {
-      BlockType		      Selector
-      Name		      "Selector3"
-      SID		      "91"
-      Ports		      [1, 1]
-      Position		      [920, 1188, 1010, 1222]
-      ZOrder		      -17
-      ShowName		      off
-      InputPortWidth	      "6"
-      IndexOptions	      "Index vector (dialog)"
-      Indices		      "[2]"
-      OutputSizes	      "1"
-    }
-    Block {
-      BlockType		      Selector
-      Name		      "Selector4"
-      SID		      "92"
-      Ports		      [1, 1]
-      Position		      [920, 1228, 1010, 1262]
-      ZOrder		      -17
-      ShowName		      off
-      InputPortWidth	      "6"
+      InputPortWidth	      "7"
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[3]"
       OutputSizes	      "1"
     }
     Block {
       BlockType		      Selector
-      Name		      "Selector5"
-      SID		      "93"
+      Name		      "Selector3"
+      SID		      "169"
       Ports		      [1, 1]
-      Position		      [920, 1268, 1010, 1302]
+      Position		      [935, 1413, 1020, 1437]
       ZOrder		      -17
       ShowName		      off
-      InputPortWidth	      "6"
+      InputPortWidth	      "7"
       IndexOptions	      "Index vector (dialog)"
-      Indices		      "[4]"
+      Indices		      "[1]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector4"
+      SID		      "170"
+      Ports		      [1, 1]
+      Position		      [935, 1440, 1020, 1460]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[2]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector5"
+      SID		      "171"
+      Ports		      [1, 1]
+      Position		      [935, 1517, 1025, 1543]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[7]"
       OutputSizes	      "1"
     }
     Block {
@@ -1631,10 +2260,10 @@ Model {
       Name		      "Selector6"
       SID		      "101"
       Ports		      [1, 1]
-      Position		      [910, 222, 975, 258]
+      Position		      [995, 226, 1060, 254]
       ZOrder		      -17
       ShowName		      off
-      InputPortWidth	      "2"
+      InputPortWidth	      "4"
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[1]"
       OutputSizes	      "1"
@@ -1644,19 +2273,45 @@ Model {
       Name		      "Selector7"
       SID		      "103"
       Ports		      [1, 1]
-      Position		      [910, 265, 975, 295]
+      Position		      [995, 258, 1060, 282]
       ZOrder		      -17
       ShowName		      off
-      InputPortWidth	      "2"
+      InputPortWidth	      "4"
       IndexOptions	      "Index vector (dialog)"
       Indices		      "[2]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector8"
+      SID		      "128"
+      Ports		      [1, 1]
+      Position		      [915, 803, 1005, 827]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[4]"
+      OutputSizes	      "1"
+    }
+    Block {
+      BlockType		      Selector
+      Name		      "Selector9"
+      SID		      "172"
+      Ports		      [1, 1]
+      Position		      [935, 1465, 1025, 1485]
+      ZOrder		      -17
+      ShowName		      off
+      InputPortWidth	      "7"
+      IndexOptions	      "Index vector (dialog)"
+      Indices		      "[3]"
       OutputSizes	      "1"
     }
     Block {
       BlockType		      Stop
       Name		      "Stop Simulation"
       SID		      "4"
-      Position		      [1990, 202, 2025, 238]
+      Position		      [1650, 47, 1685, 83]
       ZOrder		      -4
     }
     Block {
@@ -1664,7 +2319,7 @@ Model {
       Name		      "Subsystem"
       SID		      "34"
       Ports		      [1, 1]
-      Position		      [1825, 199, 1925, 241]
+      Position		      [1505, 44, 1605, 86]
       ZOrder		      -17
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1843,7 +2498,16 @@ Model {
       BlockType		      UnitDelay
       Name		      "Unit Delay"
       SID		      "105"
-      Position		      [470, 474, 505, 516]
+      Position		      [500, 604, 535, 646]
+      ZOrder		      -21
+      InputProcessing	      "Elements as channels (sample based)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      UnitDelay
+      Name		      "Unit Delay1"
+      SID		      "180"
+      Position		      [495, 1274, 530, 1316]
       ZOrder		      -21
       InputProcessing	      "Elements as channels (sample based)"
       SampleTime	      "-1"
@@ -1857,7 +2521,7 @@ Model {
     Line {
       SrcBlock		      "Office1"
       SrcPort		      3
-      Points		      [35, 0]
+      Points		      [25, 0]
       Branch {
 	DstBlock		"Scope"
 	DstPort			1
@@ -1869,15 +2533,30 @@ Model {
 	  DstPort		  1
 	}
 	Branch {
-	  Points		  [0, 40]
+	  Points		  [0, 25]
 	  Branch {
 	    DstBlock		    "Selector1"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 40]
-	    DstBlock		    "Selector2"
-	    DstPort		    1
+	    Points		    [0, 20]
+	    Branch {
+	      Points		      [0, 5]
+	      DstBlock		      "Selector2"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 30]
+	      Branch {
+		Points			[0, 30]
+		DstBlock		"Selector13"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Selector8"
+		DstPort			1
+	      }
+	    }
 	  }
 	}
       }
@@ -1909,8 +2588,16 @@ Model {
     Line {
       SrcBlock		      "Hospital"
       SrcPort		      3
-      DstBlock		      "Scope2"
-      DstPort		      1
+      Points		      [20, 0]
+      Branch {
+	DstBlock		"Scope2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 55]
+	DstBlock		"Selector10"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Room1"
@@ -1927,7 +2614,6 @@ Model {
     Line {
       SrcBlock		      "From"
       SrcPort		      1
-      Points		      [10, 0; 0, 35]
       DstBlock		      "Mux1"
       DstPort		      1
     }
@@ -1940,7 +2626,6 @@ Model {
     Line {
       SrcBlock		      "From2"
       SrcPort		      1
-      Points		      [10, 0; 0, -35]
       DstBlock		      "Mux1"
       DstPort		      3
     }
@@ -1973,13 +2658,27 @@ Model {
       Branch {
 	Points			[0, 55]
 	Branch {
-	  Points		  [0, 40]
-	  DstBlock		  "Selector7"
+	  DstBlock		  "Selector6"
 	  DstPort		  1
 	}
 	Branch {
-	  DstBlock		  "Selector6"
-	  DstPort		  1
+	  Points		  [0, 30]
+	  Branch {
+	    DstBlock		    "Selector7"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 30]
+	    Branch {
+	      DstBlock		      "Selector11"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 30]
+	      DstBlock		      "Selector12"
+	      DstPort		      1
+	    }
+	  }
 	}
       }
     }
@@ -2014,86 +2713,28 @@ Model {
       DstPort		      1
     }
     Line {
+      Name		      "powerOff1"
+      Labels		      [-1, 1]
       SrcBlock		      "From3"
       SrcPort		      1
       DstBlock		      "Scope4"
       DstPort		      1
     }
     Line {
+      Name		      "flowOff1"
+      Labels		      [1, 0]
       SrcBlock		      "From4"
       SrcPort		      1
       DstBlock		      "Scope4"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "From5"
+      Name		      "loadOff1"
+      Labels		      [1, 0]
+      SrcBlock		      "Fro5"
       SrcPort		      1
       DstBlock		      "Scope4"
       DstPort		      3
-    }
-    Line {
-      SrcBlock		      "From7"
-      SrcPort		      1
-      DstBlock		      "Mux3"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "From6"
-      SrcPort		      1
-      DstBlock		      "Gain"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Gain"
-      SrcPort		      1
-      DstBlock		      "Mux3"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Office2"
-      SrcPort		      3
-      Points		      [40, 0]
-      Branch {
-	DstBlock		"Scope1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 55]
-	Branch {
-	  DstBlock		  "Selector3"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 40]
-	  Branch {
-	    DstBlock		    "Selector4"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 40]
-	    DstBlock		    "Selector5"
-	    DstPort		    1
-	  }
-	}
-      }
-    }
-    Line {
-      SrcBlock		      "Selector3"
-      SrcPort		      1
-      DstBlock		      "Goto8"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Selector4"
-      SrcPort		      1
-      DstBlock		      "Goto9"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Selector5"
-      SrcPort		      1
-      DstBlock		      "Goto10"
-      DstPort		      1
     }
     Line {
       SrcBlock		      "Mux"
@@ -2105,36 +2746,6 @@ Model {
       SrcBlock		      "From8"
       SrcPort		      1
       DstBlock		      "Mux"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "From9"
-      SrcPort		      1
-      DstBlock		      "Mux"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "From10"
-      SrcPort		      1
-      DstBlock		      "Mux"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Room"
-      SrcPort		      1
-      DstBlock		      "Goto11"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "SAT"
-      SrcPort		      1
-      DstBlock		      "Goto12"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "ChWater"
-      SrcPort		      1
-      DstBlock		      "Goto13"
       DstPort		      1
     }
     Line {
@@ -2150,24 +2761,356 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "From11"
+      SrcBlock		      "Clock"
+      SrcPort		      1
+      DstBlock		      "Fcn"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From12"
+      SrcPort		      1
+      DstBlock		      "Mux"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From9"
+      SrcPort		      1
+      DstBlock		      "Mux"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "From10"
+      SrcPort		      1
+      DstBlock		      "Mux"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Fcn"
+      SrcPort		      1
+      DstBlock		      "Goto11"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From14"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Selector8"
+      SrcPort		      1
+      DstBlock		      "Goto18"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Office2"
+      SrcPort		      3
+      Points		      [40, 0]
+      Branch {
+	DstBlock		"Scope1"
+	DstPort			1
+      }
+      Branch {
+	Points			[5, 0; 0, 70]
+	Branch {
+	  DstBlock		  "Selector3"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 25]
+	  Branch {
+	    DstBlock		    "Selector4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 20]
+	    Branch {
+	      Points		      [0, 5]
+	      DstBlock		      "Selector9"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 30]
+	      Branch {
+		Points			[0, 30]
+		DstBlock		"Selector5"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Selector14"
+		DstPort			1
+	      }
+	    }
+	  }
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Selector10"
+      SrcPort		      1
+      DstBlock		      "Goto20"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From15"
+      SrcPort		      1
+      DstBlock		      "Scope6"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From16"
+      SrcPort		      1
+      DstBlock		      "Scope6"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From17"
+      SrcPort		      1
+      DstBlock		      "Scope6"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Selector11"
+      SrcPort		      1
+      DstBlock		      "Goto21"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Selector12"
+      SrcPort		      1
+      DstBlock		      "Goto22"
+      DstPort		      1
+    }
+    Line {
+      Name		      "powerChiller1"
+      Labels		      [0, 1]
+      SrcBlock		      "From19"
+      SrcPort		      1
+      DstBlock		      "Scope4"
+      DstPort		      4
+    }
+    Line {
+      Name		      "powerChiller2"
+      Labels		      [0, 1]
+      SrcBlock		      "From21"
+      SrcPort		      1
+      DstBlock		      "Scope4"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "From7"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From20"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From6"
+      SrcPort		      1
+      DstBlock		      "Gain"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Gain"
       SrcPort		      1
       DstBlock		      "Mux3"
       DstPort		      3
     }
     Line {
+      SrcBlock		      "From18"
+      SrcPort		      1
+      DstBlock		      "Gain1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Gain1"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "From11"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "From22"
+      SrcPort		      1
+      DstBlock		      "Mux3"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Selector13"
+      SrcPort		      1
+      DstBlock		      "Goto23"
+      DstPort		      1
+    }
+    Line {
+      Name		      "ppdOff1"
+      Labels		      [0, 1]
+      SrcBlock		      "From23"
+      SrcPort		      1
+      DstBlock		      "Scope4"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Selector3"
+      SrcPort		      1
+      DstBlock		      "Goto10"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Selector4"
+      SrcPort		      1
+      DstBlock		      "Goto19"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Selector9"
+      SrcPort		      1
+      DstBlock		      "Goto24"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Selector14"
+      SrcPort		      1
+      DstBlock		      "Goto8"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Selector5"
+      SrcPort		      1
+      DstBlock		      "Goto9"
+      DstPort		      1
+    }
+    Line {
+      Name		      "ppdOff2"
+      Labels		      [0, 1]
+      SrcBlock		      "From24"
+      SrcPort		      1
+      DstBlock		      "Scope4"
+      DstPort		      7
+    }
+    Line {
       SrcBlock		      "Unit Delay"
       SrcPort		      1
-      Points		      [20, 0]
-      Branch {
-	DstBlock		"Office1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 595]
-	DstBlock		"Office2"
-	DstPort			1
-      }
+      DstBlock		      "Office1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mux2"
+      SrcPort		      1
+      DstBlock		      "Unit Delay1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From27"
+      SrcPort		      1
+      DstBlock		      "Mux2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From26"
+      SrcPort		      1
+      DstBlock		      "Mux2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From28"
+      SrcPort		      1
+      DstBlock		      "Mux2"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "From25"
+      SrcPort		      1
+      DstBlock		      "Mux2"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Unit Delay1"
+      SrcPort		      1
+      DstBlock		      "Office2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "MATLAB Function"
+      SrcPort		      1
+      DstBlock		      "Demux"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      DstBlock		      "Goto25"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      2
+      DstBlock		      "Goto26"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      3
+      DstBlock		      "Goto27"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      4
+      DstBlock		      "Goto28"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      5
+      DstBlock		      "Goto29"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      6
+      DstBlock		      "Goto30"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From29"
+      SrcPort		      1
+      DstBlock		      "MATLAB Function"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From31"
+      SrcPort		      1
+      DstBlock		      "Scope5"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From30"
+      SrcPort		      1
+      Points		      [40, 0; 0, -25]
+      DstBlock		      "Scope5"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      7
+      DstBlock		      "Goto12"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Demux"
+      SrcPort		      8
+      DstBlock		      "Goto16"
+      DstPort		      1
     }
   }
 }
@@ -2184,25 +3127,28 @@ Stateflow {
     name		    "campus_windows"
     created		    "02-Jan-2014 16:26:09"
     isLibrary		    0
-    firstTarget		    9
+    firstTarget		    16
     sfVersion		    76014001.00040001
   }
   chart {
     id			    2
-    name		    "Subsystem/MATLAB Function"
-    windowPosition	    [375.454 271.35 200.25 189.75]
+    name		    "MATLAB Function"
+    windowPosition	    [375.75 203.25 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.000788022064618]
+    screen		    [1 1 1920 1080 1.333333333333333]
     treeNode		    [0 3 0 0]
     firstTransition	    5
     firstJunction	    4
     viewObj		    2
     machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    subviewS {
+    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    2
+    chartFileNumber	    1
     disableImplicitCasting  1
     eml {
       name		      "fcn"
@@ -2222,8 +3168,12 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function y = fcn(u)\n%#codegen\n% Number of Inputs\nlen = length(u);\n\n% Check \nif sum(u==1) =="
-      " len\n    y = 1;\nelse\n    y = 0;\nend\n"
+      script		      "function y = fcn(time)\n%#codegen\n\n% Cool\nif time < 6\n    coolSP = 26.7;\nelseif time < 22 \n"
+      "    coolSP = 24.0;\nelse \n    coolSP = 26.7;\nend\n\n% Heat\nif time < 6\n    heatSP = 15.6;\nelseif time < 22 "
+      "\n    heatSP = 21.0;\nelse \n    heatSP = 15.6;\nend\n\n% Office 1\nRoomCoolSch1 = coolSP;\nRoomHeatSch1 = heatS"
+      "P;\nSatSch1 = 12.8;\n\n% Office 2\nRoomCoolSch2 = coolSP;\nRoomHeatSch2 = heatSP;\nSatSch2 = 12.8;\n\n% Chiller "
+      "\nChWTempControl1 = 6.7;\nChWTempControl2 = 6.7;\n\ny = [RoomCoolSch1 RoomHeatSch1 SatSch1 RoomCoolSch2 RoomHeat"
+      "Sch2 SatSch2 ...\n    ChWTempControl1 ChWTempControl2];\n\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -2260,7 +3210,7 @@ Stateflow {
   data {
     id			    6
     ssIdNumber		    4
-    name		    "u"
+    name		    "time"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -2298,12 +3248,127 @@ Stateflow {
   }
   instance {
     id			    8
-    name		    "Subsystem/MATLAB Function"
+    name		    "MATLAB Function"
     machine		    1
     chart		    2
   }
-  target {
+  chart {
     id			    9
+    name		    "Subsystem/MATLAB Function"
+    windowPosition	    [375.454 271.35 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.000788022064618]
+    treeNode		    [0 10 0 0]
+    firstTransition	    12
+    firstJunction	    11
+    viewObj		    9
+    machine		    1
+    ssIdHighWaterMark	    5
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    13
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    10
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    9
+    treeNode		    [9 0 0 0]
+    superState		    SUBCHART
+    subviewer		    9
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function y = fcn(u)\n%#codegen\n% Number of Inputs\nlen = length(u);\n\n% Check \nif sum(u==1) =="
+      " len\n    y = 1;\nelse\n    y = 0;\nend\n"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+    }
+  }
+  junction {
+    id			    11
+    position		    [23.5747 49.5747 7]
+    chart		    9
+    linkNode		    [9 0 0]
+    subviewer		    9
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    12
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    9
+    linkNode		    [9 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    9
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    13
+    ssIdNumber		    4
+    name		    "u"
+    linkNode		    [9 0 14]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    14
+    ssIdNumber		    5
+    name		    "y"
+    linkNode		    [9 13 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    15
+    name		    "Subsystem/MATLAB Function"
+    machine		    1
+    chart		    9
+  }
+  target {
+    id			    16
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1

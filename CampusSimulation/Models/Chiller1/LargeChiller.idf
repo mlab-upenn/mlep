@@ -98,7 +98,7 @@
     1,                       !- Begin Day of Month
     6,                       !- End Month
     1,                       !- End Day of Month
-    Sunday,                  !- Day of Week for Start Day
+    Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
     No,                      !- Apply Weekend Holiday Rule
@@ -872,7 +872,7 @@
   SetpointManager:Scheduled,
     CoolSys1 Chiller 1 Setpoint Manager,  !- Name
     Temperature,             !- Control Variable
-    ChWaterTempControl,   !- Schedule Name M:E+ CW-Loop-Temp-Schedule
+    ChWaterTempControl1,   !- Schedule Name M:E+ CW-Loop-Temp-Schedule
     CoolSys1 Supply Equipment Outlet Node 1;  !- Setpoint Node or NodeList Name
 
   CoolingTower:SingleSpeed,
@@ -938,9 +938,11 @@
     Intermittent;            !- Pump Control Type
 
   PlantEquipmentList,
-    CoolSys1 Equipment List, !- Name
-    Chiller:Electric:ReformulatedEIR,  !- Equipment 1 Object Type
-    CoolSys1 Chiller 1;      !- Equipment 1 Name
+    CoolSys1 Equipment List,            !- Name
+    Chiller:Electric:ReformulatedEIR,   !- Equipment 1 Object Type
+    CoolSys1 Chiller 1,                 !- Equipment 1 Name
+    Chiller:Electric,   !- Equipment 1 Object Type
+    CoolSys1 Chiller 2;                 !- Equipment 1 Name
 
   CondenserEquipmentList,
     TowerWaterSys Equipment List,  !- Name
@@ -1123,24 +1125,24 @@
     CoolSys1 Demand Branches,!- Name
     CoolSys1 Demand Inlet Branch,  !- Branch 1 Name
     CoolSys1 Demand Load Branch 1,  !- Branch 2 Name
+    CoolSys1 Demand Load Branch 2,  !- Branch 2 Name
+    CoolSys1 Demand Load Branch 3,  !- Branch 2 Name
     CoolSys1 Demand Bypass Branch,  !- Branch 3 Name
     CoolSys1 Demand Outlet Branch;  !- Branch 4 Name
-
-    !CoolSys1 Supply Equipment Branch 2,  !- Branch 3 Name
 
   BranchList,
     CoolSys1 Supply Branches,!- Name
     CoolSys1 Supply Inlet Branch,  !- Branch 1 Name
     CoolSys1 Supply Equipment Branch 1,  !- Branch 2 Name
-    CoolSys1 Supply Equipment Bypass Branch,  !- Branch 3 Name
-    CoolSys1 Supply Outlet Branch;  !- Branch 4 Name
-
-    !TowerWaterSys Demand Load Branch 2,  !- Branch 3 Name
+    CoolSys1 Supply Equipment Branch 2,  !- Branch 3 Name
+    CoolSys1 Supply Equipment Bypass Branch,  !- Branch 4 Name
+    CoolSys1 Supply Outlet Branch;  !- Branch 5 Name
 
   BranchList,
     TowerWaterSys Demand Branches,  !- Name
     TowerWaterSys Demand Inlet Branch,  !- Branch 1 Name
     TowerWaterSys Demand Load Branch 1,  !- Branch 2 Name
+!    TowerWaterSys Demand Load Branch 2,  !- Branch 2 Name
     TowerWaterSys Demand Bypass Branch,  !- Branch 3 Name
     TowerWaterSys Demand Outlet Branch;  !- Branch 4 Name
 
@@ -1177,8 +1179,29 @@
     ,                        !- Pressure Drop Curve Name
     LoadProfile:Plant,       !- Component 1 Object Type
     Load Profile 1,          !- Component 1 Name
-    VAV_5_CoolCDemand Inlet Node,  !- Component 1 Inlet Node Name
-    VAV_5_CoolCDemand Outlet Node,  !- Component 1 Outlet Node Name
+    Load1 Inlet Node,  !- Component 1 Inlet Node Name
+    Load1 Outlet Node,  !- Component 1 Outlet Node Name
+    Active;                  !- Component 1 Branch Control Type
+
+  Branch,
+    CoolSys1 Demand Load Branch 2,  !- Name
+    ,                        !- Maximum Flow Rate {m3/s}
+    ,                        !- Pressure Drop Curve Name
+    LoadProfile:Plant,       !- Component 1 Object Type
+    Load Profile 2,          !- Component 1 Name
+    Load2 Inlet Node,  !- Component 1 Inlet Node Name
+    Load2 Outlet Node,  !- Component 1 Outlet Node Name
+    Active;                  !- Component 1 Branch Control Type
+
+
+  Branch,
+    CoolSys1 Demand Load Branch 3,  !- Name
+    ,                        !- Maximum Flow Rate {m3/s}
+    ,                        !- Pressure Drop Curve Name
+    LoadProfile:Plant,       !- Component 1 Object Type
+    Load Profile 3,          !- Component 1 Name
+    Load3 Inlet Node,  !- Component 1 Inlet Node Name
+    Load3 Outlet Node,  !- Component 1 Outlet Node Name
     Active;                  !- Component 1 Branch Control Type
 
   Branch,
@@ -1346,19 +1369,23 @@
     CoolSys1 Demand Splitter,!- Name
     CoolSys1 Demand Inlet Branch,  !- Inlet Branch Name
     CoolSys1 Demand Load Branch 1,  !- Outlet Branch 1 Name
+    CoolSys1 Demand Load Branch 2,  !- Outlet Branch 1 Name
+    CoolSys1 Demand Load Branch 3,  !- Outlet Branch 1 Name
     CoolSys1 Demand Bypass Branch;  !- Outlet Branch 2 Name
 
   Connector:Splitter,
     CoolSys1 Supply Splitter,!- Name
     CoolSys1 Supply Inlet Branch,  !- Inlet Branch Name
     CoolSys1 Supply Equipment Branch 1,  !- Outlet Branch 1 Name
+    CoolSys1 Supply Equipment Branch 2,  !- Outlet Branch 2 Name SPLITTER CHILLER 2
     CoolSys1 Supply Equipment Bypass Branch;  !- Outlet Branch 2 Name
 
   Connector:Splitter,
     TowerWaterSys Demand Splitter,  !- Name
     TowerWaterSys Demand Inlet Branch,  !- Inlet Branch Name
     TowerWaterSys Demand Load Branch 1,  !- Outlet Branch 1 Name
-    TowerWaterSys Demand Bypass Branch;  !- Outlet Branch 2 Name
+!    TowerWaterSys Demand Load Branch 2,  !- Outlet Branch 2 Name
+    TowerWaterSys Demand Bypass Branch;  !- Outlet Branch 3 Name
 
   Connector:Splitter,
     TowerWaterSys Supply Splitter,  !- Name
@@ -1370,18 +1397,22 @@
     CoolSys1 Demand Mixer,   !- Name
     CoolSys1 Demand Outlet Branch,  !- Outlet Branch Name
     CoolSys1 Demand Load Branch 1,  !- Inlet Branch 1 Name
+    CoolSys1 Demand Load Branch 2,  !- Inlet Branch 1 Name
+    CoolSys1 Demand Load Branch 3,  !- Inlet Branch 1 Name
     CoolSys1 Demand Bypass Branch;  !- Inlet Branch 2 Name
 
   Connector:Mixer,
     CoolSys1 Supply Mixer,   !- Name
     CoolSys1 Supply Outlet Branch,  !- Outlet Branch Name
     CoolSys1 Supply Equipment Branch 1,  !- Inlet Branch 1 Name
+    CoolSys1 Supply Equipment Branch 2,  !- Inlet Branch 2 Name MIXER CHILLER 2
     CoolSys1 Supply Equipment Bypass Branch;  !- Inlet Branch 2 Name
 
   Connector:Mixer,
     TowerWaterSys Demand Mixer,  !- Name
     TowerWaterSys Demand Outlet Branch,  !- Outlet Branch Name
     TowerWaterSys Demand Load Branch 1,  !- Inlet Branch 1 Name
+!    TowerWaterSys Demand Load Branch 2,  !- Inlet Branch 1 Name
     TowerWaterSys Demand Bypass Branch;  !- Inlet Branch 2 Name
 
   Connector:Mixer,
@@ -1958,12 +1989,82 @@
   ExternalInterface,
     PtolemyServer;           !- Name of External Interface
 
+!======================PLANT COMPONENT=============================================
+
+!  PlantComponent:TemperatureSource,
+!    CoolSys1 Chiller 2, !- Name
+!    CoolSys1 Pump-CoolSys1 ChillerNode 2, !- Inlet Node
+!    CoolSys1 Supply Equipment Outlet Node 2, !- Outlet Node
+!    Autosize, !- Design Volume Flow Rate {m3/s}
+!    Constant, !- Temperature Specification Type
+!    6.7, !- Source Temperature {C}
+!    ChWaterTemp2; !- Source Temperature Schedule Name
+
+  Chiller:Electric,
+    CoolSys1 Chiller 2,         !- Name
+    AirCooled,               !- Condenser Type
+    autosize,                !- Nominal Capacity {W}
+    3.2,                     !- Nominal COP {W/W}
+    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Chilled Water Inlet Node Name
+    CoolSys1 Supply Equipment Outlet Node 2,  !- Chilled Water Outlet Node Name
+    TowerWaterSys CoolTower OA ref Node,  !- Condenser Inlet Node Name
+    Central Chiller Condenser Outlet Node,  !- Condenser Outlet Node Name
+    0.0,                     !- Minimum Part Load Ratio
+    1.0,                     !- Maximum Part Load Ratio
+    0.65,                    !- Optimum Part Load Ratio
+    35.0,                    !- Design Condenser Inlet Temperature {C}
+    2.778,                   !- Temperature Rise Coefficient
+    6.67,                    !- Design Chilled Water Outlet Temperature {C}
+    autosize,                !- Design Chilled Water Flow Rate {m3/s}
+    autosize,                !- Design Condenser Fluid Flow Rate {m3/s}
+    0.9949,                  !- Coefficient 1 of Capacity Ratio Curve
+    -0.045954,               !- Coefficient 2 of Capacity Ratio Curve
+    -0.0013543,              !- Coefficient 3 of Capacity Ratio Curve
+    2.333,                   !- Coefficient 1 of Power Ratio Curve
+    -1.975,                  !- Coefficient 2 of Power Ratio Curve
+    0.6121,                  !- Coefficient 3 of Power Ratio Curve
+    0.03303,                 !- Coefficient 1 of Full Load Ratio Curve
+    0.6852,                  !- Coefficient 2 of Full Load Ratio Curve
+    0.2818,                  !- Coefficient 3 of Full Load Ratio Curve
+    5,                       !- Chilled Water Outlet Temperature Lower Limit {C}
+    LeavingSetpointModulated;!- Chiller Flow Mode
+
+  SetpointManager:Scheduled,
+    CoolSys1 Chiller 2 Setpoint Manager,  !- Name
+    Temperature,             !- Control Variable
+    CW-Loop-Temp-Schedule,   !- Schedule Name
+    CoolSys1 Supply Equipment Outlet Node 2;  !- Setpoint Node or NodeList Name
+
+  Branch,
+    CoolSys1 Supply Equipment Branch 2,  !- Name
+    ,                        !- Maximum Flow Rate {m3/s}
+    ,                        !- Pressure Drop Curve Name
+    Chiller:Electric,  !- Component 1 Object Type
+    CoolSys1 Chiller 2,      !- Component 1 Name
+    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Component 1 Inlet Node Name
+    CoolSys1 Supply Equipment Outlet Node 2,  !- Component 1 Outlet Node Name
+    Active;                  !- Component 1 Branch Control Type
+
+  ExternalInterface:Schedule,
+    ChWaterTemp2,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    6.7;                       !- Initial Value
+
 !======================PLANT PROFILE=============================================
+  ExternalInterface:Schedule,
+    ChWaterTempControl1,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    0;                       !- Initial Value
+
+  ExternalInterface:Schedule,
+    ChWaterTempControl2,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    0;                       !- Initial Value
 
   LoadProfile:Plant,
     Load Profile 1,          !- Name
-    VAV_5_CoolCDemand Inlet Node,  !- Inlet Node Name
-    VAV_5_CoolCDemand Outlet Node,  !- Outlet Node Name
+    Load1 Inlet Node,  !- Inlet Node Name
+    Load1 Outlet Node,  !- Outlet Node Name
     LoadProfileSch1,         !- Load Schedule Name
     0.05,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch1;         !- Flow Rate Fraction Schedule Name
@@ -1978,8 +2079,44 @@
     Any number,              !- Schedule Type Limits Name
     0;                       !- Initial Value
 
+  LoadProfile:Plant,
+    Load Profile 2,          !- Name
+    Load2 Inlet Node,  !- Inlet Node Name
+    Load2 Outlet Node,  !- Outlet Node Name
+    LoadProfileSch2,         !- Load Schedule Name
+    0.05,                    !- Peak Flow Rate {m3/s}
+    FlowProfileSch2;         !- Flow Rate Fraction Schedule Name
+
   ExternalInterface:Schedule,
-    ChWaterTempControl,         !- Name
+    LoadProfileSch2,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    0;                       !- Initial Value
+
+  ExternalInterface:Schedule,
+    FlowProfileSch2,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    0;                       !- Initial Value
+
+  LoadProfile:Plant,
+    Load Profile 3,          !- Name
+    Load3 Inlet Node,  !- Inlet Node Name
+    Load3 Outlet Node,  !- Outlet Node Name
+    LoadProfileSch3,         !- Load Schedule Name
+    0.05,                    !- Peak Flow Rate {m3/s}
+    FlowProfileSch3;         !- Flow Rate Fraction Schedule Name
+
+  ExternalInterface:Schedule,
+    LoadProfileSch3,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    0;                       !- Initial Value
+
+  ExternalInterface:Schedule,
+    FlowProfileSch3,         !- Name
+    Any number,              !- Schedule Type Limits Name
+    0;                       !- Initial Value
+
+  ExternalInterface:Schedule,
+    ChWaterTempControl3,         !- Name
     Any number,              !- Schedule Type Limits Name
     0;                       !- Initial Value
 
@@ -2002,15 +2139,11 @@
 
 !======================WEATHER=============================================
 
-  Output:Variable,Environment,Site Outdoor Air Wetbulb Temperature,timestep;
-
   Output:Variable,Environment,Site Outdoor Air Drybulb Temperature,timestep;
-
-  Output:Variable,Environment,Site Outdoor Air Dewpoint Temperature,timestep;
-
-  Output:Variable,Environment,Site Diffuse Solar Radiation Rate per Area,timestep;
-
-  Output:Variable,Environment,Site Direct Solar Radiation Rate per Area,timestep;
+!  Output:Variable,Environment,Site Outdoor Air Wetbulb Temperature,timestep;
+!  Output:Variable,Environment,Site Outdoor Air Dewpoint Temperature,timestep;
+!  Output:Variable,Environment,Site Diffuse Solar Radiation Rate per Area,timestep;
+!  Output:Variable,Environment,Site Direct Solar Radiation Rate per Area,timestep;
 
 !======================POWER=============================================
   ! POWER
@@ -2023,10 +2156,9 @@
 !  Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
 
   Output:Variable,CoolSys1 Chiller 1,Chiller Electric Power,timestep;
-
-  Output:Variable,VAV_5_CoolCDemand Inlet Node,System Node Temperature,timestep;
-
-
+  Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
+  Output:Variable,Load1 Inlet Node,System Node Temperature,timestep;
+  Output:Variable,Load2 Inlet Node,System Node Temperature,timestep;
 
 !  Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
 !  Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
