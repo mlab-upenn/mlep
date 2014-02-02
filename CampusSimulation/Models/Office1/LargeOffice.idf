@@ -9531,9 +9531,9 @@
     CoolSys1 Chiller 1,      !- Name
     CoolSys1 Pump-CoolSys1 ChillerNode 1,  !- Inlet Node
     CoolSys1 Supply Equipment Outlet Node 1,  !- Outlet Node
-    0.0025,                  !- Design Volume Flow Rate {m3/s}
+    0.12,                  !- Design Volume Flow Rate {m3/s} 0.0025 0.11279
     Scheduled,               !- Temperature Specification Type
-    7,                       !- Source Temperature {C}
+    6.7,                       !- Source Temperature {C}
     SourceCoolSch;           !- Source Temperature Schedule Name
 
 !==========================================================================
