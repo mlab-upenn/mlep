@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.270"
+    ComputedModelVersion    "1.281"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Feb 01 19:34:17 2014"
+  LastModifiedDate	  "Mon Feb 03 14:16:42 2014"
   RTWModifiedTimeStamp	  312817773
-  ModelVersionFormat	  "1.%<AutoIncrement:270>"
+  ModelVersionFormat	  "1.%<AutoIncrement:281>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -826,15 +826,15 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "276"
+    SIDHighWatermark	    "289"
     Block {
       BlockType		      M-S-Function
       Name		      "Chiller1"
       SID		      "46"
       Ports		      [1, 3]
-      Position		      [800, 41, 1070, 229]
+      Position		      [795, 41, 1065, 229]
       ZOrder		      2
       AncestorBlock	      "mlepLibrary/E+ Building"
       LibraryVersion	      "1.8"
@@ -899,7 +899,7 @@ Model {
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
       MaskValueString	      "'C:\\\\EnergyPlusV8-1-0\\\\RunEPlus'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\"
-      "\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\LargeChiller1'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY"
+      "\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\LargeChiller2'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY"
       "3'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\"
       "'|40000|0|''|''|900|10"
     }
@@ -1026,7 +1026,7 @@ Model {
       BlockType		      From
       Name		      "From10"
       SID		      "241"
-      Position		      [1475, 1140, 1575, 1160]
+      Position		      [1640, 1095, 1740, 1115]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "energyOff1"
@@ -1377,7 +1377,7 @@ Model {
       BlockType		      From
       Name		      "From39"
       SID		      "242"
-      Position		      [1475, 1185, 1575, 1205]
+      Position		      [1640, 1140, 1740, 1160]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "powerOff2"
@@ -1401,7 +1401,7 @@ Model {
       BlockType		      From
       Name		      "From40"
       SID		      "243"
-      Position		      [1475, 1230, 1575, 1250]
+      Position		      [1640, 1185, 1740, 1205]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "massFlowOff1"
@@ -1410,7 +1410,7 @@ Model {
       BlockType		      From
       Name		      "From41"
       SID		      "244"
-      Position		      [1475, 1275, 1575, 1295]
+      Position		      [1640, 1230, 1740, 1250]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "loadOff1"
@@ -1419,7 +1419,7 @@ Model {
       BlockType		      From
       Name		      "From42"
       SID		      "245"
-      Position		      [1475, 1320, 1575, 1340]
+      Position		      [1640, 1275, 1740, 1295]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "ChWInTempOff1"
@@ -1428,7 +1428,7 @@ Model {
       BlockType		      From
       Name		      "From43"
       SID		      "246"
-      Position		      [1475, 1365, 1575, 1385]
+      Position		      [1640, 1320, 1740, 1340]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "ChWOutTempOff1"
@@ -1437,7 +1437,7 @@ Model {
       BlockType		      From
       Name		      "From44"
       SID		      "247"
-      Position		      [1475, 1410, 1575, 1430]
+      Position		      [1640, 1365, 1740, 1385]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "ppdOff1"
@@ -1453,12 +1453,39 @@ Model {
     }
     Block {
       BlockType		      From
+      Name		      "From46"
+      SID		      "282"
+      Position		      [1585, 1530, 1685, 1550]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "energyHosp"
+    }
+    Block {
+      BlockType		      From
       Name		      "From47"
       SID		      "264"
       Position		      [540, 1120, 645, 1140]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "ChWTempCampus"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From48"
+      SID		      "283"
+      Position		      [1585, 1575, 1685, 1595]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "powerHosp"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From49"
+      SID		      "284"
+      Position		      [1585, 1620, 1685, 1640]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "massFlowHosp1"
     }
     Block {
       BlockType		      From
@@ -1475,6 +1502,33 @@ Model {
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
+    }
+    Block {
+      BlockType		      From
+      Name		      "From50"
+      SID		      "285"
+      Position		      [1585, 1665, 1685, 1685]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "loadHosp1"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From51"
+      SID		      "286"
+      Position		      [1585, 1709, 1700, 1731]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "ChWInTempHosp"
+    }
+    Block {
+      BlockType		      From
+      Name		      "From52"
+      SID		      "287"
+      Position		      [1585, 1755, 1700, 1775]
+      ZOrder		      -9
+      ShowName		      off
+      GotoTag		      "ChWOutTempHosp"
     }
     Block {
       BlockType		      From
@@ -1624,6 +1678,15 @@ Model {
       Position		      [1115, 1055, 1155, 1085]
       ZOrder		      -10
       GotoTag		      "stop3"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto20"
+      SID		      "277"
+      Position		      [1325, 1328, 1420, 1352]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "massFlowHosp1"
     }
     Block {
       BlockType		      Goto
@@ -1815,18 +1878,45 @@ Model {
     }
     Block {
       BlockType		      Goto
+      Name		      "Goto40"
+      SID		      "281"
+      Position		      [1305, 1434, 1420, 1456]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "ChWOutTempHosp"
+    }
+    Block {
+      BlockType		      Goto
       Name		      "Goto41"
       SID		      "271"
-      Position		      [1340, 1284, 1420, 1306]
+      Position		      [1340, 1259, 1420, 1281]
       ZOrder		      -10
       ShowName		      off
       GotoTag		      "energyHosp"
     }
     Block {
       BlockType		      Goto
+      Name		      "Goto42"
+      SID		      "279"
+      Position		      [1340, 1364, 1420, 1386]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "loadHosp1"
+    }
+    Block {
+      BlockType		      Goto
+      Name		      "Goto43"
+      SID		      "280"
+      Position		      [1305, 1399, 1420, 1421]
+      ZOrder		      -10
+      ShowName		      off
+      GotoTag		      "ChWInTempHosp"
+    }
+    Block {
+      BlockType		      Goto
       Name		      "Goto44"
       SID		      "274"
-      Position		      [1340, 1394, 1420, 1416]
+      Position		      [1340, 1294, 1420, 1316]
       ZOrder		      -10
       ShowName		      off
       GotoTag		      "powerHosp"
@@ -1948,7 +2038,7 @@ Model {
       MaskValueString	      "'C:\\\\EnergyPlusV8-1-0\\\\RunEPlus'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\"
       "\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Hospital1\\\\Hospital'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'|'"
       "C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Hospital1\\\\'|4"
-      "0000|0|''|''|900|2"
+      "0000|0|''|''|900|6"
     }
     Block {
       BlockType		      SubSystem
@@ -3042,8 +3132,8 @@ Model {
       BlockType		      SubSystem
       Name		      "MATLAB Function5"
       SID		      "276"
-      Ports		      [1, 2]
-      Position		      [1135, 1240, 1255, 1460]
+      Ports		      [1, 6]
+      Position		      [1135, 1246, 1255, 1469]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -3082,7 +3172,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"33"
+	SIDHighWatermark	"37"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -3104,11 +3194,11 @@ Model {
 	  Name			  " SFunction "
 	  SID			  "276::19"
 	  Tag			  "Stateflow S-Function campus_windows 7"
-	  Ports			  [1, 3]
+	  Ports			  [1, 7]
 	  Position		  [180, 122, 230, 368]
 	  ZOrder		  5
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[1 3]"
+	  PortCounts		  "[1 7]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
@@ -3119,6 +3209,30 @@ Model {
 	  Port {
 	    PortNumber		    3
 	    Name		    "TotPower"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "ChWMassFlow"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "ChWLoad"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "ChWInTemp"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "ChWOutTemp"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -3146,6 +3260,42 @@ Model {
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ChWMassFlow"
+	  SID			  "276::34"
+	  Position		  [460, 171, 480, 189]
+	  ZOrder		  11
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ChWLoad"
+	  SID			  "276::35"
+	  Position		  [460, 206, 480, 224]
+	  ZOrder		  12
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ChWInTemp"
+	  SID			  "276::36"
+	  Position		  [460, 246, 480, 264]
+	  ZOrder		  13
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ChWOutTemp"
+	  SID			  "276::37"
+	  Position		  [460, 281, 480, 299]
+	  ZOrder		  14
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
 	Line {
 	  SrcBlock		  "u"
 	  SrcPort		  1
@@ -3166,6 +3316,38 @@ Model {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
 	  DstBlock		  "TotPower"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ChWMassFlow"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "ChWMassFlow"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ChWLoad"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  5
+	  DstBlock		  "ChWLoad"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ChWInTemp"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  6
+	  DstBlock		  "ChWInTemp"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ChWOutTemp"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  7
+	  DstBlock		  "ChWOutTemp"
 	  DstPort		  1
 	}
 	Line {
@@ -3471,7 +3653,7 @@ Model {
       ZOrder		      -16
       Floating		      off
       Location		      [66, 162, 1734, 812]
-      Open		      on
+      Open		      off
       NumInputPorts	      "7"
       List {
 	ListType		AxesTitles
@@ -3494,9 +3676,6 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.91747     0.91231    0.064149    0.031282\n0.92346        0.78    0.058153    0.031282\n"
-      "0.92286     0.64769    0.058753    0.031282\n0.90907     0.51538    0.072542    0.031282\n0.90907     0.38308   "
-      " 0.072542    0.031282\n0.92406     0.25077    0.057554    0.031282\n0.92406     0.11846    0.057554    0.031282"
       YMin		      "0~-5~-5~-5~-5~-5~-5"
       YMax		      "1.4e+09~5~5~5~5~5~5"
       SaveName		      "ScopeData4"
@@ -3583,8 +3762,8 @@ Model {
       Position		      [1795, 496, 1840, 719]
       ZOrder		      -16
       Floating		      off
-      Location		      [-1771, 227, -103, 877]
-      Open		      on
+      Location		      [6, 227, 1674, 877]
+      Open		      off
       NumInputPorts	      "4"
       List {
 	ListType		AxesTitles
@@ -3604,8 +3783,6 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.88209     0.88821     0.09952    0.055385\n0.88209      0.6559     0.09952    0.055385\n"
-      "0.90967     0.42513    0.071942    0.055385\n0.88449     0.21692    0.097122    0.031282"
       YMin		      "0~-5~-5~-5"
       YMax		      "1.4e+09~5~5~5"
       SaveName		      "ScopeData7"
@@ -3618,7 +3795,7 @@ Model {
       Name		      "Scope8"
       SID		      "240"
       Ports		      [7]
-      Position		      [1620, 1124, 1655, 1446]
+      Position		      [1785, 1079, 1820, 1401]
       ZOrder		      -16
       Floating		      off
       Location		      [66, 162, 1734, 812]
@@ -3651,6 +3828,47 @@ Model {
       YMin		      "0~-5~-5~-5~-5~-5~-5"
       YMax		      "1.4e+09~5~5~5~5~5~5"
       SaveName		      "ScopeData8"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope9"
+      SID		      "289"
+      Ports		      [6]
+      Position		      [1730, 1522, 1765, 1783]
+      ZOrder		      -16
+      Floating		      off
+      Location		      [66, 162, 1734, 812]
+      Open		      on
+      NumInputPorts	      "6"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+	axes4			"%<SignalLabel>"
+	axes5			"%<SignalLabel>"
+	axes6			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      on
+      LegendLocations	      "0.92616     0.91154    0.055755    0.031282\n0.92616     0.75615    0.055755    0.031282\n"
+      "0.92616     0.60231    0.055755    0.031282\n0.92616     0.44846    0.055755    0.031282\n0.92616     0.29462   "
+      " 0.055755    0.031282\n0.92616     0.13923    0.055755    0.031282"
+      YMin		      "0~-5~-5~-5~-5~-5"
+      YMax		      "1.4e+09~5~5~5~5~5"
+      SaveName		      "ScopeData9"
       DataFormat	      "StructureWithTime"
       LimitDataPoints	      off
       SampleTime	      "0"
@@ -3922,7 +4140,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 160]
+	Points			[0, 170]
 	DstBlock		"MATLAB Function5"
 	DstPort			1
       }
@@ -3972,7 +4190,7 @@ Model {
     Line {
       SrcBlock		      "Chiller1"
       SrcPort		      3
-      Points		      [20, 0]
+      Points		      [25, 0]
       Branch {
 	DstBlock		"Scope3"
 	DstPort			1
@@ -4630,6 +4848,66 @@ Model {
       DstBlock		      "Goto44"
       DstPort		      1
     }
+    Line {
+      SrcBlock		      "MATLAB Function5"
+      SrcPort		      3
+      DstBlock		      "Goto20"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "MATLAB Function5"
+      SrcPort		      4
+      DstBlock		      "Goto42"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "MATLAB Function5"
+      SrcPort		      5
+      DstBlock		      "Goto43"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "MATLAB Function5"
+      SrcPort		      6
+      DstBlock		      "Goto40"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From46"
+      SrcPort		      1
+      DstBlock		      "Scope9"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From48"
+      SrcPort		      1
+      DstBlock		      "Scope9"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "From49"
+      SrcPort		      1
+      DstBlock		      "Scope9"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "From50"
+      SrcPort		      1
+      DstBlock		      "Scope9"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "From51"
+      SrcPort		      1
+      DstBlock		      "Scope9"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "From52"
+      SrcPort		      1
+      DstBlock		      "Scope9"
+      DstPort		      6
+    }
   }
 }
 # Finite State Machines
@@ -4645,7 +4923,7 @@ Stateflow {
     name		    "campus_windows"
     created		    "02-Jan-2014 16:26:09"
     isLibrary		    0
-    firstTarget		    73
+    firstTarget		    77
     sfVersion		    76014001.00040001
   }
   chart {
@@ -5827,7 +6105,7 @@ Stateflow {
     firstJunction	    67
     viewObj		    65
     machine		    1
-    ssIdHighWaterMark	    16
+    ssIdHighWaterMark	    20
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    69
@@ -5851,8 +6129,10 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [TotEnergy,TotPower] = fcn(u)\n%#codegen\n\n% Total Energy\nTotEnergy = u(1);\n% Total P"
-      "ower\nTotPower = u(2);\n\n% Outputs\n"
+      script		      "function [TotEnergy,TotPower,ChWMassFlow,ChWLoad,ChWInTemp,ChWOutTemp] = fcn(u)\n%#codegen\n\n% T"
+      "otal Energy\nTotEnergy = u(1);\n% Total Power\nTotPower = u(2);\n\n% Mass Flow Rate\nChWMassFlow = u(3);\n% Heat"
+      " Transfer Rate\nChWLoad = u(4);\n\n% Chiller 1 In Temp\nChWInTemp = u(5);\n% Chiller 1 Flow\nChWOutTemp = u(6);\n"
+      "% Outputs\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -5929,7 +6209,95 @@ Stateflow {
     id			    71
     ssIdNumber		    7
     name		    "TotPower"
-    linkNode		    [65 70 0]
+    linkNode		    [65 70 72]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    72
+    ssIdNumber		    17
+    name		    "ChWMassFlow"
+    linkNode		    [65 71 73]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    73
+    ssIdNumber		    18
+    name		    "ChWLoad"
+    linkNode		    [65 72 74]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    74
+    ssIdNumber		    19
+    name		    "ChWInTemp"
+    linkNode		    [65 73 75]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    75
+    ssIdNumber		    20
+    name		    "ChWOutTemp"
+    linkNode		    [65 74 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5948,13 +6316,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    72
+    id			    76
     name		    "MATLAB Function5"
     machine		    1
     chart		    65
   }
   target {
-    id			    73
+    id			    77
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1

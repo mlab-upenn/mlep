@@ -941,7 +941,7 @@
     CoolSys1 Equipment List,            !- Name
     Chiller:Electric:ReformulatedEIR,   !- Equipment 1 Object Type
     CoolSys1 Chiller 1,                 !- Equipment 1 Name
-    Chiller:Electric,                   !- Equipment 1 Object Type
+    Chiller:Electric:ReformulatedEIR,   !- Equipment 1 Object Type
     CoolSys1 Chiller 2;                 !- Equipment 1 Name
 
   CondenserEquipmentList,
@@ -1017,8 +1017,8 @@
     -4.821515E-01,           !- Coefficient8 y**3
     0.000000E+00,            !- Coefficient9 x**2*y
     0.000000E+00,            !- Coefficient10 x*y**2
-    14.56,                   !- Minimum Value of x
-    34.97,                   !- Maximum Value of x
+    11,                      !- Minimum Value of x 14.56 WILLY
+    34.97,                   !- Maximum Value of x 34.97
     0.18,                    !- Minimum Value of y
     1.03,                    !- Maximum Value of y
     ,                        !- Minimum Curve Output
@@ -1142,7 +1142,7 @@
     TowerWaterSys Demand Branches,  !- Name
     TowerWaterSys Demand Inlet Branch,  !- Branch 1 Name
     TowerWaterSys Demand Load Branch 1,  !- Branch 2 Name
-!    TowerWaterSys Demand Load Branch 2,  !- Branch 2 Name
+    TowerWaterSys Demand Load Branch 2,  !- Branch 2 Name
     TowerWaterSys Demand Bypass Branch,  !- Branch 3 Name
     TowerWaterSys Demand Outlet Branch;  !- Branch 4 Name
 
@@ -1177,22 +1177,27 @@
     CoolSys1 Demand Load Branch 1,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Underground,        !- Component 2 Object Type
-    Pipe Heat Load1,         !- Component 2 Name
-    Pipe Load1 Inlet Node,   !- Component 2 Inlet Node Name
-    Load1 Inlet Node,        !- Component 2 Outlet Node Name
-    PASSIVE,                 !- Component 2 Branch Control Type
-    LoadProfile:Plant,       !- Component 1 Object Type
-    Load Profile 1,          !- Component 1 Name
-    Load1 Inlet Node,        !- Component 1 Inlet Node Name
-    Load1 Outlet Node,       !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+    Pipe:Underground,        !- Component 1 Object Type
+    Pipe Heat Load 1 Entry,  !- Component 1 Name
+    Pipe Load 1 Entry Inlet Node,  !- Component 1 Inlet Node Name
+    Load 1 Inlet Node,       !- Component 1 Outlet Node Name
+    PASSIVE,                 !- Component 1 Branch Control Type
+    LoadProfile:Plant,       !- Component 2 Object Type
+    Load Profile 1,          !- Component 2 Name
+    Load 1 Inlet Node,       !- Component 2 Inlet Node Name
+    Load 1 Outlet Node,      !- Component 2 Outlet Node Name
+    Active,                  !- Component 2 Branch Control Type
+    Pipe:Underground,        !- Component 3 Object Type
+    Pipe Heat Load 1 Exit,   !- Component 3 Name
+    Load 1 Outlet Node,      !- Component 3 Inlet Node Name
+    Load 1 Exit Inlet Node,  !- Component 3 Outlet Node Name
+    PASSIVE;                 !- Component 3 Branch Control Type
 
   Pipe:Underground,
-    Pipe Heat Load1,  !- Name
+    Pipe Heat Load 1 Entry,  !- Name
     Insulated Buried Pipe,   !- Construction Name
-    Pipe Load1 Inlet Node,   !- Fluid Inlet Node Name
-    Load1 Inlet Node,        !- Fluid Outlet Node Name
+    Pipe Load 1 Entry Inlet Node,   !- Fluid Inlet Node Name
+    Load 1 Inlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.05,                    !- Pipe Inside Diameter {m}
     200.0,                   !- Pipe Length {m}
@@ -1202,10 +1207,10 @@
     30;                      !- Phase Constant of Soil Surface Temperature {days}
 
   Pipe:Underground,
-    Pipe Heat Load2,  !- Name
+    Pipe Heat Load 1 Exit,  !- Name
     Insulated Buried Pipe,   !- Construction Name
-    Pipe Load2 Inlet Node,   !- Fluid Inlet Node Name
-    Load2 Inlet Node,        !- Fluid Outlet Node Name
+    Load 1 Outlet Node,   !- Fluid Inlet Node Name
+    Load 1 Exit Inlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.05,                    !- Pipe Inside Diameter {m}
     200.0,                   !- Pipe Length {m}
@@ -1215,10 +1220,49 @@
     30;                      !- Phase Constant of Soil Surface Temperature {days}
 
   Pipe:Underground,
-    Pipe Heat Load3,  !- Name
+    Pipe Heat Load 2 Entry,  !- Name
     Insulated Buried Pipe,   !- Construction Name
-    Pipe Load3 Inlet Node,   !- Fluid Inlet Node Name
-    Load3 Inlet Node,        !- Fluid Outlet Node Name
+    Pipe Load 2 Entry Inlet Node,   !- Fluid Inlet Node Name
+    Load 2 Inlet Node,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.05,                    !- Pipe Inside Diameter {m}
+    200.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+  Pipe:Underground,
+    Pipe Heat Load 2 Exit,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    Load 2 Outlet Node,   !- Fluid Inlet Node Name
+    Load 2 Exit Inlet Node,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.05,                    !- Pipe Inside Diameter {m}
+    200.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+  Pipe:Underground,
+    Pipe Heat Load 3 Entry,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    Pipe Load 3 Entry Inlet Node,   !- Fluid Inlet Node Name
+    Load 3 Inlet Node,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.05,                    !- Pipe Inside Diameter {m}
+    200.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+  Pipe:Underground,
+    Pipe Heat Load 3 Exit,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    Load 3 Outlet Node,   !- Fluid Inlet Node Name
+    Load 3 Exit Inlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.05,                    !- Pipe Inside Diameter {m}
     200.0,                   !- Pipe Length {m}
@@ -1269,31 +1313,41 @@
     CoolSys1 Demand Load Branch 2,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Underground,        !- Component 2 Object Type
-    Pipe Heat Load2,         !- Component 2 Name
-    Pipe Load2 Inlet Node,   !- Component 2 Inlet Node Name
-    Load2 Inlet Node,        !- Component 2 Outlet Node Name
-    PASSIVE,                 !- Component 2 Branch Control Type
+    Pipe:Underground,        !- Component 1 Object Type
+    Pipe Heat Load 2 Entry,  !- Component 1 Name
+    Pipe Load 2 Entry Inlet Node,  !- Component 1 Inlet Node Name
+    Load 2 Inlet Node, !- Component 1 Outlet Node Name
+    PASSIVE,                 !- Component 1 Branch Control Type
     LoadProfile:Plant,       !- Component 1 Object Type
     Load Profile 2,          !- Component 1 Name
-    Load2 Inlet Node,  !- Component 1 Inlet Node Name
-    Load2 Outlet Node,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+    Load 2 Inlet Node,       !- Component 1 Inlet Node Name
+    Load 2 Outlet Node,      !- Component 1 Outlet Node Name
+    Active,                  !- Component 1 Branch Control Type
+    Pipe:Underground,        !- Component 1 Object Type
+    Pipe Heat Load 2 Exit,   !- Component 1 Name
+    Load 2 Outlet Node,      !- Component 1 Inlet Node Name
+    Load 2 Exit Inlet Node,  !- Component 1 Outlet Node Name
+    PASSIVE;                 !- Component 1 Branch Control Type
 
   Branch,
     CoolSys1 Demand Load Branch 3,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Underground,        !- Component 2 Object Type
-    Pipe Heat Load3,         !- Component 2 Name
-    Pipe Load3 Inlet Node,   !- Component 2 Inlet Node Name
-    Load3 Inlet Node,        !- Component 2 Outlet Node Name
-    PASSIVE,                 !- Component 2 Branch Control Type
+    Pipe:Underground,        !- Component 1 Object Type
+    Pipe Heat Load 3 Entry,  !- Component 1 Name
+    Pipe Load 3 Entry Inlet Node,  !- Component 1 Inlet Node Name
+    Load 3 Inlet Node, !- Component 1 Outlet Node Name
+    PASSIVE,                 !- Component 1 Branch Control Type
     LoadProfile:Plant,       !- Component 1 Object Type
     Load Profile 3,          !- Component 1 Name
-    Load3 Inlet Node,  !- Component 1 Inlet Node Name
-    Load3 Outlet Node,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
+    Load 3 Inlet Node,       !- Component 1 Inlet Node Name
+    Load 3 Outlet Node,      !- Component 1 Outlet Node Name
+    Active,                  !- Component 1 Branch Control Type
+    Pipe:Underground,        !- Component 1 Object Type
+    Pipe Heat Load 3 Exit,   !- Component 1 Name
+    Load 3 Outlet Node,      !- Component 1 Inlet Node Name
+    Load 3 Exit Inlet Node,  !- Component 1 Outlet Node Name
+    PASSIVE;                 !- Component 1 Branch Control Type
 
   Branch,
     CoolSys1 Demand Outlet Branch,  !- Name
@@ -1373,6 +1427,16 @@
     CoolSys1 Chiller 1,      !- Component 1 Name
     CoolSys1 Chiller Water Inlet Node 1,  !- Component 1 Inlet Node Name
     CoolSys1 Chiller Water Outlet Node 1,  !- Component 1 Outlet Node Name
+    Active;                  !- Component 1 Branch Control Type
+
+  Branch,
+    TowerWaterSys Demand Load Branch 2,  !- Name
+    ,                        !- Maximum Flow Rate {m3/s}
+    ,                        !- Pressure Drop Curve Name
+    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
+    CoolSys1 Chiller 2,      !- Component 1 Name
+    CoolSys1 Chiller Water Inlet Node 2,  !- Component 1 Inlet Node Name
+    CoolSys1 Chiller Water Outlet Node 2,  !- Component 1 Outlet Node Name
     Active;                  !- Component 1 Branch Control Type
 
   Branch,
@@ -1475,7 +1539,7 @@
     TowerWaterSys Demand Splitter,  !- Name
     TowerWaterSys Demand Inlet Branch,  !- Inlet Branch Name
     TowerWaterSys Demand Load Branch 1,  !- Outlet Branch 1 Name
-!    TowerWaterSys Demand Load Branch 2,  !- Outlet Branch 2 Name
+    TowerWaterSys Demand Load Branch 2,  !- Outlet Branch 2 Name
     TowerWaterSys Demand Bypass Branch;  !- Outlet Branch 3 Name
 
   Connector:Splitter,
@@ -1503,7 +1567,7 @@
     TowerWaterSys Demand Mixer,  !- Name
     TowerWaterSys Demand Outlet Branch,  !- Outlet Branch Name
     TowerWaterSys Demand Load Branch 1,  !- Inlet Branch 1 Name
-!    TowerWaterSys Demand Load Branch 2,  !- Inlet Branch 1 Name
+    TowerWaterSys Demand Load Branch 2,  !- Inlet Branch 1 Name
     TowerWaterSys Demand Bypass Branch;  !- Inlet Branch 2 Name
 
   Connector:Mixer,
@@ -2091,34 +2155,32 @@
 !    6.7, !- Source Temperature {C}
 !    ChWaterTemp2; !- Source Temperature Schedule Name
 
-  Chiller:Electric,
-    CoolSys1 Chiller 2,         !- Name
-    AirCooled,               !- Condenser Type
-    autosize,                !- Nominal Capacity {W}
-    3.2,                     !- Nominal COP {W/W}
+  Chiller:Electric:ReformulatedEIR,
+    CoolSys1 Chiller 2,      !- Name
+    AUTOSIZE,                !- Reference Capacity {W}
+    5.5,                     !- Reference COP {W/W}
+    6.67,                    !- Reference Leaving Chilled Water Temperature {C}
+    35,                      !- Reference Leaving Condenser Water Temperature {C}
+    AutoSize,                !- Reference Chilled Water Flow Rate {m3/s}
+    AutoSize,                !- Reference Condenser Water Flow Rate {m3/s}
+    WC Screw Default 90.1-2004 Cap_fT,  !- Cooling Capacity Function of Temperature Curve Name
+    WC Screw Default 90.1-2004 EIR_fT,  !- Electric Input to Cooling Output Ratio Function of Temperature Curve Name
+    ReformEIRChiller Carrier 19XR 1259kW/6.26COP/Vanes EIRFPLR,  !- Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name
+    0.1,                     !- Minimum Part Load Ratio
+    1,                       !- Maximum Part Load Ratio
+    1,                       !- Optimum Part Load Ratio
+    0.2,                     !- Minimum Unloading Ratio
     CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Chilled Water Inlet Node Name
     CoolSys1 Supply Equipment Outlet Node 2,  !- Chilled Water Outlet Node Name
-    TowerWaterSys CoolTower OA ref Node,  !- Condenser Inlet Node Name
-    Central Chiller Condenser Outlet Node,  !- Condenser Outlet Node Name
-    0.0,                     !- Minimum Part Load Ratio
-    1.0,                     !- Maximum Part Load Ratio
-    0.65,                    !- Optimum Part Load Ratio
-    35.0,                    !- Design Condenser Inlet Temperature {C}
-    2.778,                   !- Temperature Rise Coefficient
-    6.67,                    !- Design Chilled Water Outlet Temperature {C}
-    autosize,                !- Design Chilled Water Flow Rate {m3/s}
-    autosize,                !- Design Condenser Fluid Flow Rate {m3/s}
-    0.9949,                  !- Coefficient 1 of Capacity Ratio Curve
-    -0.045954,               !- Coefficient 2 of Capacity Ratio Curve
-    -0.0013543,              !- Coefficient 3 of Capacity Ratio Curve
-    2.333,                   !- Coefficient 1 of Power Ratio Curve
-    -1.975,                  !- Coefficient 2 of Power Ratio Curve
-    0.6121,                  !- Coefficient 3 of Power Ratio Curve
-    0.03303,                 !- Coefficient 1 of Full Load Ratio Curve
-    0.6852,                  !- Coefficient 2 of Full Load Ratio Curve
-    0.2818,                  !- Coefficient 3 of Full Load Ratio Curve
-    5,                       !- Chilled Water Outlet Temperature Lower Limit {C}
-    LeavingSetpointModulated;!- Chiller Flow Mode
+    CoolSys1 Chiller Water Inlet Node 2,  !- Condenser Inlet Node Name
+    CoolSys1 Chiller Water Outlet Node 2,  !- Condenser Outlet Node Name
+    1,                       !- Fraction of Compressor Electric Consumption Rejected by Condenser
+    2,                       !- Leaving Chilled Water Lower Temperature Limit {C}
+    LeavingSetpointModulated,!- Chiller Flow Mode Type
+    ,                        !- Design Heat Recovery Water Flow Rate {m3/s}
+    ,                        !- Heat Recovery Inlet Node Name
+    ,                        !- Heat Recovery Outlet Node Name
+    0.5;                     !- Sizing Factor
 
   SetpointManager:Scheduled,
     CoolSys1 Chiller 2 Setpoint Manager,  !- Name
@@ -2130,7 +2192,7 @@
     CoolSys1 Supply Equipment Branch 2,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Chiller:Electric,  !- Component 1 Object Type
+    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
     CoolSys1 Chiller 2,      !- Component 1 Name
     CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Component 1 Inlet Node Name
     CoolSys1 Supply Equipment Outlet Node 2,  !- Component 1 Outlet Node Name
@@ -2154,10 +2216,10 @@
 
   LoadProfile:Plant,
     Load Profile 1,          !- Name
-    Load1 Inlet Node,  !- Inlet Node Name
-    Load1 Outlet Node,  !- Outlet Node Name
+    Load 1 Inlet Node,  !- Inlet Node Name
+    Load 1 Outlet Node,  !- Outlet Node Name
     LoadProfileSch1,         !- Load Schedule Name
-    0.05,                    !- Peak Flow Rate {m3/s}
+    0.12,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch1;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2172,10 +2234,10 @@
 
   LoadProfile:Plant,
     Load Profile 2,          !- Name
-    Load2 Inlet Node,  !- Inlet Node Name
-    Load2 Outlet Node,  !- Outlet Node Name
+    Load 2 Inlet Node,        !- Inlet Node Name
+    Load 2 Outlet Node,       !- Outlet Node Name
     LoadProfileSch2,         !- Load Schedule Name
-    0.05,                    !- Peak Flow Rate {m3/s}
+    0,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch2;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2190,10 +2252,10 @@
 
   LoadProfile:Plant,
     Load Profile 3,          !- Name
-    Load3 Inlet Node,  !- Inlet Node Name
-    Load3 Outlet Node,  !- Outlet Node Name
+    Load 3 Inlet Node,        !- Inlet Node Name
+    Load 3 Outlet Node,       !- Outlet Node Name
     LoadProfileSch3,         !- Load Schedule Name
-    0.05,                    !- Peak Flow Rate {m3/s}
+    0.12,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch3;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2247,8 +2309,8 @@
 
   Output:Variable,CoolSys1 Chiller 1,Chiller Electric Power,timestep;
   Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
-!  Output:Variable,Load1 Inlet Node,System Node Temperature,timestep;
-!  Output:Variable,Load2 Inlet Node,System Node Temperature,timestep;
+!  Output:Variable,Load 1 Inlet Node,System Node Temperature,timestep;
+!  Output:Variable,Load 2 Inlet Node,System Node Temperature,timestep;
 
 !======================NODE TEMP=============================================
   Output:Variable,CoolSys1 Pump-CoolSys1 ChillerNode 1,System Node Temperature,timestep;
