@@ -353,17 +353,16 @@ IF EXIST eplusout.bnd %post_proc%HVAC-Diagram.exe
  IF EXIST eplusout.shd MOVE eplusout.shd "%output_path%%~1.shd"
  IF EXIST eplusout.wrl MOVE eplusout.wrl "%output_path%%~1.wrl"
  IF EXIST eplusscreen.csv MOVE eplusscreen.csv "%output_path%%~1Screen.csv"
-  IF EXIST expandedidf.err copy expandedidf.err+eplusout.err "%output_path%%~1.err"
+ IF EXIST expandedidf.err copy expandedidf.err+eplusout.err "%output_path%%~1.err"
  IF EXIST readvars.audit MOVE readvars.audit "%output_path%%~1.rvaudit"
  IF EXIST eplusout.sql MOVE eplusout.sql "%output_path%%~1.sql"
  IF EXIST eplusout.edd MOVE eplusout.edd "%output_path%%~1.edd"
  IF EXIST eplusout.dfs MOVE eplusout.dfs "%output_path%%~1DFS.csv"
- : MLE+ MODIFICATION 2
- : if exist *.mat (
- :   set matp=%~n1
- :   for /f %%x IN ('dir /b *.mat') DO call :s_sub %%x
- : )
- goto :cleanup
+ :  if exist *.mat (
+ :    set matp=%~n1
+ :    for /f %%x IN ('dir /b *.mat') DO call :s_sub %%x
+ :  )
+ :  goto :cleanup
 
 :cleanup
 :   11.  Clean up directory.
@@ -380,10 +379,9 @@ IF EXIST eplusout.bnd %post_proc%HVAC-Diagram.exe
  IF EXIST readvars.audit DEL readvars.audit
  IF EXIST sqlite.err  DEL sqlite.err
  IF EXIST utilSocket.log   MOVE utilSocket.log testsocket.log
- : Delete FMUs files and folder -- added for FMI
- : MLE+ MODIFICATION 3
- : IF EXIST *.mat DEL *.mat 
- IF EXIST *.fmu DEL *.fmu 
+ :  Delete FMUs files and folder --Added for FMI
+ :  IF EXIST *.mat DEL *.mat 
+ :  IF EXIST *.fmu DEL *.fmu 
  IF EXIST tmp-fmus rmdir tmp-fmus /Q/S
 
  IF "%inEPdir%"=="FALSE" DEL Energy+.idd

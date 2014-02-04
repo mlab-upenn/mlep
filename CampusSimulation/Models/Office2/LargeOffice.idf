@@ -9252,6 +9252,9 @@
 
 !======================EMS PPD=============================================
   Output:Variable,EMS,Weighted Average Building PPD,timestep;
+  Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Summer Clothes Not Comfortable Time,timestep;
+  Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Winter Clothes Not Comfortable Time,timestep;
+  Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Summer or Winter Clothes Not Comfortable Time,timestep;
 
 ! ***REPORT METERS/VARIABLES***
 !  Output:Meter,Electricity:Facility,HOURLY;

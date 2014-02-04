@@ -2199,13 +2199,13 @@
     Active;                  !- Component 1 Branch Control Type
 
   ExternalInterface:Schedule,
-    ChWaterTemp2,         !- Name
+    ChWaterTemp2,            !- Name
     Any number,              !- Schedule Type Limits Name
-    6.7;                       !- Initial Value
+    6.7;                     !- Initial Value
 
 !======================PLANT PROFILE=============================================
   ExternalInterface:Schedule,
-    ChWaterTempControl1,         !- Name
+    ChWaterTempControl1,     !- Name
     Any number,              !- Schedule Type Limits Name
     0;                       !- Initial Value
 
@@ -2216,8 +2216,8 @@
 
   LoadProfile:Plant,
     Load Profile 1,          !- Name
-    Load 1 Inlet Node,  !- Inlet Node Name
-    Load 1 Outlet Node,  !- Outlet Node Name
+    Load 1 Inlet Node,       !- Inlet Node Name
+    Load 1 Outlet Node,      !- Outlet Node Name
     LoadProfileSch1,         !- Load Schedule Name
     0.12,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch1;         !- Flow Rate Fraction Schedule Name
@@ -2234,10 +2234,10 @@
 
   LoadProfile:Plant,
     Load Profile 2,          !- Name
-    Load 2 Inlet Node,        !- Inlet Node Name
-    Load 2 Outlet Node,       !- Outlet Node Name
+    Load 2 Inlet Node,       !- Inlet Node Name
+    Load 2 Outlet Node,      !- Outlet Node Name
     LoadProfileSch2,         !- Load Schedule Name
-    0,                    !- Peak Flow Rate {m3/s}
+    0.12,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch2;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2252,8 +2252,8 @@
 
   LoadProfile:Plant,
     Load Profile 3,          !- Name
-    Load 3 Inlet Node,        !- Inlet Node Name
-    Load 3 Outlet Node,       !- Outlet Node Name
+    Load 3 Inlet Node,       !- Inlet Node Name
+    Load 3 Outlet Node,      !- Outlet Node Name
     LoadProfileSch3,         !- Load Schedule Name
     0.12,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch3;         !- Flow Rate Fraction Schedule Name

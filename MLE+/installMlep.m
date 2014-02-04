@@ -67,18 +67,22 @@ if ~manualInstall
 else
     % Manual Install
     if ispc
-        % Rename RunEPlus.bat to RunEPlus_orig.bat
-        [status1,message,messageid] = copyfile([eplusPath filesep 'RunEPlus.bat'] ,[eplusPath filesep 'RunEPlus_orig.bat'], 'f');
-        
-        % Copy RunEPlus.bat
-        [status2,message,messageid] = copyfile([mlepPath filesep 'settings' filesep 'RunEPlus.bat'] ,[eplusPath filesep 'RunEPlus.bat'], 'f');
-        
-        % Check Whether Replacing RunEPlus was successfull
-        status = status1 && status2;
-        if ~status
-            disp('ERROR: CHECK E+ PATHS AND JAVA PATHS');
-            disp(message);
-            disp(messageid);
+        if ~exist([eplusPath filesep 'RunEPlus_orig.bat'], 'file') == 2
+            % Rename RunEPlus.bat to RunEPlus_orig.bat
+            [status1,message,messageid] = copyfile([eplusPath filesep 'RunEPlus.bat'] ,[eplusPath filesep 'RunEPlus_orig.bat'], 'f');
+            
+            % Copy RunEPlus.bat
+            [status2,message,messageid] = copyfile([mlepPath filesep 'settings' filesep 'RunEPlus.bat'] ,[eplusPath filesep 'RunEPlus.bat'], 'f');
+            
+            % Check Whether Replacing RunEPlus was successfull
+            status = status1 && status2;
+            if ~status
+                disp('ERROR: CHECK E+ PATHS AND JAVA PATHS');
+                disp(message);
+                disp(messageid);
+            else
+                disp('INSTALLATION COMPLETED!');
+            end
         else
             disp('INSTALLATION COMPLETED!');
         end

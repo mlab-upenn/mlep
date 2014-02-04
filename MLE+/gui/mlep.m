@@ -174,7 +174,17 @@ else
 
     % Set Project Path
     handles.DATA.projectPath = [PathName];
-
+    % Set IDF Full Path
+    if isfield(handles.DATA,'idfFile')
+        handles.DATA.idfFullPath = [PathName handles.DATA.idfFile];
+    end
+    % Set Control Full Path
+    if isfield(handles.DATA,'ControlFileName')
+        handles.DATA.ControlFullPath = [PathName handles.DATA.ControlFileName];
+        handles.DATA.ControlFileDir = PathName;
+    end
+    % SEet Control File Dir
+    
     % CD to Project Path
     cd (handles.DATA.projectPath);
     % Update project Path
@@ -601,7 +611,7 @@ function Control_InputListbox_Callback(hObject, eventdata, handles)
 
 % Display Comment
 index = get(handles.Control_InputListbox, 'Value');
-set(handles.Control_InputCommentEdit, 'String', handles.DATA.variableInput{index}{4});
+set(handles.Control_InputCommentEdit, 'String', handles.DATA.variableInput(index,4));
 
 % Update handles structure 
 guidata(hObject, handles);
@@ -630,7 +640,7 @@ function Control_OutputListbox_Callback(hObject, eventdata, handles)
 
 % Display Comment
 index = get(handles.Control_OutputListbox, 'Value');
-set(handles.Control_OutputCommentEdit, 'String', handles.DATA.variableOutput{1}(index,4));
+set(handles.Control_OutputCommentEdit, 'String', handles.DATA.variableOutput(index,4));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -681,7 +691,12 @@ set(handles.Simulation_RunSimulation, 'BackgroundColor', [0.8 0.8 0.8]);
 set(handles.Simulation_VariableListbox,'string','');
 
 % Run Simulation
-acceptTimeOut = str2num(get(handles.timeOut,'string'));
+temp = get(handles.timeOut,'string');
+if ~isempty(temp)
+    acceptTimeOut = str2num(temp);
+else
+    acceptTimeOut = 8000;
+end
 handles.DATA.AcceptTimeOut = acceptTimeOut;
 handles.DATA.runPeriodLength = (handles.DATA.runPeriod(1).EndMonth - handles.DATA.runPeriod(1).BeginMonth)*31 + ...
     (handles.DATA.runPeriod(1).EndDay - handles.DATA.runPeriod(1).BeginDay+1);

@@ -5,14 +5,14 @@ function [handles] = mlepUpdateControlTab(handles)
 %% EXISTENCE
 % Variable Input
 if isfield(handles.DATA, 'variableInput') && ~isempty(handles.DATA.variableInput) && ~isfield(handles.DATA, 'Control_InputListbox')
-    handles.DATA.Control_InputListbox = handles.DATA.variableInput{:}{5};
-    handles.DATA.Control_InputCommentEdit = handles.DATA.variableInput{:}{4};
+    handles.DATA.Control_InputListbox = handles.DATA.variableInput(:,5);
+    handles.DATA.Control_InputCommentEdit = handles.DATA.variableInput(:,4);
 end
 
 % Variable Output
 if isfield(handles.DATA, 'variableOutput') && ~isempty(handles.DATA.variableOutput) && ~isfield(handles.DATA, 'Control_OutputListbox')
-    handles.DATA.Control_OutputListbox = handles.DATA.variableInput{:}{5};
-    handles.DATA.Control_OutputCommentEdit = handles.DATA.variableOutput{:}{4};
+    handles.DATA.Control_OutputListbox = handles.DATA.variableInput(:,5);
+    handles.DATA.Control_OutputCommentEdit = handles.DATA.variableOutput(:,4);
 end
 
 % Input Listbox

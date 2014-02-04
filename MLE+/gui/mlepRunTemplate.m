@@ -60,8 +60,8 @@ end
 % Create MLEP Process
 ep = mlepProcess;
 [projectPath, filename, ~] = fileparts(idfFilePath);
-ep.arguments = {[projectPath filesep filename], weatherFile};
-ep.acceptTimeout = 800000;%timeOut; %800000
+ep.arguments = {filename, weatherFile}; % projectPath filesep 
+ep.acceptTimeout = timeOut;%timeOut; %800000
 VERNUMBER = 2;  % version number of communication protocol (2 for E+ 6.0.0)
 
 %% Start EnergyPlus cosimulation
@@ -119,8 +119,6 @@ mlepOut = [];
 cmd = 'init';
 
 % Accept Socket
-%[status, msg] = acceptSocket(ep);
-
 [status, msg] = ep.acceptSocket;
 
 if status ~= 0
