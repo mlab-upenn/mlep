@@ -6,11 +6,11 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.77"
+    ComputedModelVersion    "1.78"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "ISO-8859-1"
+  SavedCharacterEncoding  "windows-1252"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -25,11 +25,11 @@ Model {
   Creator		  "willyg"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "willyg"
+  LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jan 24 15:59:45 2014"
-  RTWModifiedTimeStamp	  312479956
-  ModelVersionFormat	  "1.%<AutoIncrement:77>"
+  LastModifiedDate	  "Fri Jan 24 16:17:29 2014"
+  RTWModifiedTimeStamp	  312481043
+  ModelVersionFormat	  "1.%<AutoIncrement:78>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,6 +67,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "campus"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -826,7 +827,7 @@ Model {
   }
   System {
     Name		    "campus"
-    Location		    [1, 95, 1281, 819]
+    Location		    [2, 74, 1918, 1019]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -918,9 +919,10 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "'runenergyplus'|'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Models/Chiller1/L"
-      "argeChiller'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'|'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/"
-      "Models/Chiller1'|40000|0|''|''|900|2"
+      MaskValueString	      "'C:\\\\EnergyPlusV8-1-0\\\\RunEPlus'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\"
+      "\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\LargeChiller'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3"
+      "'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Chiller1\\\\'"
+      "|40000|0|''|''|900|2"
     }
     Block {
       BlockType		      Display
@@ -1260,9 +1262,10 @@ Model {
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "'runenergyplus'|'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Models/Hospital1/"
-      "Hospital'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'|'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Mod"
-      "els/Hospital1'|40000|0|''|''|900|2"
+      MaskValueString	      "'C:\\\\EnergyPlusV8-1-0\\\\RunEPlus'|'C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\"
+      "\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Hospital1\\\\Hospital'|'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'|'"
+      "C:\\\\Users\\\\mlab\\\\Documents\\\\GitRepository\\\\mlep_v2.0\\\\CampusSimulation\\\\Models\\\\Hospital1\\\\'|4"
+      "0000|0|''|''|900|2"
     }
     Block {
       BlockType		      Mux
@@ -1318,10 +1321,10 @@ Model {
       LibraryVersion	      "1.8"
       SourceBlock	      "mlepLibrary/E+ Building"
       SourceType	      "EnergyPlus Cosimulation"
-      progname		      "'runenergyplus'"
-      modelfile		      "'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Models/Office1/LargeOffice'"
+      progname		      "'C:\\EnergyPlusV8-1-0\\RunEPlus'"
+      modelfile		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office1'"
       weatherfile	      "'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'"
-      workdir		      "'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Models/Office1'"
+      workdir		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office1'"
       timeout		      "40000"
       port		      "0"
       host		      "''"
@@ -1339,10 +1342,11 @@ Model {
       LibraryVersion	      "1.8"
       SourceBlock	      "mlepLibrary/E+ Building"
       SourceType	      "EnergyPlus Cosimulation"
-      progname		      "'runenergyplus'"
-      modelfile		      "'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Models/Office2/LargeOffice'"
+      progname		      "'C:\\EnergyPlusV8-1-0\\RunEPlus'"
+      modelfile		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office2\\Larg"
+      "eOffice'"
       weatherfile	      "'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'"
-      workdir		      "'/Users/willyg/Documents/Git/mlep_v2.0/CampusSimulation/Models/Office2'"
+      workdir		      "'C:\\Users\\mlab\\Documents\\GitRepository\\mlep_v2.0\\CampusSimulation\\Models\\Office2\\'"
       timeout		      "40000"
       port		      "0"
       host		      "''"
@@ -2169,7 +2173,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 13:47:19
+#    Stateflow Version 7.6 (R2011b) dated Jan 25 2012, 21:03:37
 #
 #
 
