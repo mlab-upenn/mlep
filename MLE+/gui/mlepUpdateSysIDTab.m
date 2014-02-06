@@ -1,10 +1,25 @@
 function [handles] = mlepUpdateSysIDTab(handles)
 
 %% EXISTENCE
+% Variable Input
+if isfield(handles.DATA, 'variableInput') && ~isempty(handles.DATA.variableInput) && ~isfield(handles.DATA, 'SystemID_InputListbox')
+    handles.DATA.SystemID_InputListbox = handles.DATA.variableInput(:,5);
+    handles.DATA.SystemID_InputCommentEdit = handles.DATA.variableInput(:,4);
+end
+
+% Variable Output
+if isfield(handles.DATA, 'variableOutput') && ~isempty(handles.DATA.variableOutput) && ~isfield(handles.DATA, 'SystemID_OutputListbox')
+    handles.DATA.SystemID_OutputListbox = handles.DATA.variableInput(:,5);
+    handles.DATA.SystemID_OutputCommentEdit = handles.DATA.variableOutput(:,4);
+end
+
 % Input Listbox
 if ~isfield(handles.DATA, 'SystemID_InputListbox')
     handles.DATA.SystemID_InputListbox = [];
     handles.DATA.SystemID_InputCommentEdit = [];
+    set(handles.SystemID_InputListbox, 'String', handles.DATA.SystemID_InputListbox);
+    set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.SystemID_InputCommentEdit);
+else
     set(handles.SystemID_InputListbox, 'String', handles.DATA.SystemID_InputListbox);
     set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.SystemID_InputCommentEdit);
 end
@@ -15,21 +30,62 @@ if ~isfield(handles.DATA, 'SystemID_OutputListbox')
     handles.DATA.SystemID_OutputCommentEdit = [];
     set(handles.SystemID_OutputListbox, 'String', handles.DATA.SystemID_OutputListbox);
     set(handles.SystemID_OutputCommentEdit, 'String', handles.DATA.SystemID_OutputCommentEdit);
+else
+    set(handles.SystemID_OutputListbox, 'String', handles.DATA.SystemID_OutputListbox);
+    set(handles.SystemID_OutputCommentEdit, 'String', handles.DATA.SystemID_OutputCommentEdit);
 end
 
 % Control File
-if ~isfield(handles.DATA,'SystemID_ControlFileName')
-	handles.DATA.SystemID_ControlFileName = [];
+if ~isfield(handles.DATA,'SystemIDFileName')
+    handles.DATA.SystemIDFileName = [];
     set(handles.SystemID_LoadControlFileEdit, 'String', 'Control File');
     set(handles.SystemID_CreateControlFileEdit, 'String', 'ControlFile.m');
     set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
     set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
+else
+    if handles.DATA.SystemIDFileCreated == 1
+        set(handles.SystemIDl_CreateControlFileEdit, 'String', handles.DATA.SystemIDFileName);
+        set(handles.SystemID_CreateControlFileEdit, 'Background', 'c');
+        set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
+    else
+        set(handles.SystemID_LoadControlFileEdit, 'String', handles.DATA.SystemIDFileName);
+        set(handles.SystemID_LoadControlFileEdit, 'Background', 'c');
+        set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
+    end
+    
 end
 
-% Workspace Vars
-if ~isfield(handles.DATA,'workVars')
-	handles.DATA.workVars = [];
-end
+
+% %% EXISTENCE
+% % Input Listbox
+% if ~isfield(handles.DATA, 'SystemID_InputListbox')
+%     handles.DATA.SystemID_InputListbox = [];
+%     handles.DATA.SystemID_InputCommentEdit = [];
+%     set(handles.SystemID_InputListbox, 'String', handles.DATA.SystemID_InputListbox);
+%     set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.SystemID_InputCommentEdit);
+% end
+% 
+% % Output Listbox
+% if ~isfield(handles.DATA, 'SystemID_OutputListbox')
+%     handles.DATA.SystemID_OutputListbox = [];
+%     handles.DATA.SystemID_OutputCommentEdit = [];
+%     set(handles.SystemID_OutputListbox, 'String', handles.DATA.SystemID_OutputListbox);
+%     set(handles.SystemID_OutputCommentEdit, 'String', handles.DATA.SystemID_OutputCommentEdit);
+% end
+% 
+% % Control File
+% if ~isfield(handles.DATA,'SystemID_ControlFileName')
+% 	handles.DATA.SystemID_ControlFileName = [];
+%     set(handles.SystemID_LoadControlFileEdit, 'String', 'Control File');
+%     set(handles.SystemID_CreateControlFileEdit, 'String', 'ControlFile.m');
+%     set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
+%     set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
+% end
+% 
+% % Workspace Vars
+% if ~isfield(handles.DATA,'workVars')
+% 	handles.DATA.workVars = [];
+% end
 
 
 %% CHECK SIZE - Inputs/Input ID Listbox - Comments

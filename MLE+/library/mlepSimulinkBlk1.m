@@ -255,11 +255,10 @@ if processobj.isRunning
     VERNUMBER = 2;
     
     % Send signals to E+
-    rvalues = block.InputPort(1).Data;
+    rvalues1 = block.InputPort(1).Data;
 %     ivalues = block.InputPort(2).Data;
 %     bvalues = block.InputPort(3).Data;
-    
-    processobj.write(mlepEncodeRealData(VERNUMBER, 0, block.CurrentTime, rvalues));
+
     % Read from E+
     readpacket = processobj.read;
     
@@ -270,7 +269,8 @@ if processobj.isRunning
     % Currently, ivalues and bvalues are not used
     [flag, timevalue, rvalues] = mlepDecodePacket(readpacket);
     if flag ~= 0
-        processobj.stop(false);
+%         processobj.stop(false);
+        processobj.stop;
         block.OutputPort(1).Data = flag;
     else
         if isempty(rvalues), rvalues = 0; end
@@ -284,6 +284,9 @@ if processobj.isRunning
 %         block.OutputPort(4).Data = ivalues(:);
 %         block.OutputPort(5).Data = bvalues(:);
     end
+    
+    % Write to E+
+    processobj.write(mlepEncodeRealData(VERNUMBER, 0, block.CurrentTime, rvalues1));
 end
 
 %end Outputs
@@ -327,7 +330,8 @@ if ~isa(processobj, 'mlepProcess')
 end
 
 if processobj.isRunning
-    processobj.stop(true);
+%     processobj.stop(true);
+    processobj.stop;
 end
 
 %end Terminate

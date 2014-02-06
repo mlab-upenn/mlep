@@ -22,7 +22,7 @@ function varargout = setConfigurationFile(varargin)
 
 % Edit the above text to modify the response to help setConfigurationFile
 
-% Last Modified by GUIDE v2.5 07-Aug-2013 16:37:36
+% Last Modified by GUIDE v2.5 04-Feb-2014 11:25:47
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -363,3 +363,17 @@ end
 
 % Update handles structure
 guidata(hObject, handles);
+
+
+% --- Executes when user attempts to close figure1.
+function figure1_CloseRequestFcn(hObject, eventdata, handles)
+% hObject    handle to figure1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% Update Main
+if isfield(handles, 'mainHandles')
+    updateMainHandles(handles.mainHandles, handles.InputTable, handles.OutputTable);
+end
+
+% Hint: delete(hObject) closes the figure
+delete(hObject);

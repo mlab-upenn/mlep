@@ -27,7 +27,7 @@
 
 ep = mlepProcess;
 ep.arguments = {'5ZoneAirCooled', 'USA_IL_Chicago-OHare.Intl.AP.725300_TMY3'};
-ep.acceptTimeout = 10000;
+ep.acceptTimeout = 8000;
 
 VERNUMBER = 2;  % version number of communication protocol (2 for E+ 7.2.0)
 
@@ -48,17 +48,11 @@ end
 
 deltaT = 15*60;  % time step = 15 minutes
 kStep = 1;  % current simulation step
-MAXSTEPS = 4*24*4+1;  % max simulation time = 4 days
-
-TCRooLow = 22;  % Zone temperature is kept between TCRooLow & TCRooHi
-TCRooHi = 26;
-TOutLow = 22;  % Low level of outdoor temperature
-TOutHi = 24;  % High level of outdoor temperature
-ratio = (TCRooHi - TCRooLow)/(TOutHi - TOutLow);
+MAXSTEPS = 1*24*4+1;  % max simulation time = 4 days
 
 % logdata stores set-points, outdoor temperature, and zone temperature at
 % each time step.
-logdata = zeros(MAXSTEPS, 8);
+logdata = zeros(MAXSTEPS, 2);
 
 while kStep <= MAXSTEPS    
     % Read a data packet from E+
@@ -70,7 +64,8 @@ while kStep <= MAXSTEPS
     % Parse it to obtain building outputs
     [flag, eptime, outputs] = mlepDecodePacket(packet);
     if flag ~= 0, break; end
-        
+    
+    % Set Inputs
     inputs = [22];
     
     % Write to inputs of E+
@@ -79,6 +74,7 @@ while kStep <= MAXSTEPS
     % Save to logdata
     logdata(kStep, :) = [inputs outputs];
     
+    % Update Step
     kStep = kStep + 1;
 end
 

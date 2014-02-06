@@ -22,7 +22,7 @@ function varargout = mlep(varargin)
 
 % Edit the above text to modify the response to help mlep
 
-% Last Modified by GUIDE v2.5 22-Jan-2014 13:44:38
+% Last Modified by GUIDE v2.5 04-Feb-2014 12:10:46
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -189,6 +189,11 @@ else
     cd (handles.DATA.projectPath);
     % Update project Path
     %[mlep] = updateProjectPath(mlep);
+    
+    % Upload Variables Data
+    if isfield(handles.DATA,'variableData')
+        set(handles.Control_InputListbox, 'UserData',handles.DATA.variableData)
+    end
     
     % Callback for Writing cfg file
     if isfield(handles.DATA,'variableInput') && isfield(handles.DATA,'variableOutput')
@@ -635,8 +640,8 @@ function Control_OutputListbox_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Update Variable Data
-[handles] = updateVariable(handles);
+% % Update Variable Data
+% [handles] = updateVariable(handles);
 
 % Display Comment
 index = get(handles.Control_OutputListbox, 'Value');
@@ -834,9 +839,9 @@ if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
     handles.DATA.ControlFileCreated = 1;
     handles.DATA.ControlFileDir = handles.DATA.projectPath;
     
-    % Update Variable Data
-    [handles] = updateVariable(handles);
-    
+%     % Update Variable Data
+%     [handles] = updateVariable(handles);
+%     
     % Create Control File
     result = mlepCreateControlFile(handles.DATA.projectPath, handles.DATA.ControlFileName, handles.DATA.variableInput, handles.DATA.variableOutput);
 else
@@ -852,8 +857,8 @@ function Control_LoadControlFile_Callback(hObject, eventdata, handles)
 % hObject    handle to Control_LoadControlFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% Update Variable Data
-[handles] = updateVariable(handles);
+% % Update Variable Data
+% [handles] = updateVariable(handles);
 
 % Check if Selected IDF
 if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
@@ -1054,7 +1059,7 @@ function SystemID_InputListbox_Callback(hObject, eventdata, handles)
 
 % Display Comment
 index = get(handles.SystemID_InputListbox, 'Value');
-set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.variableInput{1}(index,4));
+set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.variableInput(index,4));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -1081,8 +1086,8 @@ function SystemID_OutputListbox_Callback(hObject, eventdata, handles)
 [handles] = updateVariable(handles);
 
 % Display Comment
-index = get(handles.SystemID_InputListbox, 'Value');
-set(handles.SystemID_InputCommentEdit, 'String', handles.DATA.variableInput{1}(index,4));
+index = get(handles.SystemID_OutputListbox, 'Value');
+set(handles.SystemID_OutputCommentEdit, 'String', handles.DATA.variableOutput(index,4));
 
 % Update handles structure
 guidata(hObject, handles);
@@ -1389,19 +1394,67 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton67.
-function pushbutton67_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton67 (see GCBO)
+% --- Executes on button press in SystemID_CreateControl.
+function SystemID_CreateControl_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_CreateControl (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
+    handles.DATA.SystemIDFileName = 'ControlFile.m';
+    set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
+    set(handles.SystemID_CreateControlFileEdit, 'Background', 'c');
+    handles.DATA.SystemIDFileCreated = 1;
+    handles.DATA.SystemIDFileDir = handles.DATA.projectPath;
+    
+%     % Update Variable Data
+%     [handles] = updateVariable(handles);
+%     
+    % Create Control File
+    result = mlepCreateControlFile(handles.DATA.projectPath, handles.DATA.SystemIDFileName, handles.DATA.variableInput, handles.DATA.variableOutput);
+else
+    MSG = '.IDF File does not exist or not selected.';
+    errordlg(MSG,'IDF Problem');
+end
 
+% Update handles structure
+guidata(hObject, handles);
 
-% --- Executes on button press in pushbutton68.
-function pushbutton68_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton68 (see GCBO)
+% --- Executes on button press in SystemID_LoadControlFile.
+function SystemID_LoadControlFile_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_LoadControlFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Check if Selected IDF
+if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
+    % Select Control File
+    [FileName,PathName] = uigetfile('*.m','Select Control m-file', handles.DATA.projectPath);
+    
+    % Check File
+    if ischar(FileName) && ischar(PathName)
+        % Open Dialog to select file
+        handles.DATA.SystemIDFileName = FileName;
+        handles.DATA.SystemIDFullPath = [PathName FileName];
+        handles.DATA.projectPath = PathName;
+        
+        % Display Values
+        set(handles.SystemID_LoadControlFileEdit, 'String', handles.DATA.SystemIDFileName);
+    else
+        MSG = 'Control File Selected does not exist or is not valid.';
+        errordlg(MSG,'Control File Error');
+    end
+    
+    set(handles.SystemID_LoadControlFileEdit, 'Background', 'c');
+    set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
+    handles.DATA.SystemIDFileCreated = 0;
+    handles.DATA.SystemIDFileDir = handles.DATA.projectPath;
+    
+else
+    MSG = '.IDF File does not exist or not selected.';
+    errordlg(MSG,'IDF Problem');
+end
 
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in SystemID_EditControlFile.
 function SystemID_EditControlFile_Callback(hObject, eventdata, handles)

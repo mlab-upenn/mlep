@@ -7583,7 +7583,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Plant Loop Volume {m3}
+    AUTOSIZE,                !- Plant Loop Volume {m3} AUTOSIZE
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -7727,11 +7727,87 @@
     CoolSys1 Demand Inlet Branch,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
+    Pipe:Underground,          !- Component 1 Object Type
     CoolSys1 Demand Inlet Pipe,  !- Component 1 Name
     CoolSys1 Demand Inlet Node,  !- Component 1 Inlet Node Name
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,  !- Component 1 Outlet Node Name
     Passive;                 !- Component 1 Branch Control Type
+
+  Material,
+    Pipe Steel,              !- Name
+    Smooth,                  !- Roughness
+    3.00E-03,                !- Thickness {m}
+    45.31,                   !- Conductivity {W/m-K}
+    7833.0,                  !- Density {kg/m3}
+    500.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+  Pipe:Underground,
+    CoolSys1 Demand Inlet Pipe,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    CoolSys1 Demand Inlet Node,   !- Fluid Inlet Node Name
+    CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.5,                    !- Pipe Inside Diameter {m}
+    300.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+  Pipe:Underground,
+    CoolSys1 Demand Outlet Pipe,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,   !- Fluid Inlet Node Name
+    CoolSys1 Demand Outlet Node,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.5,                    !- Pipe Inside Diameter {m}
+    300.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+
+  Construction,
+    Insulated Buried Pipe,   !- Name
+    Buried Pipe Insulation,  !- Outside Layer
+    Buried Pipe Steel;       !- Layer 2
+
+  Material,
+    Buried Pipe Soil,        !- Name
+    Smooth,                  !- Roughness
+    1.5,                     !- Thickness {m}
+    0.36,                    !- Conductivity {W/m-K}
+    2000.0,                  !- Density {kg/m3}
+    1200.0,                  !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+  Material,
+    Buried Pipe Steel,       !- Name
+    Smooth,                  !- Roughness
+    3.00E-03,                !- Thickness {m}
+    45.31,                   !- Conductivity {W/m-K}
+    7833.0,                  !- Density {kg/m3}
+    500.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+  Material,
+    Buried Pipe Insulation,  !- Name
+    VeryRough,               !- Roughness
+    3.0E-02,                 !- Thickness {m}
+    4.0E-02,                 !- Conductivity {W/m-K}
+    91.0,                    !- Density {kg/m3}
+    836.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
 
   Branch,
     CoolSys1 Demand Load Branch 1,  !- Name
@@ -7777,7 +7853,7 @@
     CoolSys1 Demand Outlet Branch,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
+    Pipe:Underground,        !- Component 1 Object Type
     CoolSys1 Demand Outlet Pipe,  !- Component 1 Name
     CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,  !- Component 1 Inlet Node Name
     CoolSys1 Demand Outlet Node,  !- Component 1 Outlet Node Name
@@ -8365,15 +8441,15 @@
     CoolSys1 Demand Bypass Pipe Inlet Node,  !- Inlet Node Name
     CoolSys1 Demand Bypass Pipe Outlet Node;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    CoolSys1 Demand Inlet Pipe,  !- Name
-    CoolSys1 Demand Inlet Node,  !- Inlet Node Name
-    CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    CoolSys1 Demand Inlet Pipe,  !- Name
+!    CoolSys1 Demand Inlet Node,  !- Inlet Node Name
+!    CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    CoolSys1 Demand Outlet Pipe,  !- Name
-    CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,  !- Inlet Node Name
-    CoolSys1 Demand Outlet Node;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    CoolSys1 Demand Outlet Pipe,  !- Name
+!    CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,  !- Inlet Node Name
+!    CoolSys1 Demand Outlet Node;  !- Outlet Node Name
 
   Pipe:Adiabatic,
     CoolSys1 Supply Equipment Bypass Pipe,  !- Name
@@ -8589,7 +8665,7 @@
     10.0,                    !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Plant Loop Volume {m3}
+    500,                !- Plant Loop Volume {m3} AUTOSIZE
     SWHSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     SWHSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     SWHSys1 Supply Branches, !- Plant Side Branch List Name
@@ -9256,6 +9332,13 @@
   Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Winter Clothes Not Comfortable Time,timestep;
   Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Summer or Winter Clothes Not Comfortable Time,timestep;
 
+!======================NODE TEMP=============================================
+  Output:Variable,CoolSys1 Demand Inlet Pipe,Pipe Inlet Temperature,timestep;
+  Output:Variable,CoolSys1 Demand Inlet Pipe,Pipe Outlet Temperature,timestep;
+  Output:Variable,CoolSys1 Demand Outlet Pipe,Pipe Inlet Temperature,timestep;
+  Output:Variable,CoolSys1 Demand Outlet Pipe,Pipe Outlet Temperature,timestep;
+
+
 ! ***REPORT METERS/VARIABLES***
 !  Output:Meter,Electricity:Facility,HOURLY;
 !  Output:Meter,Fans:Electricity,HOURLY;
@@ -9297,33 +9380,33 @@
   OutputControl:Table:Style,
     HTML;                    !- Column Separator
 
-  Output:Table:SummaryReports,
-    AnnualBuildingUtilityPerformanceSummary,  !- Report 1 Name
-    InputVerificationandResultsSummary,  !- Report 2 Name
-    ClimaticDataSummary,     !- Report 3 Name
-    EnvelopeSummary,         !- Report 4 Name
-    EquipmentSummary,        !- Report 5 Name
-    ComponentSizingSummary,  !- Report 6 Name
-    HVACSizingSummary,       !- Report 7 Name
-    SystemSummary;           !- Report 8 Name
+!  Output:Table:SummaryReports,
+!    AnnualBuildingUtilityPerformanceSummary,  !- Report 1 Name
+!    InputVerificationandResultsSummary,  !- Report 2 Name
+!    ClimaticDataSummary,     !- Report 3 Name
+!    EnvelopeSummary,         !- Report 4 Name
+!    EquipmentSummary,        !- Report 5 Name
+!    ComponentSizingSummary,  !- Report 6 Name
+!    HVACSizingSummary,       !- Report 7 Name
+!    SystemSummary;           !- Report 8 Name
 
-  Output:Table:Monthly,
-    Emissions Data Summary,  !- Name
-    4,                       !- Digits After Decimal
-    CO2:Facility,            !- Variable or Meter 1 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
-    NOx:Facility,            !- Variable or Meter 2 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 2
-    SO2:Facility,            !- Variable or Meter 3 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
-    PM:Facility,             !- Variable or Meter 4 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 4
-    Hg:Facility,             !- Variable or Meter 5 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 5
-    WaterEnvironmentalFactors:Facility,  !- Variable or Meter 6 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 6
-    Carbon Equivalent:Facility,  !- Variable or Meter 7 Name
-    SumOrAverage;            !- Aggregation Type for Variable or Meter 7
+!  Output:Table:Monthly,
+!    Emissions Data Summary,  !- Name
+!    4,                       !- Digits After Decimal
+!    CO2:Facility,            !- Variable or Meter 1 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+!    NOx:Facility,            !- Variable or Meter 2 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 2
+!    SO2:Facility,            !- Variable or Meter 3 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 3
+!    PM:Facility,             !- Variable or Meter 4 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 4
+!    Hg:Facility,             !- Variable or Meter 5 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 5
+!    WaterEnvironmentalFactors:Facility,  !- Variable or Meter 6 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 6
+!    Carbon Equivalent:Facility,  !- Variable or Meter 7 Name
+!    SumOrAverage;            !- Aggregation Type for Variable or Meter 7
 
   Output:Table:Monthly,
     Components of Peak Electrical Demand,  !- Name
@@ -9363,103 +9446,103 @@
     ElectricityProduced:Facility,  !- Variable or Meter 17 Name
     ValueWhenMaximumOrMinimum;  !- Aggregation Type for Variable or Meter 17
 
-  Output:Table:Monthly,
-    Boiler Part Load Performance,  !- Name
-    2,                       !- Digits After Decimal
-    Boiler Part Load Ratio,  !- Variable or Meter 1 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
-    Boiler Part Load Ratio,  !- Variable or Meter 2 Name
-    Maximum;                 !- Aggregation Type for Variable or Meter 2
+!  Output:Table:Monthly,
+!    Boiler Part Load Performance,  !- Name
+!    2,                       !- Digits After Decimal
+!    Boiler Part Load Ratio,  !- Variable or Meter 1 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+!    Boiler Part Load Ratio,  !- Variable or Meter 2 Name
+!    Maximum;                 !- Aggregation Type for Variable or Meter 2
 
-  Output:Table:Monthly,
-    Chiller Part Load Performance,  !- Name
-    2,                       !- Digits After Decimal
-    Chiller Part Load Ratio, !- Variable or Meter 1 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
-    Chiller Part Load Ratio, !- Variable or Meter 2 Name
-    Maximum;                 !- Aggregation Type for Variable or Meter 2
+!  Output:Table:Monthly,
+!    Chiller Part Load Performance,  !- Name
+!    2,                       !- Digits After Decimal
+!    Chiller Part Load Ratio, !- Variable or Meter 1 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+!    Chiller Part Load Ratio, !- Variable or Meter 2 Name
+!    Maximum;                 !- Aggregation Type for Variable or Meter 2
 
-  Output:Table:Monthly,
-    Fan Part Load Performance,  !- Name
-    0,                       !- Digits After Decimal
-    Fan Electric Power,      !- Variable or Meter 1 Name
-    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
-    Fan Electric Power,      !- Variable or Meter 2 Name
-    Maximum;                 !- Aggregation Type for Variable or Meter 2
+!  Output:Table:Monthly,
+!    Fan Part Load Performance,  !- Name
+!    0,                       !- Digits After Decimal
+!    Fan Electric Power,      !- Variable or Meter 1 Name
+!    SumOrAverage,            !- Aggregation Type for Variable or Meter 1
+!    Fan Electric Power,      !- Variable or Meter 2 Name
+!    Maximum;                 !- Aggregation Type for Variable or Meter 2
 
-  Output:Table:TimeBins,
-    *,                       !- Key Value
-    Zone Air Relative Humidity,  !- Variable Name
-    60,                      !- Interval Start
-    10,                      !- Interval Size
-    4;                       !- Interval Count
+!  Output:Table:TimeBins,
+!    *,                       !- Key Value
+!    Zone Air Relative Humidity,  !- Variable Name
+!    60,                      !- Interval Start
+!    10,                      !- Interval Size
+!    4;                       !- Interval Count
 
-  Output:Table:TimeBins,
-    *,                       !- Key Value
-    Air System Outdoor Air Flow Fraction,  !- Variable Name
-    0.00,                    !- Interval Start
-    0.20,                    !- Interval Size
-    5;                       !- Interval Count
+!  Output:Table:TimeBins,
+!    *,                       !- Key Value
+!    Air System Outdoor Air Flow Fraction,  !- Variable Name
+!    0.00,                    !- Interval Start
+!    0.20,                    !- Interval Size
+!    5;                       !- Interval Count
 
-  Output:Table:TimeBins,
-    *,                       !- Key Value
-    Availability Manager Night Cycle Control Status,  !- Variable Name
-    0,                       !- Interval Start
-    1,                       !- Interval Size
-    4;                       !- Interval Count
+!  Output:Table:TimeBins,
+!    *,                       !- Key Value
+!    Availability Manager Night Cycle Control Status,  !- Variable Name
+!    0,                       !- Interval Start
+!    1,                       !- Interval Size
+!    4;                       !- Interval Count
 
 ! ***ENVIRONMENTAL FACTORS REPORTING***
 
-  Output:EnvironmentalImpactFactors,
-    Monthly;                 !- Reporting Frequency
+!  Output:EnvironmentalImpactFactors,
+!    Monthly;                 !- Reporting Frequency
 
-  EnvironmentalImpactFactors,
-    0.663,                   !- District Heating Efficiency
-    4.18,                    !- District Cooling COP {W/W}
-    0.585,                   !- Steam Conversion Efficiency
-    80.7272,                 !- Total Carbon Equivalent Emission Factor From N2O {kg/kg}
-    6.2727,                  !- Total Carbon Equivalent Emission Factor From CH4 {kg/kg}
-    0.2727;                  !- Total Carbon Equivalent Emission Factor From CO2 {kg/kg}
+!  EnvironmentalImpactFactors,
+!    0.663,                   !- District Heating Efficiency
+!    4.18,                    !- District Cooling COP {W/W}
+!    0.585,                   !- Steam Conversion Efficiency
+!    80.7272,                 !- Total Carbon Equivalent Emission Factor From N2O {kg/kg}
+!    6.2727,                  !- Total Carbon Equivalent Emission Factor From CH4 {kg/kg}
+!    0.2727;                  !- Total Carbon Equivalent Emission Factor From CO2 {kg/kg}
 
 ! Indiana electricity source and emission factors based on Deru and Torcellini 2007
 
-  FuelFactors,
-    Electricity,             !- Existing Fuel Resource Name
-    kg,                      !- Units of Measure
-    ,                        !- Energy per Unit Factor
-    3.546,                   !- Source Energy Factor {J/J}
-    ,                        !- Source Energy Schedule Name
-    3.417E+02,               !- CO2 Emission Factor {g/MJ}
-    ,                        !- CO2 Emission Factor Schedule Name
-    1.186E-01,               !- CO Emission Factor {g/MJ}
-    ,                        !- CO Emission Factor Schedule Name
-    7.472E-01,               !- CH4 Emission Factor {g/MJ}
-    ,                        !- CH4 Emission Factor Schedule Name
-    6.222E-01,               !- NOx Emission Factor {g/MJ}
-    ,                        !- NOx Emission Factor Schedule Name
-    8.028E-03,               !- N2O Emission Factor {g/MJ}
-    ,                        !- N2O Emission Factor Schedule Name
-    1.872E+00,               !- SO2 Emission Factor {g/MJ}
-    ,                        !- SO2 Emission Factor Schedule Name
-    0.0,                     !- PM Emission Factor {g/MJ}
-    ,                        !- PM Emission Factor Schedule Name
-    1.739E-02,               !- PM10 Emission Factor {g/MJ}
-    ,                        !- PM10 Emission Factor Schedule Name
-    0.0,                     !- PM2.5 Emission Factor {g/MJ}
-    ,                        !- PM2.5 Emission Factor Schedule Name
-    0.0,                     !- NH3 Emission Factor {g/MJ}
-    ,                        !- NH3 Emission Factor Schedule Name
-    1.019E-02,               !- NMVOC Emission Factor {g/MJ}
-    ,                        !- NMVOC Emission Factor Schedule Name
-    5.639E-06,               !- Hg Emission Factor {g/MJ}
-    ,                        !- Hg Emission Factor Schedule Name
-    2.778E-05,               !- Pb Emission Factor {g/MJ}
-    ,                        !- Pb Emission Factor Schedule Name
-    0.4309556,               !- Water Emission Factor {L/MJ}
-    ,                        !- Water Emission Factor Schedule Name
-    0,                       !- Nuclear High Level Emission Factor {g/MJ}
-    ,                        !- Nuclear High Level Emission Factor Schedule Name
-    0;                       !- Nuclear Low Level Emission Factor {m3/MJ}
+!  FuelFactors,
+!    Electricity,             !- Existing Fuel Resource Name
+!    kg,                      !- Units of Measure
+!    ,                        !- Energy per Unit Factor
+!    3.546,                   !- Source Energy Factor {J/J}
+!    ,                        !- Source Energy Schedule Name
+!    3.417E+02,               !- CO2 Emission Factor {g/MJ}
+!    ,                        !- CO2 Emission Factor Schedule Name
+!    1.186E-01,               !- CO Emission Factor {g/MJ}
+!    ,                        !- CO Emission Factor Schedule Name
+!    7.472E-01,               !- CH4 Emission Factor {g/MJ}
+!    ,                        !- CH4 Emission Factor Schedule Name
+!    6.222E-01,               !- NOx Emission Factor {g/MJ}
+!    ,                        !- NOx Emission Factor Schedule Name
+!    8.028E-03,               !- N2O Emission Factor {g/MJ}
+!    ,                        !- N2O Emission Factor Schedule Name
+!    1.872E+00,               !- SO2 Emission Factor {g/MJ}
+!    ,                        !- SO2 Emission Factor Schedule Name
+!    0.0,                     !- PM Emission Factor {g/MJ}
+!    ,                        !- PM Emission Factor Schedule Name
+!    1.739E-02,               !- PM10 Emission Factor {g/MJ}
+!    ,                        !- PM10 Emission Factor Schedule Name
+!    0.0,                     !- PM2.5 Emission Factor {g/MJ}
+!    ,                        !- PM2.5 Emission Factor Schedule Name
+!    0.0,                     !- NH3 Emission Factor {g/MJ}
+!    ,                        !- NH3 Emission Factor Schedule Name
+!    1.019E-02,               !- NMVOC Emission Factor {g/MJ}
+!    ,                        !- NMVOC Emission Factor Schedule Name
+!    5.639E-06,               !- Hg Emission Factor {g/MJ}
+!    ,                        !- Hg Emission Factor Schedule Name
+!    2.778E-05,               !- Pb Emission Factor {g/MJ}
+!    ,                        !- Pb Emission Factor Schedule Name
+!    0.4309556,               !- Water Emission Factor {L/MJ}
+!    ,                        !- Water Emission Factor Schedule Name
+!    0,                       !- Nuclear High Level Emission Factor {g/MJ}
+!    ,                        !- Nuclear High Level Emission Factor Schedule Name
+!    0;                       !- Nuclear Low Level Emission Factor {m3/MJ}
 
 ! Deru and Torcellini 2007
 ! Source Energy and Emission Factors for Energy Use in Buildings
@@ -9467,43 +9550,43 @@
 ! source factor and Higher Heating Values from Table 5
 ! post-combustion emission factors for boiler from Table 9 (with factor of 1000 correction for natural gas)
 
-  FuelFactors,
-    NaturalGas,              !- Existing Fuel Resource Name
-    m3,                      !- Units of Measure
-    37631000,                !- Energy per Unit Factor
-    1.092,                   !- Source Energy Factor {J/J}
-    ,                        !- Source Energy Schedule Name
-    5.21E+01,                !- CO2 Emission Factor {g/MJ}
-    ,                        !- CO2 Emission Factor Schedule Name
-    3.99E-02,                !- CO Emission Factor {g/MJ}
-    ,                        !- CO Emission Factor Schedule Name
-    1.06E-03,                !- CH4 Emission Factor {g/MJ}
-    ,                        !- CH4 Emission Factor Schedule Name
-    4.73E-02,                !- NOx Emission Factor {g/MJ}
-    ,                        !- NOx Emission Factor Schedule Name
-    1.06E-03,                !- N2O Emission Factor {g/MJ}
-    ,                        !- N2O Emission Factor Schedule Name
-    2.68E-04,                !- SO2 Emission Factor {g/MJ}
-    ,                        !- SO2 Emission Factor Schedule Name
-    0.0,                     !- PM Emission Factor {g/MJ}
-    ,                        !- PM Emission Factor Schedule Name
-    3.59E-03,                !- PM10 Emission Factor {g/MJ}
-    ,                        !- PM10 Emission Factor Schedule Name
-    0.0,                     !- PM2.5 Emission Factor {g/MJ}
-    ,                        !- PM2.5 Emission Factor Schedule Name
-    0,                       !- NH3 Emission Factor {g/MJ}
-    ,                        !- NH3 Emission Factor Schedule Name
-    2.61E-03,                !- NMVOC Emission Factor {g/MJ}
-    ,                        !- NMVOC Emission Factor Schedule Name
-    1.11E-07,                !- Hg Emission Factor {g/MJ}
-    ,                        !- Hg Emission Factor Schedule Name
-    2.13E-07,                !- Pb Emission Factor {g/MJ}
-    ,                        !- Pb Emission Factor Schedule Name
-    0,                       !- Water Emission Factor {L/MJ}
-    ,                        !- Water Emission Factor Schedule Name
-    0,                       !- Nuclear High Level Emission Factor {g/MJ}
-    ,                        !- Nuclear High Level Emission Factor Schedule Name
-    0;                       !- Nuclear Low Level Emission Factor {m3/MJ}
+!  FuelFactors,
+!    NaturalGas,              !- Existing Fuel Resource Name
+!    m3,                      !- Units of Measure
+!    37631000,                !- Energy per Unit Factor
+!    1.092,                   !- Source Energy Factor {J/J}
+!    ,                        !- Source Energy Schedule Name
+!    5.21E+01,                !- CO2 Emission Factor {g/MJ}
+!    ,                        !- CO2 Emission Factor Schedule Name
+!    3.99E-02,                !- CO Emission Factor {g/MJ}
+!    ,                        !- CO Emission Factor Schedule Name
+!    1.06E-03,                !- CH4 Emission Factor {g/MJ}
+!    ,                        !- CH4 Emission Factor Schedule Name
+!    4.73E-02,                !- NOx Emission Factor {g/MJ}
+!    ,                        !- NOx Emission Factor Schedule Name
+!    1.06E-03,                !- N2O Emission Factor {g/MJ}
+!    ,                        !- N2O Emission Factor Schedule Name
+!    2.68E-04,                !- SO2 Emission Factor {g/MJ}
+!    ,                        !- SO2 Emission Factor Schedule Name
+!    0.0,                     !- PM Emission Factor {g/MJ}
+!    ,                        !- PM Emission Factor Schedule Name
+!    3.59E-03,                !- PM10 Emission Factor {g/MJ}
+!    ,                        !- PM10 Emission Factor Schedule Name
+!    0.0,                     !- PM2.5 Emission Factor {g/MJ}
+!    ,                        !- PM2.5 Emission Factor Schedule Name
+!    0,                       !- NH3 Emission Factor {g/MJ}
+!    ,                        !- NH3 Emission Factor Schedule Name
+!    2.61E-03,                !- NMVOC Emission Factor {g/MJ}
+!    ,                        !- NMVOC Emission Factor Schedule Name
+!    1.11E-07,                !- Hg Emission Factor {g/MJ}
+!    ,                        !- Hg Emission Factor Schedule Name
+!    2.13E-07,                !- Pb Emission Factor {g/MJ}
+!    ,                        !- Pb Emission Factor Schedule Name
+!    0,                       !- Water Emission Factor {L/MJ}
+!    ,                        !- Water Emission Factor Schedule Name
+!    0,                       !- Nuclear High Level Emission Factor {g/MJ}
+!    ,                        !- Nuclear High Level Emission Factor Schedule Name
+!    0;                       !- Nuclear Low Level Emission Factor {m3/MJ}
 
   ExternalInterface,
     PtolemyServer;           !- Name of External Interface

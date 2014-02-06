@@ -1075,7 +1075,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Plant Loop Volume {m3}
+    1500,                !- Plant Loop Volume {m3}
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -1177,99 +1177,150 @@
     CoolSys1 Demand Load Branch 1,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Underground,        !- Component 1 Object Type
-    Pipe Heat Load 1 Entry,  !- Component 1 Name
-    Pipe Load 1 Entry Inlet Node,  !- Component 1 Inlet Node Name
-    Load 1 Inlet Node,       !- Component 1 Outlet Node Name
-    PASSIVE,                 !- Component 1 Branch Control Type
+!    Pipe:Outdoor,        !- Component 1 Object Type
+!    Pipe Heat Load 1 Entry,  !- Component 1 Name
+!    Pipe Load 1 Entry Inlet Node,  !- Component 1 Inlet Node Name
+!    Load 1 Inlet Node,       !- Component 1 Outlet Node Name
+!    PASSIVE,                 !- Component 1 Branch Control Type
     LoadProfile:Plant,       !- Component 2 Object Type
     Load Profile 1,          !- Component 2 Name
     Load 1 Inlet Node,       !- Component 2 Inlet Node Name
     Load 1 Outlet Node,      !- Component 2 Outlet Node Name
-    Active,                  !- Component 2 Branch Control Type
-    Pipe:Underground,        !- Component 3 Object Type
-    Pipe Heat Load 1 Exit,   !- Component 3 Name
-    Load 1 Outlet Node,      !- Component 3 Inlet Node Name
-    Load 1 Exit Inlet Node,  !- Component 3 Outlet Node Name
-    PASSIVE;                 !- Component 3 Branch Control Type
+    Active;                  !- Component 2 Branch Control Type
+!    Pipe:Underground,        !- Component 3 Object Type
+!    Pipe Heat Load 1 Exit,   !- Component 3 Name
+!    Load 1 Outlet Node,      !- Component 3 Inlet Node Name
+!    Pipe Load 1 Exit Inlet Node,  !- Component 3 Outlet Node Name
+!    PASSIVE;                 !- Component 3 Branch Control Type
 
-  Pipe:Underground,
-    Pipe Heat Load 1 Entry,  !- Name
-    Insulated Buried Pipe,   !- Construction Name
+!  Pipe:Underground,
+!    Pipe Heat Load 1 Entry,         !- Name
+!    Insulated Buried Pipe,          !- Construction Name
+!    Pipe Load 1 Entry Inlet Node,   !- Fluid Inlet Node Name
+!    Load 1 Inlet Node,              !- Fluid Outlet Node Name
+!    SunExposed,                     !- Sun Exposure
+!    0.1,                            !- Pipe Inside Diameter {m}
+!    1.0,                            !- Pipe Length {m}
+!    Buried Pipe Soil,               !- Soil Material Name
+!    13,                             !- Average Soil Surface Temperature {C}
+!    1.5,                            !- Amplitude of Soil Surface Temperature {C}
+!    30;                             !- Phase Constant of Soil Surface Temperature {days}
+
+  Pipe:Outdoor,
+    Pipe Heat Load 1 Entry,         !- Name
+    Insulated Pipe,                 !- Construction Name
     Pipe Load 1 Entry Inlet Node,   !- Fluid Inlet Node Name
-    Load 1 Inlet Node,        !- Fluid Outlet Node Name
-    SunExposed,              !- Sun Exposure
-    0.05,                    !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
-    Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
-    1.5,                     !- Amplitude of Soil Surface Temperature {C}
-    30;                      !- Phase Constant of Soil Surface Temperature {days}
+    Load 1 Inlet Node,              !- Fluid Outlet Node Name
+    TowerWaterSys CoolTower OA ref Node,    !- Ambient Temperature Outdoor Air Node Name
+    0.05,                           !- Pipe Inside Diameter {m}
+    10;                          !- Pipe Length {m}
 
-  Pipe:Underground,
-    Pipe Heat Load 1 Exit,  !- Name
-    Insulated Buried Pipe,   !- Construction Name
-    Load 1 Outlet Node,   !- Fluid Inlet Node Name
-    Load 1 Exit Inlet Node,        !- Fluid Outlet Node Name
-    SunExposed,              !- Sun Exposure
-    0.05,                    !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
-    Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
-    1.5,                     !- Amplitude of Soil Surface Temperature {C}
-    30;                      !- Phase Constant of Soil Surface Temperature {days}
+  Construction,
+    Insulated Pipe,          !- Name
+    Pipe Insulation,         !- Outside Layer
+    Pipe Steel;              !- Layer 2
 
-  Pipe:Underground,
-    Pipe Heat Load 2 Entry,  !- Name
-    Insulated Buried Pipe,   !- Construction Name
-    Pipe Load 2 Entry Inlet Node,   !- Fluid Inlet Node Name
-    Load 2 Inlet Node,        !- Fluid Outlet Node Name
-    SunExposed,              !- Sun Exposure
-    0.05,                    !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
-    Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
-    1.5,                     !- Amplitude of Soil Surface Temperature {C}
-    30;                      !- Phase Constant of Soil Surface Temperature {days}
+  Construction,
+    Plain Pipe,              !- Name
+    Pipe Steel;              !- Outside Layer
 
-  Pipe:Underground,
-    Pipe Heat Load 2 Exit,  !- Name
-    Insulated Buried Pipe,   !- Construction Name
-    Load 2 Outlet Node,   !- Fluid Inlet Node Name
-    Load 2 Exit Inlet Node,        !- Fluid Outlet Node Name
-    SunExposed,              !- Sun Exposure
-    0.05,                    !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
-    Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
-    1.5,                     !- Amplitude of Soil Surface Temperature {C}
-    30;                      !- Phase Constant of Soil Surface Temperature {days}
+  Material,
+    Pipe Steel,              !- Name
+    Smooth,                  !- Roughness
+    3.00E-03,                !- Thickness {m}
+    45.31,                   !- Conductivity {W/m-K}
+    7833.0,                  !- Density {kg/m3}
+    500.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
 
-  Pipe:Underground,
-    Pipe Heat Load 3 Entry,  !- Name
-    Insulated Buried Pipe,   !- Construction Name
-    Pipe Load 3 Entry Inlet Node,   !- Fluid Inlet Node Name
-    Load 3 Inlet Node,        !- Fluid Outlet Node Name
-    SunExposed,              !- Sun Exposure
-    0.05,                    !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
-    Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
-    1.5,                     !- Amplitude of Soil Surface Temperature {C}
-    30;                      !- Phase Constant of Soil Surface Temperature {days}
+  Material,
+    Pipe Insulation,         !- Name
+    VeryRough,               !- Roughness
+    3.0E-02,                 !- Thickness {m}
+    4.0E-03,                 !- Conductivity {W/m-K} 4.0E-02
+    91.0,                    !- Density {kg/m3}
+    836.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
 
-  Pipe:Underground,
-    Pipe Heat Load 3 Exit,  !- Name
-    Insulated Buried Pipe,   !- Construction Name
-    Load 3 Outlet Node,   !- Fluid Inlet Node Name
-    Load 3 Exit Inlet Node,        !- Fluid Outlet Node Name
-    SunExposed,              !- Sun Exposure
-    0.05,                    !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
-    Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
-    1.5,                     !- Amplitude of Soil Surface Temperature {C}
-    30;                      !- Phase Constant of Soil Surface Temperature {days}
+!  Material,
+!    Pipe Steel,              !- Name
+!    Smooth,                  !- Roughness
+!    3.00E-03,                !- Thickness {m}
+!    45.31,                   !- Conductivity {W/m-K}
+!    7833.0,                  !- Density {kg/m3}
+!    500.0,                   !- Specific Heat {J/kg-K}
+!    0.9,                     !- Thermal Absorptance
+!    0.5,                     !- Solar Absorptance
+!    0.5;                     !- Visible Absorptance
+
+!  Pipe:Underground,
+!    Pipe Heat Load 1 Exit,  !- Name
+!    Insulated Buried Pipe,   !- Construction Name
+!    Load 1 Outlet Node,   !- Fluid Inlet Node Name
+!    Pipe Load 1 Exit Inlet Node,        !- Fluid Outlet Node Name
+!    SunExposed,              !- Sun Exposure
+!    0.05,                    !- Pipe Inside Diameter {m}
+!    200.0,                   !- Pipe Length {m}
+!    Buried Pipe Soil,        !- Soil Material Name
+!    13,                      !- Average Soil Surface Temperature {C}
+!    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+!    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+!  Pipe:Underground,
+!    Pipe Heat Load 2 Entry,  !- Name
+!    Insulated Buried Pipe,   !- Construction Name
+!    Pipe Load 2 Entry Inlet Node,   !- Fluid Inlet Node Name
+!    Load 2 Inlet Node,        !- Fluid Outlet Node Name
+!    SunExposed,              !- Sun Exposure
+!    0.05,                    !- Pipe Inside Diameter {m}
+!    400.0,                   !- Pipe Length {m}
+!    Buried Pipe Soil,        !- Soil Material Name
+!    13,                      !- Average Soil Surface Temperature {C}
+!    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+!    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+!  Pipe:Underground,
+!    Pipe Heat Load 2 Exit,  !- Name
+!    Insulated Buried Pipe,   !- Construction Name
+!    Load 2 Outlet Node,   !- Fluid Inlet Node Name
+!    Pipe Load 2 Exit Inlet Node,        !- Fluid Outlet Node Name
+!    SunExposed,              !- Sun Exposure
+!    0.05,                    !- Pipe Inside Diameter {m}
+!    400.0,                   !- Pipe Length {m}
+!    Buried Pipe Soil,        !- Soil Material Name
+!    13,                      !- Average Soil Surface Temperature {C}
+!    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+!    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+!  Pipe:Underground,
+!    Pipe Heat Load 3 Entry,  !- Name
+!    Insulated Buried Pipe,   !- Construction Name
+!    Pipe Load 3 Entry Inlet Node,   !- Fluid Inlet Node Name
+!    Load 3 Inlet Node,        !- Fluid Outlet Node Name
+!    SunExposed,              !- Sun Exposure
+!    0.05,                    !- Pipe Inside Diameter {m}
+!    600.0,                   !- Pipe Length {m}
+!    Buried Pipe Soil,        !- Soil Material Name
+!    13,                      !- Average Soil Surface Temperature {C}
+!    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+!    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+!  Pipe:Underground,
+!    Pipe Heat Load 3 Exit,  !- Name
+!    Insulated Buried Pipe,   !- Construction Name
+!    Load 3 Outlet Node,   !- Fluid Inlet Node Name
+!    Pipe Load 3 Exit Inlet Node,        !- Fluid Outlet Node Name
+!    SunExposed,              !- Sun Exposure
+!    0.05,                    !- Pipe Inside Diameter {m}
+!    600.0,                   !- Pipe Length {m}
+!    Buried Pipe Soil,        !- Soil Material Name
+!    13,                      !- Average Soil Surface Temperature {C}
+!    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+!    30;                      !- Phase Constant of Soil Surface Temperature {days}
 
   Construction,
     Insulated Buried Pipe,   !- Name
@@ -1313,41 +1364,41 @@
     CoolSys1 Demand Load Branch 2,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Underground,        !- Component 1 Object Type
-    Pipe Heat Load 2 Entry,  !- Component 1 Name
-    Pipe Load 2 Entry Inlet Node,  !- Component 1 Inlet Node Name
-    Load 2 Inlet Node, !- Component 1 Outlet Node Name
-    PASSIVE,                 !- Component 1 Branch Control Type
+!    Pipe:Underground,        !- Component 1 Object Type
+!    Pipe Heat Load 2 Entry,  !- Component 1 Name
+!    Pipe Load 2 Entry Inlet Node,  !- Component 1 Inlet Node Name
+!    Load 2 Inlet Node, !- Component 1 Outlet Node Name
+!    PASSIVE,                 !- Component 1 Branch Control Type
     LoadProfile:Plant,       !- Component 1 Object Type
     Load Profile 2,          !- Component 1 Name
     Load 2 Inlet Node,       !- Component 1 Inlet Node Name
     Load 2 Outlet Node,      !- Component 1 Outlet Node Name
-    Active,                  !- Component 1 Branch Control Type
-    Pipe:Underground,        !- Component 1 Object Type
-    Pipe Heat Load 2 Exit,   !- Component 1 Name
-    Load 2 Outlet Node,      !- Component 1 Inlet Node Name
-    Load 2 Exit Inlet Node,  !- Component 1 Outlet Node Name
-    PASSIVE;                 !- Component 1 Branch Control Type
+    Active;                  !- Component 1 Branch Control Type
+!    Pipe:Underground,        !- Component 1 Object Type
+!    Pipe Heat Load 2 Exit,   !- Component 1 Name
+!    Load 2 Outlet Node,      !- Component 1 Inlet Node Name
+!    Pipe Load 2 Exit Inlet Node,  !- Component 1 Outlet Node Name
+!    PASSIVE;                 !- Component 1 Branch Control Type
 
   Branch,
     CoolSys1 Demand Load Branch 3,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Underground,        !- Component 1 Object Type
-    Pipe Heat Load 3 Entry,  !- Component 1 Name
-    Pipe Load 3 Entry Inlet Node,  !- Component 1 Inlet Node Name
-    Load 3 Inlet Node, !- Component 1 Outlet Node Name
-    PASSIVE,                 !- Component 1 Branch Control Type
+!    Pipe:Underground,        !- Component 1 Object Type
+!    Pipe Heat Load 3 Entry,  !- Component 1 Name
+!    Pipe Load 3 Entry Inlet Node,  !- Component 1 Inlet Node Name
+!    Load 3 Inlet Node, !- Component 1 Outlet Node Name
+!    PASSIVE,                 !- Component 1 Branch Control Type
     LoadProfile:Plant,       !- Component 1 Object Type
     Load Profile 3,          !- Component 1 Name
     Load 3 Inlet Node,       !- Component 1 Inlet Node Name
     Load 3 Outlet Node,      !- Component 1 Outlet Node Name
-    Active,                  !- Component 1 Branch Control Type
-    Pipe:Underground,        !- Component 1 Object Type
-    Pipe Heat Load 3 Exit,   !- Component 1 Name
-    Load 3 Outlet Node,      !- Component 1 Inlet Node Name
-    Load 3 Exit Inlet Node,  !- Component 1 Outlet Node Name
-    PASSIVE;                 !- Component 1 Branch Control Type
+    Active;                  !- Component 1 Branch Control Type
+!    Pipe:Underground,        !- Component 1 Object Type
+!    Pipe Heat Load 3 Exit,   !- Component 1 Name
+!    Load 3 Outlet Node,      !- Component 1 Inlet Node Name
+!    Pipe Load 3 Exit Inlet Node,  !- Component 1 Outlet Node Name
+!    PASSIVE;                 !- Component 1 Branch Control Type
 
   Branch,
     CoolSys1 Demand Outlet Branch,  !- Name
@@ -2185,7 +2236,7 @@
   SetpointManager:Scheduled,
     CoolSys1 Chiller 2 Setpoint Manager,  !- Name
     Temperature,             !- Control Variable
-    CW-Loop-Temp-Schedule,   !- Schedule Name
+    ChWaterTempControl1,   !- Schedule Name CW-Loop-Temp-Schedule
     CoolSys1 Supply Equipment Outlet Node 2;  !- Setpoint Node or NodeList Name
 
   Branch,
@@ -2197,11 +2248,6 @@
     CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Component 1 Inlet Node Name
     CoolSys1 Supply Equipment Outlet Node 2,  !- Component 1 Outlet Node Name
     Active;                  !- Component 1 Branch Control Type
-
-  ExternalInterface:Schedule,
-    ChWaterTemp2,            !- Name
-    Any number,              !- Schedule Type Limits Name
-    6.7;                     !- Initial Value
 
 !======================PLANT PROFILE=============================================
   ExternalInterface:Schedule,
@@ -2323,8 +2369,20 @@
   Output:Variable,CoolSys1 Supply Equipment Outlet Node 2,System Node Temperature,timestep;
   Output:Variable,CoolSys1 Supply Equipment Outlet Node 2,System Node Mass Flow Rate,timestep;
 
+  Output:Variable,CoolSys1 Supply Mixer-CoolSys1 Supply Outlet Pipe,System Node Temperature,timestep;
   Output:Variable,CoolSys1 Supply Outlet Node,System Node Temperature,timestep;
+  Output:Variable,Load 1 Inlet Node,System Node Temperature,timestep;
+  Output:Variable,Load 2 Inlet Node,System Node Temperature,timestep;
+  Output:Variable,Load 3 Inlet Node,System Node Temperature,timestep;
+  Output:Variable,Load 1 Outlet Node,System Node Temperature,timestep;
+  Output:Variable,Load 2 Outlet Node,System Node Temperature,timestep;
+  Output:Variable,Load 3 Outlet Node,System Node Temperature,timestep;
+
  
+!  Output:Variable,Pipe Load 1 Entry Inlet Node,System Node Temperature,timestep;
+!  Output:Variable,Pipe Load 2 Entry Inlet Node,System Node Temperature,timestep;
+!  Output:Variable,Pipe Load 3 Entry Inlet Node,System Node Temperature,timestep;
+
 !  Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
 !  Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
 ! ***REPORT METERS/VARIABLES***

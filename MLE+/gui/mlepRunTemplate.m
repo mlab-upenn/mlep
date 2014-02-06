@@ -155,7 +155,9 @@ while kStep <= MAXSTEPS
     [inputStruct, userdata] = feval(funcHandle, cmd, mlepOut, mlepIn, time(1:kStep), kStep, userdata);
     [inputs, err] = setInput2vector(inputStruct, inputTable, outputTable);
     if err ~= 0
-        return;
+         err = MException('MATLAB:narginchk:notEnoughInputs', ...
+        'Not enough input arguments.');
+        throw(err);
     end
     %     catch err
 %         if (strcmp(err.identifier,'MATLAB:unassignedOutputs'))
@@ -212,7 +214,8 @@ if size(inputTable,1)
         else
             mlepError = 'notAllInputsSpecified';
             errordlg(mlepError,'Input/Output Error')
-            error = -1;
+            err = -1;
+            return;
         end
     end
 else

@@ -45,16 +45,17 @@ if ~isfield(handles.DATA,'ControlFileName')
     set(handles.Control_LoadControlFileEdit, 'Background', 'white');
     set(handles.Control_CreateControlFileEdit, 'Background', 'white');
 else
-    if handles.DATA.ControlFileCreated == 1
-        set(handles.Control_CreateControlFileEdit, 'String', handles.DATA.ControlFileName);
-        set(handles.Control_CreateControlFileEdit, 'Background', 'c');
-        set(handles.Control_LoadControlFileEdit, 'Background', 'white');
-    else
-        set(handles.Control_LoadControlFileEdit, 'String', handles.DATA.ControlFileName);
-        set(handles.Control_LoadControlFileEdit, 'Background', 'c');
-        set(handles.Control_CreateControlFileEdit, 'Background', 'white');
+    if isfield(handles.DATA,'ControlFileCreated')
+        if handles.DATA.ControlFileCreated == 1
+            set(handles.Control_CreateControlFileEdit, 'String', handles.DATA.ControlFileName);
+            set(handles.Control_CreateControlFileEdit, 'Background', 'c');
+            set(handles.Control_LoadControlFileEdit, 'Background', 'white');
+        else
+            set(handles.Control_LoadControlFileEdit, 'String', handles.DATA.ControlFileName);
+            set(handles.Control_LoadControlFileEdit, 'Background', 'c');
+            set(handles.Control_CreateControlFileEdit, 'Background', 'white');
+        end
     end
-    
 end
 
 % Workspace Vars
