@@ -17,7 +17,7 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jan 30 10:41:51 2014"
+  LastModifiedDate	  "Thu Feb 06 13:03:48 2014"
   RTWModifiedTimeStamp	  312809127
   ModelVersionFormat	  "1.%<AutoIncrement:27>"
   ConfigurationManager	  "None"
@@ -634,7 +634,7 @@ Library {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "78"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "12"
     Block {

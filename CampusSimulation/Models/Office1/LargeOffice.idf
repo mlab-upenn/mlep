@@ -244,7 +244,7 @@
     7,                       !- Calculation Frequency
     15000;                   !- Maximum Figures in Shadow Overlap Calculations
 
-  Timestep,4;
+  Timestep,60;
 
 ! WeatherFileName=USA_IL_Chicago-OHare_TMY2.epw
 
@@ -7583,7 +7583,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Plant Loop Volume {m3} AUTOSIZE
+    100,                !- Plant Loop Volume {m3} AUTOSIZE
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -9616,7 +9616,7 @@
     CoolSys1 Chiller 1,      !- Name
     CoolSys1 Pump-CoolSys1 ChillerNode 1,  !- Inlet Node
     CoolSys1 Supply Equipment Outlet Node 1,  !- Outlet Node
-    0.12,                  !- Design Volume Flow Rate {m3/s} 0.0025 0.11279
+    AUTOSIZE,                  !- Design Volume Flow Rate {m3/s} 0.0025 0.11279
     Scheduled,               !- Temperature Specification Type
     6.7,                       !- Source Temperature {C}
     SourceCoolSch;           !- Source Temperature Schedule Name

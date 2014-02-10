@@ -252,7 +252,7 @@
     7,                       !- Calculation Frequency
     15000;                   !- Maximum Figures in Shadow Overlap Calculations
 
-  Timestep,4;
+  Timestep,60;
 
 ! WeatherFileName=USA_IL_Chicago-OHare_TMY2.epw
 
@@ -1075,7 +1075,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    1500,                !- Plant Loop Volume {m3}
+    300,                    !- Plant Loop Volume {m3} AUTOSIZE
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -2265,7 +2265,7 @@
     Load 1 Inlet Node,       !- Inlet Node Name
     Load 1 Outlet Node,      !- Outlet Node Name
     LoadProfileSch1,         !- Load Schedule Name
-    0.12,                    !- Peak Flow Rate {m3/s}
+    0.1,                       !- Peak Flow Rate {m3/s}
     FlowProfileSch1;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2275,15 +2275,15 @@
 
   ExternalInterface:Schedule,
     FlowProfileSch1,         !- Name
-    Any number,              !- Schedule Type Limits Name
-    0;                       !- Initial Value
+    Fraction,              !- Schedule Type Limits Name
+    1;                       !- Initial Value
 
   LoadProfile:Plant,
     Load Profile 2,          !- Name
     Load 2 Inlet Node,       !- Inlet Node Name
     Load 2 Outlet Node,      !- Outlet Node Name
     LoadProfileSch2,         !- Load Schedule Name
-    0.12,                    !- Peak Flow Rate {m3/s}
+    0.06,                     !- Peak Flow Rate {m3/s}
     FlowProfileSch2;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2293,15 +2293,15 @@
 
   ExternalInterface:Schedule,
     FlowProfileSch2,         !- Name
-    Any number,              !- Schedule Type Limits Name
-    0;                       !- Initial Value
+    Fraction,              !- Schedule Type Limits Name
+    1;                       !- Initial Value
 
   LoadProfile:Plant,
     Load Profile 3,          !- Name
     Load 3 Inlet Node,       !- Inlet Node Name
     Load 3 Outlet Node,      !- Outlet Node Name
     LoadProfileSch3,         !- Load Schedule Name
-    0.12,                    !- Peak Flow Rate {m3/s}
+    0.1,                    !- Peak Flow Rate {m3/s}
     FlowProfileSch3;         !- Flow Rate Fraction Schedule Name
 
   ExternalInterface:Schedule,
@@ -2311,13 +2311,8 @@
 
   ExternalInterface:Schedule,
     FlowProfileSch3,         !- Name
-    Any number,              !- Schedule Type Limits Name
-    0;                       !- Initial Value
-
-  ExternalInterface:Schedule,
-    ChWaterTempControl3,         !- Name
-    Any number,              !- Schedule Type Limits Name
-    0;                       !- Initial Value
+    Fraction,              !- Schedule Type Limits Name
+    1;                       !- Initial Value
 
 ! ***GENERAL REPORTING***
 
@@ -2355,8 +2350,18 @@
 
   Output:Variable,CoolSys1 Chiller 1,Chiller Electric Power,timestep;
   Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
-!  Output:Variable,Load 1 Inlet Node,System Node Temperature,timestep;
-!  Output:Variable,Load 2 Inlet Node,System Node Temperature,timestep;
+
+  Output:Variable,CoolSys1 Pump,Pump Electric Energy,timestep;
+
+  Output:Variable,CoolSys1 Pump,Pump Electric Power,timestep;
+  Output:Variable,TowerWaterSys Pump,Pump Electric Power,timestep;
+  Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
+
+!======================COP=============================================
+  Output:Variable,CoolSys1 Chiller 1,Chiller COP,timestep;
+  Output:Variable,CoolSys1 Chiller 1,Chiller Part Load Ratio,timestep;
+  Output:Variable,CoolSys1 Chiller 2,Chiller COP,timestep;
+  Output:Variable,CoolSys1 Chiller 2,Chiller Part Load Ratio,timestep;
 
 !======================NODE TEMP=============================================
   Output:Variable,CoolSys1 Pump-CoolSys1 ChillerNode 1,System Node Temperature,timestep;

@@ -259,7 +259,7 @@
     7,                       !- Calculation Frequency
     15000;                   !- Maximum Figures in Shadow Overlap Calculations
 
-  Timestep,4;
+  Timestep,60;
 
 ! WeatherFileName=USA_IL_Chicago-OHare_TMY2.epw
 
@@ -20416,7 +20416,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    500,                !- Plant Loop Volume {m3} 
+    100,                !- Plant Loop Volume {m3} 
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
