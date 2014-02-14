@@ -7257,39 +7257,6 @@
     ChWTempSch,   !- Schedule Name
     CoolSys1 Supply Equipment Outlet Node 1;  !- Setpoint Node or NodeList Name
 
-  Chiller:Electric:ReformulatedEIR,
-    CoolSys1 Chiller 2,      !- Name
-    AUTOSIZE,                !- Reference Capacity {W}
-    5.5,                     !- Reference COP {W/W}
-    6.67,                    !- Reference Leaving Chilled Water Temperature {C}
-    35,                      !- Reference Leaving Condenser Water Temperature {C}
-    AutoSize,                !- Reference Chilled Water Flow Rate {m3/s}
-    AutoSize,                !- Reference Condenser Water Flow Rate {m3/s}
-    WC Screw Default 90.1-2004 Cap_fT,  !- Cooling Capacity Function of Temperature Curve Name
-    WC Screw Default 90.1-2004 EIR_fT,  !- Electric Input to Cooling Output Ratio Function of Temperature Curve Name
-    ReformEIRChiller Carrier 19XR 1259kW/6.26COP/Vanes EIRFPLR,  !- Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name
-    0.1,                     !- Minimum Part Load Ratio
-    1,                       !- Maximum Part Load Ratio
-    1,                       !- Optimum Part Load Ratio
-    0.2,                     !- Minimum Unloading Ratio
-    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Chilled Water Inlet Node Name
-    CoolSys1 Supply Equipment Outlet Node 2,  !- Chilled Water Outlet Node Name
-    CoolSys1 Chiller Water Inlet Node 2,  !- Condenser Inlet Node Name
-    CoolSys1 Chiller Water Outlet Node 2,  !- Condenser Outlet Node Name
-    1,                       !- Fraction of Compressor Electric Consumption Rejected by Condenser
-    2,                       !- Leaving Chilled Water Lower Temperature Limit {C}
-    LeavingSetpointModulated,!- Chiller Flow Mode Type
-    ,                        !- Design Heat Recovery Water Flow Rate {m3/s}
-    ,                        !- Heat Recovery Inlet Node Name
-    ,                        !- Heat Recovery Outlet Node Name
-    0.5;                     !- Sizing Factor
-
-  SetpointManager:Scheduled,
-    CoolSys1 Chiller 2 Setpoint Manager,  !- Name
-    Temperature,             !- Control Variable
-    ChWTempSch,   !- Schedule Name
-    CoolSys1 Supply Equipment Outlet Node 2;  !- Setpoint Node or NodeList Name
-
   CoolingTower:SingleSpeed,
     TowerWaterSys CoolTower, !- Name
     TowerWaterSys Pump-TowerWaterSys CoolTowerNode,  !- Water Inlet Node Name
@@ -7371,9 +7338,7 @@
   PlantEquipmentList,
     CoolSys1 Equipment List, !- Name
     Chiller:Electric:ReformulatedEIR,  !- Equipment 1 Object Type
-    CoolSys1 Chiller 1,      !- Equipment 1 Name
-    Chiller:Electric:ReformulatedEIR,  !- Equipment 2 Object Type
-    CoolSys1 Chiller 2;      !- Equipment 2 Name
+    CoolSys1 Chiller 1;      !- Equipment 1 Name
 
   PlantEquipmentList,
     HeatSys1 Equipment List, !- Name
@@ -7689,7 +7654,6 @@
     CoolSys1 Supply Branches,!- Name
     CoolSys1 Supply Inlet Branch,  !- Branch 1 Name
     CoolSys1 Supply Equipment Branch 1,  !- Branch 2 Name
-    CoolSys1 Supply Equipment Branch 2,  !- Branch 3 Name
     CoolSys1 Supply Equipment Bypass Branch,  !- Branch 4 Name
     CoolSys1 Supply Outlet Branch;  !- Branch 5 Name
 
@@ -7730,7 +7694,6 @@
     TowerWaterSys Demand Branches,  !- Name
     TowerWaterSys Demand Inlet Branch,  !- Branch 1 Name
     TowerWaterSys Demand Load Branch 1,  !- Branch 2 Name
-    TowerWaterSys Demand Load Branch 2,  !- Branch 3 Name
     TowerWaterSys Demand Bypass Branch,  !- Branch 4 Name
     TowerWaterSys Demand Outlet Branch;  !- Branch 5 Name
 
@@ -7819,16 +7782,6 @@
     CoolSys1 Chiller 1,      !- Component 1 Name
     CoolSys1 Pump-CoolSys1 ChillerNode 1,  !- Component 1 Inlet Node Name
     CoolSys1 Supply Equipment Outlet Node 1,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
-
-  Branch,
-    CoolSys1 Supply Equipment Branch 2,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
-    CoolSys1 Chiller 2,      !- Component 1 Name
-    CoolSys1 Pump-CoolSys1 ChillerNode 2,  !- Component 1 Inlet Node Name
-    CoolSys1 Supply Equipment Outlet Node 2,  !- Component 1 Outlet Node Name
     Active;                  !- Component 1 Branch Control Type
 
   Branch,
@@ -8162,16 +8115,6 @@
     Active;                  !- Component 1 Branch Control Type
 
   Branch,
-    TowerWaterSys Demand Load Branch 2,  !- Name
-    ,                        !- Maximum Flow Rate {m3/s}
-    ,                        !- Pressure Drop Curve Name
-    Chiller:Electric:ReformulatedEIR,  !- Component 1 Object Type
-    CoolSys1 Chiller 2,      !- Component 1 Name
-    CoolSys1 Chiller Water Inlet Node 2,  !- Component 1 Inlet Node Name
-    CoolSys1 Chiller Water Outlet Node 2,  !- Component 1 Outlet Node Name
-    Active;                  !- Component 1 Branch Control Type
-
-  Branch,
     TowerWaterSys Demand Outlet Branch,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
@@ -8279,7 +8222,6 @@
     CoolSys1 Supply Splitter,!- Name
     CoolSys1 Supply Inlet Branch,  !- Inlet Branch Name
     CoolSys1 Supply Equipment Branch 1,  !- Outlet Branch 1 Name
-    CoolSys1 Supply Equipment Branch 2,  !- Outlet Branch 2 Name
     CoolSys1 Supply Equipment Bypass Branch;  !- Outlet Branch 3 Name
 
   Connector:Splitter,
@@ -8317,7 +8259,6 @@
     TowerWaterSys Demand Splitter,  !- Name
     TowerWaterSys Demand Inlet Branch,  !- Inlet Branch Name
     TowerWaterSys Demand Load Branch 1,  !- Outlet Branch 1 Name
-    TowerWaterSys Demand Load Branch 2,  !- Outlet Branch 2 Name
     TowerWaterSys Demand Bypass Branch;  !- Outlet Branch 3 Name
 
   Connector:Splitter,
@@ -8339,7 +8280,6 @@
     CoolSys1 Supply Mixer,   !- Name
     CoolSys1 Supply Outlet Branch,  !- Outlet Branch Name
     CoolSys1 Supply Equipment Branch 1,  !- Inlet Branch 1 Name
-    CoolSys1 Supply Equipment Branch 2,  !- Inlet Branch 2 Name
     CoolSys1 Supply Equipment Bypass Branch;  !- Inlet Branch 3 Name
 
   Connector:Mixer,
@@ -8377,7 +8317,6 @@
     TowerWaterSys Demand Mixer,  !- Name
     TowerWaterSys Demand Outlet Branch,  !- Outlet Branch Name
     TowerWaterSys Demand Load Branch 1,  !- Inlet Branch 1 Name
-    TowerWaterSys Demand Load Branch 2,  !- Inlet Branch 2 Name
     TowerWaterSys Demand Bypass Branch;  !- Inlet Branch 3 Name
 
   Connector:Mixer,
@@ -9818,7 +9757,6 @@
   Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
   Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
   Output:Variable,CoolSys1 Chiller 1,Chiller Electric Power,timestep;
-  Output:Variable,CoolSys1 Chiller 2,Chiller Electric Power,timestep;
   Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
 
 !======================EMS COMFORT=============================================
