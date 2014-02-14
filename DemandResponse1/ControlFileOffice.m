@@ -24,7 +24,7 @@ if strcmp(cmd,'init')
 	% ---------------WRITE YOUR CODE---------------
 	% Initialization mode. This part sets the
 	% input parameters for the first time step.
-	 eplus_in_curr.CoolTemp = 22; 
+	 eplus_in_curr.CoolTemp = 24.6; 
 	 eplus_in_curr.HeatTemp = 20; 
 	 eplus_in_curr.SatTemp = 12.8; 
 	 eplus_in_curr.ChWTemp = 6.7; 
@@ -32,7 +32,7 @@ elseif strcmp(cmd,'normal')
 	% ---------------WRITE YOUR CODE---------------
 	% Normal mode. This part sets the input 
 	% parameters for the subsequent time steps.
-	 eplus_in_curr.CoolTemp = 22; 
+	 eplus_in_curr.CoolTemp = 24.6; 
 	 eplus_in_curr.HeatTemp = 20; 
 	 eplus_in_curr.SatTemp = 12.8; 
 	 eplus_in_curr.ChWTemp = 6.7; 

@@ -97,7 +97,7 @@
     6,                       !- Begin Month
     1,                       !- Begin Day of Month
     6,                       !- End Month
-    1,                       !- End Day of Month
+    30,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -2383,6 +2383,10 @@
   Output:Variable,Load 2 Outlet Node,System Node Temperature,timestep;
   Output:Variable,Load 3 Outlet Node,System Node Temperature,timestep;
 
+  Output:EnergyManagementSystem,
+    Verbose, ! Actuator Availability Dictionary Reporting
+    Verbose, ! Internal Variable Availability Dictionary Reporting
+    ErrorsOnly; ! EnergyPlus Runtime Language Debug Output Level
  
 !  Output:Variable,Pipe Load 1 Entry Inlet Node,System Node Temperature,timestep;
 !  Output:Variable,Pipe Load 2 Entry Inlet Node,System Node Temperature,timestep;

@@ -112,7 +112,7 @@
     6,                       !- Begin Month
     1,                       !- Begin Day of Month
     6,                       !- End Month
-    1,                       !- End Day of Month
+    30,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -20611,7 +20611,7 @@
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                     !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
+    400.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
@@ -20624,7 +20624,7 @@
     CoolSys1 Demand Outlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                     !- Pipe Inside Diameter {m}
-    200.0,                   !- Pipe Length {m}
+    400.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
@@ -23932,8 +23932,8 @@
 
 !======================POWER=============================================
  
-  Output:Variable,*,Facility Total Purchased Electric Energy,timestep;
-  Output:Variable,*,Facility Total Purchased Electric Power,timestep;
+  Output:Variable,Whole Building,Facility Total HVAC Electric Demand Power,timestep;
+  Output:Variable,Whole Building,Facility Total Building Electric Demand Power,timestep;
 
 ! ***REPORT TABLES***
 
@@ -24151,10 +24151,18 @@
   ExternalInterface,
     PtolemyServer;           !- Name of External Interface
 
-!  ExternalInterface:Schedule,
-!    KitchenCoolSch,          !- Name
-!    Temperature,             !- Schedule Type Limits Name
-!    26;                      !- Initial Value
+  Output:EnergyManagementSystem,
+    Verbose, ! Actuator Availability Dictionary Reporting
+    Verbose, ! Internal Variable Availability Dictionary Reporting
+    ErrorsOnly; ! EnergyPlus Runtime Language Debug Output Level
+
+!======================ACTUATOR=============================================
+  ExternalInterface:Actuator,           !
+    MaxFlowAct,                         !
+    CoolSys1 Chiller,                 !
+    PlantComponent:TemperatureSource,   ! 
+    Maximum Mass Flow Rate,             ! [kg/s]
+    0;                                  ! initial value
 
 !==========================================================================
 

@@ -97,7 +97,7 @@
     6,                       !- Begin Month
     1,                       !- Begin Day of Month
     6,                       !- End Month
-    1,                       !- End Day of Month
+    30,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -3529,7 +3529,7 @@
   Lights,
     Basement_Lights,         !- Name
     Basement,                !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3544,7 +3544,7 @@
   Lights,
     Core_bottom_Lights,      !- Name
     Core_bottom,             !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3559,7 +3559,7 @@
   Lights,
     Core_mid_Lights,         !- Name
     Core_mid,                !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3574,7 +3574,7 @@
   Lights,
     Core_top_Lights,         !- Name
     Core_top,                !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3589,7 +3589,7 @@
   Lights,
     Perimeter_bot_ZN_1_Lights,  !- Name
     Perimeter_bot_ZN_1,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3604,7 +3604,7 @@
   Lights,
     Perimeter_bot_ZN_2_Lights,  !- Name
     Perimeter_bot_ZN_2,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3619,7 +3619,7 @@
   Lights,
     Perimeter_bot_ZN_3_Lights,  !- Name
     Perimeter_bot_ZN_3,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3634,7 +3634,7 @@
   Lights,
     Perimeter_bot_ZN_4_Lights,  !- Name
     Perimeter_bot_ZN_4,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3649,7 +3649,7 @@
   Lights,
     Perimeter_mid_ZN_1_Lights,  !- Name
     Perimeter_mid_ZN_1,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3664,7 +3664,7 @@
   Lights,
     Perimeter_mid_ZN_2_Lights,  !- Name
     Perimeter_mid_ZN_2,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3679,7 +3679,7 @@
   Lights,
     Perimeter_mid_ZN_3_Lights,  !- Name
     Perimeter_mid_ZN_3,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3694,7 +3694,7 @@
   Lights,
     Perimeter_mid_ZN_4_Lights,  !- Name
     Perimeter_mid_ZN_4,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3709,7 +3709,7 @@
   Lights,
     Perimeter_top_ZN_1_Lights,  !- Name
     Perimeter_top_ZN_1,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3724,7 +3724,7 @@
   Lights,
     Perimeter_top_ZN_2_Lights,  !- Name
     Perimeter_top_ZN_2,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3739,7 +3739,7 @@
   Lights,
     Perimeter_top_ZN_3_Lights,  !- Name
     Perimeter_top_ZN_3,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3754,7 +3754,7 @@
   Lights,
     Perimeter_top_ZN_4_Lights,  !- Name
     Perimeter_top_ZN_4,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -7751,7 +7751,7 @@
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                    !- Pipe Inside Diameter {m}
-    300.0,                   !- Pipe Length {m}
+    600.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
@@ -7764,12 +7764,11 @@
     CoolSys1 Demand Outlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                    !- Pipe Inside Diameter {m}
-    300.0,                   !- Pipe Length {m}
+    600.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
     30;                      !- Phase Constant of Soil Surface Temperature {days}
-
 
   Construction,
     Insulated Buried Pipe,   !- Name
@@ -9298,10 +9297,571 @@
   Output:SQLite,
     Simple;                  !- Option Type
 
+!======================OUTPUT=============================================
   Output:VariableDictionary,IDF,Unsorted;
   Output:Surfaces:List,Details;
   Output:Surfaces:Drawing,DXF;
   Output:Constructions,Constructions;
+
+!======================EXTERNAL=============================================
+!======================ACTUATOR=============================================
+
+  ExternalInterface:Actuator,           !
+    MaxFlowAct,                         !
+    COOLSYS1 CHILLER 1,                 !
+    PlantComponent:TemperatureSource,   ! 
+    Maximum Mass Flow Rate,             ! [kg/s]
+    0;                                  ! initial value
+
+!======================SCHEDULE=============================================
+  ExternalInterface,
+    PtolemyServer;           !- Name of External Interface
+
+  ExternalInterface:Schedule,
+    CoolTempSch,             !- Name
+    Temperature,             !- Schedule Type Limits Name
+    26.7;                      !- Initial Value
+
+  ExternalInterface:Schedule,
+    HeatTempSch,             !- Name
+    Temperature,             !- Schedule Type Limits Name
+    15.6;                      !- Initial Value
+
+  ExternalInterface:Schedule,
+    SatTempSch,              !- Name
+    Temperature,             !- Schedule Type Limits Name
+    12.8;                    !- Initial Value
+
+  ExternalInterface:Schedule,
+    SourceCoolSch,           !- Name
+    Temperature,             !- Schedule Type Limits Name
+    6.8;                       !- Initial Value
+
+  ExternalInterface:Schedule,
+    BldLightSch,           !- Name BLDG_LIGHT_SCH
+    Fraction,             !- Schedule Type Limits Name
+    0.5;                       !- Initial Value
+
+
+!=========================TEMP SOURCE=================================================
+  PlantComponent:TemperatureSource,
+    CoolSys1 Chiller 1,      !- Name
+    CoolSys1 Pump-CoolSys1 ChillerNode 1,  !- Inlet Node
+    CoolSys1 Supply Equipment Outlet Node 1,  !- Outlet Node
+    AUTOSIZE,                  !- Design Volume Flow Rate {m3/s} 0.0025 0.11279
+    Scheduled,               !- Temperature Specification Type
+    6.7,                       !- Source Temperature {C}
+    SourceCoolSch;           !- Source Temperature Schedule Name
+
+!======================TEMPERATURE=============================================
+!======================TEMP VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    tempVAV1_0, !- Name
+    Core_bottom, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_1, !- Name
+    Perimeter_bot_ZN_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_2, !- Name
+    Perimeter_bot_ZN_2, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_3, !- Name
+    Perimeter_bot_ZN_3, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_4, !- Name
+    Perimeter_bot_ZN_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+!======================TEMP VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    tempVAV2_0, !- Name
+    Core_mid, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_1, !- Name
+    Perimeter_mid_ZN_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_2, !- Name
+    Perimeter_mid_ZN_2, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_3, !- Name
+    Perimeter_mid_ZN_3, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_4, !- Name
+    Perimeter_mid_ZN_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+!======================TEMP VAV3=============================================
+  EnergyManagementSystem:Sensor,
+    tempVAV3_0, !- Name
+    Core_top, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV3_1, !- Name
+    Perimeter_top_ZN_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV3_2, !- Name
+    Perimeter_top_ZN_2, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV3_3, !- Name
+    Perimeter_top_ZN_3, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV3_4, !- Name
+    Perimeter_top_ZN_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+!======================TEMP VAV5=============================================
+  EnergyManagementSystem:Sensor,
+    tempVAV5_0, !- Name
+    Basement, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+!======================VOLUME=============================================
+!======================VOL VAV1=============================================
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_0, !- Name
+    Core_bottom, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_1, !- Name
+    Perimeter_bot_ZN_1, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_2, !- Name
+    Perimeter_bot_ZN_2, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_3, !- Name
+    Perimeter_bot_ZN_3, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_4, !- Name
+    Perimeter_bot_ZN_4, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+!======================VOL VAV3=============================================
+  EnergyManagementSystem:InternalVariable,
+    volVAV3_0, !- Name
+    Core_top, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV3_1, !- Name
+    Perimeter_top_ZN_1, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV3_2, !- Name
+    Perimeter_top_ZN_2, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV3_3, !- Name
+    Perimeter_top_ZN_3, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV3_4, !- Name
+    Perimeter_top_ZN_4, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+!======================VOL VAV5=============================================
+  EnergyManagementSystem:InternalVariable,
+    volVAV5_0, !- Name
+    Basement, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+!======================FUNCTION TEMPERATURE=============================================
+  EnergyManagementSystem:ProgramCallingManager,
+    Temperature Calling Manager, !- Name
+    InsideHVACSystemIterationLoop, !- EnergyPlus Model Calling Point
+    SetTemperatureFunction; !- Program Name 1
+  
+  EnergyManagementSystem:Program,
+    SetTemperatureFunction, !- Name
+    Set Vol1 = volVAV1_0 + volVAV1_1 + volVAV1_2 + volVAV1_3 + volVAV1_4,
+    Set Vol2 = volVAV2_0 + volVAV2_1 + volVAV2_2 + volVAV2_3 + volVAV2_4,
+    Set Vol3 = volVAV3_0 + volVAV3_1 + volVAV3_2 + volVAV3_3 + volVAV3_4,
+    Set Vol5 = volVAV5_0 + volVAV5_1 + volVAV5_2 + volVAV5_3 + volVAV5_4,
+    Set SumOccTemp1 = oocVAV1_0*tempVAV1_0 + oocVAV1_1*tempVAV1_1 + oocVAV1_2*tempVAV1_2,
+    Set SumOccTemp1 = SumOccTemp1 + oocVAV1_3*tempVAV1_3 + oocVAV1_4*tempVAV1_4,
+    Set SumOccTemp2 = oocVAV2_0*tempVAV2_0 + oocVAV2_1*tempVAV2_1 + oocVAV2_2*tempVAV2_2,
+    Set SumOccTemp2 = SumOccTemp2 + oocVAV2_3*tempVAV2_3 + oocVAV2_4*tempVAV2_4,
+    Set SumOccTemp3 = oocVAV3_0*tempVAV3_0 + oocVAV3_1*tempVAV3_1 + oocVAV3_2*tempVAV3_2,
+    Set SumOccTemp3 = SumOccTemp3  + oocVAV3_3*tempVAV3_3 + oocVAV3_4*tempVAV3_4,
+    Set SumOccTemp5 = oocVAV5_0*tempVAV5_0 + oocVAV5_1*tempVAV5_1 + oocVAV5_2*tempVAV5_2,
+    Set SumOccTemp5 = SumOccTemp5 + oocVAV5_3*tempVAV5_3 + oocVAV5_4*tempVAV5_4,
+    Set SumNum1Temp = volVAV1_0*tempVAV1_0 + volVAV1_1*tempVAV1_1 + volVAV1_2*tempVAV1_2,
+    Set SumNum1Temp = SumNum1Temp + volVAV1_3*tempVAV1_3 + volVAV1_4*tempVAV1_4,
+    Set SumNum2Temp = volVAV2_0*tempVAV2_0 + volVAV2_1*tempVAV2_1 + volVAV2_2*tempVAV2_2,
+    Set SumNum2Temp = SumNum2Temp + volVAV2_3*tempVAV2_3 + volVAV2_4*tempVAV2_4,
+    Set SumNum3Temp = volVAV3_0*tempVAV3_0 + volVAV3_1*tempVAV3_1 + volVAV3_2*tempVAV3_2,
+    Set SumNum3Temp = SumNum3Temp  + volVAV3_3*tempVAV3_3 + volVAV3_4*ppdVAV3_4,
+    Set SumNum5Temp = volVAV5_0*tempVAV5_0 + volVAV5_1*tempVAV5_1 + volVAV5_2*tempVAV5_2,
+    Set SumNum5Temp = SumNum5Temp + volVAV5_3*tempVAV5_3 + volVAV5_4*tempVAV5_4,
+    Set OverallTemp = SumNum1Temp + SumNum2Temp + SumNum3Temp + SumNum5Temp,
+    Set OverallOccTemp = SumOccTemp1 + SumOccTemp2 + SumOccTemp3 + SumOccTemp5,
+    Set TotVolume = Vol1 + Vol2 + Vol3 + Vol5,
+    Set OverallTemp = OverallTemp/TotVolume,
+    IF TotPeople == 0,
+    Set OverallOccTemp = 0,
+    ELSE,
+    Set OverallOccTemp = OverallOccTemp/TotPeople,
+    ENDIF;
+
+  EnergyManagementSystem:GlobalVariable,
+    OverallTemp;
+
+  EnergyManagementSystem:GlobalVariable,
+    OverallOccTemp;
+
+  EnergyManagementSystem:OutputVariable,
+    Weighted Average Building Temperature, ! Name
+    OverallTemp, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency
+
+  EnergyManagementSystem:OutputVariable,
+    Weighted Average Building Occupancy Temperature, ! Name
+    OverallOccTemp, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency
+
+!======================COMFORT=============================================
+!======================PPD VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_0, !- Name
+    Core_bottom People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_1, !- Name
+    Perimeter_bot_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_2, !- Name
+    Perimeter_bot_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_3, !- Name
+    Perimeter_bot_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_4, !- Name
+    Perimeter_bot_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PMV VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    pmvVAV1_0, !- Name
+    Core_bottom People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV1_1, !- Name
+    Perimeter_bot_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV1_2, !- Name
+    Perimeter_bot_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV1_3, !- Name
+    Perimeter_bot_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV1_4, !- Name
+    Perimeter_bot_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+!======================PPD VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_0, !- Name
+    Core_mid People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_1, !- Name
+    Perimeter_mid_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_2, !- Name
+    Perimeter_mid_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_3, !- Name
+    Perimeter_mid_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_4, !- Name
+    Perimeter_mid_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PMV VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    pmvVAV2_0, !- Name
+    Core_mid People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV2_1, !- Name
+    Perimeter_mid_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV2_2, !- Name
+    Perimeter_mid_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV2_3, !- Name
+    Perimeter_mid_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV2_4, !- Name
+    Perimeter_mid_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+!======================PPD VAV3=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_0, !- Name
+    Core_top People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_1, !- Name
+    Perimeter_top_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_2, !- Name
+    Perimeter_top_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_3, !- Name
+    Perimeter_top_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV3_4, !- Name
+    Perimeter_top_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PMV VAV3=============================================
+  EnergyManagementSystem:Sensor,
+    pmvVAV3_0, !- Name
+    Core_top People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV3_1, !- Name
+    Perimeter_top_ZN_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV3_2, !- Name
+    Perimeter_top_ZN_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV3_3, !- Name
+    Perimeter_top_ZN_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    pmvVAV3_4, !- Name
+    Perimeter_top_ZN_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+!======================PPD VAV5=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV5_0, !- Name
+    Basement People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PMV VAV5=============================================
+  EnergyManagementSystem:Sensor,
+    pmvVAV5_0, !- Name
+    Basement People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PMV; !- Output:Variable Name
+
+!======================OCCUPANCY=============================================
+!======================OCC VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV1_0, !- Name
+    Core_bottom, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_1, !- Name
+    Perimeter_bot_ZN_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_2, !- Name
+    Perimeter_bot_ZN_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_3, !- Name
+    Perimeter_bot_ZN_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV1_4, !- Name
+    Perimeter_bot_ZN_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================OCC VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV2_0, !- Name
+    Core_mid, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_1, !- Name
+    Perimeter_mid_ZN_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_2, !- Name
+    Perimeter_mid_ZN_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_3, !- Name
+    Perimeter_mid_ZN_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV2_4, !- Name
+    Perimeter_mid_ZN_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================OCC VAV3=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV3_0, !- Name
+    Core_top, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_1, !- Name
+    Perimeter_top_ZN_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_2, !- Name
+    Perimeter_top_ZN_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_3, !- Name
+    Perimeter_top_ZN_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    oocVAV3_4, !- Name
+    Perimeter_top_ZN_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================OCC VAV5=============================================
+  EnergyManagementSystem:Sensor,
+    oocVAV5_0, !- Name
+    Basement, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================FUNCTION COMFORT=============================================
+  EnergyManagementSystem:ProgramCallingManager,
+    Comfort Calling Manager, !- Name
+    InsideHVACSystemIterationLoop, !- EnergyPlus Model Calling Point
+    SetComfortFunction; !- Program Name 1
+  
+  EnergyManagementSystem:Program,
+    SetComfortFunction, !- Name
+    Set TotPeop1 = (oocVAV1_0 + oocVAV1_1 + oocVAV1_2 + oocVAV1_3 + oocVAV1_4),
+    Set TotPeop2 = (oocVAV2_0 + oocVAV2_1 + oocVAV2_2 + oocVAV2_3 + oocVAV2_4),
+    Set TotPeop3 = (oocVAV3_0 + oocVAV3_1 + oocVAV3_2 + oocVAV3_3 + oocVAV3_4),
+    Set TotPeop5 = (oocVAV5_0 + oocVAV5_1 + oocVAV5_2 + oocVAV5_3 + oocVAV5_4),
+    Set SumNum1 = oocVAV1_0*ppdVAV1_0 + oocVAV1_1*ppdVAV1_1 + oocVAV1_2*ppdVAV1_2,
+    Set SumNum1 = SumNum1 + oocVAV1_3*ppdVAV1_3 + oocVAV1_4*ppdVAV1_4,
+    Set SumNum2 = oocVAV2_0*ppdVAV2_0 + oocVAV2_1*ppdVAV2_1 + oocVAV2_2*ppdVAV2_2,
+    Set SumNum2 = SumNum2 + oocVAV2_3*ppdVAV2_3 + oocVAV2_4*ppdVAV2_4,
+    Set SumNum3 = oocVAV3_0*ppdVAV3_0 + oocVAV3_1*ppdVAV3_1 + oocVAV3_2*ppdVAV3_2,
+    Set SumNum3 = SumNum3  + oocVAV3_3*ppdVAV3_3 + oocVAV3_4*ppdVAV3_4,
+    Set SumNum5 = oocVAV5_0*ppdVAV5_0 + oocVAV5_1*ppdVAV5_1 + oocVAV5_2*ppdVAV5_2,
+    Set SumNum5 = SumNum5 + oocVAV5_3*ppdVAV5_3 + oocVAV5_4*ppdVAV5_4,
+    Set SumNum1PMV = oocVAV1_0*pmvVAV1_0 + oocVAV1_1*pmvVAV1_1 + oocVAV1_2*pmvVAV1_2,
+    Set SumNum1PMV = SumNum1PMV + oocVAV1_3*pmvVAV1_3 + oocVAV1_4*pmvVAV1_4,
+    Set SumNum2PMV = oocVAV2_0*pmvVAV2_0 + oocVAV2_1*pmvVAV2_1 + oocVAV2_2*pmvVAV2_2,
+    Set SumNum2PMV = SumNum2PMV + oocVAV2_3*pmvVAV2_3 + oocVAV2_4*pmvVAV2_4,
+    Set SumNum3PMV = oocVAV3_0*pmvVAV3_0 + oocVAV3_1*pmvVAV3_1 + oocVAV3_2*pmvVAV3_2,
+    Set SumNum3PMV = SumNum3PMV  + oocVAV3_3*pmvVAV3_3 + oocVAV3_4*ppdVAV3_4,
+    Set SumNum5PMV = oocVAV5_0*pmvVAV5_0 + oocVAV5_1*pmvVAV5_1 + oocVAV5_2*pmvVAV5_2,
+    Set SumNum5PMV = SumNum5PMV + oocVAV5_3*pmvVAV5_3 + oocVAV5_4*pmvVAV5_4,
+    Set OverallComfort = SumNum1 + SumNum2 + SumNum3 + SumNum5,
+    Set OverallComfortPMV = SumNum1PMV + SumNum2PMV + SumNum3PMV + SumNum5PMV,
+    Set TotPeople = (TotPeop1 + TotPeop2 + TotPeop3 + TotPeop5),
+    IF TotPeople == 0,
+    Set OverallComfort = 5,
+    Set OverallComfortPMV = 0,
+    ELSE,
+    Set OverallComfort = OverallComfort/TotPeople,
+    Set OverallComfortPMV = OverallComfortPMV/TotPeople,
+    ENDIF;
+
+  EnergyManagementSystem:GlobalVariable,
+    TotPeople;
+
+  EnergyManagementSystem:GlobalVariable,
+    OverallComfort;
+  
+  EnergyManagementSystem:OutputVariable,
+    Weighted Average Building PPD, ! Name
+    OverallComfort, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency
+
+  Output:EnergyManagementSystem,
+    Verbose, ! Actuator Availability Dictionary Reporting
+    Verbose, ! Internal Variable Availability Dictionary Reporting
+    ErrorsOnly; ! EnergyPlus Runtime Language Debug Output Level
 
 !======================WEATHER=============================================
   Output:Variable,Environment,Site Outdoor Air Drybulb Temperature,timestep;
@@ -9311,23 +9871,19 @@
 !  Output:Variable,Environment,Site Direct Solar Radiation Rate per Area,timestep;
 
 !======================POWER=============================================
-!  Output:Variable,CoolSys1 Pump,Pump Electric Power,timestep;
-!  Output:Variable,HeatSys1 Pump,Pump Electric Power,timestep;
-!  Output:Variable,SWHSys1 Pump,Pump Electric Power,timestep;
-!  Output:Variable,VAV_1_Fan,Fan Electric Power,timestep;
-!  Output:Variable,VAV_2_Fan,Fan Electric Power,timestep;
-!  Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
-!  Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
-!  Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
-  Output:Variable,*,Facility Total Purchased Electric Energy,timestep;
-  Output:Variable,*,Facility Total Purchased Electric Power,timestep;
+
+  Output:Variable,Whole Building,Facility Total HVAC Electric Demand Power,timestep;
+  Output:Variable,Whole Building,Facility Total Building Electric Demand Power,timestep;
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Mass Flow Rate,timestep;
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Heat Transfer Rate,timestep;
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Inlet Temperature,timestep;
   Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Outlet Temperature,timestep;
 
-!======================EMS PPD=============================================
+!======================EMS COMFORT=============================================
   Output:Variable,EMS,Weighted Average Building PPD,timestep;
+  Output:Variable,EMS,Weighted Average Building Occupancy Temperature,timestep;
+  Output:Variable,EMS,Weighted Average Building Temperature,timestep;
+
   Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Summer Clothes Not Comfortable Time,timestep;
   Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Winter Clothes Not Comfortable Time,timestep;
   Output:Variable,Facility,Facility Thermal Comfort ASHRAE 55 Simple Model Summer or Winter Clothes Not Comfortable Time,timestep;
@@ -9337,6 +9893,7 @@
   Output:Variable,CoolSys1 Demand Inlet Pipe,Pipe Outlet Temperature,timestep;
   Output:Variable,CoolSys1 Demand Outlet Pipe,Pipe Inlet Temperature,timestep;
   Output:Variable,CoolSys1 Demand Outlet Pipe,Pipe Outlet Temperature,timestep;
+
 
 
 ! ***REPORT METERS/VARIABLES***
@@ -9377,8 +9934,8 @@
 !  Output:Variable,*,Zone Mean Air Temperature,hourly;
 ! ***REPORT TABLES***
 
-  OutputControl:Table:Style,
-    HTML;                    !- Column Separator
+!  OutputControl:Table:Style,
+!    HTML;                    !- Column Separator
 
 !  Output:Table:SummaryReports,
 !    AnnualBuildingUtilityPerformanceSummary,  !- Report 1 Name
@@ -9588,240 +10145,3 @@
 !    ,                        !- Nuclear High Level Emission Factor Schedule Name
 !    0;                       !- Nuclear Low Level Emission Factor {m3/MJ}
 
-  ExternalInterface,
-    PtolemyServer;           !- Name of External Interface
-
-  ExternalInterface:Schedule,
-    CoolTempSch,             !- Name
-    Temperature,             !- Schedule Type Limits Name
-    26.7;                      !- Initial Value
-
-  ExternalInterface:Schedule,
-    HeatTempSch,             !- Name
-    Temperature,             !- Schedule Type Limits Name
-    15.6;                      !- Initial Value
-
-  ExternalInterface:Schedule,
-    SatTempSch,              !- Name
-    Temperature,             !- Schedule Type Limits Name
-    12.8;                    !- Initial Value
-
-  ExternalInterface:Schedule,
-    SourceCoolSch,           !- Name
-    Temperature,             !- Schedule Type Limits Name
-    6.8;                       !- Initial Value
-
-!==========================================================================
-
-  PlantComponent:TemperatureSource,
-    CoolSys1 Chiller 1,      !- Name
-    CoolSys1 Pump-CoolSys1 ChillerNode 1,  !- Inlet Node
-    CoolSys1 Supply Equipment Outlet Node 1,  !- Outlet Node
-    AUTOSIZE,                   !- Design Volume Flow Rate {m3/s} 0.0025 0.11279
-    Scheduled,                  !- Temperature Specification Type
-    6.7,                        !- Source Temperature {C}
-    SourceCoolSch;              !- Source Temperature Schedule Name
-
-!==========================================================================
-
-!======================COMFORT=============================================
-!======================PPD VAV1=============================================
-  EnergyManagementSystem:Sensor,
-    ppdVAV1_0, !- Name
-    Core_bottom People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV1_1, !- Name
-    Perimeter_bot_ZN_1 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV1_2, !- Name
-    Perimeter_bot_ZN_2 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV1_3, !- Name
-    Perimeter_bot_ZN_3 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV1_4, !- Name
-    Perimeter_bot_ZN_4 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-!======================PPD VAV2=============================================
-  EnergyManagementSystem:Sensor,
-    ppdVAV2_0, !- Name
-    Core_mid People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV2_1, !- Name
-    Perimeter_mid_ZN_1 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV2_2, !- Name
-    Perimeter_mid_ZN_2 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV2_3, !- Name
-    Perimeter_mid_ZN_3 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV2_4, !- Name
-    Perimeter_mid_ZN_4 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-!======================PPD VAV3=============================================
-  EnergyManagementSystem:Sensor,
-    ppdVAV3_0, !- Name
-    Core_top People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV3_1, !- Name
-    Perimeter_top_ZN_1 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV3_2, !- Name
-    Perimeter_top_ZN_2 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV3_3, !- Name
-    Perimeter_top_ZN_3 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    ppdVAV3_4, !- Name
-    Perimeter_top_ZN_4 People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-!======================PPD VAV5=============================================
-  EnergyManagementSystem:Sensor,
-    ppdVAV5_0, !- Name
-    Basement People, !- Output:Variable Index Key Name
-    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
-
-!======================OCCUPANCY=============================================
-!======================OCC VAV1=============================================
-  EnergyManagementSystem:Sensor,
-    oocVAV1_0, !- Name
-    Core_bottom, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV1_1, !- Name
-    Perimeter_bot_ZN_1, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV1_2, !- Name
-    Perimeter_bot_ZN_2, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV1_3, !- Name
-    Perimeter_bot_ZN_3, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV1_4, !- Name
-    Perimeter_bot_ZN_4, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-!======================OCC VAV2=============================================
-  EnergyManagementSystem:Sensor,
-    oocVAV2_0, !- Name
-    Core_mid, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV2_1, !- Name
-    Perimeter_mid_ZN_1, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV2_2, !- Name
-    Perimeter_mid_ZN_2, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV2_3, !- Name
-    Perimeter_mid_ZN_3, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV2_4, !- Name
-    Perimeter_mid_ZN_4, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-!======================OCC VAV3=============================================
-  EnergyManagementSystem:Sensor,
-    oocVAV3_0, !- Name
-    Core_top, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV3_1, !- Name
-    Perimeter_top_ZN_1, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV3_2, !- Name
-    Perimeter_top_ZN_2, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV3_3, !- Name
-    Perimeter_top_ZN_3, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-  EnergyManagementSystem:Sensor,
-    oocVAV3_4, !- Name
-    Perimeter_top_ZN_4, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-!======================OCC VAV5=============================================
-  EnergyManagementSystem:Sensor,
-    oocVAV5_0, !- Name
-    Basement, !- Output:Variable Index Key Name
-    Zone People Occupant Count; !- Output:Variable Name
-
-!======================FUNCTION COMFORT=============================================
-  EnergyManagementSystem:ProgramCallingManager,
-    Comfort Calling Manager, !- Name
-    InsideHVACSystemIterationLoop, !- EnergyPlus Model Calling Point
-    SetComfortFunction; !- Program Name 1
-  
-  EnergyManagementSystem:Program,
-    SetComfortFunction, !- Name
-    Set TotPeop1 = (oocVAV1_0 + oocVAV1_1 + oocVAV1_2 + oocVAV1_3 + oocVAV1_4),
-    Set TotPeop2 = (oocVAV2_0 + oocVAV2_1 + oocVAV2_2 + oocVAV2_3 + oocVAV2_4),
-    Set TotPeop3 = (oocVAV3_0 + oocVAV3_1 + oocVAV3_2 + oocVAV3_3 + oocVAV3_4),
-    Set TotPeop5 = (oocVAV5_0 + oocVAV5_1 + oocVAV5_2 + oocVAV5_3 + oocVAV5_4),
-    Set SumNum1 = oocVAV1_0*ppdVAV1_0 + oocVAV1_1*ppdVAV1_1 + oocVAV1_2*ppdVAV1_2,
-    Set SumNum1 = SumNum1 + oocVAV1_3*ppdVAV1_3 + oocVAV1_4*ppdVAV1_4,
-    Set SumNum2 = oocVAV2_0*ppdVAV2_0 + oocVAV2_1*ppdVAV2_1 + oocVAV2_2*ppdVAV2_2,
-    Set SumNum2 = SumNum2 + oocVAV2_3*ppdVAV2_3 + oocVAV2_4*ppdVAV2_4,
-    Set SumNum3 = oocVAV3_0*ppdVAV3_0 + oocVAV3_1*ppdVAV3_1 + oocVAV3_2*ppdVAV3_2,
-    Set SumNum3 = SumNum3  + oocVAV3_3*ppdVAV3_3 + oocVAV3_4*ppdVAV3_4,
-    Set SumNum5 = oocVAV5_0*ppdVAV5_0 + oocVAV5_1*ppdVAV5_1 + oocVAV5_2*ppdVAV5_2,
-    Set SumNum5 = SumNum5 + oocVAV5_3*ppdVAV5_3 + oocVAV5_4*ppdVAV5_4,
-    Set OverallComfort = (SumNum1 + SumNum2 + SumNum3 + SumNum5),
-    Set OverallComfort = OverallComfort/(TotPeop1 + TotPeop2 + TotPeop3 + TotPeop5);
- 
-  EnergyManagementSystem:GlobalVariable,
-    OverallComfort;
-  
-  EnergyManagementSystem:OutputVariable,
-    Weighted Average Building PPD, ! Name
-    OverallComfort, ! EMS Variable Name
-    Averaged, ! Type of Data in Variable
-    ZoneTimeStep; ! Update Frequency

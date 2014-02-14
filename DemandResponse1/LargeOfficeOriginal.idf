@@ -9398,16 +9398,16 @@
 !  Output:Variable,*,Chiller Electric Power,timestep;
 
   Output:Variable,EMS,Bill Time Of Use,timestep;
-
   Output:Variable,EMS,Bill Flat Rate,timestep;
-
   Output:Variable,EMS,Total Facility Power kW,timestep;
-
   Output:Variable,EMS,Average Peak Power kW,timestep;
-
   Output:Variable,EMS,Number of Peak Rate Hours,timestep;
-
   Output:Variable,Whole Building,Facility Total Electric Demand Power,timestep;
+
+  Output:Variable,VAV_1_Fan,Fan Electric Power,timestep;
+  Output:Variable,VAV_2_Fan,Fan Electric Power,timestep;
+  Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
+  Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
 
 !  Output:Variable,*,Chiller COP,timestep;
 !  Output:Variable,*,Plant System Cycle On Off Status,timestep;
