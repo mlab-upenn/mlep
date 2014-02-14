@@ -711,6 +711,9 @@ if ~isfield(handles.DATA,'UserData')
     handles.DATA.UserData = [];
 end
 
+% Update variableData
+handles = updateVariable(handles);
+
 % idfFilePath, controlFilePath, weatherFile, timeStep, runPeriod, timeOut, inputTable, outputTable
 [result] = mlepRunTemplate(handles.DATA.idfFullPath, handles.DATA.ControlFileName, ...
     handles.DATA.Weather, handles.DATA.timeStep, handles.DATA.runPeriodLength, ...

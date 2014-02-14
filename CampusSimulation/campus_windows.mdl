@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.741"
+    ComputedModelVersion    "1.742"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Feb 14 13:08:19 2014"
+  LastModifiedDate	  "Fri Feb 14 13:24:32 2014"
   RTWModifiedTimeStamp	  314277428
-  ModelVersionFormat	  "1.%<AutoIncrement:741>"
+  ModelVersionFormat	  "1.%<AutoIncrement:742>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -5556,7 +5556,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [60, 200, 1728, 850]
-      Open		      off
+      Open		      on
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -5578,6 +5578,9 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
+      LegendLocations	      "0.88419     0.88744    0.097722    0.055385\n0.89798     0.75615    0.083933    0.031282\n"
+      "0.89498     0.60231     0.08693    0.031282\n0.92376     0.44846    0.058153    0.031282\n 0.8794     0.27051   "
+      "  0.10252    0.055385\n0.88719     0.13923    0.094724    0.031282"
       TimeRange		      "90000"
       YMin		      "0~0~0~-2e+06~0~5"
       YMax		      "2e+06~200000~100~0~20~15"
