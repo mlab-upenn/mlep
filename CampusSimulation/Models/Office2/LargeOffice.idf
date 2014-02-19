@@ -95,9 +95,9 @@
   RunPeriod,
     ,                        !- Name
     6,                       !- Begin Month
-    1,                       !- Begin Day of Month
+    8,                       !- Begin Day of Month
     6,                       !- End Month
-    30,                       !- End Day of Month
+    8,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -7305,7 +7305,7 @@
     CoolSys1 Pump-CoolSys1 ChillerNodeviaConnector,  !- Outlet Node Name
     AUTOSIZE,                !- Rated Flow Rate {m3/s}
     179352,                  !- Rated Pump Head {Pa}
-    AUTOSIZE,                !- Rated Power Consumption {W}
+    0,                !- Rated Power Consumption {W} AUTOSIZE
     0.9,                     !- Motor Efficiency
     0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
     0,                       !- Coefficient 1 of the Part Load Performance Curve
@@ -7321,7 +7321,7 @@
     HeatSys1 Pump-HeatSys1 BoilerNodeviaConnector,  !- Outlet Node Name
     AUTOSIZE,                !- Rated Flow Rate {m3/s}
     179352,                  !- Rated Pump Head {Pa}
-    AUTOSIZE,                !- Rated Power Consumption {W}
+    0,                !- Rated Power Consumption {W}
     0.875,                   !- Motor Efficiency
     0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
     0,                       !- Coefficient 1 of the Part Load Performance Curve
@@ -7583,7 +7583,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    100,                !- Plant Loop Volume {m3} AUTOSIZE
+    79,                !- Plant Loop Volume {m3} 100 AUTOSIZE
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -7751,7 +7751,7 @@
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                    !- Pipe Inside Diameter {m}
-    600.0,                   !- Pipe Length {m}
+    300.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
@@ -8616,7 +8616,7 @@
     SWHSys1 Pump-SWHSys1 Water HeaterNodeviaConnector,  !- Outlet Node Name
     AUTOSIZE,                !- Rated Flow Rate {m3/s}
     179352,                  !- Rated Pump Head {Pa}
-    AUTOSIZE,                !- Rated Power Consumption {W}
+    0,                !- Rated Power Consumption {W}
     0.85,                    !- Motor Efficiency
     0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
     0,                       !- Coefficient 1 of the Part Load Performance Curve
@@ -8664,7 +8664,7 @@
     10.0,                    !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    500,                !- Plant Loop Volume {m3} AUTOSIZE
+    AUTOSIZE,                !- Plant Loop Volume {m3} AUTOSIZE
     SWHSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     SWHSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     SWHSys1 Supply Branches, !- Plant Side Branch List Name
@@ -9894,7 +9894,11 @@
   Output:Variable,CoolSys1 Demand Outlet Pipe,Pipe Inlet Temperature,timestep;
   Output:Variable,CoolSys1 Demand Outlet Pipe,Pipe Outlet Temperature,timestep;
 
-
+!======================FAN POWER=============================================
+  Output:Variable,VAV_1_Fan,Fan Electric Power,timestep;
+  Output:Variable,VAV_2_Fan,Fan Electric Power,timestep;
+  Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
+  Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
 
 ! ***REPORT METERS/VARIABLES***
 !  Output:Meter,Electricity:Facility,HOURLY;

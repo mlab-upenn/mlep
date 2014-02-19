@@ -1,0 +1,162 @@
+Program Version,EnergyPlus-Windows-64 8.1.0.009, YMD=2014.02.19 15:35,IDD_Version 8.1.0.009
+   ** Warning ** Sizing:Parameters: note Timesteps in Averaging Window entered value=[4] is less than 1 hour (i.e., 60 timesteps).
+   ************* Beginning Zone Sizing Calculations
+   ** Warning ** CheckUsedConstructions: There are 1 nominally unused constructions in input.
+   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
+   ** Warning ** Calculated design heating load for zone=CORRIDOR_NW_FLR_3 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=CORRIDOR_NW_FLR_4 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=CORRIDOR_SE_FLR_3 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=CORRIDOR_SE_FLR_4 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=ER_EXAM3_MULT4_FLR_1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=ER_NURSESTN_LOBBY_FLR_1 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=ICU_FLR_2 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=ICU_NURSESTN_LOBBY_FLR_2 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=LAB_FLR_3 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=LAB_FLR_4 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=NURSESTN_LOBBY_FLR_3 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=NURSESTN_LOBBY_FLR_4 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=OR2_MULT5_FLR_2 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=OR3_FLR_2 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=OR4_FLR_2 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=PHYSTHERAPY_FLR_3 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=RADIOLOGY_FLR_4 is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ************* Beginning System Sizing Calculations
+   ************* Beginning Plant Sizing Calculations
+   ** Warning ** The design coil load is zero for Coil:Heating:Water CORRIDOR_NW_FLR_3 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water CORRIDOR_NW_FLR_4 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water CORRIDOR_SE_FLR_3 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water CORRIDOR_SE_FLR_4 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water ER_EXAM3_MULT4_FLR_1 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water ER_NURSESTN_LOBBY_FLR_1 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water ICU_FLR_2 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water ICU_NURSESTN_LOBBY_FLR_2 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water LAB_FLR_3 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water LAB_FLR_4 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water NURSESTN_LOBBY_FLR_3 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water NURSESTN_LOBBY_FLR_4 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water OR2_MULT5_FLR_2 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water OR3_FLR_2 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water OR4_FLR_2 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water PHYSTHERAPY_FLR_3 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** The design coil load is zero for Coil:Heating:Water RADIOLOGY_FLR_4 VAV BOX REHEAT COIL
+   **   ~~~   ** The autosize value for maximum water flow rate is zero
+   **   ~~~   ** To change this, input a value for UA, change the heating design day, or lower
+   **   ~~~   **   the system heating design supply air temperature
+   ** Warning ** Check input. Pump nominal power or motor efficiency is set to 0, for pump=COOLSYS1 PUMP
+   ** Warning ** Check input. Pump nominal power or motor efficiency is set to 0, for pump=HEATSYS1 PUMP
+   ** Warning ** DXFOut: Could not triangulate surface="LOBBY_FLR_1_CEILING", type="Roof", check surface vertex order(entry)
+   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual surfaces.
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_1, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 19:51 - 19:52
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_1, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 19:59 - 20:00
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 21:27 - 21:28
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_1, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 21:59 - 22:00
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:02 - 22:03
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:11 - 22:12
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:15 - 22:16
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:24 - 22:25
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:34 - 22:35
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:38 - 22:39
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_1, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:42 - 22:43
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_1, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:45 - 22:46
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_2, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:49 - 22:50
+   ** Warning ** SolveAirLoopControllers: Maximum iterations (50) exceeded for VAV_1, at Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300, 06/08 22:50 - 22:51
+   ************* Simulation Error Summary *************
+   ** Warning ** The following Report Variables were requested but not generated
+   **   ~~~   ** because IDF did not contain these elements or misspelled variable name -- check .rdd file
+   ************* Key=VAV_3_FAN, VarName=FAN ELECTRIC POWER, Frequency=Timestep
+   ************* Key=VAV_5_FAN, VarName=FAN ELECTRIC POWER, Frequency=Timestep
+   ************* There are 1 unused schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
+   *************
+   ************* ===== Recurring Error Summary =====
+   ************* The following recurring error messages occurred.
+   *************
+   *************  ** Warning ** SolveAirLoopControllers: Exceeding Maximum iterations for VAV_1 during Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300 continues
+   *************  **   ~~~   **   This error occurred 2 total times;
+   *************  **   ~~~   **   during Warmup 0 times;
+   *************  **   ~~~   **   during Sizing 0 times.
+   *************
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Nominally Unused Constructions
+   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause
+   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm
+   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 19 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 56 Warning; 0 Severe Errors; Elapsed Time=00hr 01min  2.59sec

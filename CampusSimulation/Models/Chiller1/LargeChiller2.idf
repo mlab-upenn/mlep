@@ -95,9 +95,9 @@
   RunPeriod,
     ,                        !- Name
     6,                       !- Begin Month
-    1,                       !- Begin Day of Month
+    8,                       !- Begin Day of Month
     6,                       !- End Month
-    30,                       !- End Day of Month
+    8,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -844,7 +844,7 @@
 
   Chiller:Electric:ReformulatedEIR,
     CoolSys1 Chiller 1,      !- Name
-    AUTOSIZE,                !- Reference Capacity {W}
+    5500000,                !- Reference Capacity {W} 3643342.80643
     5.5,                     !- Reference COP {W/W}
     6.67,                    !- Reference Leaving Chilled Water Temperature {C}
     35,                      !- Reference Leaving Condenser Water Temperature {C}
@@ -915,8 +915,8 @@
     CoolSys1 Supply Inlet Node,  !- Inlet Node Name
     CoolSys1 Pump-CoolSys1 ChillerNodeviaConnector,  !- Outlet Node Name
     AUTOSIZE,                !- Rated Flow Rate {m3/s}
-    179352,                  !- Rated Pump Head {Pa}
-    AUTOSIZE,                !- Rated Power Consumption {W}
+    300000,                  !- Rated Pump Head {Pa} 179352  
+    200000,                !- Rated Power Consumption {W} 145508 66426 AUTOSIZE
     0.9,                     !- Motor Efficiency
     0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
     0,                       !- Coefficient 1 of the Part Load Performance Curve
@@ -1075,7 +1075,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    300,                    !- Plant Loop Volume {m3} AUTOSIZE
+    195,                    !- Plant Loop Volume {m3} 300 AUTOSIZE
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -1096,7 +1096,7 @@
     5.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Condenser Loop Volume {m3}
+    80,                !- Condenser Loop Volume {m3}
     TowerWaterSys Supply Inlet Node,  !- Condenser Side Inlet Node Name
     TowerWaterSys Supply Outlet Node,  !- Condenser Side Outlet Node Name
     TowerWaterSys Supply Branches,  !- Condenser Side Branch List Name
@@ -2208,7 +2208,7 @@
 
   Chiller:Electric:ReformulatedEIR,
     CoolSys1 Chiller 2,      !- Name
-    AUTOSIZE,                !- Reference Capacity {W}
+    5500000,                !- Reference Capacity {W} AutoSize
     5.5,                     !- Reference COP {W/W}
     6.67,                    !- Reference Leaving Chilled Water Temperature {C}
     35,                      !- Reference Leaving Condenser Water Temperature {C}
@@ -2324,11 +2324,8 @@
     Simple;                  !- Option Type
 
   Output:VariableDictionary,IDF,Unsorted;
-
   Output:Surfaces:List,Details;
-
   Output:Surfaces:Drawing,DXF;
-
   Output:Constructions,Constructions;
 
 !======================WEATHER=============================================
