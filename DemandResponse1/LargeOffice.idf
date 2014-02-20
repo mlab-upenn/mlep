@@ -95,9 +95,9 @@
   RunPeriod,
     ,                        !- Name
     6,                       !- Begin Month
-    1,                       !- Begin Day of Month
+    8,                       !- Begin Day of Month
     6,                       !- End Month
-    2,                       !- End Day of Month
+    8,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -244,7 +244,7 @@
     7,                       !- Calculation Frequency
     15000;                   !- Maximum Figures in Shadow Overlap Calculations
 
-  Timestep,4;
+  Timestep,15;
 
 ! WeatherFileName=USA_IL_Chicago-OHare_TMY2.epw
 
@@ -3529,7 +3529,7 @@
   Lights,
     Basement_Lights,         !- Name
     Basement,                !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3544,7 +3544,7 @@
   Lights,
     Core_bottom_Lights,      !- Name
     Core_bottom,             !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3559,7 +3559,7 @@
   Lights,
     Core_mid_Lights,         !- Name
     Core_mid,                !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3574,7 +3574,7 @@
   Lights,
     Core_top_Lights,         !- Name
     Core_top,                !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3589,7 +3589,7 @@
   Lights,
     Perimeter_bot_ZN_1_Lights,  !- Name
     Perimeter_bot_ZN_1,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3604,7 +3604,7 @@
   Lights,
     Perimeter_bot_ZN_2_Lights,  !- Name
     Perimeter_bot_ZN_2,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3619,7 +3619,7 @@
   Lights,
     Perimeter_bot_ZN_3_Lights,  !- Name
     Perimeter_bot_ZN_3,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3634,7 +3634,7 @@
   Lights,
     Perimeter_bot_ZN_4_Lights,  !- Name
     Perimeter_bot_ZN_4,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3649,7 +3649,7 @@
   Lights,
     Perimeter_mid_ZN_1_Lights,  !- Name
     Perimeter_mid_ZN_1,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3664,7 +3664,7 @@
   Lights,
     Perimeter_mid_ZN_2_Lights,  !- Name
     Perimeter_mid_ZN_2,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3679,7 +3679,7 @@
   Lights,
     Perimeter_mid_ZN_3_Lights,  !- Name
     Perimeter_mid_ZN_3,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3694,7 +3694,7 @@
   Lights,
     Perimeter_mid_ZN_4_Lights,  !- Name
     Perimeter_mid_ZN_4,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3709,7 +3709,7 @@
   Lights,
     Perimeter_top_ZN_1_Lights,  !- Name
     Perimeter_top_ZN_1,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3724,7 +3724,7 @@
   Lights,
     Perimeter_top_ZN_2_Lights,  !- Name
     Perimeter_top_ZN_2,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3739,7 +3739,7 @@
   Lights,
     Perimeter_top_ZN_3_Lights,  !- Name
     Perimeter_top_ZN_3,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -3754,7 +3754,7 @@
   Lights,
     Perimeter_top_ZN_4_Lights,  !- Name
     Perimeter_top_ZN_4,      !- Zone or ZoneList Name
-    BLDG_LIGHT_SCH,          !- Schedule Name
+    BldLightSch,          !- Schedule Name
     Watts/Area,              !- Design Level Calculation Method
     ,                        !- Lighting Level {W}
     10.76,                   !- Watts per Zone Floor Area {W/m2}
@@ -7576,7 +7576,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    AUTOSIZE,                !- Plant Loop Volume {m3}
+    640,                !- Plant Loop Volume {m3} 64.63729
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -7718,7 +7718,7 @@
     CoolSys1 Demand Inlet Branch,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
+    Pipe:Underground,          !- Component 1 Object Type
     CoolSys1 Demand Inlet Pipe,  !- Component 1 Name
     CoolSys1 Demand Inlet Node,  !- Component 1 Inlet Node Name
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,  !- Component 1 Outlet Node Name
@@ -7768,11 +7768,86 @@
     CoolSys1 Demand Outlet Branch,  !- Name
     ,                        !- Maximum Flow Rate {m3/s}
     ,                        !- Pressure Drop Curve Name
-    Pipe:Adiabatic,          !- Component 1 Object Type
+    Pipe:Underground,          !- Component 1 Object Type
     CoolSys1 Demand Outlet Pipe,  !- Component 1 Name
     CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,  !- Component 1 Inlet Node Name
     CoolSys1 Demand Outlet Node,  !- Component 1 Outlet Node Name
     Passive;                 !- Component 1 Branch Control Type
+
+  Material,
+    Pipe Steel,              !- Name
+    Smooth,                  !- Roughness
+    3.00E-03,                !- Thickness {m}
+    45.31,                   !- Conductivity {W/m-K}
+    7833.0,                  !- Density {kg/m3}
+    500.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+  Pipe:Underground,
+    CoolSys1 Demand Inlet Pipe,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    CoolSys1 Demand Inlet Node,   !- Fluid Inlet Node Name
+    CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.5,                    !- Pipe Inside Diameter {m}
+    200.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+  Pipe:Underground,
+    CoolSys1 Demand Outlet Pipe,  !- Name
+    Insulated Buried Pipe,   !- Construction Name
+    CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,   !- Fluid Inlet Node Name
+    CoolSys1 Demand Outlet Node,        !- Fluid Outlet Node Name
+    SunExposed,              !- Sun Exposure
+    0.5,                    !- Pipe Inside Diameter {m}
+    200.0,                   !- Pipe Length {m}
+    Buried Pipe Soil,        !- Soil Material Name
+    13,                      !- Average Soil Surface Temperature {C}
+    1.5,                     !- Amplitude of Soil Surface Temperature {C}
+    30;                      !- Phase Constant of Soil Surface Temperature {days}
+
+  Construction,
+    Insulated Buried Pipe,   !- Name
+    Buried Pipe Insulation,  !- Outside Layer
+    Buried Pipe Steel;       !- Layer 2
+
+  Material,
+    Buried Pipe Soil,        !- Name
+    Smooth,                  !- Roughness
+    1.5,                     !- Thickness {m}
+    0.36,                    !- Conductivity {W/m-K}
+    2000.0,                  !- Density {kg/m3}
+    1200.0,                  !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+  Material,
+    Buried Pipe Steel,       !- Name
+    Smooth,                  !- Roughness
+    3.00E-03,                !- Thickness {m}
+    45.31,                   !- Conductivity {W/m-K}
+    7833.0,                  !- Density {kg/m3}
+    500.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;                     !- Visible Absorptance
+
+  Material,
+    Buried Pipe Insulation,  !- Name
+    VeryRough,               !- Roughness
+    3.0E-02,                 !- Thickness {m}
+    4.0E-02,                 !- Conductivity {W/m-K}
+    91.0,                    !- Density {kg/m3}
+    836.0,                   !- Specific Heat {J/kg-K}
+    0.9,                     !- Thermal Absorptance
+    0.5,                     !- Solar Absorptance
+    0.5;
 
   Branch,
     CoolSys1 Supply Equipment Branch 1,  !- Name
@@ -8330,15 +8405,15 @@
     CoolSys1 Demand Bypass Pipe Inlet Node,  !- Inlet Node Name
     CoolSys1 Demand Bypass Pipe Outlet Node;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    CoolSys1 Demand Inlet Pipe,  !- Name
-    CoolSys1 Demand Inlet Node,  !- Inlet Node Name
-    CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    CoolSys1 Demand Inlet Pipe,  !- Name
+!    CoolSys1 Demand Inlet Node,  !- Inlet Node Name
+!    CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer;  !- Outlet Node Name
 
-  Pipe:Adiabatic,
-    CoolSys1 Demand Outlet Pipe,  !- Name
-    CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,  !- Inlet Node Name
-    CoolSys1 Demand Outlet Node;  !- Outlet Node Name
+!  Pipe:Adiabatic,
+!    CoolSys1 Demand Outlet Pipe,  !- Name
+!    CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,  !- Inlet Node Name
+!    CoolSys1 Demand Outlet Node;  !- Outlet Node Name
 
   Pipe:Adiabatic,
     CoolSys1 Supply Equipment Bypass Pipe,  !- Name
@@ -9209,13 +9284,18 @@
 
   ExternalInterface:Schedule,
     SatTempSch,             !- Name
-    Temperature,             !- Schedule Type Limits Name
-    12.8;                      !- Initial Value
+    Temperature,            !- Schedule Type Limits Name
+    12.8;                   !- Initial Value
 
   ExternalInterface:Schedule,
-    ChWTempSch,             !- Name
+    BldLightSch,            !- Name BLDG_LIGHT_SCH
+    Fraction,               !- Schedule Type Limits Name
+    0.5;                    !- Initial Value
+
+  ExternalInterface:Schedule,
+    ChWTempSch,              !- Name
     Temperature,             !- Schedule Type Limits Name
-    6.7;                      !- Initial Value
+    6.7;                     !- Initial Value
 
   Output:EnergyManagementSystem,
     Verbose, ! Actuator Availability Dictionary Reporting
@@ -9223,7 +9303,7 @@
     ErrorsOnly; ! EnergyPlus Runtime Language Debug Output Level
 
   EnergyManagementSystem:Sensor,
-    Tout, !Name
+    Tout,                   !Name
     Environment, ! Output:Variable or Output:Meter Index Key Name
     Site Outdoor Air Drybulb Temperature; ! Output:Variable or Output:Meter Name
 
@@ -9752,18 +9832,28 @@
   Output:Variable,CoolSys1 Pump,Pump Electric Power,timestep;
   Output:Variable,HeatSys1 Pump,Pump Electric Power,timestep;
   Output:Variable,SWHSys1 Pump,Pump Electric Power,timestep;
+  Output:Variable,TowerWaterSys Pump,Pump Electric Power,timestep;
   Output:Variable,VAV_1_Fan,Fan Electric Power,timestep;
   Output:Variable,VAV_2_Fan,Fan Electric Power,timestep;
   Output:Variable,VAV_3_Fan,Fan Electric Power,timestep;
   Output:Variable,VAV_5_Fan,Fan Electric Power,timestep;
   Output:Variable,CoolSys1 Chiller 1,Chiller Electric Power,timestep;
   Output:Variable,TowerWaterSys CoolTower,Cooling Tower Fan Electric Power,timestep;
+  Output:Variable,Whole Building,Facility Total HVAC Electric Demand Power,timestep;
+  Output:Variable,Whole Building,Facility Total Building Electric Demand Power,timestep;
 
 !======================EMS COMFORT=============================================
   Output:Variable,EMS,Weighted Average Building PPD,timestep;
   Output:Variable,EMS,Weighted Average Building PMV,timestep;
   Output:Variable,EMS,Weighted Average Building Occupancy Temperature,timestep;
   Output:Variable,EMS,Weighted Average Building Temperature,timestep;
+
+!======================EMS COMFORT=============================================
+  Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Mass Flow Rate,timestep;
+  Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Heat Transfer Rate,timestep;
+  Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Inlet Temperature,timestep;
+  Output:Variable,CoolSys1 Chiller 1,Plant Temperature Source Component Outlet Temperature,timestep;
+
 
 ! ***REPORT METERS/VARIABLES***
 !  Output:Meter,Electricity:Facility,HOURLY;

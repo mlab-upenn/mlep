@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1030"
+    ComputedModelVersion    "1.1054"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 19 15:34:47 2014"
+  LastModifiedDate	  "Wed Feb 19 19:29:12 2014"
   RTWModifiedTimeStamp	  314638412
-  ModelVersionFormat	  "1.%<AutoIncrement:1030>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1054>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,6 +67,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "campus_windows"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -1019,7 +1020,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [62, 153, 1730, 803]
-      Open		      on
+      Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -1054,8 +1055,8 @@ Model {
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [-1919, 48, 1, 1079]
-      Open		      on
+      Location		      [5, 43, 1925, 1074]
+      Open		      off
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -1077,9 +1078,9 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.92127     0.92687    0.063021    0.034918\n0.92127     0.76744    0.063021    0.034918\n"
-      "0.92153     0.60952      0.0625    0.034918\n0.89939     0.45059    0.084896    0.034918\n0.90825     0.24565   "
-      " 0.076042    0.080504\n0.93845     0.13374    0.045833    0.034918"
+      LegendLocations	      "0.92127     0.92903    0.063021    0.034918\n0.92127     0.76996    0.063021    0.034918\n"
+      "0.92153     0.61138      0.0625    0.034918\n0.89939     0.45183    0.084896    0.034918\n0.90825     0.24814   "
+      " 0.076042    0.080504\n0.93845     0.13466    0.045833    0.034918"
       TimeRange		      "90000"
       YMin		      "0~0~0~6~0~0"
       YMax		      "17.5~17.5~150~17~500000~1"
@@ -4639,7 +4640,7 @@ Model {
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [-740, 56, -239, 1071]
+      Location		      [6, 56, 507, 1071]
       Open		      on
       NumInputPorts	      "7"
       List {
@@ -4663,9 +4664,9 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.76743      0.9364     0.17166    0.020033\n0.63983      0.7602     0.27944    0.020033\n"
-      "0.64778     0.66638     0.29142    0.020033\n0.69763     0.53136     0.24152    0.020033\n0.65975     0.39635   "
-      "  0.27944    0.020033\n0.65975     0.26134     0.27944    0.020033\n0.65975     0.12633     0.27944    0.020033"
+      LegendLocations	      "0.76713     0.94384     0.17166    0.020033\n0.65935      0.8069     0.27944    0.020033\n"
+      "0.64737     0.67094     0.29142    0.020033\n0.69727     0.53498     0.24152    0.020033\n0.65935     0.39901   "
+      "  0.27944    0.020033\n0.65935     0.26305     0.27944    0.020033\n0.65935     0.12709     0.27944    0.020033"
       TimeRange		      "90000"
       YMin		      "0~20~-1.5e+06~-1~5~0~-5"
       YMax		      "1e+06~60~0~1~15~0.02~5"
@@ -5792,7 +5793,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [24, 122, 1692, 772]
-      Open		      on
+      Open		      off
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -5835,7 +5836,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [6, 105, 1674, 755]
-      Open		      on
+      Open		      off
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -7627,7 +7628,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [6, 178, 1674, 828]
-      Open		      on
+      Open		      off
       NumInputPorts	      "2"
       List {
 	ListType		AxesTitles
@@ -8024,49 +8025,6 @@ Model {
       }
     }
     Block {
-      BlockType		      Scope
-      Name		      "Setpoints"
-      SID		      "472"
-      Ports		      [5]
-      Position		      [350, 764, 405, 1046]
-      ZOrder		      -16
-      NamePlacement	      "alternate"
-      Floating		      off
-      Location		      [6, 186, 1674, 836]
-      Open		      on
-      NumInputPorts	      "5"
-      ZoomMode		      "yonly"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-	axes2			"%<SignalLabel>"
-	axes3			"%<SignalLabel>"
-	axes4			"%<SignalLabel>"
-	axes5			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      on
-      LegendLocations	      "0.89528     0.88821    0.086331    0.055385\n0.90667     0.70205     0.07494    0.055385\n"
-      "0.89408     0.51744     0.08753    0.055385\n0.89349     0.33436    0.088129    0.055385\n0.91837        0.17   "
-      " 0.063549    0.031282"
-      TimeRange		      "90000"
-      YMin		      "24~11~15~6.7~-1"
-      YMax		      "27~14~25~7~1"
-      SaveName		      "ScopeData6"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      Stop
       Name		      "Stop Simulation"
       SID		      "4"
@@ -8364,7 +8322,7 @@ Model {
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [-1900, 751, -205, 1786]
+      Location		      [-1919, 48, 1, 1079]
       Open		      on
       NumInputPorts	      "2"
       List {
@@ -8383,7 +8341,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.88574     0.82788    0.096165     0.09533\n 0.9238     0.45569    0.058407    0.019646"
+      LegendLocations	      "0.77923     0.80206    0.084896      0.0957\n0.84677     0.44942    0.051562    0.019722"
       TimeRange		      "86400           "
       YMin		      "0~6.5"
       YMax		      "4.75e+06~10"
@@ -8545,7 +8503,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [6, 186, 1674, 836]
-      Open		      on
+      Open		      off
       NumInputPorts	      "2"
       List {
 	ListType		AxesTitles
@@ -9698,8 +9656,7 @@ Model {
       Labels		      [-1, 1]
       SrcBlock		      "Mux10"
       SrcPort		      1
-      DstBlock		      "Setpoints"
-      DstPort		      1
+      Points		      [100, 0]
     }
     Line {
       Name		      "Heating SP Office 1"
@@ -9722,16 +9679,14 @@ Model {
       Labels		      [1, 0]
       SrcBlock		      "Mux24"
       SrcPort		      1
-      DstBlock		      "Setpoints"
-      DstPort		      2
+      Points		      [100, 0]
     }
     Line {
       Name		      "Heating Setpoint"
       Labels		      [1, 0]
       SrcBlock		      "Mux23"
       SrcPort		      1
-      DstBlock		      "Setpoints"
-      DstPort		      3
+      Points		      [100, 0]
     }
     Line {
       Name		      "Chilled Water Campus"
@@ -9754,8 +9709,7 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Mux26"
       SrcPort		      1
-      DstBlock		      "Setpoints"
-      DstPort		      4
+      Points		      [90, 0]
     }
     Line {
       SrcBlock		      "Output Chiller Function"
@@ -11126,8 +11080,6 @@ Stateflow {
     created		    "02-Jan-2014 16:26:09"
     isLibrary		    0
     firstTarget		    118
-    debug {
-    }
     sfVersion		    76014001.00040001
   }
   chart {
@@ -11175,10 +11127,10 @@ Stateflow {
       "ht Schedule\nif time < 5\n    BldLightSch = 0.05;\nelseif time < 7\n    BldLightSch = 0.1;\nelseif time < 8\n   "
       " BldLightSch = 0.3;\nelseif time < 17\n    BldLightSch = 0.9;\nelseif time < 18\n    BldLightSch = 0.7;\nelseif "
       "time < 20\n    BldLightSch = 0.5;\nelseif time < 22\n    BldLightSch = 0.3;\nelseif time < 23\n    BldLightSch ="
-      " 0.1;\nelse\n    BldLightSch = 0.05;\nend\n\n%% SELECT CURTAILMENT\n% SP \nchillerVar = 1;\nsatVar = 1;\nroomVar"
-      " = 1;\nrefPower = 4.1*10^6;\nKp = 7*10^-7;\nKv = -10^-5; % 5*10^-2 -1\n\n% MAX MIN\nminChillerV = 6.7;\nmaxChill"
+      " 0.1;\nelse\n    BldLightSch = 0.05;\nend\n\n%% SELECT CURTAILMENT\n% SP \nchillerVar = 0;\nsatVar = 1;\nroomVar"
+      " = 1;\nrefPower = 4.2*10^6;\nKp = 7*10^-7;\nKv = -10^-5; % 5*10^-2 -1\n\n% MAX MIN\nminChillerV = 6.7;\nmaxChill"
       "erV = 9.44;\nminSatV = 12.8;\nmaxSatV = 15;\nminRoomV = 20.6;\nmaxRoomV = 26.7;\n\n% Time\nstartTime = 12;\nendT"
-      "ime = 16;\n\n%% CHILLER\nif chillerVar == 1\n    % Reduction\n    if time >= startTime && time <= endTime\n     "
+      "ime = 14;\n\n%% CHILLER\nif chillerVar == 1\n    % Reduction\n    if time >= startTime && time <= endTime\n     "
       "   \n        deltaControl = Kp*(totPower - refPower) + Kv*speedPower; % ChWTempControl1\n        if abs(deltaCon"
       "trol) > 0.5\n            deltaControl = sign(deltaControl)*0.5;\n        end\n        \n        % Check Chiller\n"
       "        minV = minChillerV;\n        maxV = maxChillerV;\n        if chillerSP + deltaControl < minV\n          "
