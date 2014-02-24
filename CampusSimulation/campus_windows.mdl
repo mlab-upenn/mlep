@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1054"
+    ComputedModelVersion    "1.1072"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 19 19:29:12 2014"
-  RTWModifiedTimeStamp	  314638412
-  ModelVersionFormat	  "1.%<AutoIncrement:1054>"
+  LastModifiedDate	  "Fri Feb 21 10:43:07 2014"
+  RTWModifiedTimeStamp	  314806103
+  ModelVersionFormat	  "1.%<AutoIncrement:1072>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,7 +67,6 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "campus_windows"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -843,9 +842,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "779"
+    SIDHighWatermark	    "780"
     Block {
       BlockType		      Sum
       Name		      "Add"
@@ -1020,7 +1019,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [62, 153, 1730, 803]
-      Open		      off
+      Open		      on
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -1055,8 +1054,8 @@ Model {
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [5, 43, 1925, 1074]
-      Open		      off
+      Location		      [5, 47, 1925, 1074]
+      Open		      on
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -1078,9 +1077,9 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.92127     0.92903    0.063021    0.034918\n0.92127     0.76996    0.063021    0.034918\n"
-      "0.92153     0.61138      0.0625    0.034918\n0.89939     0.45183    0.084896    0.034918\n0.90825     0.24814   "
-      " 0.076042    0.080504\n0.93845     0.13466    0.045833    0.034918"
+      LegendLocations	      "0.92127     0.92876    0.063021    0.035054\n0.92127     0.76907    0.063021    0.035054\n"
+      "0.92153     0.61084      0.0625    0.035054\n0.89939     0.45164    0.084896    0.035054\n0.90825     0.24716   "
+      " 0.076042    0.080818\n0.93845     0.13421    0.045833    0.035054"
       TimeRange		      "90000"
       YMin		      "0~0~0~6~0~0"
       YMax		      "17.5~17.5~150~17~500000~1"
@@ -1803,7 +1802,7 @@ Model {
       BlockType		      From
       Name		      "From13"
       SID		      "355"
-      Position		      [1780, 330, 1880, 350]
+      Position		      [1775, 320, 1875, 340]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "powerChiller1"
@@ -2425,7 +2424,7 @@ Model {
       BlockType		      From
       Name		      "From169"
       SID		      "763"
-      Position		      [440, 424, 560, 446]
+      Position		      [660, 394, 780, 416]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "ChWTempControl1"
@@ -2450,7 +2449,7 @@ Model {
       BlockType		      From
       Name		      "From170"
       SID		      "764"
-      Position		      [440, 449, 560, 471]
+      Position		      [660, 419, 780, 441]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "SatSch1"
@@ -2459,7 +2458,7 @@ Model {
       BlockType		      From
       Name		      "From171"
       SID		      "765"
-      Position		      [440, 474, 560, 496]
+      Position		      [660, 444, 780, 466]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "RoomCoolSch1"
@@ -4640,7 +4639,7 @@ Model {
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [6, 56, 507, 1071]
+      Location		      [1, 48, 1921, 1039]
       Open		      on
       NumInputPorts	      "7"
       List {
@@ -4664,13 +4663,53 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.76713     0.94384     0.17166    0.020033\n0.65935      0.8069     0.27944    0.020033\n"
-      "0.64737     0.67094     0.29142    0.020033\n0.69727     0.53498     0.24152    0.020033\n0.65935     0.39901   "
-      "  0.27944    0.020033\n0.65935     0.26305     0.27944    0.020033\n0.65935     0.12709     0.27944    0.020033"
+      LegendLocations	      "0.93924     0.94248    0.044792    0.020518\n0.91111     0.80626    0.072917    0.020518\n"
+      "0.90799     0.67003    0.076042    0.020518\n0.92101     0.53481    0.063021    0.020518\n0.91111     0.39859   "
+      " 0.072917    0.020518\n0.91111     0.26236    0.072917    0.020518\n0.91111     0.12714    0.072917    0.020518"
       TimeRange		      "90000"
       YMin		      "0~20~-1.5e+06~-1~5~0~-5"
       YMax		      "1e+06~60~0~1~15~0.02~5"
       SaveName		      "ScopeData20"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "HVAC Power1"
+      SID		      "780"
+      Ports		      [4]
+      Position		      [350, 768, 395, 987]
+      ZOrder		      -16
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [5, 48, 1925, 1039]
+      Open		      on
+      NumInputPorts	      "4"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+	axes4			"%<SignalLabel>"
+      }
+      List {
+	ListType		ScopeGraphics
+	FigureColor		"[0.5 0.5 0.5]"
+	AxesColor		"[0 0 0]"
+	AxesTickColor		"[1 1 1]"
+	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	LineStyles		"-|-|-|-|-|-"
+	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+	MarkerStyles		"none|none|none|none|none|none"
+      }
+      ShowLegends	      on
+      LegendLocations	      "0.90903     0.92667       0.075    0.036327\n0.91892     0.68853    0.065104    0.036327\n"
+      "0.90799     0.45039    0.076042    0.036327\n0.90747     0.21325    0.076563    0.036327"
+      TimeRange		      "90000"
+      YMin		      "0~20~-1.5e+06~-1"
+      YMax		      "1e+06~60~0~1"
+      SaveName		      "ScopeData6"
       DataFormat	      "StructureWithTime"
       LimitDataPoints	      off
       SampleTime	      "0"
@@ -4760,7 +4799,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [65, 185, 1733, 835]
-      Open		      off
+      Open		      on
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -4782,6 +4821,9 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
+      LegendLocations	      "0.88419     0.88744    0.097722    0.055385\n0.89768     0.75692    0.083933    0.031282\n"
+      "0.89468     0.60308     0.08693    0.031282\n0.92346     0.44923    0.058153    0.031282\n 0.8794     0.27051   "
+      "  0.10252    0.055385\n0.88689        0.14    0.094724    0.031282"
       TimeRange		      "90000"
       YMin		      "0~20~-1500000~-1~5~0"
       YMax		      "1000000~60~0~1~15~0.02"
@@ -4800,7 +4842,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [218, 312, 1886, 962]
-      Open		      off
+      Open		      on
       NumInputPorts	      "6"
       ZoomMode		      "yonly"
       List {
@@ -4823,6 +4865,9 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
+      LegendLocations	      "0.89708     0.88821    0.084532    0.055385\n0.89468     0.73282     0.08693    0.055385\n"
+      "0.89738     0.57821    0.084532    0.055385\n0.89438     0.42436     0.08753    0.055385\n0.89738     0.27051   "
+      " 0.084532    0.055385\n0.89498     0.11513     0.08693    0.055385"
       TimeRange		      "86400           "
       YMin		      "6.365~6~6.365~6.5~6.365~6.5"
       YMax		      "7.035~14~7.035~10~7.035~11.5"
@@ -4916,7 +4961,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [6, 178, 1674, 828]
-      Open		      off
+      Open		      on
       NumInputPorts	      "2"
       List {
 	ListType		AxesTitles
@@ -4934,6 +4979,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
+      LegendLocations	      "0.89229      0.8641    0.089329    0.079487\n0.88209     0.40103     0.09952    0.079487"
       TimeRange		      "90000"
       YMin		      "0~-3000000"
       YMax		      "80~0"
@@ -5793,7 +5839,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [24, 122, 1692, 772]
-      Open		      off
+      Open		      on
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -5836,7 +5882,7 @@ Model {
       NamePlacement	      "alternate"
       Floating		      off
       Location		      [6, 105, 1674, 755]
-      Open		      off
+      Open		      on
       NumInputPorts	      "6"
       List {
 	ListType		AxesTitles
@@ -7793,11 +7839,11 @@ Model {
       Name		      "Setpoint Command"
       SID		      "762"
       Ports		      [3]
-      Position		      [610, 419, 650, 501]
+      Position		      [830, 389, 870, 471]
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [6, 178, 1674, 828]
+      Location		      [-1755, 185, -87, 835]
       Open		      on
       NumInputPorts	      "3"
       List {
@@ -8322,7 +8368,7 @@ Model {
       ZOrder		      -16
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [-1919, 48, 1, 1079]
+      Location		      [129, 95, 1848, 865]
       Open		      on
       NumInputPorts	      "2"
       List {
@@ -8341,7 +8387,7 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      on
-      LegendLocations	      "0.77923     0.80206    0.084896      0.0957\n0.84677     0.44942    0.051562    0.019722"
+      LegendLocations	      "0.89417     0.85219    0.094823     0.12814\n0.92971     0.46359    0.057592    0.026407"
       TimeRange		      "86400           "
       YMin		      "0~6.5"
       YMax		      "4.75e+06~10"
@@ -9085,9 +9131,10 @@ Model {
     }
     Line {
       Name		      "Ch1Power"
-      Labels		      [1, 0]
+      Labels		      [2, 0]
       SrcBlock		      "From13"
       SrcPort		      1
+      Points		      [0, 10]
       DstBlock		      "Mux4"
       DstPort		      1
     }
@@ -9656,7 +9703,8 @@ Model {
       Labels		      [-1, 1]
       SrcBlock		      "Mux10"
       SrcPort		      1
-      Points		      [100, 0]
+      DstBlock		      "HVAC Power1"
+      DstPort		      1
     }
     Line {
       Name		      "Heating SP Office 1"
@@ -9679,14 +9727,16 @@ Model {
       Labels		      [1, 0]
       SrcBlock		      "Mux24"
       SrcPort		      1
-      Points		      [100, 0]
+      DstBlock		      "HVAC Power1"
+      DstPort		      2
     }
     Line {
       Name		      "Heating Setpoint"
       Labels		      [1, 0]
       SrcBlock		      "Mux23"
       SrcPort		      1
-      Points		      [100, 0]
+      DstBlock		      "HVAC Power1"
+      DstPort		      3
     }
     Line {
       Name		      "Chilled Water Campus"
@@ -9709,7 +9759,8 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "Mux26"
       SrcPort		      1
-      Points		      [90, 0]
+      DstBlock		      "HVAC Power1"
+      DstPort		      4
     }
     Line {
       SrcBlock		      "Output Chiller Function"
@@ -11127,29 +11178,36 @@ Stateflow {
       "ht Schedule\nif time < 5\n    BldLightSch = 0.05;\nelseif time < 7\n    BldLightSch = 0.1;\nelseif time < 8\n   "
       " BldLightSch = 0.3;\nelseif time < 17\n    BldLightSch = 0.9;\nelseif time < 18\n    BldLightSch = 0.7;\nelseif "
       "time < 20\n    BldLightSch = 0.5;\nelseif time < 22\n    BldLightSch = 0.3;\nelseif time < 23\n    BldLightSch ="
-      " 0.1;\nelse\n    BldLightSch = 0.05;\nend\n\n%% SELECT CURTAILMENT\n% SP \nchillerVar = 0;\nsatVar = 1;\nroomVar"
+      " 0.1;\nelse\n    BldLightSch = 0.05;\nend\n\n%% SELECT CURTAILMENT\n% SP \nchillerVar = 0;\nsatVar = 0;\nroomVar"
       " = 1;\nrefPower = 4.2*10^6;\nKp = 7*10^-7;\nKv = -10^-5; % 5*10^-2 -1\n\n% MAX MIN\nminChillerV = 6.7;\nmaxChill"
-      "erV = 9.44;\nminSatV = 12.8;\nmaxSatV = 15;\nminRoomV = 20.6;\nmaxRoomV = 26.7;\n\n% Time\nstartTime = 12;\nendT"
-      "ime = 14;\n\n%% CHILLER\nif chillerVar == 1\n    % Reduction\n    if time >= startTime && time <= endTime\n     "
-      "   \n        deltaControl = Kp*(totPower - refPower) + Kv*speedPower; % ChWTempControl1\n        if abs(deltaCon"
-      "trol) > 0.5\n            deltaControl = sign(deltaControl)*0.5;\n        end\n        \n        % Check Chiller\n"
-      "        minV = minChillerV;\n        maxV = maxChillerV;\n        if chillerSP + deltaControl < minV\n          "
-      "  ChWTempControl1 = minV;\n        elseif chillerSP + deltaControl > maxV\n            ChWTempControl1 = maxV;\n"
-      "        else\n            ChWTempControl1 = chillerSP + deltaControl;\n        end\n    end\n    \n    ChWTempCo"
-      "ntrol2 = ChWTempControl1;\nend\n%% SAT\nif satVar == 1\n    % Reduction\n%     Kp = 5*10^-6;\n\n    if time >= s"
-      "tartTime && time <= endTime\n        \n        deltaControl = Kp*(totPower - refPower) + Kv*speedPower; % ChWTem"
-      "pControl1\n        if abs(deltaControl) > 0.5\n            deltaControl = sign(deltaControl)*0.5;\n        end\n"
-      "        \n        % Check SAT\n        minV = minSatV; % 24.6\n        maxV = maxSatV;\n        if satSP + delta"
-      "Control < minV\n            SatSch1 = minV;\n        elseif satSP + deltaControl > maxV\n            SatSch1 = m"
-      "axV;\n        else\n            SatSch1 = satSP + deltaControl;\n        end\n    end\n    \n    SatSch2 = SatSc"
-      "h1;\nend\n%% ROOM\nif roomVar == 1\n    % Reduction\n%     Kp = 10^-6;\n%     Kv = 5.10^-2; % 5*10^-2 -1\n    if"
-      " time >= startTime && time <= endTime\n        \n        deltaControl = Kp*(totPower - refPower) + Kv*speedPower"
-      "; % ChWTempControl1\n        if abs(deltaControl) > 0.5\n            deltaControl = sign(deltaControl)*0.5;\n   "
-      "     end\n        \n        % Check ROOM COOL\n        minV = minRoomV;\n        maxV = maxRoomV;\n        if ro"
-      "omSP + deltaControl < minV\n            RoomCoolSch1 = minV;\n        elseif roomSP  + deltaControl > maxV\n    "
-      "        RoomCoolSch1 = maxV;\n        else\n            RoomCoolSch1 = roomSP + deltaControl;\n        end\n    "
-      "end\n    \n    RoomCoolSch2 = RoomCoolSch1;\nend\n%%\n% Setpoints\ny = [RoomCoolSch1 RoomHeatSch1 SatSch1 RoomCo"
-      "olSch2 RoomHeatSch2 SatSch2 ...\n    ChWTempControl1 ChWTempControl2 BldLightSch];\n\n"
+      "erV = 9.44;\nminSatV = 12.8;\nmaxSatV = 15;\nminRoomV = 20.6;\nmaxRoomV = 26.7;\n\n% % Time\n% startTime = 12;\n"
+      "% endTime = 14;\n% \n% %% CHILLER\n% if chillerVar == 1\n%     % Reduction\n%     if time >= startTime && time <"
+      "= endTime\n%         \n%         deltaControl = Kp*(totPower - refPower) + Kv*speedPower; % ChWTempControl1\n%  "
+      "       if abs(deltaControl) > 0.5\n%             deltaControl = sign(deltaControl)*0.5;\n%         end\n%       "
+      "  \n%         % Check Chiller\n%         minV = minChillerV;\n%         maxV = maxChillerV;\n%         if chille"
+      "rSP + deltaControl < minV\n%             ChWTempControl1 = minV;\n%         elseif chillerSP + deltaControl > ma"
+      "xV\n%             ChWTempControl1 = maxV;\n%         else\n%             ChWTempControl1 = chillerSP + deltaCont"
+      "rol;\n%         end\n%     end\n%     \n%     ChWTempControl2 = ChWTempControl1;\n% end\n% %% SAT\n% if satVar ="
+      "= 1\n%     % Reduction\n% %     Kp = 5*10^-6;\n% \n%     if time >= startTime && time <= endTime\n%         \n% "
+      "        deltaControl = Kp*(totPower - refPower) + Kv*speedPower; % ChWTempControl1\n%         if abs(deltaContro"
+      "l) > 0.5\n%             deltaControl = sign(deltaControl)*0.5;\n%         end\n%         \n%         % Check SAT"
+      "\n%         minV = minSatV; % 24.6\n%         maxV = maxSatV;\n%         if satSP + deltaControl < minV\n%      "
+      "       SatSch1 = minV;\n%         elseif satSP + deltaControl > maxV\n%             SatSch1 = maxV;\n%         e"
+      "lse\n%             SatSch1 = satSP + deltaControl;\n%         end\n%     end\n%     \n%     SatSch2 = SatSch1;\n"
+      "% end\n% %% ROOM\n% if roomVar == 1\n%     % Reduction\n% %     Kp = 10^-6;\n% %     Kv = 5.10^-2; % 5*10^-2 -1\n"
+      "%     if time >= startTime && time <= endTime\n%         \n%         deltaControl = Kp*(totPower - refPower) + K"
+      "v*speedPower; % ChWTempControl1\n%         if abs(deltaControl) > 0.5\n%             deltaControl = sign(deltaCo"
+      "ntrol)*0.5;\n%         end\n%         \n%         % Check ROOM COOL\n%         minV = minRoomV;\n%         maxV "
+      "= maxRoomV;\n%         if roomSP + deltaControl < minV\n%             RoomCoolSch1 = minV;\n%         elseif roo"
+      "mSP  + deltaControl > maxV\n%             RoomCoolSch1 = maxV;\n%         else\n%             RoomCoolSch1 = roo"
+      "mSP + deltaControl;\n%         end\n%     end\n%     \n%     RoomCoolSch2 = RoomCoolSch1;\n% end\n\n% Time\nstar"
+      "tTime = 12;\nendTime = 14;\n\n%% CHILLER\nif chillerVar == 1\n    % Reduction\n    if time >= startTime && time "
+      "<= endTime\n        ChWTempControl1 = ChWTempControl1+2;\n    end\n    ChWTempControl2 = ChWTempControl1;\nend\n"
+      "\n%% SAT\nif satVar == 1\n    % Reduction\n    if time >= startTime && time <= endTime\n        SatSch1 = SatSch"
+      "1+2;\n    end\n    SatSch2 = SatSch1;\nend\n\n%% ROOM\nif roomVar == 1\n    % Reduction\n    if time >= startTim"
+      "e && time <= endTime\n        RoomCoolSch1 = RoomCoolSch1 + 2;\n    end\n    RoomCoolSch2 = RoomCoolSch1;\nend\n"
+      "\n%%\n% Setpoints\ny = [RoomCoolSch1 RoomHeatSch1 SatSch1 RoomCoolSch2 RoomHeatSch2 SatSch2 ...\n    ChWTempCont"
+      "rol1 ChWTempControl2 BldLightSch];\n\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

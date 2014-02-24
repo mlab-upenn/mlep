@@ -7583,7 +7583,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    79,                !- Plant Loop Volume {m3} 100 AUTOSIZE
+    79,                !- Plant Loop Volume {m3} AUTOSIZE 79 1600 
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -7751,7 +7751,7 @@
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                    !- Pipe Inside Diameter {m}
-    300.0,                   !- Pipe Length {m}
+    700.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
@@ -7764,7 +7764,7 @@
     CoolSys1 Demand Outlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
     0.5,                    !- Pipe Inside Diameter {m}
-    600.0,                   !- Pipe Length {m}
+    700.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
     13,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
