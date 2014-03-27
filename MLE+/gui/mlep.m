@@ -1286,7 +1286,101 @@ function SystemID_RunSimulation_Callback(hObject, eventdata, handles)
 % hObject    handle to SystemID_RunSimulation (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+set(handles.Simulation_RunSimulation, 'BackgroundColor', [0.8 0.8 0.8]);
+set(handles.SystemID_RunSimulation, 'BackgroundColor', [0.8 0.8 0.8]);
+set(handles.Simulation_VariableListbox,'string','');
 
+% Run Simulation
+temp = get(handles.timeOut,'string');
+if ~isempty(temp) && ~strcmp(temp,'Time Out')
+    acceptTimeOut = str2num(temp);
+else
+    acceptTimeOut = 8000;
+end
+handles.DATA.AcceptTimeOut = acceptTimeOut;
+handles.DATA.runPeriodLength = (handles.DATA.runPeriod(1).EndMonth - handles.DATA.runPeriod(1).BeginMonth)*31 + ...
+    (handles.DATA.runPeriod(1).EndDay - handles.DATA.runPeriod(1).BeginDay+1);
+
+% UserData
+if ~isfield(handles.DATA,'UserData')
+    handles.DATA.UserData = [];
+end
+
+% Update variableData
+handles = updateVariable(handles);
+
+% idfFilePath, controlFilePath, weatherFile, timeStep, runPeriod, timeOut, inputTable, outputTable
+[result] = mlepRunTemplate(handles.DATA.idfFullPath, handles.DATA.ControlFileName, ...
+    handles.DATA.Weather, handles.DATA.timeStep, handles.DATA.runPeriodLength, ...
+    handles.DATA.AcceptTimeOut, handles.DATA.variableInput, handles.DATA.variableOutput, ...
+    handles.DATA.UserData);
+
+% Change Button color
+set(handles.Simulation_RunSimulation, 'BackgroundColor', 'g');
+set(handles.SystemID_RunSimulation, 'BackgroundColor', 'g');
+
+% Check Whether csv got written
+filePath = regexprep(handles.DATA.idfFile, 'idf', 'csv');
+pathOutput = [handles.DATA.projectPath 'Output' filesep filePath];
+
+% Small Pause to let files get written 
+for count = 1:10
+    pause(0.5);
+    if exist(pathOutput,'file')
+        break;
+    end
+end
+
+% Check Directory for CSV File
+if exist(pathOutput,'file')
+    % Load CSV Results
+    [handles.DATA.vars, handles.DATA.varsData, ts] = mlepLoadEPResults(pathOutput);
+    
+    % Get Names of Variables NAMES OF VARIABLES
+    handles.DATA.simulateListboxText = {};
+    for i = 1:size(handles.DATA.vars,1)
+        handles.DATA.simulateListboxText{i} = [handles.DATA.vars(i).object '-' handles.DATA.vars(i).name];
+    end
+%     % Last Entry
+%     last = i;
+%     % Add Input
+%     for i = 1:size(handles.DATA.inputFieldNames,2)
+%         handles.DATA.simulateListboxText{i+last} = handles.DATA.inputFieldNames{i};
+%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepIn.(handles.DATA.inputFieldNames{i})(1:size(handles.DATA.varsData,1))';
+%         handles.DATA.vars(i+last).object = handles.DATA.inputFieldNames(i);
+%     end 
+%     
+%     if isempty(i)
+%         i = 0;
+%     end
+%     
+%     last = i+last;
+%     handles.DATA.outputFieldNames = fieldnames(handles.DATA.mlepOut);
+%     % Add Output
+%     for i = 1:size(handles.DATA.outputFieldNames,1)
+%         handles.DATA.simulateListboxText{i+last} = handles.DATA.outputFieldNames{i};
+%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepOut.(handles.DATA.outputFieldNames{i})(1:size(handles.DATA.varsData,1))';
+%         handles.DATA.vars(i+last).object = handles.DATA.outputFieldNames(i);
+%     end
+    
+    
+    if size(handles.DATA.simulateListboxText,2)
+        set(handles.Simulation_VariableListbox,'value',1);
+    end
+    set(handles.Simulation_VariableListbox,'string',handles.DATA.simulateListboxText);
+ 
+    
+else
+    disp(['Project Folder' handles.DATA.projectPath])
+    mlepError = 'not Output File Generated';
+    errordlg(mlepError,'Check the .err file for details on the problem.')
+    return;
+end
+
+%[mlep] = mlepDisplayDxf(mlep);
+
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton54.
 function pushbutton54_Callback(hObject, eventdata, handles)
@@ -1403,17 +1497,19 @@ function SystemID_CreateControl_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
-    handles.DATA.SystemIDFileName = 'ControlFile.m';
+    handles.DATA.ControlFileName = 'ControlFile.m';
     set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
     set(handles.SystemID_CreateControlFileEdit, 'Background', 'c');
-    handles.DATA.SystemIDFileCreated = 1;
-    handles.DATA.SystemIDFileDir = handles.DATA.projectPath;
+    set(handles.Control_LoadControlFileEdit, 'Background', 'white');
+    set(handles.Control_CreateControlFileEdit, 'Background', 'c');
+    handles.DATA.ControlFileCreated = 1;
+    handles.DATA.ControlFileDir = handles.DATA.projectPath;
     
 %     % Update Variable Data
 %     [handles] = updateVariable(handles);
 %     
     % Create Control File
-    result = mlepCreateControlFile(handles.DATA.projectPath, handles.DATA.SystemIDFileName, handles.DATA.variableInput, handles.DATA.variableOutput);
+    result = mlepCreateControlFile(handles.DATA.projectPath, handles.DATA.ControlFileName, handles.DATA.variableInput, handles.DATA.variableOutput);
 else
     MSG = '.IDF File does not exist or not selected.';
     errordlg(MSG,'IDF Problem');
@@ -1435,12 +1531,13 @@ if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
     % Check File
     if ischar(FileName) && ischar(PathName)
         % Open Dialog to select file
-        handles.DATA.SystemIDFileName = FileName;
-        handles.DATA.SystemIDFullPath = [PathName FileName];
+        handles.DATA.ControlFileName = FileName;
+        handles.DATA.ControlFullPath = [PathName FileName];
         handles.DATA.projectPath = PathName;
         
         % Display Values
-        set(handles.SystemID_LoadControlFileEdit, 'String', handles.DATA.SystemIDFileName);
+        set(handles.SystemID_LoadControlFileEdit, 'String', handles.DATA.ControlFileName);
+        set(handles.Control_LoadControlFileEdit, 'String', handles.DATA.ControlFileName);
     else
         MSG = 'Control File Selected does not exist or is not valid.';
         errordlg(MSG,'Control File Error');
@@ -1448,8 +1545,10 @@ if isfield(handles.DATA, 'idfFullPath') && ~isempty(handles.DATA.idfFullPath)
     
     set(handles.SystemID_LoadControlFileEdit, 'Background', 'c');
     set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
-    handles.DATA.SystemIDFileCreated = 0;
-    handles.DATA.SystemIDFileDir = handles.DATA.projectPath;
+    set(handles.Control_LoadControlFileEdit, 'Background', 'c');
+    set(handles.Control_CreateControlFileEdit, 'Background', 'white');
+    handles.DATA.ControlFileCreated = 0;
+    handles.DATA.ControlFileDir = handles.DATA.projectPath;
     
 else
     MSG = '.IDF File does not exist or not selected.';
@@ -1464,7 +1563,15 @@ function SystemID_EditControlFile_Callback(hObject, eventdata, handles)
 % hObject    handle to SystemID_EditControlFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+if isfield(handles.DATA, 'SystemIDFileName');
+    % Open Control File
+    edit([handles.DATA.SystemIDFileDir filesep handles.DATA.SystemIDFileName]);
+else
+    MSG = 'Control File Not Selected or Not Valid';
+    errordlg(MSG,'Control File Error');
+end
+% Update handles structure
+guidata(hObject, handles);
 
 
 function SystemID_CreateControlFileEdit_Callback(hObject, eventdata, handles)

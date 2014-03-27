@@ -73,9 +73,9 @@ if status ~= 0
 end
 
 % Set Simulation Paramters
-deltaT = 60*timeStep;   % turn it into seconds
+deltaT = 60*60/timeStep;   % turn it into seconds
 kStep = 1;  % current simulation step
-MAXSTEPS = (runPeriod+1)*24*60/timeStep;  % max simulation time = RunPeriod days
+MAXSTEPS = (runPeriod+1)*24*60*60/timeStep;  % max simulation time = RunPeriod days
 
 % logdata stores set-points, outdoor temperature, and zone temperature at
 % each time step.

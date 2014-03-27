@@ -1,0 +1,39 @@
+ant:
+<ant>
+  <mkdir dir="C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep\for_redistribution" />
+  <mkdir dir="C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep\for_testing" />
+</ant>
+mcc -C -o mlep -W WinMain:mlep -T link:exe -d C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep\for_testing -v C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\addMlepInputs.m -a Created -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep.prj -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepClose.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepCreate.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepDecodePacket.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepEncodeData.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepEncodeRealData.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepEncodeStatus.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepExchangeData.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepInit.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepProcess.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepReadData.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlepRunTemplate.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepSimulinkBlk.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepWriteData.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\core\mlepWriteEPModel.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\prepIDF.m -a C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\setConfig.m 
+Compiler version: 5.0 (R2013b)
+Dependency analysis by DEPFUN.
+Processing C:\Program Files\MATLAB\R2013b\toolbox\matlab\win64\mcc.enc
+Processing C:\Program Files\MATLAB\R2013b\toolbox\images\win64\mcc.enc
+Processing C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep.fig
+Processing C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\setConfigurationFile.fig
+Processing C:\Program Files\MATLAB\R2013b\toolbox\matlab\guide\guideopts.fig
+Processing C:\Program Files\MATLAB\R2013b\toolbox\matlab\winfun\actxcontrolselect.fig
+Processing C:\Program Files\MATLAB\R2013b\toolbox\matlab\winfun\actxcontrolcreateproperty.fig
+Processing C:\Program Files\MATLAB\R2013b\toolbox\shared\spcuilib\win64\mcc.enc
+Processing include files...
+2 item(s) added.
+Processing directories installed with MCR...
+The file C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep\for_testing\mccExcludedFiles.log contains a list of functions excluded from the CTF archive.
+0 item(s) added.
+Generating MATLAB path for the compiled application...
+Created 60 path items.
+[Warning: Adding path "C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui"
+to Compiler path instance.] 
+Parsing file "C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "C:\Program Files\MATLAB\R2013b\toolbox\compiler\deploy\deployprint.m"
+	(Referenced from: "Compiler Command Line").
+Parsing file "C:\Program Files\MATLAB\R2013b\toolbox\compiler\deploy\printdlg.m"
+	(Referenced from: "Compiler Command Line").
+The file 
+ 'C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\Created.m' 
+ is empty (zero bytes long). 
+
+ This file cannot be added to the CTF archive because it will cause an error 
+ when the application or library is run. Add valid content to this file if
+ your application or library requires this file.
+Failed to build CTF file: 'C:\Users\mlab\Documents\GitRepository\mlep_v2.0\MLE+\gui\mlep\for_testing\mlep.ctf'.

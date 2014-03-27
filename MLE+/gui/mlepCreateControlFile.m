@@ -39,7 +39,7 @@ explaInput = ['\n%% INPUTS TO ENERGYPLUS\n',...
     '%% eplus_in_prev - Data Structure with all previous inputs\n'];
 inputComment = [];
 for i = 1:sizeInput
-   inputComment = [inputComment '%% \teplus_in_curr.' char(Input{1}(i,5)) ' = ; \n']; 
+   inputComment = [inputComment '%% \teplus_in_curr.' char(Input(i,5)) ' = ; \n']; 
 end
 
 explaInput = [explaInput inputComment];
@@ -49,7 +49,7 @@ explaInput1 = ['\n%% OUTPUTS FROM ENERGYPLUS \n',...
 
 outputComment = [];
 for i = 1:sizeOutput
-   outputComment = [outputComment '%% \teplus_out_curr.' char(Output{1}(i,5)) ' = ; \n']; 
+   outputComment = [outputComment '%% \teplus_out_curr.' char(Output(i,5)) ' = ; \n']; 
 end
 
 explaInput1 = [explaInput1 outputComment];
@@ -74,7 +74,7 @@ init = ['if strcmp(cmd,''init'')\n',...
 
 input = [];
 for i = 1:sizeInput
-   input = [input '\t eplus_in_curr.' char(Input{1}(i,5)) ' = ; \n']; 
+   input = [input '\t eplus_in_curr.' char(Input(i,5)) ' = ; \n']; 
 end
 
 normal = ['elseif strcmp(cmd,''normal'') \n',...
