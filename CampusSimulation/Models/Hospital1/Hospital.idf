@@ -110,9 +110,9 @@
   RunPeriod,
     ,                        !- Name
     6,                       !- Begin Month
-    1,                       !- Begin Day of Month
+    8,                       !- Begin Day of Month
     6,                       !- End Month
-    30,                       !- End Day of Month
+    10,                       !- End Day of Month
     Monday,                  !- Day of Week for Start Day
     No,                      !- Use Weather File Holidays and Special Days
     No,                      !- Use Weather File Daylight Saving Period
@@ -259,7 +259,7 @@
     7,                       !- Calculation Frequency
     15000;                   !- Maximum Figures in Shadow Overlap Calculations
 
-  Timestep,60;
+  Timestep,30;
 
 ! WeatherFileName=USA_IL_Chicago-OHare_TMY2.epw
 
@@ -20237,7 +20237,7 @@
     CoolSys1 Pump-CoolSys1 ChillerNodeviaConnector,  !- Outlet Node Name
     AUTOSIZE,                !- Rated Flow Rate {m3/s}
     179352,                  !- Rated Pump Head {Pa}
-    AUTOSIZE,                !- Rated Power Consumption {W}
+    0,                !- Rated Power Consumption {W}
     0.9,                     !- Motor Efficiency
     0.0,                     !- Fraction of Motor Inefficiencies to Fluid Stream
     0,                       !- Coefficient 1 of the Part Load Performance Curve
@@ -20416,7 +20416,7 @@
     1.0,                     !- Minimum Loop Temperature {C}
     AUTOSIZE,                !- Maximum Loop Flow Rate {m3/s}
     0.0,                     !- Minimum Loop Flow Rate {m3/s}
-    100,                !- Plant Loop Volume {m3} 
+    150,                !- Plant Loop Volume {m3} AUTOSIZE 10.62030 
     CoolSys1 Supply Inlet Node,  !- Plant Side Inlet Node Name
     CoolSys1 Supply Outlet Node,  !- Plant Side Outlet Node Name
     CoolSys1 Supply Branches,!- Plant Side Branch List Name
@@ -20425,7 +20425,7 @@
     CoolSys1 Demand Outlet Node,  !- Demand Side Outlet Node Name
     CoolSys1 Demand Branches,!- Demand Side Branch List Name
     CoolSys1 Demand Connectors,  !- Demand Side Connector List Name
-    Optimal;                 !- Load Distribution Scheme
+    Uniform;                 !- Load Distribution Scheme
 
   PlantLoop,
     HeatSys1,                !- Name
@@ -20610,10 +20610,10 @@
     CoolSys1 Demand Inlet Node,   !- Fluid Inlet Node Name
     CoolSys1 Demand Inlet Pipe-CoolSys1 Demand Mixer,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
-    0.5,                     !- Pipe Inside Diameter {m}
-    400.0,                   !- Pipe Length {m}
+    0.4,                     !- Pipe Inside Diameter {m}
+    500.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
+    15,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
     30;                      !- Phase Constant of Soil Surface Temperature {days}
 
@@ -20623,10 +20623,10 @@
     CoolSys1 Demand Mixer-CoolSys1 Demand Outlet Pipe,   !- Fluid Inlet Node Name
     CoolSys1 Demand Outlet Node,        !- Fluid Outlet Node Name
     SunExposed,              !- Sun Exposure
-    0.5,                     !- Pipe Inside Diameter {m}
-    400.0,                   !- Pipe Length {m}
+    0.4,                     !- Pipe Inside Diameter {m}
+    500.0,                   !- Pipe Length {m}
     Buried Pipe Soil,        !- Soil Material Name
-    13,                      !- Average Soil Surface Temperature {C}
+    15,                      !- Average Soil Surface Temperature {C}
     1.5,                     !- Amplitude of Soil Surface Temperature {C}
     30;                      !- Phase Constant of Soil Surface Temperature {days}
 
@@ -20650,7 +20650,7 @@
     Buried Pipe Steel,       !- Name
     Smooth,                  !- Roughness
     3.00E-03,                !- Thickness {m}
-    45.31,                   !- Conductivity {W/m-K}
+    100,                   !- Conductivity {W/m-K} 45.31
     7833.0,                  !- Density {kg/m3}
     500.0,                   !- Specific Heat {J/kg-K}
     0.9,                     !- Thermal Absorptance
@@ -24179,6 +24179,1239 @@
     SourceCoolSch,              !- Name
     Temperature,                !- Schedule Type Limits Name
     6.8;                        !- Initial Value
+
+!======================TEMPERATURE=============================================
+!======================TEMP CAV1=============================================
+  EnergyManagementSystem:Sensor,
+    tempCAV1_0, !- Name
+    ER_Exam1_Mult4_Flr_1,       !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_1, !- Name
+    ER_Trauma1_Flr_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_2, !- Name
+    ER_Exam3_Mult4_Flr_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_3, !- Name
+    ER_Trauma2_Flr_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_4, !- Name
+    ER_Triage_Mult4_Flr_1, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_5, !- Name
+    IC_Patroom1_Mult5_Flr_2, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_6, !- Name
+    Patroom1_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_7, !- Name
+    Patroom5_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_8, !- Name
+    Patroom7_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_9, !- Name
+    Patroom3_Mult10_Flr_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_10, !- Name
+    Patroom5_Mult10_Flr_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_11, !- Name
+    Patroom6_Flr_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV1_12, !- Name
+    Patroom7_Mult10_Flr_4, !- Output:Variable Index Key Name
+    Zone Mean Air Temperature; !- Output:Variable Name
+
+!======================TEMP CAV2=============================================
+  EnergyManagementSystem:Sensor,
+    tempCAV2_0,                 !- Name
+    OR1_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_1,                 !- Name
+    OR2_Mult5_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_2, !- Name
+    OR3_Flr_2,       !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_3,                 !- Name
+    OR4_Flr_2,                 !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_4,                 !- Name
+    IC_Patroom2_Flr_2,         !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_5,                 !- Name
+    Patroom2_Flr_3,            !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_6,                 !- Name
+    Patroom6_Flr_3,            !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_7,                 !- Name
+    Patroom8_Flr_3,            !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempCAV2_8,                 !- Name
+    Patroom4_Flr_4,            !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+!======================TEMP VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    tempVAV1_0,                 !- Name
+    Basement,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_1,                 !- Name
+    Basement,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_2,                 !- Name
+    Lobby_Records_Flr_1,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_3,                 !- Name
+    Corridor_Flr_1,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_4,                 !- Name
+    ER_Nursestn_Lobby_Flr_1,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_5,                 !- Name
+    IC_Patroom3_Mult6_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_6,                 !- Name
+    ICU_Nursestn_Lobby_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_7,                 !- Name
+    Corridor_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_8,                 !- Name
+    OR_Nursestn_Lobby_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_9,                 !- Name
+    Patroom3_Mult10_Flr_3,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_10,                 !- Name
+    Lab_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_11,                 !- Name
+    Patroom1_Mult10_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV1_12,                 !- Name
+    Patroom8_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+!======================TEMP VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    tempVAV2_0,                 !- Name
+    ICU_Flr_2,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_1,                 !- Name
+    Patroom4_Flr_3,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_2,                 !- Name
+    Phystherapy_Flr_3,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_3,                 !- Name
+    Nursestn_Lobby_Flr_3,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_4,                 !- Name
+    Corridor_SE_Flr_3,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_5,                 !- Name
+    Corridor_NW_Flr_3,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_6,                 !- Name
+    Patroom2_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_7,                 !- Name
+    Radiology_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_8,                 !- Name
+    Nursestn_Lobby_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_9,                 !- Name
+    Lab_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_10,                 !- Name
+    Corridor_SE_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_11,                 !- Name
+    Corridor_NW_Flr_4,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_12,                 !- Name
+    Dining_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_13,                 !- Name
+    Nursestn_Lobby_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_14,                 !- Name
+    Kitchen_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_15,                 !- Name
+    Office1_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_16,                 !- Name
+    Office2_Mult5_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_17,                 !- Name
+    Office3_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_18,                 !- Name
+    Office4_Mult6_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    tempVAV2_19,                 !- Name
+    Corridor_Flr_5,                   !- Output:Variable Index Key Name
+    Zone Mean Air Temperature;  !- Output:Variable Name
+
+!======================PPD=============================================
+!======================PPD CAV1=============================================
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_0, !- Name
+    ER_Exam1_Mult4_Flr_1 People,       !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_1, !- Name
+    ER_Trauma1_Flr_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_2, !- Name
+    ER_Exam3_Mult4_Flr_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_3, !- Name
+    ER_Trauma2_Flr_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_4, !- Name
+    ER_Triage_Mult4_Flr_1 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_5, !- Name
+    IC_Patroom1_Mult5_Flr_2 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_6, !- Name
+    Patroom1_Mult10_Flr_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_7, !- Name
+    Patroom5_Mult10_Flr_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_8, !- Name
+    Patroom7_Mult10_Flr_3 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_9, !- Name
+    Patroom3_Mult10_Flr_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_10, !- Name
+    Patroom5_Mult10_Flr_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_11, !- Name
+    Patroom6_Flr_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV1_12, !- Name
+    Patroom7_Mult10_Flr_4 People, !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD; !- Output:Variable Name
+
+!======================PPD CAV2=============================================
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_0,                 !- Name
+    OR1_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_1,                 !- Name
+    OR2_Mult5_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_2, !- Name
+    OR3_Flr_2 People,       !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_3,                 !- Name
+    OR4_Flr_2 People,                 !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_4,                 !- Name
+    IC_Patroom2_Flr_2 People,         !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_5,                 !- Name
+    Patroom2_Flr_3 People,            !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_6,                 !- Name
+    Patroom6_Flr_3 People,            !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_7,                 !- Name
+    Patroom8_Flr_3 People,            !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdCAV2_8,                 !- Name
+    Patroom4_Flr_4 People,            !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+!======================PPD VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_0,                 !- Name
+    Basement People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_1,                 !- Name
+    Office1_Mult4_Flr_1 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_2,                 !- Name
+    Lobby_Records_Flr_1 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_3,                 !- Name
+    Corridor_Flr_1 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_4,                 !- Name
+    ER_Nursestn_Lobby_Flr_1 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_5,                 !- Name
+    IC_Patroom3_Mult6_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_6,                 !- Name
+    ICU_Nursestn_Lobby_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_7,                 !- Name
+    Corridor_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_8,                 !- Name
+    OR_Nursestn_Lobby_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_9,                 !- Name
+    Patroom3_Mult10_Flr_3 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_10,                 !- Name
+    Lab_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_11,                 !- Name
+    Patroom1_Mult10_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV1_12,                 !- Name
+    Patroom8_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+!======================PPD VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_0,                 !- Name
+    ICU_Flr_2 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_1,                 !- Name
+    Patroom4_Flr_3 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_2,                 !- Name
+    Phystherapy_Flr_3 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_3,                 !- Name
+    Nursestn_Lobby_Flr_3 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_4,                 !- Name
+    Corridor_SE_Flr_3 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_5,                 !- Name
+    Corridor_NW_Flr_3 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_6,                 !- Name
+    Patroom2_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_7,                 !- Name
+    Radiology_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_8,                 !- Name
+    Nursestn_Lobby_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_9,                 !- Name
+    Lab_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_10,                 !- Name
+    Corridor_SE_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_11,                 !- Name
+    Corridor_NW_Flr_4 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_12,                 !- Name
+    Dining_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_13,                 !- Name
+    Nursestn_Lobby_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_14,                 !- Name
+    Kitchen_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_15,                 !- Name
+    Office1_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_16,                 !- Name
+    Office2_Mult5_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_17,                 !- Name
+    Office3_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_18,                 !- Name
+    Office4_Mult6_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    ppdVAV2_19,                 !- Name
+    Corridor_Flr_5 People,                   !- Output:Variable Index Key Name
+    Zone Thermal Comfort Fanger Model PPD;  !- Output:Variable Name
+
+!======================OCC=============================================
+!======================OCC CAV1=============================================
+  EnergyManagementSystem:Sensor,
+    occCAV1_0, !- Name
+    ER_Exam1_Mult4_Flr_1,       !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_1, !- Name
+    ER_Trauma1_Flr_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_2, !- Name
+    ER_Exam3_Mult4_Flr_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_3, !- Name
+    ER_Trauma2_Flr_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_4, !- Name
+    ER_Triage_Mult4_Flr_1, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_5, !- Name
+    IC_Patroom1_Mult5_Flr_2, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_6, !- Name
+    Patroom1_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_7, !- Name
+    Patroom5_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_8, !- Name
+    Patroom7_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_9, !- Name
+    Patroom3_Mult10_Flr_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_10, !- Name
+    Patroom5_Mult10_Flr_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_11, !- Name
+    Patroom6_Flr_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV1_12, !- Name
+    Patroom7_Mult10_Flr_4, !- Output:Variable Index Key Name
+    Zone People Occupant Count; !- Output:Variable Name
+
+!======================occ CAV2=============================================
+  EnergyManagementSystem:Sensor,
+    occCAV2_0,                 !- Name
+    OR1_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_1,                 !- Name
+    OR2_Mult5_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_2, !- Name
+    OR3_Flr_2,       !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_3,                 !- Name
+    OR4_Flr_2,                 !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_4,                 !- Name
+    IC_Patroom2_Flr_2,         !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_5,                 !- Name
+    Patroom2_Flr_3,            !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_6,                 !- Name
+    Patroom6_Flr_3,            !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_7,                 !- Name
+    Patroom8_Flr_3,            !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occCAV2_8,                 !- Name
+    Patroom4_Flr_4,            !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+!======================occ VAV1=============================================
+  EnergyManagementSystem:Sensor,
+    occVAV1_0,                 !- Name
+    Basement,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_1,                 !- Name
+    Basement,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_2,                 !- Name
+    Lobby_Records_Flr_1,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_3,                 !- Name
+    Corridor_Flr_1,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_4,                 !- Name
+    ER_Nursestn_Lobby_Flr_1,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_5,                 !- Name
+    IC_Patroom3_Mult6_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_6,                 !- Name
+    ICU_Nursestn_Lobby_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_7,                 !- Name
+    Corridor_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_8,                 !- Name
+    OR_Nursestn_Lobby_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_9,                 !- Name
+    Patroom3_Mult10_Flr_3,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_10,                 !- Name
+    Lab_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_11,                 !- Name
+    Patroom1_Mult10_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV1_12,                 !- Name
+    Patroom8_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+!======================occ VAV2=============================================
+  EnergyManagementSystem:Sensor,
+    occVAV2_0,                 !- Name
+    ICU_Flr_2,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_1,                 !- Name
+    Patroom4_Flr_3,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_2,                 !- Name
+    Phystherapy_Flr_3,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_3,                 !- Name
+    Nursestn_Lobby_Flr_3,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_4,                 !- Name
+    Corridor_SE_Flr_3,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_5,                 !- Name
+    Corridor_NW_Flr_3,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_6,                 !- Name
+    Patroom2_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_7,                 !- Name
+    Radiology_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_8,                 !- Name
+    Nursestn_Lobby_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_9,                 !- Name
+    Lab_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_10,                 !- Name
+    Corridor_SE_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_11,                 !- Name
+    Corridor_NW_Flr_4,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_12,                 !- Name
+    Dining_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_13,                 !- Name
+    Nursestn_Lobby_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_14,                 !- Name
+    Kitchen_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_15,                 !- Name
+    Office1_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_16,                 !- Name
+    Office2_Mult5_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_17,                 !- Name
+    Office3_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_18,                 !- Name
+    Office4_Mult6_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+  EnergyManagementSystem:Sensor,
+    occVAV2_19,                 !- Name
+    Corridor_Flr_5,                   !- Output:Variable Index Key Name
+    Zone People Occupant Count;  !- Output:Variable Name
+
+!======================VOL=============================================
+!======================VOL CAV1=============================================
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_0, !- Name
+    ER_Exam1_Mult4_Flr_1,       !- Output:Variable Index Key Name
+    Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_1, !- Name
+    ER_Trauma1_Flr_1, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_2, !- Name
+    ER_Exam3_Mult4_Flr_1, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_3, !- Name
+    ER_Trauma2_Flr_1, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_4, !- Name
+    ER_Triage_Mult4_Flr_1, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_5, !- Name
+    IC_Patroom1_Mult5_Flr_2, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_6, !- Name
+    Patroom1_Mult10_Flr_3, !- Output:Variable Index Key Name
+    Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_7, !- Name
+    Patroom5_Mult10_Flr_3, !- Output:Variable Index Key Name
+     Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_8, !- Name
+    Patroom7_Mult10_Flr_3, !- Output:Variable Index Key Name
+     Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_9, !- Name
+    Patroom3_Mult10_Flr_4, !- Output:Variable Index Key Name
+     Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_10, !- Name
+    Patroom5_Mult10_Flr_4, !- Output:Variable Index Key Name
+     Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_11, !- Name
+    Patroom6_Flr_4, !- Output:Variable Index Key Name
+     Zone Air Volume; !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV1_12, !- Name
+    Patroom7_Mult10_Flr_4, !- Output:Variable Index Key Name
+     Zone Air Volume; !- Output:Variable Name
+
+!======================vol CAV2=============================================
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_0,                 !- Name
+    OR1_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_1,                 !- Name
+    OR2_Mult5_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_2, !- Name
+    OR3_Flr_2,       !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_3,                 !- Name
+    OR4_Flr_2,                 !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_4,                 !- Name
+    IC_Patroom2_Flr_2,         !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_5,                 !- Name
+    Patroom2_Flr_3,            !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_6,                 !- Name
+    Patroom6_Flr_3,            !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_7,                 !- Name
+    Patroom8_Flr_3,            !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volCAV2_8,                 !- Name
+    Patroom4_Flr_4,            !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+!======================vol VAV1=============================================
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_0,                 !- Name
+    Basement,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_1,                 !- Name
+    Basement,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_2,                 !- Name
+    Lobby_Records_Flr_1,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_3,                 !- Name
+    Corridor_Flr_1,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_4,                 !- Name
+    ER_Nursestn_Lobby_Flr_1,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_5,                 !- Name
+    IC_Patroom3_Mult6_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_6,                 !- Name
+    ICU_Nursestn_Lobby_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_7,                 !- Name
+    Corridor_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_8,                 !- Name
+    OR_Nursestn_Lobby_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_9,                 !- Name
+    Patroom3_Mult10_Flr_3,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_10,                 !- Name
+    Lab_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_11,                 !- Name
+    Patroom1_Mult10_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV1_12,                 !- Name
+    Patroom8_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+!======================vol VAV2=============================================
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_0,                 !- Name
+    ICU_Flr_2,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_1,                 !- Name
+    Patroom4_Flr_3,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_2,                 !- Name
+    Phystherapy_Flr_3,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_3,                 !- Name
+    Nursestn_Lobby_Flr_3,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_4,                 !- Name
+    Corridor_SE_Flr_3,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_5,                 !- Name
+    Corridor_NW_Flr_3,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_6,                 !- Name
+    Patroom2_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_7,                 !- Name
+    Radiology_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_8,                 !- Name
+    Nursestn_Lobby_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_9,                 !- Name
+    Lab_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_10,                 !- Name
+    Corridor_SE_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_11,                 !- Name
+    Corridor_NW_Flr_4,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_12,                 !- Name
+    Dining_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_13,                 !- Name
+    Nursestn_Lobby_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_14,                 !- Name
+    Kitchen_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_15,                 !- Name
+    Office1_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_16,                 !- Name
+    Office2_Mult5_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_17,                 !- Name
+    Office3_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_18,                 !- Name
+    Office4_Mult6_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+  EnergyManagementSystem:InternalVariable,
+    volVAV2_19,                 !- Name
+    Corridor_Flr_5,                   !- Output:Variable Index Key Name
+     Zone Air Volume;  !- Output:Variable Name
+
+!======================FUNCTION COMFORT=============================================
+  EnergyManagementSystem:ProgramCallingManager,
+    Comfort Calling Manager, !- Name
+    InsideHVACSystemIterationLoop, !- EnergyPlus Model Calling Point
+    SetComfortFunction; !- Program Name 1
+  
+  EnergyManagementSystem:Program,
+    SetComfortFunction, !- Name
+    Set TotPeop1 = occCAV1_0 + occCAV1_1 + occCAV1_2 + occCAV1_3 + occCAV1_4 + occCAV1_5,
+    Set TotPeop1 = TotPeop1 + occCAV1_6 + occCAV1_7 + occCAV1_8 + occCAV1_9 + occCAV1_10,
+    Set TotPeop1 = TotPeop1 + occCAV1_11 + occCAV1_12,
+    Set TotPeop2 = occCAV2_0 + occCAV2_1 + occCAV2_2 + occCAV2_3 + occCAV2_4 + occCAV2_5,
+    Set TotPeop2 = TotPeop2 + occCAV2_6 + occCAV2_7 + occCAV2_8,
+    Set TotPeop3 = occVAV1_0 + occVAV1_1 + occVAV1_2 + occVAV1_3 + occVAV1_4 + occVAV1_5,
+    Set TotPeop3 = TotPeop3 + occVAV1_6 + occVAV1_7 + occVAV1_8 + occVAV1_9 + occVAV1_10,
+    Set TotPeop3 = TotPeop3 + occVAV1_11 + occVAV1_12,
+    Set TotPeop4 = occVAV2_0 + occVAV2_1 + occVAV2_2 + occVAV2_3 + occVAV2_4 + occVAV2_5,
+    Set TotPeop4 = TotPeop4 + occVAV2_6 + occVAV2_7 + occVAV2_8 + occVAV2_9 + occVAV2_10,
+    Set TotPeop4 = TotPeop4 + occVAV2_11 + occVAV2_12 + occVAV2_13 + occVAV2_14 + occVAV2_15,
+    Set TotPeop4 = TotPeop4 + occVAV2_16 + occVAV2_17 + occVAV2_18 + occVAV2_19,
+    Set VolPeop1 = volCAV1_0 + volCAV1_1 + volCAV1_2 + volCAV1_3 + volCAV1_4 + volCAV1_5,
+    Set VolPeop1 = VolPeop1 + volCAV1_6 + volCAV1_7 + volCAV1_8 + volCAV1_9 + volCAV1_10,
+    Set VolPeop1 = VolPeop1 + volCAV1_11 + volCAV1_12,
+    Set VolPeop2 = volCAV2_0 + volCAV2_1 + volCAV2_2 + volCAV2_3 + volCAV2_4 + volCAV2_5,
+    Set VolPeop2 = VolPeop2+ volCAV2_6 + volCAV2_7 + volCAV2_8,
+    Set VolPeop3 = volVAV1_0 + volVAV1_1 + volVAV1_2 + volVAV1_3 + volVAV1_4 + volVAV1_5,
+    Set VolPeop3 = VolPeop3 + volVAV1_6 + volVAV1_7 + volVAV1_8 + volVAV1_9 + volVAV1_10,
+    Set VolPeop3 = VolPeop3 + volVAV1_11 + volVAV1_12,
+    Set VolPeop4 = volVAV2_0 + volVAV2_1 + volVAV2_2 + volVAV2_3 + volVAV2_4 + volVAV2_5,
+    Set VolPeop4 = VolPeop4 + volVAV2_6 + volVAV2_7 + volVAV2_8 + volVAV2_9 + volVAV2_10,
+    Set VolPeop4 = VolPeop4 + volVAV2_11 + volVAV2_12 + volVAV2_13 + volVAV2_14 + volVAV2_15,
+    Set VolPeop4 = VolPeop4 + volVAV2_16 + volVAV2_17 + volVAV2_18 + volVAV2_19,
+    Set SumTemp1 = volCAV1_1*tempCAV1_1 + volCAV1_2*tempCAV1_2 + volCAV1_3*tempCAV1_3,
+    Set SumTemp1 = SumTemp1 + volCAV1_4*tempCAV1_4 + volCAV1_5*tempCAV1_5 + volCAV1_6*tempCAV1_6,
+    Set SumTemp1 = SumTemp1 + volCAV1_7*tempCAV1_7 + volCAV1_8*tempCAV1_8 + volCAV1_9*tempCAV1_9,
+    Set SumTemp1 = SumTemp1 + volCAV1_10*tempCAV1_10 + volCAV1_11*tempCAV1_11 + volCAV1_12*tempCAV1_12,
+    Set SumTemp1 = SumTemp1 + volCAV1_0*tempCAV1_0,
+    Set SumTemp2 = volCAV2_1*tempCAV2_1 + volCAV2_2*tempCAV2_2 + volCAV2_3*tempCAV2_3,
+    Set SumTemp2 = SumTemp2 + volCAV2_4*tempCAV2_4 + volCAV2_5*tempCAV2_5 + volCAV2_6*tempCAV2_6,
+    Set SumTemp2 = SumTemp2 + volCAV2_7*tempCAV2_7 + volCAV2_8*tempCAV2_8,
+    Set SumTemp2 = SumTemp2 + volCAV2_0*tempCAV2_0,
+    Set SumTemp3 = volVAV1_1*tempVAV1_1 + volVAV1_2*tempVAV1_2 + volVAV1_3*tempVAV1_3,
+    Set SumTemp3 = SumTemp3 + volVAV1_4*tempVAV1_4 + volVAV1_5*tempVAV1_5 + volVAV1_6*tempVAV1_6,
+    Set SumTemp3 = SumTemp3 + volVAV1_7*tempVAV1_7 + volVAV1_8*tempVAV1_8 + volVAV1_9*tempVAV1_9,
+    Set SumTemp3 = SumTemp3 + volVAV1_10*tempVAV1_10 + volVAV1_11*tempVAV1_11 + volVAV1_12*tempVAV1_12,
+    Set SumTemp3 = SumTemp3 + volVAV1_0*tempVAV1_0,
+    Set SumTemp4 = volVAV2_1*tempVAV2_1 + volVAV2_2*tempVAV2_2 + volVAV2_3*tempVAV2_3,
+    Set SumTemp4 = SumTemp4 + volVAV2_4*tempVAV2_4 + volVAV2_5*tempVAV2_5 + volVAV2_6*tempVAV2_6,
+    Set SumTemp4 = SumTemp4 + volVAV2_7*tempVAV2_7 + volVAV2_8*tempVAV2_8 + volVAV2_9*tempVAV2_9,
+    Set SumTemp4 = SumTemp4 + volVAV2_10*tempVAV2_10 + volVAV2_11*tempVAV2_11 + volVAV2_12*tempVAV2_12,
+    Set SumTemp4 = SumTemp4 + volVAV2_13*tempVAV2_13 + volVAV2_14*tempVAV2_14 + volVAV2_15*tempVAV2_15,
+    Set SumTemp4 = SumTemp4 + volVAV2_16*tempVAV2_16 + volVAV2_17*tempVAV2_17 + volVAV2_18*tempVAV2_18,
+    Set SumTemp4 = SumTemp4 + volVAV2_19*tempVAV2_19 + volVAV2_0*tempVAV2_0,
+    Set SumNum1 = occCAV1_0*ppdCAV1_0 + occCAV1_1*ppdCAV1_1 + occCAV1_2*ppdCAV1_2 + occCAV1_3*ppdCAV1_3,
+    Set SumNum1 = SumNum1 + occCAV1_4*ppdCAV1_4 + occCAV1_5*ppdCAV1_5 + occCAV1_6*ppdCAV1_6,
+    Set SumNum1 = SumNum1 + occCAV1_7*ppdCAV1_7 + occCAV1_8*ppdCAV1_8 + occCAV1_9*ppdCAV1_9,
+    Set SumNum1 = SumNum1 + occCAV1_10*ppdCAV1_10 + occCAV1_11*ppdCAV1_11 + occCAV1_12*ppdCAV1_12,
+    Set SumNum2 = occCAV2_0*ppdCAV2_0 + occCAV2_1*ppdCAV2_1 + occCAV2_2*ppdCAV2_2 + occCAV2_3*ppdCAV2_3,
+    Set SumNum2 = SumNum2 + occCAV2_4*ppdCAV2_4 + occCAV2_5*ppdCAV2_5 + occCAV2_6*ppdCAV2_6,
+    Set SumNum2 = SumNum2 + occCAV2_7*ppdCAV2_7 + occCAV2_8*ppdCAV2_8,
+    Set SumNum3 = occVAV1_0*ppdVAV1_0 + occVAV1_1*ppdVAV1_1 + occVAV1_2*ppdVAV1_2 + occVAV1_3*ppdVAV1_3,
+    Set SumNum3 = SumNum3 + occVAV1_4*ppdVAV1_4 + occVAV1_5*ppdVAV1_5 + occVAV1_6*ppdVAV1_6,
+    Set SumNum3 = SumNum3 + occVAV1_7*ppdVAV1_7 + occVAV1_8*ppdVAV1_8 + occVAV1_9*ppdVAV1_9,
+    Set SumNum3 = SumNum3 + occVAV1_10*ppdVAV1_10 + occVAV1_11*ppdVAV1_11 + occVAV1_12*ppdVAV1_12,
+    Set SumNum4 = occVAV2_0*ppdVAV2_0 + occVAV2_1*ppdVAV2_1 + occVAV2_2*ppdVAV2_2 + occVAV2_3*ppdVAV2_3,
+    Set SumNum4 = SumNum4 + occVAV2_4*ppdVAV2_4 + occVAV2_5*ppdVAV2_5 + occVAV2_6*ppdVAV2_6,
+    Set SumNum4 = SumNum4 + occVAV2_7*ppdVAV2_7 + occVAV2_8*ppdVAV2_8 + occVAV2_9*ppdVAV2_9,
+    Set SumNum4 = SumNum4 + occVAV2_10*ppdVAV2_10 + occVAV2_11*ppdVAV2_11 + occVAV2_12*ppdVAV2_12,
+    Set SumNum4 = SumNum4 + occVAV2_13*ppdVAV2_13 + occVAV2_14*ppdVAV2_14 + occVAV2_15*ppdVAV2_15,
+    Set SumNum4 = SumNum4 + occVAV2_16*ppdVAV2_16 + occVAV2_17*ppdVAV2_17 + occVAV2_18*ppdVAV2_18,
+    Set SumNum4 = SumNum4 + occVAV2_19*ppdVAV2_19,
+    Set OverallComfort = SumNum1 + SumNum2 + SumNum3 + SumNum4,
+    Set TotPeople = TotPeop1 + TotPeop2 + TotPeop3 + TotPeop4,
+    Set TotVolume = VolPeop1 + VolPeop2 + VolPeop3 + VolPeop4,
+    Set AveTemp = SumTemp1 + SumTemp2 + SumTemp3 + SumTemp4,
+    Set AveTemp = AveTemp/TotVolume,
+    IF TotPeople == 0,
+    Set OverallComfort = 5,
+    ELSE,
+    Set OverallComfort = OverallComfort/TotPeople,
+    ENDIF;
+
+  EnergyManagementSystem:GlobalVariable,
+    TotPeople;
+
+  EnergyManagementSystem:GlobalVariable,
+    OverallComfort;
+  
+  EnergyManagementSystem:GlobalVariable,
+    AveTemp;
+
+  EnergyManagementSystem:OutputVariable,
+    Total Amount of People, ! Name
+    TotPeople, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency
+  
+  EnergyManagementSystem:OutputVariable,
+    Weighted Average Building PPD, ! Name
+    OverallComfort, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency
+
+  EnergyManagementSystem:OutputVariable,
+    Average Building Temperature, ! Name
+    AveTemp, ! EMS Variable Name
+    Averaged, ! Type of Data in Variable
+    ZoneTimeStep; ! Update Frequency
+
+  Output:Variable,EMS,Total Amount of People,timestep;
+  Output:Variable,EMS,Weighted Average Building PPD,timestep;
+  Output:Variable,EMS,Average Building Temperature,timestep;
 
 !======================POWER=============================================
   Output:Variable,CoolSys1 Chiller,Plant Temperature Source Component Mass Flow Rate,timestep;

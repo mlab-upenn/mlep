@@ -186,11 +186,11 @@ ep.stop;
 % Remove unused entries
 kStep = kStep - 1;
 if kStep < MAXSTEPS
-    logOutput((kStep+1):end,:) = [];
-    logInput((kStep+1):end,:) = [];
+    logOutput((kStep):end,:) = [];
+    logInput((kStep):end,:) = [];
 end
 
-% Time Vecotor
+% Time Vector
 time = [0:(kStep-1)]'*deltaT/3600;
 
 end

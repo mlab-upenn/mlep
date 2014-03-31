@@ -22,7 +22,7 @@ function varargout = mlep(varargin)
 
 % Edit the above text to modify the response to help mlep
 
-% Last Modified by GUIDE v2.5 04-Feb-2014 12:10:46
+% Last Modified by GUIDE v2.5 28-Mar-2014 18:32:23
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -745,14 +745,15 @@ if exist(pathOutput,'file')
     for i = 1:size(handles.DATA.vars,1)
         handles.DATA.simulateListboxText{i} = [handles.DATA.vars(i).object '-' handles.DATA.vars(i).name];
     end
-%     % Last Entry
-%     last = i;
-%     % Add Input
-%     for i = 1:size(handles.DATA.inputFieldNames,2)
-%         handles.DATA.simulateListboxText{i+last} = handles.DATA.inputFieldNames{i};
-%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepIn.(handles.DATA.inputFieldNames{i})(1:size(handles.DATA.varsData,1))';
-%         handles.DATA.vars(i+last).object = handles.DATA.inputFieldNames(i);
-%     end 
+    
+    % Last Entry
+    last = i;
+    % Add Input
+    for i = 1:size(handles.DATA.inputFieldNames,2)
+        handles.DATA.simulateListboxText{i+last} = handles.DATA.inputFieldNames{i};
+        handles.DATA.varsData(:,i+last) = handles.DATA.mlepIn.(handles.DATA.inputFieldNames{i})(1:size(handles.DATA.varsData,1))';
+        handles.DATA.vars(i+last).object = handles.DATA.inputFieldNames(i);
+    end 
 %     
 %     if isempty(i)
 %         i = 0;
@@ -1175,19 +1176,20 @@ function pushbutton48_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 
-% --- Executes on selection change in listbox6.
-function listbox6_Callback(hObject, eventdata, handles)
-% hObject    handle to listbox6 (see GCBO)
+% --- Executes on selection change in SystemID_ListboxPackage.
+function SystemID_ListboxPackage_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_ListboxPackage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Get Selection
+handles.DATA.SystemID_ListboxPackageIndex = get(handles.SystemID_ListboxPackage,'Value');
 
-% Hints: contents = cellstr(get(hObject,'String')) returns listbox6 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from listbox6
-
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
-function listbox6_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to listbox6 (see GCBO)
+function SystemID_ListboxPackage_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_ListboxPackage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -1198,19 +1200,20 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on selection change in listbox7.
-function listbox7_Callback(hObject, eventdata, handles)
-% hObject    handle to listbox7 (see GCBO)
+% --- Executes on selection change in SystemID_InputListboxPackage.
+function SystemID_InputListboxPackage_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_InputListboxPackage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Get Selection
+handles.DATA.SystemID_InputListboxPackageIndex = get(handles.SystemID_InputListboxPackage,'Value');
 
-% Hints: contents = cellstr(get(hObject,'String')) returns listbox7 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from listbox7
-
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
-function listbox7_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to listbox7 (see GCBO)
+function SystemID_InputListboxPackage_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_InputListboxPackage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -1221,19 +1224,20 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on selection change in listbox8.
-function listbox8_Callback(hObject, eventdata, handles)
-% hObject    handle to listbox8 (see GCBO)
+% --- Executes on selection change in SystemID_OutputListboxPackage.
+function SystemID_OutputListboxPackage_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_OutputListboxPackage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Get Selection
+handles.DATA.SystemID_OutputListboxPackageIndex = get(handles.SystemID_OutputListboxPackage,'Value');
 
-% Hints: contents = cellstr(get(hObject,'String')) returns listbox8 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from listbox8
-
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
-function listbox8_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to listbox8 (see GCBO)
+function SystemID_OutputListboxPackage_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to SystemID_OutputListboxPackage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -1244,12 +1248,27 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton52.
-function pushbutton52_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton52 (see GCBO)
+% --- Executes on button press in SystemID_AddInput.
+function SystemID_AddInput_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_AddInput (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Input Listbox Exist
+if ~isfield(handles.DATA,'SystemID_InputListboxPackageText')
+    handles.DATA.SystemID_InputListboxPackageText = {};
+    handles.DATA.SystemID_InputListboxPackageData = [];
+end
 
+% Add Variable
+num_selected = length(handles.DATA.SystemID_ListboxPackageIndex);
+if num_selected
+    handles.DATA.SystemID_InputListboxPackageText(end+1:end+num_selected) = handles.DATA.SystemID_ListboxPackageText(handles.DATA.SystemID_ListboxPackageIndex);
+    handles.DATA.SystemID_InputListboxPackageData(:,end+1:end+num_selected) = handles.DATA.varsData(:,handles.DATA.SystemID_ListboxPackageIndex);
+end
+set(handles.SystemID_InputListboxPackage,'String',handles.DATA.SystemID_InputListboxPackageText');
+
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton50.
 function pushbutton50_Callback(hObject, eventdata, handles)
@@ -1310,10 +1329,14 @@ end
 handles = updateVariable(handles);
 
 % idfFilePath, controlFilePath, weatherFile, timeStep, runPeriod, timeOut, inputTable, outputTable
-[result] = mlepRunTemplate(handles.DATA.idfFullPath, handles.DATA.ControlFileName, ...
+[time, logInput, logOutput] = mlepRunTemplate(handles.DATA.idfFullPath, handles.DATA.ControlFileName, ...
     handles.DATA.Weather, handles.DATA.timeStep, handles.DATA.runPeriodLength, ...
     handles.DATA.AcceptTimeOut, handles.DATA.variableInput, handles.DATA.variableOutput, ...
     handles.DATA.UserData);
+
+% Save inputs
+handles.DATA.logInput = logInput;
+handles.DATA.logOutput = logOutput;
 
 % Change Button color
 set(handles.Simulation_RunSimulation, 'BackgroundColor', 'g');
@@ -1341,35 +1364,26 @@ if exist(pathOutput,'file')
     for i = 1:size(handles.DATA.vars,1)
         handles.DATA.simulateListboxText{i} = [handles.DATA.vars(i).object '-' handles.DATA.vars(i).name];
     end
-%     % Last Entry
-%     last = i;
-%     % Add Input
-%     for i = 1:size(handles.DATA.inputFieldNames,2)
-%         handles.DATA.simulateListboxText{i+last} = handles.DATA.inputFieldNames{i};
-%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepIn.(handles.DATA.inputFieldNames{i})(1:size(handles.DATA.varsData,1))';
-%         handles.DATA.vars(i+last).object = handles.DATA.inputFieldNames(i);
-%     end 
-%     
-%     if isempty(i)
-%         i = 0;
-%     end
-%     
-%     last = i+last;
-%     handles.DATA.outputFieldNames = fieldnames(handles.DATA.mlepOut);
-%     % Add Output
-%     for i = 1:size(handles.DATA.outputFieldNames,1)
-%         handles.DATA.simulateListboxText{i+last} = handles.DATA.outputFieldNames{i};
-%         handles.DATA.varsData(:,i+last) = handles.DATA.mlepOut.(handles.DATA.outputFieldNames{i})(1:size(handles.DATA.varsData,1))';
-%         handles.DATA.vars(i+last).object = handles.DATA.outputFieldNames(i);
-%     end
     
+    % Last Entry
+    last = i;
+    % Add Input
+    for i = 1:size(handles.DATA.variableInput,1)
+        handles.DATA.simulateListboxText{i+last} = handles.DATA.variableInput{i,5};
+        handles.DATA.varsData(:,i+last) = handles.DATA.logInput(:,i); % handles.DATA.mlepIn.(handles.DATA.inputFieldNames{i})(1:size(handles.DATA.varsData,1))'
+        handles.DATA.vars(i+last).object = handles.DATA.variableInput{i,4};
+        handles.DATA.vars(i+last).name = handles.DATA.variableInput{i,4};
+    end 
     
     if size(handles.DATA.simulateListboxText,2)
         set(handles.Simulation_VariableListbox,'value',1);
     end
     set(handles.Simulation_VariableListbox,'string',handles.DATA.simulateListboxText);
  
-    
+    % Load Variables
+    handles.DATA.SystemID_ListboxPackageText = handles.DATA.simulateListboxText;
+    set(handles.SystemID_ListboxPackage,'string',handles.DATA.SystemID_ListboxPackageText);
+   
 else
     disp(['Project Folder' handles.DATA.projectPath])
     mlepError = 'not Output File Generated';
@@ -1382,19 +1396,62 @@ end
 % Update handles structure
 guidata(hObject, handles);
 
-% --- Executes on button press in pushbutton54.
-function pushbutton54_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton54 (see GCBO)
+% --- Executes on button press in SystemID_GenIDDATA.
+function SystemID_GenIDDATA_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_GenIDDATA (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Package data
+% Set Y = OUTPUTS
+y = handles.DATA.SystemID_OutputListboxPackageData;
+% Set U = INPUTS
+u = handles.DATA.SystemID_InputListboxPackageData;
+% Set Time in Seconds
+Ts = 60/handles.DATA.timeStep;
+
+% SET PROPERTIES
+% INPUT NAME
+handles.DATA.SystemID_InputName = {};
+handles.DATA.SystemID_InputUnit = {};
+handles.DATA.SystemID_OutputName = {};
+handles.DATA.SystemID_OutputUnit = {};
+% for i = 1:size(mlep.data.sysIDInputDataSelected,2)
+%     mlep.data.inputName = [mlep.data.inputName [mlep.data.sysIDInputPropertySelected(i).object ' ' mlep.data.sysIDInputPropertySelected(i).name]];
+%     mlep.data.inputUnit = [mlep.data.inputUnit mlep.data.sysIDInputPropertySelected(i).unit];
+% end
+% % OUTPUT NAME
+% mlep.data.outputName = {};
+% mlep.data.outputUnit = {};
+% for i = 1:size(mlep.data.sysIDOutputDataSelected,2)
+%     mlep.data.outputName = [mlep.data.outputName [mlep.data.sysIDOutputPropertySelected(i).object ' ' mlep.data.sysIDOutputPropertySelected(i).name]];
+%     mlep.data.outputUnit = [mlep.data.outputUnit mlep.data.sysIDOutputPropertySelected(i).unit];
+% end
+
+handles.DATA.SystemID_TimeUnit = 'minutes';
+ 
+% IDDATA
+handles.DATA.SystemID_estData = iddata(y, u, Ts,...
+    'Name', 'Estimated data disturbance',...
+    'InputName',handles.DATA.SystemID_InputName,...%    'InputUnit', mlep.data.inputUnit,...
+    'OutputName', handles.DATA.SystemID_InputName,... %    'OutputUnit', mlep.data.outputUnit,...
+    'TimeUnit', handles.DATA.SystemID_TimeUnit,...
+    'Tstart', 0,...
+    'Notes', 'Estimation data');
+
+% Rename
+estData = handles.DATA.SystemID_estData;
+% Select where to store and name file
+[FileName,PathName] = uiputfile('EstData.mat','Save file name',[handles.DATA.projectPath]);
+save([PathName FileName], 'estData');
+disp(['Saved Estimated Data File ' PathName FileName] );
 
 
-% --- Executes on button press in pushbutton58.
-function pushbutton58_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton58 (see GCBO)
+% --- Executes on button press in SystemID_launchIdent.
+function SystemID_launchIdent_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_launchIdent (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+ident;
 
 % --- Executes on button press in pushbutton59.
 function pushbutton59_Callback(hObject, eventdata, handles)
@@ -1403,26 +1460,61 @@ function pushbutton59_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton60.
-function pushbutton60_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton60 (see GCBO)
+% --- Executes on button press in SystemID_AddOutput.
+function SystemID_AddOutput_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_AddOutput (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Input Listbox Exist
+if ~isfield(handles.DATA,'SystemID_OutputListboxText')
+    handles.DATA.SystemID_OutputListboxPackageText = {};
+    handles.DATA.SystemID_OutputListboxPackageData = [];
+end
 
+% Add Variable
+num_selected = length(handles.DATA.SystemID_ListboxPackageIndex);
+if num_selected
+    handles.DATA.SystemID_OutputListboxPackageText(end+1:end+num_selected) = handles.DATA.SystemID_ListboxPackageText(handles.DATA.SystemID_ListboxPackageIndex);
+    handles.DATA.SystemID_OutputListboxPackageData(:,end+1:end+num_selected) = handles.DATA.varsData(:,handles.DATA.SystemID_ListboxPackageIndex);
+end
+set(handles.SystemID_OutputListboxPackage,'String',handles.DATA.SystemID_OutputListboxPackageText');
 
-% --- Executes on button press in pushbutton61.
-function pushbutton61_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton61 (see GCBO)
+% Update handles structure
+guidata(hObject, handles);
+
+% --- Executes on button press in SystemID_DeleteInput.
+function SystemID_DeleteInput_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_DeleteInput (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Delete Input
+num_selected = length(handles.DATA.SystemID_InputListboxPackageIndex);
+if num_selected
+    handles.DATA.SystemID_InputListboxPackageText(handles.DATA.SystemID_InputListboxPackageIndex) = [];
+    handles.DATA.SystemID_InputListboxPackageData(:,handles.DATA.SystemID_InputListboxPackageIndex) = [];
+end
+set(handles.SystemID_InputListboxPackage,'Value',1);
+set(handles.SystemID_InputListboxPackage,'String',handles.DATA.SystemID_InputListboxPackageText);
 
+% Update handles structure
+guidata(hObject, handles);
 
-% --- Executes on button press in pushbutton62.
-function pushbutton62_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton62 (see GCBO)
+% --- Executes on button press in SystemID_DeleteOutput.
+function SystemID_DeleteOutput_Callback(hObject, eventdata, handles)
+% hObject    handle to SystemID_DeleteOutput (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+% Delete Input
+num_selected = length(handles.DATA.SystemID_OutputListboxPackageIndex);
+if num_selected
+    handles.DATA.SystemID_OutputListboxPackageText(handles.DATA.SystemID_OutputListboxPackageIndex) = [];
+    handles.DATA.SystemID_OutputListboxPackageData(:,handles.DATA.SystemID_OutputListboxPackageIndex) = [];
+end
+set(handles.SystemID_OutputListboxPackage,'Value',1);
+set(handles.SystemID_OutputListboxPackage,'String',handles.DATA.SystemID_OutputListboxPackageText);
 
+% Update handles structure
+guidata(hObject, handles);
 
 % --- Executes on button press in pushbutton63.
 function pushbutton63_Callback(hObject, eventdata, handles)
@@ -1563,9 +1655,9 @@ function SystemID_EditControlFile_Callback(hObject, eventdata, handles)
 % hObject    handle to SystemID_EditControlFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-if isfield(handles.DATA, 'SystemIDFileName');
+if isfield(handles.DATA, 'ControlFileName');
     % Open Control File
-    edit([handles.DATA.SystemIDFileDir filesep handles.DATA.SystemIDFileName]);
+    edit([handles.DATA.ControlFileDir filesep handles.DATA.ControlFileName]);
 else
     MSG = 'Control File Not Selected or Not Valid';
     errordlg(MSG,'Control File Error');
@@ -1669,7 +1761,7 @@ if size(handles.DATA.vars,1) >= handles.simulateListboxIndex
         xlabel(handles.Simulation_GraphAxes,handles.DATA.vars(handles.simulateListboxIndex).sampling);
         ylabel(handles.Simulation_GraphAxes,[handles.DATA.vars(handles.simulateListboxIndex).name ' ' handles.DATA.vars(handles.simulateListboxIndex).unit]);
     end
-    legend(handles.DATA.vars(handles.simulateListboxIndex).name)
+    legend(handles.DATA.vars(handles.simulateListboxIndex).name);
 end
 %[mlep] = gridToggle(mlep);
 
@@ -1761,3 +1853,10 @@ function Control_UserDataPopUp_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in pushbutton70.
+function pushbutton70_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton70 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

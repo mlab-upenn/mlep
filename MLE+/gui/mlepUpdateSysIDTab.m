@@ -9,7 +9,7 @@ end
 
 % Variable Output
 if isfield(handles.DATA, 'variableOutput') && ~isempty(handles.DATA.variableOutput) && ~isfield(handles.DATA, 'SystemID_OutputListbox')
-    handles.DATA.SystemID_OutputListbox = handles.DATA.variableInput(:,5);
+    handles.DATA.SystemID_OutputListbox = handles.DATA.variableOutput(:,5);
     handles.DATA.SystemID_OutputCommentEdit = handles.DATA.variableOutput(:,4);
 end
 
@@ -36,23 +36,24 @@ else
 end
 
 % Control File
-if ~isfield(handles.DATA,'SystemIDFileName')
-    handles.DATA.SystemIDFileName = [];
+if ~isfield(handles.DATA,'ControlFileName')
+    handles.DATA.ControlFileName = [];
     set(handles.SystemID_LoadControlFileEdit, 'String', 'Control File');
     set(handles.SystemID_CreateControlFileEdit, 'String', 'ControlFile.m');
     set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
     set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
 else
-    if handles.DATA.SystemIDFileCreated == 1
-        set(handles.SystemIDl_CreateControlFileEdit, 'String', handles.DATA.SystemIDFileName);
-        set(handles.SystemID_CreateControlFileEdit, 'Background', 'c');
-        set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
-    else
-        set(handles.SystemID_LoadControlFileEdit, 'String', handles.DATA.SystemIDFileName);
-        set(handles.SystemID_LoadControlFileEdit, 'Background', 'c');
-        set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
+    if isfield(handles.DATA,'ControlFileCreated')
+        if handles.DATA.ControlFileCreated == 1
+            set(handles.SystemID_CreateControlFileEdit, 'String', handles.DATA.ControlFileName);
+            set(handles.SystemID_CreateControlFileEdit, 'Background', 'c');
+            set(handles.SystemID_LoadControlFileEdit, 'Background', 'white');
+        else
+            set(handles.SystemID_LoadControlFileEdit, 'String', handles.DATA.ControlFileName);
+            set(handles.SystemID_LoadControlFileEdit, 'Background', 'c');
+            set(handles.SystemID_CreateControlFileEdit, 'Background', 'white');
+        end
     end
-    
 end
 
 
