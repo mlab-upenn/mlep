@@ -13,7 +13,7 @@
 %
 % This script is free software.
 %
-% (C) 2010-2011 by Truong Nghiem (nghiem@seas.upenn.edu)
+% (C) 2010-2013 by Truong Nghiem and Willy Bernal (nghiem@seas.upenn.edu, willyg@seas.upenn.edu)
 %
 % CHANGES:
 %   2012-04-23  Fix an error with E+ 7.0.0: Matlab must read data from E+
