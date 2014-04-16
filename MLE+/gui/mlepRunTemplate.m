@@ -93,7 +93,7 @@ for i = 1:sizeOutput
     mlepOutputVector.(outputTable{i,5}) = zeros(1,MAXSTEPS);
 end
 
-% Time Vector
+% Time Vector Hours
 time = (0:(MAXSTEPS-1))'*deltaT/3600;
 
 % Create Handle for Control Function
@@ -126,6 +126,7 @@ if status ~= 0
 end
 
 err = 0;
+
 % Start Simulation
 while kStep <= MAXSTEPS
     % Read a data packet from E+
@@ -151,7 +152,6 @@ while kStep <= MAXSTEPS
     end
     
     % Run Control File
-    userdata = [];
     [inputStruct, userdata] = feval(funcHandle, cmd, mlepOut, mlepIn, time(1:kStep), kStep, userdata);
     [inputs, err] = setInput2vector(inputStruct, inputTable, outputTable);
     if err ~= 0
