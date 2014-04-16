@@ -1,10 +1,12 @@
-Office 1 Chiller
+README
+Campus Simulation project consists of three buildings: two office buildings
+and a hospital. Two chillers in parallel supply the chilled water demand to
+the campus. To run the simulation make sure you have installed MLE+ version
+2. You also have to change the settings for the MLE+ Simulink blocks for 
+each of the 4 E+ files: 3 buildings and 1 chiller E+ file. You can follow 
+the instructions given on the website. 
+ 
 
-CoolSys1 Chiller 1
 
-In 
-CoolSys1 Pump-CoolSys1 ChillerNode 1
-Out
-CoolSys1 Supply Equipment Outlet Node 1
 
 
