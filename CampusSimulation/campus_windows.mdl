@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.2108"
+    ComputedModelVersion    "1.2109"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -27,9 +27,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mlab"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Apr 16 13:16:39 2014"
+  LastModifiedDate	  "Wed Apr 16 14:46:41 2014"
   RTWModifiedTimeStamp	  319554465
-  ModelVersionFormat	  "1.%<AutoIncrement:2108>"
+  ModelVersionFormat	  "1.%<AutoIncrement:2109>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -67,6 +67,7 @@ Model {
     $ObjectID		    1
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "campus_windows"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -883,13 +884,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "97"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1607"
+    SIDHighWatermark	    "1608"
     Block {
       BlockType		      SubSystem
       Name		      "Buildings"
       SID		      "1599"
       Ports		      []
-      Position		      [860, 42, 987, 145]
+      Position		      [855, 132, 982, 240]
       ZOrder		      -17
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -5892,7 +5893,7 @@ Model {
       BlockType		      Clock
       Name		      "Clock"
       SID		      "114"
-      Position		      [30, 40, 50, 60]
+      Position		      [25, 130, 45, 150]
       ZOrder		      -4
       Priority		      "1"
     }
@@ -5901,7 +5902,7 @@ Model {
       Name		      "Control"
       SID		      "1602"
       Ports		      []
-      Position		      [570, 46, 693, 149]
+      Position		      [565, 136, 688, 239]
       ZOrder		      -17
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -10149,7 +10150,7 @@ Model {
       BlockType		      From
       Name		      "From"
       SID		      "37"
-      Position		      [25, 94, 85, 116]
+      Position		      [20, 184, 80, 206]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "stop1"
@@ -10158,7 +10159,7 @@ Model {
       BlockType		      From
       Name		      "From1"
       SID		      "39"
-      Position		      [25, 119, 85, 141]
+      Position		      [20, 209, 80, 231]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "stop2"
@@ -10167,7 +10168,7 @@ Model {
       BlockType		      From
       Name		      "From14"
       SID		      "126"
-      Position		      [25, 169, 85, 191]
+      Position		      [20, 259, 80, 281]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "stop4"
@@ -10176,7 +10177,7 @@ Model {
       BlockType		      From
       Name		      "From2"
       SID		      "40"
-      Position		      [25, 144, 85, 166]
+      Position		      [20, 234, 80, 256]
       ZOrder		      -9
       ShowName		      off
       GotoTag		      "stop3"
@@ -10185,7 +10186,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto11"
       SID		      "122"
-      Position		      [275, 40, 370, 60]
+      Position		      [270, 130, 365, 150]
       ZOrder		      -10
       ShowName		      off
       GotoTag		      "Time"
@@ -10196,7 +10197,7 @@ Model {
       Name		      "Mux1"
       SID		      "41"
       Ports		      [4, 1]
-      Position		      [130, 96, 135, 189]
+      Position		      [125, 186, 130, 279]
       ZOrder		      -12
       ShowName		      off
       DisplayOption	      "bar"
@@ -10206,7 +10207,7 @@ Model {
       Name		      "Plots"
       SID		      "1605"
       Ports		      []
-      Position		      [413, 44, 541, 149]
+      Position		      [408, 134, 536, 239]
       ZOrder		      -17
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -16538,7 +16539,7 @@ Model {
       BlockType		      Stop
       Name		      "Stop Simulation"
       SID		      "4"
-      Position		      [330, 127, 365, 163]
+      Position		      [325, 217, 360, 253]
       ZOrder		      -4
     }
     Block {
@@ -16546,7 +16547,7 @@ Model {
       Name		      "Supply Chiller"
       SID		      "1596"
       Ports		      []
-      Position		      [720, 44, 832, 149]
+      Position		      [715, 134, 827, 239]
       ZOrder		      -17
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -16557,7 +16558,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Supply Chiller"
-	Location		[2, 74, 1858, 1019]
+	Location		[2, 82, 1858, 1027]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -18385,7 +18386,7 @@ Model {
       Name		      "Termination"
       SID		      "34"
       Ports		      [1, 1]
-      Position		      [185, 123, 250, 167]
+      Position		      [180, 213, 245, 257]
       ZOrder		      -17
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -18564,7 +18565,7 @@ Model {
       BlockType		      Fcn
       Name		      "Time of Day"
       SID		      "111"
-      Position		      [150, 35, 210, 65]
+      Position		      [145, 125, 205, 155]
       ZOrder		      -1
       Priority		      "1"
       Expr		      "rem(u,24*60*60)/60/60"
@@ -18617,6 +18618,15 @@ Model {
       DstBlock		      "Mux1"
       DstPort		      4
     }
+    Annotation {
+      SID		      "1608"
+      Name		      "This file contains a three-building campus simulation. Two office buildings and a \nHospital share "
+      "a common chilled-water loop. The supply chiller plant consists of two \ncentrifugal chillers connected in parall"
+      "el. They share a single condenser loop. \nThe control subsystem contains multiple control strategies for the cam"
+      "pus:\n1. Coordinated\n2. Uncoordinated\n3. Baseline\n4. Step Response DR"
+      Position		      [39, 63]
+      HorizontalAlignment     "left"
+    }
   }
 }
 # Finite State Machines
@@ -18650,8 +18660,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -18971,8 +18979,6 @@ Stateflow {
     firstJunction	    20
     viewObj		    18
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    27
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -19514,8 +19520,6 @@ Stateflow {
     firstJunction	    46
     viewObj		    44
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    25
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -19923,8 +19927,6 @@ Stateflow {
     firstJunction	    66
     viewObj		    64
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    25
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20332,8 +20334,6 @@ Stateflow {
     firstJunction	    86
     viewObj		    84
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20498,8 +20498,6 @@ Stateflow {
     firstJunction	    95
     viewObj		    93
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    27
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20884,8 +20882,6 @@ Stateflow {
     firstJunction	    114
     viewObj		    112
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -21010,8 +21006,6 @@ Stateflow {
     firstJunction	    121
     viewObj		    119
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -21272,8 +21266,6 @@ Stateflow {
     firstJunction	    134
     viewObj		    132
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -22866,8 +22858,6 @@ Stateflow {
     firstJunction	    216
     viewObj		    214
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    21
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -23261,8 +23251,6 @@ Stateflow {
     firstJunction	    235
     viewObj		    233
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    21
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -23634,8 +23622,6 @@ Stateflow {
     firstJunction	    253
     viewObj		    251
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    21
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
